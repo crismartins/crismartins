@@ -1,2 +1,16 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@100;400;500;700&family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+$font_main: 'Outfit', sans-serif;
+$font_serif: 'DM Serif Display', serif;
+$font_code: 'Source Code Pro', monospace;
+
+//colors
+$primary: #3737F4;
+$secondary: #2D99FA;
+$highlight: #2CF5B5;
+$dark: #0D192B;
+$light: #FAFCFF;
+$neutral:#98B0EB;
+
 //transitions
 $default_transition: all 0.4s ease;
