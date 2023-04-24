@@ -10,13 +10,17 @@ export default defineNuxtConfig({
                 { 
                     name: 'description', 
                     content: 
-                    "Hey you! My name is Cristopher Martins and I've been workin as UI/UX Designer and Frontent Developer for over 10 years. Here you are able to see the most expressive projects that I had the opportunity to work with." }
+                    "Hey you! My name is Cristopher Martins and I've been workin as UI/UX Designer and Frontent Developer for over 10 years. Here you are able to see the most expressive projects that I had the opportunity to work with." 
+                }
             ],
         },
         //project pages & layout transitions
-        pageTransition: { name: 'page', mode: 'out-in' },
-        layoutTransition: { name: 'layout', mode: 'out-in' }
-
+        pageTransition: { 
+            name: 'page', mode: 'out-in' 
+        },
+        layoutTransition: { 
+            name: 'layout', mode: 'out-in' 
+        }
     },
     //main scss
     css: ["@/assets/scss/main.scss"],
