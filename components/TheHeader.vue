@@ -12,12 +12,16 @@
                     </li>
                 </ul>
             </nav>
+
+            <div class="container__fluid__options">
+                <AppLangSwitcher />
+                <AppColorSwitcher />
+            </div>
         </div>
     </header>
 </template>
 
 <script setup>
-    const stickHeader = ref(null)
     const menuItems = ref(
         [
             {title: 'Home', link: '/'},
@@ -28,16 +32,32 @@
         ]
     )
 
+    
     onMounted(() => {
-        document.addEventListener("scroll", onScroll)
-        function onScroll(){
-            const element = document.getElementById("header")
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        let lastScroll = 0;
+        let element = document.getElementById("header")
+        document.addEventListener("scroll", (e) => {
+            let position = window.pageYOffset;
+            
+            if (position <= 0) {
                 element.classList.add("active");
-            } else {
-                element.classList.remove("active");
+                element.classList.remove("inactive");
             }
-        }
+
+            if (position > lastScroll && !element.classList.contains("inactive")) {
+                // down
+                element.classList.remove("active");
+                element.classList.add("inactive");
+            } else if (
+                position < lastScroll &&
+                element.classList.contains("inactive")
+            ) {
+                // up
+                element.classList.remove("inactive");
+                element.classList.add("active");
+            }
+            lastScroll = position;
+        })
     })
 </script>
 
@@ -46,15 +66,21 @@
         padding: 20px 0;
         position: fixed;
         width: 100%;
+        transition: $default_transition;
+        top: 0;
+        &.inactive{
+            top: -100%;
+        }
         &.active{
-            
+            top: 0;
         }
         @media(max-width: $br_mobile){
             position: unset;
         }
         .container__fluid{
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
             nav{
                 ul{
                     display: flex;
@@ -68,6 +94,10 @@
                         }
                     }
                 }
+            }
+            &__options{
+                display: flex;
+                justify-content: flex-end;
             }
         }
     }

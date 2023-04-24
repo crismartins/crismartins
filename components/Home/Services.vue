@@ -1,6 +1,17 @@
 <template>
     <div>
-        services
+        <h2>Services</h2>
+        <ul>
+            <li>
+                Brand Design
+            </li>
+            <li>
+                Ui/UX Design
+            </li>
+            <li>
+                Front-End Development
+            </li>
+        </ul>
     </div>
 </template>
 

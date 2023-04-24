@@ -1,11 +1,8 @@
 <template>
     <div>
-        <h2>
+        <h1>
             About
-        </h2>
-        <p>
-            paragraph
-        </p>
+        </h1>
     </div>
 </template>
 

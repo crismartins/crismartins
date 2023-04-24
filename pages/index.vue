@@ -11,6 +11,7 @@
         <HomePortfolio />
 
         <HomeContact />
+        
     </div>
 </template>
 

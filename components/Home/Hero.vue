@@ -6,7 +6,8 @@
                 <strong>Hey You!</strong> Welcome to my Website, my name is <strong>Cristopher Martins</strong> and I'm...
             </p>
             <h1>
-                <strong>UI & UX Designer</strong> &
+                <strong>Brand Designer</strong> &
+                <strong>UI/UX Designer</strong> &
                 <strong>Creative Web Developer</strong>
             </h1>
             <nuxt-link to="/portfolio">
