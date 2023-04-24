@@ -12,5 +12,10 @@ $dark: #0D192B;
 $light: #FAFCFF;
 $neutral:#98B0EB;
 
+$gradient: linear-gradient(198.3deg, #2CF5B5 3.4%, #3737F4 70.44%);
+
+//responsive breakpoints
+$br_mobile: 768px;
+
 //transitions
 $default_transition: all 0.4s ease;
