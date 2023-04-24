@@ -40,6 +40,12 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         '@pinia/nuxt',
     ],
+    //color mode
+    colorMode: {
+        preference: 'system', // default value of $colorMode.preference    
+        fallback: 'light', // fallback value if not system preference found    
+        classSuffix: '-theme',
+    },
     //nuxt image
     image: {
         //external images
@@ -70,12 +76,6 @@ export default defineNuxtConfig({
             xl: 1280,
             xxl: 1536,
         },
-    },
-    //color mode
-    colorMode: {    
-        preference: 'system', // default value of $colorMode.preference    
-        fallback: 'light', // fallback value if not system preference found    
-        classSuffix: '-mode',
     },
     //pinia config
     pinia: {
