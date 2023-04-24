@@ -1,5 +1,19 @@
 <template>
     <div>
-        <h1>Home</h1>
+        <HomeHero />
+
+        <HomeClients />
+
+        <HomeAboutMe />
+
+        <HomeServices />
+
+        <HomePortfolio />
+
+        <HomeContact />
     </div>
 </template>
+
+<script setup>
+    
+</script>
