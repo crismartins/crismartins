@@ -2,6 +2,10 @@
   <div class="hero__content">
       <div class="container">
           <div class="text__content">
+            <h1>
+                {{ $t('title') }}
+                {{ $t('menu.title') }}
+            </h1>
             <p>
                 <strong>Hey You!</strong> Welcome to my Website, my name is <strong>Cristopher Martins</strong> and I'm...
             </p>
