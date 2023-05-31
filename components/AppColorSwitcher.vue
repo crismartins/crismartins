@@ -4,10 +4,15 @@
             {{ $colorMode.value }}
         </label> -->
         <button
+            :class="$colorMode.preference"
             @click="toggleDarkMode($colorMode.preference === 'dark' ? 'light' : 'dark')"
         >
-            <Icon class="light" name="ph:sun-dim" />
-            <Icon class="dark" name="ph:sunglasses-fill" />
+            <span>
+                <Transition name="fade">
+                    <AppIcon v-if="$colorMode.preference === 'light'" class="light" IconName="ph:sun-dim" />
+                    <AppIcon v-else class="dark" IconName="ph:sunglasses-fill" />
+                </Transition>
+            </span>
         </button>
     </div>
 </template>
@@ -24,39 +29,37 @@
     .theme-switcher{
         button{
             border: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            width: 60px;
+            height: 32px;
             grid-gap: 4px;
             position: relative;
-            background-color: $neutral;
+            background-color: var(--dark);
             border-radius: 60px;
             padding: 0;
             cursor: pointer;
-            svg{
-                font-size: 24px;
-                z-index: 1;
-                margin: 4px;
-                color: $dark;
-            }
-            &:before{
-                content: '';
+            span{
+                top: 0;
                 width: 32px;
                 height: 32px;
-                background-color: white;
+                background-color: var(--light);
+                color: var(--dark);
                 border-radius: 60px;
                 position: absolute;
-                z-index: 0;
                 transition: $default_transition;
-                border: 2px solid $light;
-                box-sizing: border-box;
-                box-shadow: 0 0 0 2px $neutral;
+                border: 2px solid var(--dark);
+                display: grid;
+                place-items: center;
+                i{
+                    position: absolute;
+                    font-size: 24px;
+                }
             }
         }
     }
     .light-theme{
         .theme-switcher{
             button{
-                &:before{
+                span{
                     left: 0;
                 }
             }
@@ -65,7 +68,7 @@
     .dark-theme{
         .theme-switcher{
             button{
-                &:before{
+                span{
                     left: calc(100% - 32px);
                 }
             }
