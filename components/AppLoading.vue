@@ -143,7 +143,7 @@
     right: 0;
     display: grid;
     place-items: center;
-    background-color: rgba($color: $dark, $alpha: 0.8);
+    background-color: rgba($color: var(--dark), $alpha: 0.8);
     
     &__animation{
         animation: rotate 2.5s infinite;
@@ -177,7 +177,7 @@
         }
         .cls-5 {
         fill: none;
-        stroke: $light;
+        stroke: var(--light);
         stroke-linecap: round;
         stroke-linejoin: round;
         stroke-width: 4px;
