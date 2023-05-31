@@ -1,18 +1,18 @@
 <template>
     <header id="header" class="header">
         <div class="container__fluid">
-            <TheLogo />
-            <nav>
-                <ul>
-                    <li v-for="item in menuItems" :key="item.title">
-                        <nuxt-link :to="item.link">
-                            {{ item.title }}
-                            {{ item.index }}
-                        </nuxt-link>
-                    </li>
-                </ul>
-            </nav>
-
+            <div class="container__fluid__navigation">
+                <TheLogo />
+                <nav class="container__fluid__navigation__menu">
+                    <ul>
+                        <li v-for="item in menuItems" :key="item.title">
+                            <nuxt-link :to="item.link">
+                                <span>{{ item.title }}</span>
+                            </nuxt-link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <div class="container__fluid__options">
                 <AppLangSwitcher />
                 <AppColorSwitcher />
@@ -63,8 +63,9 @@
 
 <style lang="scss" scoped>
     .header{
-        padding: 20px 0;
         position: fixed;
+        height: 120px;
+        display: flex;
         width: 100%;
         transition: $default_transition;
         top: 0;
@@ -79,17 +80,51 @@
         }
         .container__fluid{
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 30% 70%;
             align-items: center;
-            nav{
-                ul{
-                    display: flex;
-                    li{
-                        a{
-                            padding: 12px 20px;
-                            color: $dark;
-                            &:hover{
-                                color: $primary;
+            &__navigation{
+                display: flex;
+                &__menu{
+                    // position: fixed;
+                    // left: 0;
+                    // top: 20%;
+                    // background-color: rgba($color: var(--light), $alpha:0.4) ;
+                    // backdrop-filter: blur(20px);
+                    @media(max-width: $br_mobile){
+                        display: none;
+                    }
+                    ul{
+                        display: flex;
+                        // flex-direction: column;
+                        li{
+                            margin: 0 8px;
+                            a{
+                                padding: 8px 16px;
+                                display: block;
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: var(--dark);
+                                span{
+                                    position: relative;
+                                    &:after{
+                                        content: "";
+                                        bottom: 0;
+                                        left: 0;
+                                        z-index: -1;
+                                        position: absolute;
+                                        width: 0%;
+                                        height: 2px;
+                                        background-color: var(--dark);
+                                        transition: $default_transition;
+                                    }
+                                }
+                                &:hover, &.router-link-exact-active{
+                                    span{
+                                        &::after{
+                                            width: 100%;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -98,6 +133,7 @@
             &__options{
                 display: flex;
                 justify-content: flex-end;
+                grid-gap: 16px;
             }
         }
     }
