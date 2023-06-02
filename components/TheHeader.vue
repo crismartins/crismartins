@@ -1,19 +1,13 @@
 <template>
     <header id="header" class="header">
         <div class="container__fluid">
-            <div class="container__fluid__navigation">
+            <div class="container__fluid__logo">
                 <TheLogo />
-                <nav class="container__fluid__navigation__menu">
-                    <ul>
-                        <li v-for="item in menuItems" :key="item.title">
-                            <nuxt-link :to="item.link">
-                                <span>{{ item.title }}</span>
-                            </nuxt-link>
-                        </li>
-                    </ul>
-                </nav>
             </div>
-            <div class="container__fluid__options">
+            <nav class="container__fluid__menu">
+                <AppMenu />
+            </nav>
+            <div class="container__fluid__actions">
                 <AppLangSwitcher />
                 <AppColorSwitcher />
             </div>
@@ -22,17 +16,6 @@
 </template>
 
 <script setup>
-    const menuItems = ref(
-        [
-            {title: 'Home', link: '/'},
-            {title: 'About', link: '/about'},
-            {title: 'Services', link: '/about'},
-            {title: 'Portfolio', link: '/about'},
-            {title: 'Contact', link: '/about'}
-        ]
-    )
-
-    
     onMounted(() => {
         let lastScroll = 0;
         let element = document.getElementById("header")
@@ -67,7 +50,7 @@
         height: 120px;
         display: flex;
         width: 100%;
-        transition: $default_transition;
+        transition: $transition_default;
         top: 0;
         &.inactive{
             top: -100%;
@@ -80,58 +63,19 @@
         }
         .container__fluid{
             display: grid;
-            grid-template-columns: 30% 70%;
+            grid-template-columns: repeat(3,1fr);
             align-items: center;
-            &__navigation{
+            &__logo{
                 display: flex;
-                &__menu{
-                    // position: fixed;
-                    // left: 0;
-                    // top: 20%;
-                    // background-color: rgba($color: var(--light), $alpha:0.4) ;
-                    // backdrop-filter: blur(20px);
-                    @media(max-width: $br_mobile){
-                        display: none;
-                    }
-                    ul{
-                        display: flex;
-                        // flex-direction: column;
-                        li{
-                            margin: 0 8px;
-                            a{
-                                padding: 8px 16px;
-                                display: block;
-                                font-size: 14px;
-                                font-weight: 400;
-                                color: var(--dark);
-                                span{
-                                    position: relative;
-                                    &:after{
-                                        content: "";
-                                        bottom: 0;
-                                        left: 0;
-                                        z-index: -1;
-                                        position: absolute;
-                                        width: 0%;
-                                        height: 2px;
-                                        background-color: var(--dark);
-                                        transition: $default_transition;
-                                    }
-                                }
-                                &:hover, &.router-link-exact-active{
-                                    span{
-                                        &::after{
-                                            width: 100%;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+            }
+            &__menu{
+                @media(max-width: $br_mobile){
+                    display: none;
                 }
             }
-            &__options{
+            &__actions{
                 display: flex;
+                align-items: center;
                 justify-content: flex-end;
                 grid-gap: 16px;
             }
