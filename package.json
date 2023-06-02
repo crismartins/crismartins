@@ -19,6 +19,8 @@
   "dependencies": {
     "@intlify/unplugin-vue-i18n": "^0.10.0",
     "@pinia/nuxt": "^0.4.8",
+    "eslint": "^8.41.0",
+    "eslint-plugin-vue": "^9.14.1",
     "pinia": "^2.0.34",
     "sass": "^1.62.0"
   }
