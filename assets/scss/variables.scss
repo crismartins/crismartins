@@ -5,50 +5,52 @@ $font_serif: 'DM Serif Display', serif;
 $font_code: 'Source Code Pro', monospace;
 
 //font sizes
-$_4px: 0.25rem;
-$_8px: 0.5rem;
-$_12px: 0.75rem;
-$_14px: 0.875rem;
-$_16px: 1rem;
-$_18px: 1.12rem;
-$_20px: 1.25rem;
-$_24px: 1.5rem;
-$_28px: 1.75rem;
-$_32px: 2rem;
-$_36px: 2.25rem;
-$_40px: 2.5rem;
-$_44px: 2.75rem;
-$_48px: 3rem;
-$_52px: 3.25rem;
-$_56px: 3.5rem;
-$_60px: 3.75rem;
-$_64px: 4rem;
-$_68px: 4.25rem;
-$_72px: 4.5rem;
-$_76px: 4.75rem;
-$_80px: 5rem;
+$size_4px: 0.25rem;
+$size_8px: 0.5rem;
+$size_12px: 0.75rem;
+$size_14px: 0.875rem;
+$size_16px: 1rem;
+$size_18px: 1.12rem;
+$size_20px: 1.25rem;
+$size_24px: 1.5rem;
+$size_28px: 1.75rem;
+$size_32px: 2rem;
+$size_36px: 2.25rem;
+$size_40px: 2.5rem;
+$size_44px: 2.75rem;
+$size_48px: 3rem;
+$size_52px: 3.25rem;
+$size_56px: 3.5rem;
+$size_60px: 3.75rem;
+$size_64px: 4rem;
+$size_68px: 4.25rem;
+$size_72px: 4.5rem;
+$size_76px: 4.75rem;
+$size_80px: 5rem;
 
 //colors
 html.dark-theme{
-    --primary: #3737F4;
-    --secondary: #2D99FA;
-    --highlight: #2CF5B5;
-    --dark: #FAFCFF;
-    --light: #080e15;
-    --neutral:#171b28;
-    --gradient: linear-gradient(38deg, rgba(55,55,244,1) 0%, rgba(45,153,250,1) 50%, rgba(44,245,181,1) 100%);
+    --primary: #5EFC8D;
+    --secondary: #7371FC;
+    --tertiary: #473BF0;
+    --text_color: #003049;
+    --bg_color: #FBFBFF;
+    --neutral:#ABB4D6;
+    --primary_gradient: linear-gradient(148.63deg, #003049 5.63%, #03151F 75.47%);
+    --secondary_gradient: linear-gradient(303.83deg, #ABB4D6 40.56%, #C3CEF5 104.15%);
+    --pure_white: #ffffff;
 }
 html.light-theme{
-    --primary: #3737F4;
-    --secondary: #2D99FA;
-    --highlight: #2CF5B5;
-    --dark: #0D192B;
-    --light: #FAFCFF;
-    --neutral:#98B0EB;
-    --gradient: linear-gradient(38deg, rgba(55,55,244,1) 0%, rgba(45,153,250,1) 50%, rgba(44,245,181,1) 100%);
+    --primary: #5EFC8D;
+    --secondary: #7371FC;
+    --tertiary: #473BF0;
+    --text_color: #003049;
+    --bg_color: #FBFBFF;
+    --neutral:#ABB4D6;
+    --primary_gradient: linear-gradient(148.63deg, #003049 5.63%, #03151F 75.47%);
+    --secondary_gradient: linear-gradient(303.83deg, #ABB4D6 40.56%, #C3CEF5 104.15%);
+    --pure_white: #ffffff;
 }
-
-$gradient: linear-gradient(198.3deg, #2CF5B5 3.4%, #3737F4 70.44%);
 
 //responsive breakpoints
 $br_mobile: 640px;
@@ -57,4 +59,7 @@ $br_desktop: 1280px;
 $br_desktop_lg: 1440px;
 
 //transitions
-$default_transition: all 0.4s ease;
+$transition_default: all 0.4s ease;
+
+//effects
+$shadow_small: 0 4px 12px 0px rgba(#003049, 0.2);
