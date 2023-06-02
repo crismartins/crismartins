@@ -27,7 +27,10 @@ html.light-theme{
 $gradient: linear-gradient(198.3deg, #2CF5B5 3.4%, #3737F4 70.44%);
 
 //responsive breakpoints
-$br_mobile: 768px;
+$br_mobile: 640px;
+$br_tablet: 820px;
+$br_desktop: 1280px;
+$br_desktop_lg: 1440px;
 
 //transitions
 $default_transition: all 0.4s ease;
