@@ -23,4 +23,12 @@
         opacity: 0;
         // filter: blur(1rem);
     }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: $default_transition;
+    }
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
 </style>

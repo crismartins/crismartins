@@ -29,12 +29,24 @@ $_76px: 4.75rem;
 $_80px: 5rem;
 
 //colors
-$primary: #3737F4;
-$secondary: #2D99FA;
-$highlight: #2CF5B5;
-$dark: #0D192B;
-$light: #FAFCFF;
-$neutral:#98B0EB;
+html.dark-theme{
+    --primary: #3737F4;
+    --secondary: #2D99FA;
+    --highlight: #2CF5B5;
+    --dark: #FAFCFF;
+    --light: #080e15;
+    --neutral:#171b28;
+    --gradient: linear-gradient(38deg, rgba(55,55,244,1) 0%, rgba(45,153,250,1) 50%, rgba(44,245,181,1) 100%);
+}
+html.light-theme{
+    --primary: #3737F4;
+    --secondary: #2D99FA;
+    --highlight: #2CF5B5;
+    --dark: #0D192B;
+    --light: #FAFCFF;
+    --neutral:#98B0EB;
+    --gradient: linear-gradient(38deg, rgba(55,55,244,1) 0%, rgba(45,153,250,1) 50%, rgba(44,245,181,1) 100%);
+}
 
 $gradient: linear-gradient(198.3deg, #2CF5B5 3.4%, #3737F4 70.44%);
 

@@ -220,6 +220,11 @@
         transition: $default_transition;
         transform: translate(-20px);
         opacity: 0;
+        fill: var(--dark);
+        path{
+          fill: var(--dark);
+          transition: $default_transition;
+        }
       }
     }
     &:hover{
