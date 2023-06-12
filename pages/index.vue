@@ -2,8 +2,6 @@
     <div>
         <HomeHero />
 
-        <HomeClients />
-
         <HomeAboutMe />
 
         <HomeServices />
@@ -11,6 +9,8 @@
         <HomePortfolio />
 
         <HomeContact />
+
+        <TheFooter />
         
     </div>
 </template>
