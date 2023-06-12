@@ -49,6 +49,7 @@ export default defineNuxtConfig({
         '@nuxt/image-edge',
         '@nuxtjs/color-mode',
         '@pinia/nuxt',
+        '@vueuse/nuxt',
     ],
     //color mode
     colorMode: {

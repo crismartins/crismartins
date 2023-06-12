@@ -38,6 +38,7 @@
                     v-for="service in services"
                     :key="service.id"
                     :id="'service_'+service.id"
+                    :ref="'service_'+service.id"
                  >
                     <img 
                         :src="service.image"
@@ -58,6 +59,9 @@
 </template>
 
 <script setup>
+import { ref } from '#imports'
+import { useElementVisibility } from '@vueuse/core'
+
 const services = ref([
     {
         id: 1,
@@ -90,16 +94,26 @@ const services = ref([
 ])
 const selected = ref(1)
 
+const target = ref(null)
+const targetIsVisible = useElementVisibility(target)
 
+onMounted(() => {
+    const element = document.getElementById('service_'+selected.value)
+    const rect = element.getBoundingClientRect();
+    document.addEventListener("scroll", (e) => {
+        let position = window.pageYOffset;
+        if (position == rect.y) {
+            // element.classList.add("active");
+            // element.classList.remove("inactive");
+            console.log(rect)
+        }
+    })
+})
 
 function goService(id){
     const element = document.getElementById('service_'+id)
     element.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
     selected.value = id
-    
-    const rect = element.getBoundingClientRect();
-
-    console.log(rect);
 
 }
 
