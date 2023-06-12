@@ -1,8 +1,6 @@
 //fonts
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@100;400;500;700&family=Source+Code+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;500;600;700&display=swap');
 $font_main: 'Outfit', sans-serif;
-$font_serif: 'DM Serif Display', serif;
-$font_code: 'Source Code Pro', monospace;
 
 //font sizes
 $size_4px: 0.25rem;
@@ -44,10 +42,10 @@ html.light-theme{
     --primary: #5EFC8D;
     --secondary: #7371FC;
     --tertiary: #473BF0;
-    --text_color: #003049;
-    --bg_color: #FBFBFF;
+    --text_color: #FBFBFF;
+    --bg_color: #03151F;
     --neutral:#ABB4D6;
-    --primary_gradient: linear-gradient(148.63deg, #003049 5.63%, #03151F 75.47%);
+    --primary_gradient: linear-gradient(303.83deg, #C3CEF5 40.56%, #FBFBFF 104.15%);
     --secondary_gradient: linear-gradient(303.83deg, #ABB4D6 40.56%, #C3CEF5 104.15%);
     --pure_white: #ffffff;
 }
