@@ -58,14 +58,7 @@ export default defineNuxtConfig({
     },
     //nuxt image
     image: {
-        //external images
-        domains: [
-        'images.pexels.com'
-        ],
-        //aliases
-        alias: {
-            pexels: 'https://images.pexels.com'
-        },
+        densities: [1, 2, 3],
         //image sizes
         presets: {
             cover: {

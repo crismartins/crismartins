@@ -1,7 +1,21 @@
 {
     "title": "testando",
-    "menu": [
-        {"title": "Início"},
-        {"title": "Sobre"}
-    ]
+    "menu": {
+        "item1":{
+            "title": "Sobre",
+            "route": "#about"
+        },
+        "item2":{
+            "title": "Serviços",
+            "route": "#services"
+        },
+        "item3":{
+            "title": "Portfólio",
+            "route": "#portfolio"
+        },
+        "item4":{
+            "title": "Contato",
+            "route": "#contact"
+        }
+    }
 }
