@@ -26,14 +26,17 @@
     .theme-switcher{
         button{
             background-color: transparent;
-            color: var(--dark);
+            color: var(--text-color);
             border: 0;
             border-radius: 60px;
-            width: 42px;
-            height: 42px;
+            width: 32px;
+            height: 32px;
             cursor: pointer;
+            transition: $transition_default;
+            &:hover{
+                color: var(--neutral);
+            }
             span{
-                transition: $default_transition;
                 display: grid;
                 place-items: center;
                 position: relative;

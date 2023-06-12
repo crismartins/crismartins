@@ -2,9 +2,7 @@
     
     <div class="language__switcher" >
         <button class="language__switcher__button" @click="changeLang">
-            <span v-html="$i18n.locale == 'pt' ? 'POR' : 'ENG'">
-
-            </span>
+            <span v-html="$i18n.locale == 'pt' ? 'POR' : 'ENG'" />
             <AppIcon IconName="ph:caret-down-bold" />
         </button>
         <div class="language__switcher__menu" :aria-hidden="langOptions" @click="changeLang">
@@ -39,45 +37,49 @@
 <style lang="scss" scoped>
 .language__switcher{
     position: relative;
-    font-size: 12px;
+    font-size: $size_12px;
     width: fit-content;
     &__button{
         display: flex;
         align-items: center;
-        background-color: transparent;
-        box-shadow: 0 0 0 1px var(--dark) inset;
+        justify-content: space-between;
+        background: var(--primary_gradient);
         border: 0;
-        color: var(--dark);
+        color: var(--bg_color);
         padding: 8px 12px;
-        border-radius: 8px;
-        font-size: 12px;
+        border-radius: 12px;
+        font-size: $size_12px;
+        min-width: 72px;
         i{
             margin-left:8px;
         }
     }
     &__menu{
         width: 100%;
-        top: 0;
+        top: 50%;
         left: 0;
         position: absolute;
         display: grid;
         grid-template-rows: 0fr;
-        transition: $default_transition;
-        border-radius: 8px;
-        background-color: var(--dark);
+        transition: $transition_default;
         &[aria-hidden="false"]{
             grid-template-rows:1fr;
+            top: 0;
         }
         ul{
+            border-radius: 12px;
+            overflow: hidden;
             overflow: hidden;
             display: flex;
+            background: var(--tertiary);
+            box-shadow: $shadow_small;
             flex-direction: column;
             li{
                 order: 1;
-                color: var(--light);
-                transition: $default_transition;
+                color: var(--neutral);
+                transition: $transition_default;
                 &:hover{
-                    color: var(--primary);
+                    color: var(--bg_color);
                 }
                 label{
                     padding: 8px 12px;
@@ -86,7 +88,7 @@
                     justify-content: space-between;
                     align-items: center;
                     i{
-                        font-size: 12px;
+                        font-size: $size_12px;
                         margin-left:4px;
                     }
                     input{
@@ -102,7 +104,7 @@
                 }
                 &.active{
                     order: 0;
-                    color: var(--primary);
+                    color: var(--bg_color);
                 }
             }
         }

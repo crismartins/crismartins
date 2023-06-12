@@ -1,5 +1,5 @@
 <template>
-    <header id="header" class="header">
+    <header id="header" class="header section">
         <div class="container__fluid">
             <div class="container__fluid__logo">
                 <TheLogo />
@@ -47,7 +47,8 @@
 <style lang="scss" scoped>
     .header{
         position: fixed;
-        height: 120px;
+        height: 100px;
+        padding-block: 24px;
         display: flex;
         width: 100%;
         transition: $transition_default;

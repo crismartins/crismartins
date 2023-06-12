@@ -7,7 +7,7 @@
 <style lang="scss">
     .page-enter-active,
     .page-leave-active {
-        transition: $default_transition;
+        transition: $transition_default;
     }
     .page-enter-from,
     .page-leave-to {
@@ -16,7 +16,7 @@
     }
     .layout-enter-active,
     .layout-leave-active {
-        transition: $default_transition;
+        transition: $transition_default;
     }
     .layout-enter-from,
     .layout-leave-to {
@@ -25,7 +25,7 @@
     }
     .fade-enter-active,
     .fade-leave-active {
-        transition: $default_transition;
+        transition: $transition_default;
     }
     .fade-enter-from,
     .fade-leave-to {
