@@ -13,7 +13,26 @@
         </div>
         <ul class="portfolio__section__container__projects">
             <li class="portfolio__section__container__projects__item">
-                Ahoy
+                <picture>
+                    <img 
+                        src="/images/crismartins.png"
+                        width="240"
+                        height="386"
+                    />
+                </picture>
+                <ul class="portfolio__section__container__projects__item__stacks">
+                    <li class="portfolio__section__container__projects__item__stacks">
+                        <span>
+                            stack
+                        </span>
+                    </li>
+                </ul>
+                <h3>
+                    Ahoy
+                </h3>
+                <small>
+                    Service Type
+                </small>
             </li>
             <li class="portfolio__section__container__projects__item">
                 Curitiba App

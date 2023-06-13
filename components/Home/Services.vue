@@ -5,6 +5,7 @@
                 <div class="services__section__container__column__selection">
                     <h2 class="small-title">
                         Services
+                        {{ targetIsVisible }}
                     </h2>
                     <h3 class="large-title">
                         All you need to make your Business go beyond
@@ -20,6 +21,7 @@
                                 class="gradient" 
                                 @click="goService(service.id)"
                                 :class="service.id == selected ? 'active' : 'inactive'"
+                                :id="uiService ? 'active' : 'inactive'"
                             >
                                 <strong>
                                     <AppIcon :IconName="service.icon" />
@@ -32,27 +34,33 @@
 
                 </div>
             </div>
-            <div class="services__section__container__column__details">
-                <article 
-                    class="services__section__container__column__details__card"
-                    v-for="service in services"
-                    :key="service.id"
-                    :id="'service_'+service.id"
-                    :ref="'service_'+service.id"
-                 >
-                    <img 
-                        :src="service.image"
-                        width="240"
-                        height="386"
-                    />
+            <div class="services__section__container__column">
+                <ul class="services__section__container__column__details">
+                    <li 
+                        class="services__section__container__column__details__item"
+                        v-for="service in services"
+                        :key="service.id"
+                    >
+                        <article 
+                            class="services__section__container__column__details__item__card"
+                            :id="'service_'+service.id"
+                            :ref="'target_'+service.id"
+                        >
+                            <img 
+                                :src="service.image"
+                                width="240"
+                                height="386"
+                            />
 
-                    <p>
-                        {{service.description}}
-                    </p>
-                    <AppButton class="outline">
-                        That's what I need!
-                    </AppButton>
-                </article>
+                            <p>
+                                {{service.description}}
+                            </p>
+                            <AppButton class="outline">
+                                That's what I need!
+                            </AppButton>
+                        </article>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
@@ -62,7 +70,7 @@
 import { ref } from '#imports'
 import { useElementVisibility } from '@vueuse/core'
 
-const services = ref([
+let services = ref([
     {
         id: 1,
         icon: "ph:devices-duotone", 
@@ -94,18 +102,22 @@ const services = ref([
 ])
 const selected = ref(1)
 
-const target = ref(null)
-const targetIsVisible = useElementVisibility(target)
+const target_1 = ref(null)
+const target_2 = ref(null)
+const target_3 = ref(null)
+const target_4 = ref(null)
+const uiService = useElementVisibility(target_1)
+const devService = useElementVisibility(target_2)
+const brandService = useElementVisibility(target_3)
+const drawService = useElementVisibility(target_4)
 
 onMounted(() => {
-    const element = document.getElementById('service_'+selected.value)
-    const rect = element.getBoundingClientRect();
+    services.value.forEach(function (val) {
+        console.log(val.id); 
+    })
     document.addEventListener("scroll", (e) => {
-        let position = window.pageYOffset;
-        if (position == rect.y) {
-            // element.classList.add("active");
-            // element.classList.remove("inactive");
-            console.log(rect)
+        if(targetIsVisible.value){
+            console.log(targetIsVisible.value)
         }
     })
 })
@@ -128,7 +140,11 @@ function goService(id){
         &__column{
             &__selection{
                 position: sticky;
-                top: 80px;
+                top: 0;
+                min-height: 100vh;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
                 &__list{
                     margin-block: 40px;
                     &__item{
@@ -164,13 +180,27 @@ function goService(id){
 
             &__details{
                 margin: 24px;
-                &__card{
-                    border: 2px solid black;
-                    border-radius: 24px;
-                    padding: 40px;
-                    text-align: center;
-                    button{
-                        margin: auto;
+                position: relative;
+                &:before{
+                    content: '';
+                    background: black;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 50%;
+                }
+                &__item{
+                    min-height: 100vh;
+                    display: grid;
+                    place-items: center;
+                    &__card{
+                        border: 2px solid black;
+                        border-radius: 24px;
+                        padding: 40px;
+                        text-align: center;
+                        button{
+                            margin: auto;
+                        }
                     }
                 }
             }
