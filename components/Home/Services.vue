@@ -13,19 +13,19 @@
 
                     <ul class="services__section__container__column__selection__list">
                         <li 
-                            class="services__section__container__column__selection__list__item"
                             v-for="service in services"
                             :key="service.id"
+                            class="services__section__container__column__selection__list__item"
                         >
                             <AppButton 
-                                class="gradient" 
-                                @click="goService(service.id)"
-                                :class="service.id == selected ? 'active' : 'inactive'"
                                 :id="uiService ? 'active' : 'inactive'"
+                                class="gradient" 
+                                :class="service.id == selected ? 'active' : 'inactive'"
+                                @click="goService(service.id)"
                             >
                                 <strong>
                                     <AppIcon :IconName="service.icon" />
-                                    {{service.name}}
+                                    {{ service.name }}
                                 </strong>
                                 <AppIcon IconName="ph:arrow-right" />
                             </AppButton>
@@ -73,31 +73,31 @@ import { useElementVisibility } from '@vueuse/core'
 let services = ref([
     {
         id: 1,
-        icon: "ph:devices-duotone", 
-        name: "UX/UI Design", 
-        image: "/images/crismartins.png",
-        description: "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.",
+        icon: 'ph:devices-duotone', 
+        name: 'UX/UI Design', 
+        image: '/images/crismartins.png',
+        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.',
     },
     {
         id: 2,
-        icon: "ph:terminal-window-duotone", 
-        name: "Web Development", 
-        image: "/images/crismartins.png",
-        description: "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.",
+        icon: 'ph:terminal-window-duotone', 
+        name: 'Web Development', 
+        image: '/images/crismartins.png',
+        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.',
     },
     {
         id: 3,
-        icon: "ph:bezier-curve-duotone", 
-        name: "Branding", 
-        image: "/images/crismartins.png",
-        description: "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.",
+        icon: 'ph:bezier-curve-duotone', 
+        name: 'Branding', 
+        image: '/images/crismartins.png',
+        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.',
     },
     {
         id: 4,
-        icon: "ph:pencil-line-duotone", 
-        name: "Illustration", 
-        image: "/images/crismartins.png",
-        description: "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.",
+        icon: 'ph:pencil-line-duotone', 
+        name: 'Illustration', 
+        image: '/images/crismartins.png',
+        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.',
     }
 ])
 const selected = ref(1)
@@ -113,9 +113,9 @@ const drawService = useElementVisibility(target_4)
 
 onMounted(() => {
     services.value.forEach(function (val) {
-        console.log(val.id); 
+        console.log(val.id)
     })
-    document.addEventListener("scroll", (e) => {
+    document.addEventListener('scroll',() => {
         if(targetIsVisible.value){
             console.log(targetIsVisible.value)
         }
@@ -124,7 +124,7 @@ onMounted(() => {
 
 function goService(id){
     const element = document.getElementById('service_'+id)
-    element.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
+    element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
     selected.value = id
 
 }
@@ -181,14 +181,14 @@ function goService(id){
             &__details{
                 margin: 24px;
                 position: relative;
-                &:before{
-                    content: '';
-                    background: black;
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                    height: 50%;
-                }
+                // &:before{
+                //     content: '';
+                //     background: black;
+                //     position: absolute;
+                //     top: 0;
+                //     width: 100%;
+                //     height: 50%;
+                // }
                 &__item{
                     min-height: 100vh;
                     display: grid;

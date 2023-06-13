@@ -16,32 +16,34 @@
 </template>
 
 <script setup>
-    onMounted(() => {
-        let lastScroll = 0;
-        let element = document.getElementById("header")
-        document.addEventListener("scroll", (e) => {
-            let position = window.pageYOffset;
-            
-            if (position <= 0) {
-                element.classList.add("active");
-                element.classList.remove("inactive");
-            }
+import {onMounted} from '#imports'
 
-            if (position > lastScroll && !element.classList.contains("inactive")) {
-                // down
-                element.classList.remove("active");
-                element.classList.add("inactive");
-            } else if (
-                position < lastScroll &&
-                element.classList.contains("inactive")
-            ) {
-                // up
-                element.classList.remove("inactive");
-                element.classList.add("active");
-            }
-            lastScroll = position;
-        })
+onMounted(() => {
+    let lastScroll = 0
+    let element = document.getElementById('header')
+    document.addEventListener('scroll', () => {
+        let position = window.pageYOffset
+        
+        if (position <= 0) {
+            element.classList.add('active')
+            element.classList.remove('inactive')
+        }
+
+        if (position > lastScroll && !element.classList.contains('inactive')) {
+            // down
+            element.classList.remove('active')
+            element.classList.add('inactive')
+        } else if (
+            position < lastScroll &&
+            element.classList.contains('inactive')
+        ) {
+            // up
+            element.classList.remove('inactive')
+            element.classList.add('active')
+        }
+        lastScroll = position
     })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -70,6 +72,8 @@
                 display: flex;
             }
             &__menu{
+                display: flex;
+                justify-content: center;
                 @media(max-width: $br_mobile){
                     display: none;
                 }
