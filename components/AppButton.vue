@@ -8,13 +8,13 @@
 </template>
 
 <script setup>
-    const props = defineProps({
-        hasLink: {
-            type: String,
-        }
-    })
+const props = defineProps({
+    hasLink: {
+        type: String
+    }
+})
 
-    const link = props.hasLink
+const link = props.hasLink
 </script>
 
 <style lang="scss" >
@@ -50,7 +50,7 @@
         }
     }
     &.outline{
-        background-color: var(--bg_color);
+        background-color: transparent;
         border-color: var(--text_color);
         color: var(--text_color);
         i{
