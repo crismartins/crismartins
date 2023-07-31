@@ -1,6 +1,6 @@
 <template>
-    <section class="portfolio__section section">
-        <div class="portfolio__section__container container">
+    <section class="portfolio__section">
+        <div class="portfolio__section__container section container">
             <h2 class="small-title">
                 Portfolio
             </h2>
@@ -12,56 +12,146 @@
             </p>
         </div>
         <ul class="portfolio__section__container__projects">
-            <li class="portfolio__section__container__projects__item">
-                <picture>
-                    <img 
-                        src="/images/crismartins.png"
-                        width="240"
-                        height="386"
-                    />
-                </picture>
-                <ul class="portfolio__section__container__projects__item__stacks">
-                    <li class="portfolio__section__container__projects__item__stacks">
-                        <span>
-                            stack
-                        </span>
-                    </li>
-                </ul>
+            <li 
+                v-for="(project, index) in projects" 
+                :key="project.id" 
+                :ref="project.id"
+                class="portfolio__section__container__projects__item"
+            >
+                <header class="portfolio__section__container__projects__item__header">
+                    <picture class="portfolio__section__container__projects__item__header__picture">
+                        <img 
+                            :src="project.image"
+                        />
+                    </picture>
+                    <div class="portfolio__section__container__projects__item__header__stacks">
+                        <HomeStackSkills :stacks="project.stacks" maxItems="4" />
+                    </div>
+                </header>
                 <h3>
-                    Ahoy
+                    {{ project.name }}
                 </h3>
-                <small>
-                    Service Type
-                </small>
-            </li>
-            <li class="portfolio__section__container__projects__item">
-                Curitiba App
-            </li>
-            <li class="portfolio__section__container__projects__item">
-                Hourglass
-            </li>
-            <li class="portfolio__section__container__projects__item">
-                Planning Poker Online Room
-            </li>
-            <li class="portfolio__section__container__projects__item">
-                Termo
-            </li>
-            <li class="portfolio__section__container__projects__item">
-                Alegra Foods
-            </li>
-            <li class="portfolio__section__container__projects__item">
-                Ebanx Webflow
-            </li>
-            <li class="portfolio__section__container__projects__item">
-                Balance of Nature Homepage
+                <p>
+                    {{ project.type }}
+                </p>
+                <button @click="viewDetails(index)">open</button>
             </li>
             
         </ul>
+
+        <AppModal 
+            :projectDetails="openedDetails" 
+            :openedModal="showModal" 
+            @close="closeModal" 
+        />
     </section>
 </template>
 
 <script setup>
+import { ref } from '#imports'
+const projects = ref([
+    {
+        id: 1,
+        image: '/images/portfolio/curitiba_app.png', 
+        name: 'Ahoy', 
+        type: 'UI/UX Design for Recruitment App', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
+            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
+        ]
+    },
+    {
+        id: 2,
+        image: '/images/portfolio/curitiba_app.png', 
+        name: 'Curitiba App', 
+        type: 'UI/UX Design for City Hall Services App', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
+            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
+        ]
+    },
+    {
+        id: 3,
+        image: '/images/portfolio/curitiba_app.png', 
+        name: 'Hourglass', 
+        type: 'UI/UX and Frontend development for Time Management System', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:figma', name: 'Figma'},
+            {logo: 'logos:javascript', name: 'Javascript'},
+            {logo: 'logos:html-5', name: 'HTML 5'},
+            {logo: 'logos:css-3', name: 'CSS 3'},
+            {logo: 'logos:vue', name: 'Vue.js'}
+        ]
+    },
+    {
+        id: 4,
+        image: '/images/portfolio/curitiba_app.png', 
+        name: 'Termo 2.0', 
+        type: 'UI/UX Design for a "find the word" web placed game', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:figma', name: 'Figma'},
+            {logo: 'logos:javascript', name: 'Javascript'},
+            {logo: 'logos:html-5', name: 'HTML 5'},
+            {logo: 'logos:css-3', name: 'CSS 3'},
+            {logo: 'logos:vue', name: 'Vue.js'}
+        ]
+    },
+    {
+        id: 5,
+        image: '/images/portfolio/curitiba_app.png', 
+        name: 'Planning Poker Online Room', 
+        type: 'Logo, UI/UX Design for a Planning Pocker App', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:figma', name: 'Figma'},
+            {logo: 'logos:javascript', name: 'Javascript'},
+            {logo: 'logos:html-5', name: 'HTML 5'},
+            {logo: 'logos:css-3', name: 'CSS 3'},
+            {logo: 'logos:vue', name: 'Vue.js'}
+        ]
+    },
+    {
+        id: 6,
+        image: '/images/portfolio/curitiba_app.png', 
+        name: 'Alegrafoods', 
+        type: 'Frontend development for a Food Company', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:wordpress', name: 'Wordpress'},
+            {logo: 'logos:jquery', name: 'JQuery'},
+            {logo: 'logos:html-5', name: 'HTML 5'},
+            {logo: 'logos:css-3', name: 'CSS 3'}
+        ]
+    },
+    {
+        id: 7,
+        image: '/images/portfolio/curitiba_app.png', 
+        name: 'Ebanx', 
+        type: 'Webflow building page for a Event Landing Page', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:webflow', name: 'Webflow'}
+        ]
+    }
+])
 
+const showModal = ref(false)
+
+const openedDetails = ref()
+
+function viewDetails(index){
+    openedDetails.value = projects.value[index]
+    console.log(openedDetails.value)
+    showModal.value = true
+}
+
+function closeModal(){
+    showModal.value = false
+}
 </script>
 
 <style lang="scss" scoped>
@@ -74,9 +164,41 @@
             font-size: 20px;
         }
         &__projects{
+            padding: 24px;
             display: flex;
             gap: 20px;
-            justify-content: center;
+            overflow: auto;
+            &__item{
+                max-width: 432px;
+                flex-shrink: 0;
+                &__header{
+                    position: relative;
+                    &__picture{
+                        display: block;
+                        max-height: 440px;
+                        border-radius: 24px;
+                        overflow: hidden;
+                        img{
+                            object-fit: cover;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    &__stacks{
+                        position: absolute;
+                        padding-inline:20px;
+                        top: calc(100% - 32px);
+                    }
+                }
+                h3{
+                    font-size: $size_28px ;
+                    font-weight: 300;
+                    margin-block: 44px 12px;
+                }
+                p{
+                    font-size: $size_16px;
+                }
+            }
         }
     }
 }
