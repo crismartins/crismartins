@@ -100,7 +100,7 @@
 </template>
 
 <script setup>
-import { ref, reactive} from '#imports'
+import { ref, reactive, computed} from '#imports'
 import { useElementVisibility, useParallax } from '@vueuse/core'
 
 let services = ref([
@@ -136,14 +136,14 @@ const service_3 = useElementVisibility(target_3)
 const target_4 = ref(null)
 const service_4 = useElementVisibility(target_4)
 const container = ref(null)
-const parallax = reactive(useParallax(container))
+// const parallax = reactive(useParallax(container))
 
-const layer0 = computed(() => ({
-    transition: '.3s ease-out all',
-    transform: `rotateX(${parallax.roll * 20}deg) rotateY(${
-        parallax.tilt * 20
-    }deg)`,
-}))
+// const layer0 = computed(() => ({
+//     transition: '.3s ease-out all',
+//     transform: `rotateX(${parallax.roll * 40}deg) rotateY(${
+//         parallax.tilt * 40
+//     }deg)`
+// }))
 
 function goService(id){
     const element = document.getElementById('service_'+id)
