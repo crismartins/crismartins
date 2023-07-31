@@ -34,21 +34,13 @@
 
         </div>
 
-        <ul class="about__skills__stacks">
-            <li class="about__skills__stacks__item" v-for="stack in stackLogos" :key="stack.name">
-                <strong>{{stack.name}}</strong>
-                <AppIcon :IconName="stack.logo"/>
-            </li>
-            <li class="about__skills__stacks__button">
-                <AppButton class="gradient icononly">
-                    <AppIcon IconName="ph:plus-bold"/>
-                </AppButton>
-            </li>
-        </ul>
+        <HomeStackSkills :stacks="stackLogos" maxItems="7" />
+
     </div>
 </template>
 
 <script setup>
+import { ref } from '#imports'
 const stackLogos = ref([
     {logo: 'logos:figma', name: 'Figma'},
     {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
@@ -57,6 +49,11 @@ const stackLogos = ref([
     {logo: 'logos:javascript', name: 'Javascript'},
     {logo: 'logos:html-5', name: 'HTML 5'},
     {logo: 'logos:css-3', name: 'CSS 3'},
+    {logo: 'logos:sass', name: 'Sass'},
+    {logo: 'logos:vue', name: 'Vue.JS'},
+    {logo: 'logos:react', name: 'React.JS'},
+    {logo: 'logos:flutter', name: 'Flutter'},
+    {logo: 'logos:nuxt', name: 'Nuxt.JS'}
 ])
 </script>
 
@@ -69,7 +66,7 @@ const stackLogos = ref([
         width: fit-content;
         margin: 48px auto;
         &__picture{
-            background-color: var(--primary);
+            background-color: var(--secondary);
             display: flex;
             border-radius: 400px;
             overflow: hidden;
@@ -121,51 +118,6 @@ const stackLogos = ref([
                 font-style: normal;
                 margin-right: 12px;
             }
-        }
-    }
-    &__stacks{
-        display: flex;
-        margin: auto;
-        align-items: center;
-        &__item{
-            width: 64px;
-            height: 64px;
-            background-color: var(--bg_color);
-            display: grid;
-            place-items: center;
-            font-size: $size_32px;
-            border-radius: 64px;
-            border: 2px solid var(--neutral);
-            box-shadow: $shadow_small;
-            transition: $transition_default;
-            margin-left: -16px;
-            position: relative;
-            &:first-child{
-                margin-left: 0;
-            }
-            strong{
-                background-color: var(--tertiary);
-                color: var(--bg_color);
-                font-size: $size_12px;
-                font-weight: normal;
-                padding: 4px 8px;
-                border-radius: $size_8px;
-                position: absolute;
-                transition: $transition_default;
-                opacity: 0;
-                text-transform: uppercase;
-                text-align: center;
-            }
-            &:hover{
-                strong{
-                    transform: translateY(-48px);
-                    opacity: 1;
-                }
-            }
-        }
-        &__button{
-            position: relative;
-            margin-left: -16px;
         }
     }
 }
