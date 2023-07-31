@@ -6,7 +6,7 @@
 
         <HomeServices />
 
-        <HomePortfolio />
+        <!-- <HomePortfolio /> -->
 
         <HomeContact />
 
