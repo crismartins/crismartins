@@ -9,25 +9,25 @@
 </template>
 
 <script setup>
-
-const menuItems = ref([
-        {
-            title: 'menu.item1.title', 
-            route: 'menu.item1.route'
-        },
-        {
-            title: 'menu.item2.title', 
-            route: 'menu.item2.route'
-        },
-        {
-            title: 'menu.item3.title', 
-            route: 'menu.item3.route'
-        },
-        {
-            title: 'menu.item4.title', 
-            route: 'menu.item4.route'
-        }
-    ]
+import { reactive } from '#imports'
+const menuItems = reactive([
+    {
+        title: 'menu.item1.title', 
+        route: 'menu.item1.route'
+    },
+    {
+        title: 'menu.item2.title', 
+        route: 'menu.item2.route'
+    },
+    {
+        title: 'menu.item3.title', 
+        route: 'menu.item3.route'
+    },
+    {
+        title: 'menu.item4.title', 
+        route: 'menu.item4.route'
+    }
+]
 )
 </script>
 
@@ -39,8 +39,7 @@ const menuItems = ref([
             &__link{
                 padding: 8px 16px;
                 display: block;
-                font-size: 12px;
-                text-transform: uppercase;
+                font-size: 14px;
                 font-weight: 400;
                 color: var(--dark);
                 display: grid;
@@ -59,7 +58,7 @@ const menuItems = ref([
                     transition: $transition_default;
                     display: block;
                 }
-                &:hover, &.router-link-exact-active{
+                &:hover, &.active{
                     &::after{
                         width: 28px;
                     }

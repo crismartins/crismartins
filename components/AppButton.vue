@@ -1,20 +1,25 @@
 <template>
-    <nuxt-link class="button" v-if="link" :to="link">
+    <nuxt-link 
+        v-if="hasLink" 
+        :to="hasLink" 
+        class="button" 
+    >
         <slot />
     </nuxt-link>
-    <button class="button" v-else>
+    <button v-else class="button">
         <slot />
     </button>
 </template>
 
 <script setup>
+import { toRefs } from '#imports'
 const props = defineProps({
     hasLink: {
         type: String
     }
 })
 
-const link = props.hasLink
+const { hasLink } = toRefs(props)
 </script>
 
 <style lang="scss" >
@@ -68,6 +73,16 @@ const link = props.hasLink
     &.green{
         background-color: var(--primary);
         border-color: var(--bg_color);
+        box-shadow: $shadow_small;
+        &:hover{
+            background-color: var(--text_color);
+            color: var(--bg_color);
+        }
+    }
+    &.secondary{
+        background-color: var(--tertiary);
+        color: var(--bg_color);
+        border-color: var(--tertiary);
         box-shadow: $shadow_small;
         &:hover{
             background-color: var(--text_color);
