@@ -1,5 +1,6 @@
 <template>
     <div>
+        <HomeHeroNew />
         <HomeHero />
 
         <HomeAboutMe />
@@ -8,7 +9,7 @@
 
         <HomePortfolio />
 
-        <HomeContact />
+        <HomeContact id="portfolio" />
 
         <TheFooter />
         
