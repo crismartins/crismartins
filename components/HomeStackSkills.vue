@@ -1,19 +1,15 @@
 <template>
     <ul class="skills__stacks">
         <li 
-            v-for="(stack, index) in getList(maxItems)" 
-            :key="index"
+            v-for="stack in items" 
+            :key="stack.name"
             class="skills__stacks__item" 
         >
             <strong>{{ stack.name }}</strong>
             <AppIcon :IconName="stack.logo"/>
         </li>
-        <li v-if="stacks.length > maxItems" class="skills__stacks__button">
-            <AppButton 
-                class="gradient icononly" 
-                :class="stacks.length > maxItems ? 'opened' : ''" 
-                @click="getFullList"
-            >
+        <li v-if="props.stacks.length > props.maxItems" class="skills__stacks__button">
+            <AppButton type="button" class="gradient icononly" :class="items.length > props.maxItems ? 'opened' : ''" @click="showAll">
                 <AppIcon IconName="ph:plus-bold"/>
             </AppButton>
         </li>
@@ -21,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, toRefs } from '#imports'
+import { ref } from '#imports'
 const props = defineProps({
     stacks: {
         type: Object
@@ -31,18 +27,16 @@ const props = defineProps({
     }
 })
 
-const { stacks, maxItems } = toRefs(props)
+const shortList = props.stacks.slice(0, props.maxItems)
 
-function getList(quantity){
-    return stacks.value.slice(0, quantity)
-}
+let items = ref(shortList)
 
-function getFullList(){
-    if(maxItems.value < stacks.value.length){
-        // return getList(Infinity)
-        maxItems.value = Infinity
+function showAll(){
+    if(items.value.length < props.stacks.length){
+        items.value = props.stacks
+    }else{
+        items.value = shortList
     }
-    return stacks.value
 }
 
 </script>

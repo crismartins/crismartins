@@ -8,8 +8,8 @@
                 <AppMenu />
             </nav>
             <div class="container__fluid__actions">
-                <AppLangSwitcher />
                 <AppColorSwitcher />
+                <AppLangSwitcher />
             </div>
         </div>
     </header>

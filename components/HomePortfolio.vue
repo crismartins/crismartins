@@ -34,12 +34,12 @@
                 <p>
                     {{ project.type }}
                 </p>
-                <button @click="viewDetails(index)">open</button>
+                <button type="button" @click="viewDetails(index)">open</button>
             </li>
             
         </ul>
 
-        <AppModal 
+        <AppModal
             :projectDetails="openedDetails" 
             :openedModal="showModal" 
             @close="closeModal" 
@@ -48,8 +48,8 @@
 </template>
 
 <script setup>
-import { ref } from '#imports'
-const projects = ref([
+import { ref, reactive } from '#imports'
+const projects = reactive([
     {
         id: 1,
         image: '/images/portfolio/curitiba_app.png', 
@@ -141,10 +141,10 @@ const projects = ref([
 
 const showModal = ref(false)
 
-const openedDetails = ref()
+const openedDetails = ref(projects)
 
 function viewDetails(index){
-    openedDetails.value = projects.value[index]
+    openedDetails.value = projects[index]
     console.log(openedDetails.value)
     showModal.value = true
 }
