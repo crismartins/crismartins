@@ -32,7 +32,9 @@ html.dark-theme{
     --secondary: #7371FC;
     --tertiary: #473BF0;
     --text_color: #003049;
+    --text_color_transparent: rgba(#003049, 0.2);
     --bg_color: #FBFBFF;
+    --bg_color_transparent: rgba(#FBFBFF, 0.2);
     --neutral:#ABB4D6;
     --primary_gradient: linear-gradient(148.63deg, #003049 5.63%, #03151F 75.47%);
     --secondary_gradient: linear-gradient(303.83deg, #ABB4D6 40.56%, #C3CEF5 104.15%);
@@ -43,7 +45,9 @@ html.light-theme{
     --secondary: #7371FC;
     --tertiary: #473BF0;
     --text_color: #FBFBFF;
+    --text_color_transparent: rgba(#FBFBFF, 0.2);
     --bg_color: #03151F;
+    --bg_color_transparent: rgba(#03151F, 0.2);
     --neutral:#ABB4D6;
     --primary_gradient: linear-gradient(303.83deg, #C3CEF5 40.56%, #FBFBFF 104.15%);
     --secondary_gradient: linear-gradient(303.83deg, #ABB4D6 40.56%, #C3CEF5 104.15%);
