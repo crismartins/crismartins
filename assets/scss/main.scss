@@ -84,3 +84,13 @@ body{
         -moz-text-fill-color: transparent;
     }
 }
+
+//animations
+@keyframes rotate {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
