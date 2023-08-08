@@ -23,7 +23,9 @@ body{
         transition: $transition_default;
         text-decoration: none;
     }
-    
+    button{
+        cursor: pointer;
+    }
     button, input, textarea{
         font-family: $font_main;
     }
@@ -73,7 +75,7 @@ body{
 
     .gradient-font{
         background-color: var(--primary);
-        // background-image: linear-gradient(45deg, $primary, $highlight);
+        background-image: var(--primary_gradient);
         
         background-size: 100%;
         background-repeat: repeat;
@@ -83,6 +85,7 @@ body{
         -moz-background-clip: text;
         -moz-text-fill-color: transparent;
     }
+    
 }
 
 //animations
@@ -92,5 +95,17 @@ body{
     }
     100%{
         rotate: 360deg;
+    }
+}
+
+@keyframes pulse {
+    0%{
+        box-shadow: 0 0 0 0 var(--text_color_transparent),0 0 0 0 var(--text_color_transparent);
+    }
+    50%{
+        box-shadow: 0 0 0 8px var(--text_color_transparent), 0 0 0 16px var(--text_color_transparent);
+    }
+    100%{
+        box-shadow: 0 ;
     }
 }

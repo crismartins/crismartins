@@ -57,7 +57,7 @@ function showAll(){
             font-size: $size_32px;
             border-radius: 64px;
             border: 2px solid var(--neutral);
-            box-shadow: $shadow_small;
+            box-shadow: var(--shadow);
             transition: $transition_default;
             margin-left: -16px;
             position: relative;

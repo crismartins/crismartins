@@ -7,37 +7,37 @@
             <h3 class="large-title">
                 Most relevant works
             </h3>
-            <p>
+            <!-- <p>
                 Welcome to the Portfolio area... here you'll find some selected works that I'm proud of have the opportunity to work in, hope you like.
-            </p>
+            </p> -->
+            <ul class="portfolio__section__container__projects">
+                <li 
+                    v-for="(project, index) in projects" 
+                    :key="project.id" 
+                    :ref="project.id"
+                    class="portfolio__section__container__projects__item"
+                >
+                    <header class="portfolio__section__container__projects__item__header">
+                        <picture class="portfolio__section__container__projects__item__header__picture">
+                            <img 
+                                :src="project.image"
+                            />
+                        </picture>
+                        <div class="portfolio__section__container__projects__item__header__stacks">
+                            <!-- <HomeStackSkills :stacks="project.stacks" maxItems="4" /> -->
+                        </div>
+                    </header>
+                    <h3>
+                        {{ project.name }}
+                    </h3>
+                    <p>
+                        {{ project.type }}
+                    </p>
+                    <button type="button" @click="viewDetails(index)">open</button>
+                </li>
+                
+            </ul>
         </div>
-        <ul class="portfolio__section__container__projects">
-            <li 
-                v-for="(project, index) in projects" 
-                :key="project.id" 
-                :ref="project.id"
-                class="portfolio__section__container__projects__item"
-            >
-                <header class="portfolio__section__container__projects__item__header">
-                    <picture class="portfolio__section__container__projects__item__header__picture">
-                        <img 
-                            :src="project.image"
-                        />
-                    </picture>
-                    <div class="portfolio__section__container__projects__item__header__stacks">
-                        <HomeStackSkills :stacks="project.stacks" maxItems="4" />
-                    </div>
-                </header>
-                <h3>
-                    {{ project.name }}
-                </h3>
-                <p>
-                    {{ project.type }}
-                </p>
-                <button type="button" @click="viewDetails(index)">open</button>
-            </li>
-            
-        </ul>
 
         <AppModal
             :projectDetails="openedDetails" 
@@ -156,21 +156,37 @@ function closeModal(){
 
 <style lang="scss" scoped>
 .portfolio__section{
-    padding-block: 40px;
+    padding-block: 0;
+    margin-top: -100px;
+    min-height: 440px;
+    position: relative;
     &__container{
-        max-width: 800px;
-        text-align: center;
+        // max-width: 1000px;
+        text-align: left;
+        h2,h3{
+            display: none;
+        }
         p{
             font-size: 20px;
         }
         &__projects{
             padding: 24px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            
             display: flex;
+            flex-direction: column;
             gap: 20px;
-            overflow: auto;
+            max-width: 1000px;
+            height: 100vw;
+            position: absolute;
+            transform: rotate(-90deg) translateY(-40vw);
+            transform-origin: right top;
             &__item{
                 max-width: 432px;
+                height: 432px;
                 flex-shrink: 0;
+                transform: rotate(90deg);
                 &__header{
                     position: relative;
                     &__picture{

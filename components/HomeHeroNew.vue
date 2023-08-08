@@ -17,30 +17,33 @@
                         </span>
                     </li>
                 </ul>
-                <button class="hero__section__container__presentation__button">
+                <NuxtLink to="/about" class="hero__section__container__presentation__button">
                     <figure class="hero__section__container__presentation__button__avatar">
                         <NuxtImg 
-                            src="/images/crismartins.png" 
-                            width="80px"
+                            src="/images/crismartins_avatar.png"
                             format="webp"
+                            width="200px"
                             quality="100"
+                            densities="1 2 3 4"
                         />
                     </figure>
-                    <span>
-                        More about
-                    </span>
-                </button>
+                    <div>
+                        <span>
+                            About Me
+                        </span>
+                    </div>
+                </NuxtLink>
             </div>
             <div class="hero__section__container__text">
                 <div class="hero__section__container__text__wrapper">
                     <p class="hero__section__container__text__wrapper__name small-title">
-                        Cristopher Martins
+                        I'm Cristopher Martins
                     </p>
-                    <h1 class="hero__section__container__text__wrapper__title">
-                        Designer. Developer.
+                    <h1 class="hero__section__container__text__wrapper__title gradient-font">
+                        Designer / Developer.
                     </h1>
-                    <AppButton class="green">
-                        Portfolio
+                    <AppButton class="primary">
+                        Get in Touch
                     </AppButton>
                 </div>
             </div>
@@ -70,18 +73,20 @@ const hardSkills = reactive([
     min-height: 100vh;
     display: grid;
     place-items: center;
+    overflow:visible;
     &__container{
-        padding-top: 0;
+        padding-top: 10%;
         flex-grow: 1;
         &__presentation{
             position: relative;
             display: grid;
             place-items: center;
-            margin-bottom:80px;
+            margin-bottom:32px;
             &__skills{
                 position: absolute;
                 display: grid;
                 place-items: center;
+                z-index: -1;
                 &__item{
                     position: absolute;
                     aspect-ratio: 1;
@@ -92,12 +97,14 @@ const hardSkills = reactive([
                     animation: rotate 12s infinite linear;
                     &__icon{
                         aspect-ratio: 1;
-                        width: 40px;
+                        font-size: 24px;
+                        width: 44px;
                         display: grid;
                         place-items: center;
                         border-radius: 100%;
-                        background: var(--primary_gradient);
+                        background-color: var(--neutral);
                         margin-left: -20px;
+                        box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -4px 32px 0 var(--bg_color);
                     }
                     small{
                         background-color: var(--tertiary);
@@ -167,42 +174,58 @@ const hardSkills = reactive([
                 }
             }
             &__button{
-                background-color: black;
+                background-color: var(--text_color);
+                border: 0;
                 border-radius: 100px;
                 padding: 8px;
-                border: 0;
-                display: grid;
-                grid-template-columns: 0fr;
-                place-items: center;
-                transition: $transition_default;
-                &:hover{
-                    grid-template-columns: 2fr;
-                    figure{
-                        transform: scale(1);
+                display: flex;
+                grid-template-columns: 2fr;
+                align-items: center;
+                position: relative;
+                z-index: 8;
+                animation: pulse 2s infinite ease;
+                
+                div{
+                    transition: $transition_default;
+                    display: grid;
+                    grid-template-columns: 0fr;
+                    span{
+                        display: flex;
+                        overflow: hidden;
+                        transition: $transition_default;
+                        white-space: nowrap;
+                        color: var(--pure_white);
                     }
                 }
-                span{
-                    overflow: hidden;
-                    transition: $transition_default;
-                    white-space: nowrap;
-                    color: white;
-                    display: none;
+
+                &:hover{
+                    background-color: var(--tertiary);
+                    figure{
+                        width: 40px;
+                    }
+                    div{
+                        grid-template-columns: 1fr;
+                        span{
+                        padding: 8px 20px 8px 8px;
+                        }
+                    }
                 }
+                
+                
                 &__avatar{
                     flex-shrink: 0;
                     overflow: hidden;
-                    width: 40px;
-                    height: 40px;
+                    width: 100px;
+                    aspect-ratio: 1;
                     border-radius: 100px;
-                    background-color: var(--tertiary);
+                    background-color: var(--secondary);
                     display: grid;
                     place-items: center;
                     margin: 0;
-                    transform: scale(2);
                     transition: $transition_default;
                     img{
-                        max-width: 100%;
-                        max-height: 100%;
+                        min-width: 100%;
+                        min-height: 100%;
                         object-fit: cover;
                         object-position: top;
                     }
@@ -237,6 +260,9 @@ const hardSkills = reactive([
                 font-size: $size_72px;
                 text-align: center;
                 font-weight: 600;
+            }
+            button{
+                margin-top: 40px;
             }
         }
         }

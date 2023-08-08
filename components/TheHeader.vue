@@ -55,6 +55,9 @@ onMounted(() => {
         width: 100%;
         transition: $transition_default;
         top: 0;
+        z-index: 999;
+        background: var(--bg_color);
+        background: linear-gradient(180deg, var(--bg_color) 70%, var(--bg_color_transparent) 90%, rgba(255, 255, 255, 0) 100%);
         &.inactive{
             top: -100%;
         }

@@ -1,17 +1,18 @@
 <template>
     <div>
         <HomeHeroNew />
+
+        <HomePortfolio />
         <!-- <HomeHero /> -->
 
         <!-- <HomeAboutMe /> -->
 
         <!-- <HomeServices /> -->
 
-        <!-- <HomePortfolio /> -->
 
-        <!-- <HomeContact id="portfolio" /> -->
+        <HomeContact />
 
-        <!-- <TheFooter /> -->
+        <TheFooter />
         
     </div>
 </template>

@@ -2,20 +2,20 @@
     "title": "testando",
     "menu": {
         "item1":{
-            "title": "Sobre",
-            "route": "#about"
+            "title": "Início",
+            "route": "/"
         },
         "item2":{
             "title": "Serviços",
-            "route": "#services"
+            "route": "/services"
         },
         "item3":{
             "title": "Portfólio",
-            "route": "#portfolio"
+            "route": "/portfolio"
         },
         "item4":{
             "title": "Contato",
-            "route": "#contact"
+            "route": "/contact"
         }
     }
 }

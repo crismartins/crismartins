@@ -90,7 +90,7 @@ const stackLogos = ref([
             border-radius: 40px;
             padding: 8px 20px;
             text-transform: uppercase;
-            box-shadow: $shadow_small;
+            box-shadow: $shadow;
             font-size: $size_14px;
             font-weight: 700;
             position: absolute;

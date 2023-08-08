@@ -46,30 +46,31 @@ export default defineNuxtConfig({
     },
     modules: [
         'nuxt-icon',
-        '@nuxt/image-edge',
+        '@nuxt/image',
         '@nuxtjs/color-mode',
         '@pinia/nuxt',
-        '@vueuse/nuxt',
+        '@vueuse/nuxt'
     ],
     //color mode
     colorMode: {
         preference: 'system', // default value of $colorMode.preference    
         fallback: 'light', // fallback value if not system preference found    
-        classSuffix: '-theme',
+        classSuffix: '-theme'
     },
     //nuxt image
     image: {
+        quality: 80,
         densities: [1, 2, 3],
+        format: ['webp'],
         //image sizes
         presets: {
             cover: {
                 modifiers: {
-                fit: "cover",
-                format: "jpg",
-                width: 300,
-                height: 300,
-                },
-            },
+                    fit: 'cover',
+                    width: 300,
+                    height: 300
+                }
+            }
         },
         //responsive screens for nuxt images
         screens: {
@@ -78,8 +79,8 @@ export default defineNuxtConfig({
             md: 768,
             lg: 1024,
             xl: 1280,
-            xxl: 1536,
-        },
+            xxl: 1536
+        }
     },
     //pinia config
     pinia: {

@@ -5,20 +5,36 @@
             <span v-html="$i18n.locale == 'pt' ? 'POR' : 'ENG'" />
             <AppIcon IconName="ph:caret-down-bold" />
         </button>
-        <div class="language__switcher__menu" :aria-hidden="langOptions" @click="changeLang">
+        <div 
+            class="language__switcher__menu" 
+            :aria-hidden="langOptions" 
+            @click="changeLang"
+        >
             <ul>
                 <li :class="$i18n.locale == 'en' ? 'active' : 'inactive' ">
-                    <label for="en"  >
+                    <label for="en" >
                         ENG
                         <AppIcon IconName="circle-flags:us" />
-                        <input v-model="$i18n.locale" type="radio" id="en" name="language" value="en">
+                        <input 
+                            id="en" 
+                            v-model="$i18n.locale" 
+                            type="radio" 
+                            name="language" 
+                            value="en"
+                        />
                     </label>
                 </li>
                 <li :class="$i18n.locale == 'pt' ? 'active' : 'inactive'">
                     <label for="pt" >
                         POR
                         <AppIcon IconName="circle-flags:br" />
-                        <input v-model="$i18n.locale" type="radio" id="pt" name="language" value="pt">
+                        <input 
+                            id="pt" 
+                            v-model="$i18n.locale" 
+                            type="radio" 
+                            name="language" 
+                            value="pt"
+                        />
                     </label>
                 </li>
             </ul>
@@ -27,11 +43,12 @@
 </template>
 
 <script setup>
-    const langOptions = ref(true)
+import { ref } from '#imports'
+const langOptions = ref(true)
 
-    function changeLang(){
-        langOptions.value = !langOptions.value
-    }
+function changeLang(){
+    langOptions.value = !langOptions.value
+}
 </script>
 
 <style lang="scss" scoped>
@@ -43,11 +60,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: var(--primary_gradient);
-        border: 0;
-        color: var(--bg_color);
+        border:2px solid var(--text_color_transparent);
+        background: transparent;
+        color: var(--text_color);
         padding: 8px 12px;
-        border-radius: 12px;
+        border-radius: 16px;
         font-size: $size_12px;
         min-width: 72px;
         i{
@@ -67,19 +84,18 @@
             top: 0;
         }
         ul{
-            border-radius: 12px;
-            overflow: hidden;
+            border-radius: 16px;
             overflow: hidden;
             display: flex;
             background: var(--tertiary);
-            box-shadow: $shadow_small;
+            box-shadow: var(--shadow);
             flex-direction: column;
             li{
                 order: 1;
                 color: var(--neutral);
                 transition: $transition_default;
                 &:hover{
-                    color: var(--bg_color);
+                    color: var(--pure_white);
                 }
                 label{
                     padding: 8px 12px;
@@ -104,7 +120,7 @@
                 }
                 &.active{
                     order: 0;
-                    color: var(--bg_color);
+                    color: var(--pure_white);
                 }
             }
         }

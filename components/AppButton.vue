@@ -24,21 +24,24 @@ const { hasLink } = toRefs(props)
 
 <style lang="scss" >
 .button{
-    border: 2px solid var(--bg_color);
-    background-color: var(--bg_color);
-    border-radius: 20px;
+    border: 1px solid var(--text_color_transparent);
+    background-color: var(--bg_color_transparent);
+    backdrop-filter: blur(4px);
+    border-radius: 80px;
     padding: 16px 24px;
     font-size: $size_16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text_color);
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
     gap: 8px;
     transition: $transition_default;
     width: fit-content;
-    min-height: 52px;
+    &:hover{
+        transform: scale(1.12);
+    }
     &.icononly{
         width: 52px;
         height: 52px;
@@ -49,7 +52,7 @@ const { hasLink } = toRefs(props)
     &.gradient{
         background: var(--primary_gradient);
         color: var(--bg_color);
-        box-shadow: $shadow_small;
+        box-shadow: var(--shadow);
         &:hover{
             transform: scale(1.08);
         }
@@ -70,20 +73,21 @@ const { hasLink } = toRefs(props)
             }
         }
     }
-    &.green{
-        background-color: var(--primary);
-        border-color: var(--bg_color);
-        box-shadow: $shadow_small;
+    &.primary{
+        background: var(--secondary_gradient);
+        border: none;
+        box-shadow: 0 8px 40px 0 var(--shadow);
+        color: var(--pure_white);
         &:hover{
-            background-color: var(--text_color);
-            color: var(--bg_color);
+            backdrop-filter: opacity(0.2);
+            box-shadow: 0 12px 60px 0 var(--shadow);
         }
     }
     &.secondary{
         background-color: var(--tertiary);
         color: var(--bg_color);
         border-color: var(--tertiary);
-        box-shadow: $shadow_small;
+        box-shadow: var(--shadow);
         &:hover{
             background-color: var(--text_color);
             color: var(--bg_color);

@@ -1,7 +1,11 @@
 <template>
     <ul class="menu__list">
-        <li class="menu__list__item" v-for="item in menuItems" :key="item.title">
-            <nuxt-link class="menu__list__item__link" :to="{path: '/', hash: $t(item.route)}">
+        <li 
+            v-for="item in menuItems" 
+            :key="item.title"
+            class="menu__list__item" 
+        >
+            <nuxt-link class="menu__list__item__link" :to="$t(item.route)">
                 <span>{{ $t(item.title) }}</span>
             </nuxt-link>
         </li>
@@ -41,7 +45,7 @@ const menuItems = reactive([
                 display: block;
                 font-size: 14px;
                 font-weight: 400;
-                color: var(--dark);
+                color: var(--text_color);
                 display: grid;
                 place-items: center;
                 span{
@@ -54,11 +58,11 @@ const menuItems = reactive([
                     left: 0;
                     width: 0%;
                     height: 2px;
-                    background-color: var(--primary);
+                    background-color: var(--secondary);
                     transition: $transition_default;
                     display: block;
                 }
-                &:hover, &.active{
+                &:hover, &.active, &.router-link-exact-active{
                     &::after{
                         width: 28px;
                     }

@@ -6,3 +6,9 @@
         </main>
     </div>
 </template>
+
+<style scoped lang="scss">
+.body-container{
+    overflow: hidden;
+}
+</style>
