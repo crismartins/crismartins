@@ -1,20 +1,18 @@
 <template>
     <section class="portfolio__section">
         <div class="portfolio__section__container section container">
-            <h2 class="small-title">
-                Portfolio
-            </h2>
-            <h3 class="large-title">
-                Most relevant works
-            </h3>
-            <!-- <p>
-                Welcome to the Portfolio area... here you'll find some selected works that I'm proud of have the opportunity to work in, hope you like.
-            </p> -->
+            <header class="portfolio__section__container__header">
+                <h2 class="small-title">
+                    Portfolio
+                </h2>
+                <!-- <p>
+                    Welcome to the Portfolio area... here you'll find some selected works that I'm proud of have the opportunity to work in, hope you like.
+                </p> -->
+            </header>
             <ul class="portfolio__section__container__projects">
                 <li 
-                    v-for="(project, index) in projects" 
-                    :key="project.id" 
-                    :ref="project.id"
+                    v-for="project in projects" 
+                    :key="project.id"
                     class="portfolio__section__container__projects__item"
                 >
                     <header class="portfolio__section__container__projects__item__header">
@@ -24,7 +22,7 @@
                             />
                         </picture>
                         <div class="portfolio__section__container__projects__item__header__stacks">
-                            <!-- <HomeStackSkills :stacks="project.stacks" maxItems="4" /> -->
+                            <HomeStackSkills :stacks="project.stacks" maxItems="4" />
                         </div>
                     </header>
                     <h3>
@@ -33,17 +31,10 @@
                     <p>
                         {{ project.type }}
                     </p>
-                    <button type="button" @click="viewDetails(index)">open</button>
                 </li>
                 
             </ul>
         </div>
-
-        <AppModal
-            :projectDetails="openedDetails" 
-            :openedModal="showModal" 
-            @close="closeModal" 
-        />
     </section>
 </template>
 
@@ -139,54 +130,34 @@ const projects = reactive([
     }
 ])
 
-const showModal = ref(false)
-
-const openedDetails = ref(projects)
-
-function viewDetails(index){
-    openedDetails.value = projects[index]
-    console.log(openedDetails.value)
-    showModal.value = true
-}
-
-function closeModal(){
-    showModal.value = false
-}
 </script>
 
 <style lang="scss" scoped>
 .portfolio__section{
     padding-block: 0;
-    margin-top: -100px;
-    min-height: 440px;
-    position: relative;
+    margin-top: -10%;
+    overflow: auto;
     &__container{
         // max-width: 1000px;
-        text-align: left;
-        h2,h3{
-            display: none;
-        }
-        p{
-            font-size: 20px;
+        &__header{
+            h2{
+                // writing-mode:vertical-rl;
+                // transform: rotate(-180deg);
+                // text-orientation: upright;
+            }
+            p{
+                font-size: 20px;
+            }
         }
         &__projects{
-            padding: 24px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            // padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 8px;
             max-width: 1000px;
-            height: 100vw;
-            position: absolute;
-            transform: rotate(-90deg) translateY(-40vw);
-            transform-origin: right top;
             &__item{
-                max-width: 432px;
-                height: 432px;
-                flex-shrink: 0;
-                transform: rotate(90deg);
+                // max-width: 432px;
+                // flex-shrink: 0;
                 &__header{
                     position: relative;
                     &__picture{
