@@ -1,5 +1,5 @@
 <template>
-    <section class="about__section section" id="about">
+    <section class="about__section section">
         <div class="about__section__container container">
             <h2 class="small-title">
                 About
@@ -8,7 +8,9 @@
                 UX/UI Designer and Frontend Developer Based in Brazil
             </h3>
 
-            <HomeAboutMeSkills />
+            <HomeAboutMeDetails />
+
+            <AppStackSkills :stacks="stackLogos" :maxItems="7" />
 
             <!-- <div class="about__section__container__text">
                 <p>
@@ -34,7 +36,21 @@
 </template>
 
 <script setup>
-
+import { ref } from '#imports'
+const stackLogos = ref([
+    {logo: 'logos:figma', name: 'Figma'},
+    {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
+    {logo: 'logos:adobe-photoshop', name: 'Adobe Photoshop'},
+    {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'},
+    {logo: 'logos:javascript', name: 'Javascript'},
+    {logo: 'logos:html-5', name: 'HTML 5'},
+    {logo: 'logos:css-3', name: 'CSS 3'},
+    {logo: 'logos:sass', name: 'Sass'},
+    {logo: 'logos:vue', name: 'Vue.JS'},
+    {logo: 'logos:react', name: 'React.JS'},
+    {logo: 'logos:flutter', name: 'Flutter'},
+    {logo: 'logos:nuxt', name: 'Nuxt.JS'}
+])
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +58,7 @@
     padding-block: 82px;
     &__container{
         max-width: 920px;
+        display: grid;
         .small-title, .large-title{
             text-align: center;
             max-width: 600px;

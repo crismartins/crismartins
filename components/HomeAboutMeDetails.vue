@@ -127,14 +127,19 @@
                 </strong>
                 <strong class="about__skills__image__tag artist">
                     <span>
-                        Digital Artist in spare time
+                        Digital Illustrator<br /> in spare time
+                        <NuxtImg 
+                            src="/images/illustration_hand.png"
+                            
+                            format="webp"
+                        />
                     </span>
                 </strong>
                 <strong class="about__skills__image__tag developer">
-                    
+                    >_
                     <span>
-                        >_ Creative Web
-                        Developer
+                        Creative
+                        Dev.
                     </span>
                 </strong>
                 <strong class="about__skills__image__tag designer">
@@ -146,28 +151,13 @@
                 </strong>
 
             </div>
-            <HomeStackSkills :stacks="stackLogos" maxItems="7" />
         </div>
 
     </div>
 </template>
 
 <script setup>
-import { ref } from '#imports'
-const stackLogos = ref([
-    {logo: 'logos:figma', name: 'Figma'},
-    {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
-    {logo: 'logos:adobe-photoshop', name: 'Adobe Photoshop'},
-    {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'},
-    {logo: 'logos:javascript', name: 'Javascript'},
-    {logo: 'logos:html-5', name: 'HTML 5'},
-    {logo: 'logos:css-3', name: 'CSS 3'},
-    {logo: 'logos:sass', name: 'Sass'},
-    {logo: 'logos:vue', name: 'Vue.JS'},
-    {logo: 'logos:react', name: 'React.JS'},
-    {logo: 'logos:flutter', name: 'Flutter'},
-    {logo: 'logos:nuxt', name: 'Nuxt.JS'}
-])
+
 </script>
 
 <style lang="scss" scoped>
@@ -181,40 +171,48 @@ const stackLogos = ref([
 @for $i from 0 to 10 {
  .cell:nth-child(10n + #{$i + 1}):hover ~ .mover {
     --positionX: #{$i};
-    img{
-        filter: grayscale(0);
-    }
   }
   .cell:nth-child(n + #{10 * $i + 1}):nth-child(-n + #{10 * ($i + 1)}):hover ~ .mover {
     --positionY: #{$i};
+  }
+  .cell:nth-child(10n + #{$i + 1}):hover ~ .mover {
+    --positionZ: #{$i};
   }
 }
  .mover{
     --positionX: 5;
   --positionY: 5;
+  --positionZ: 5;
     position: absolute;
     transition: $transition_default;
-    picture{
-        transform: rotateX(calc(0deg - (var(--positionY) - 5) * -5deg))
-        rotateY(calc((var(--positionX) - 5) * -5deg));
+    perspective: 800px;
+    .about__skills__image{
+        transform: rotateX(calc(0deg - (var(--positionY) - 5) * 5deg))
+        rotateY(calc((var(--positionX) - 5) * 5deg));
+        picture{
+            img{
+                transform: translate(calc(var(--positionZ) * 1px));
+            }
+            
+        }
+    }
+    .experience{
+        transform: translate(calc(var(--positionZ) * -1px));
     }
     .developer{
-        transform: rotateX(calc(0deg - (var(--positionY) - 5) * -5deg))
-        rotateY(calc((var(--positionX) - 5) * -5deg));
+        transform: translate(calc(var(--positionZ) * 4px));
+    }
+    .artist{
+        transform: translate(calc(var(--positionZ) * 2px));
     }
     .designer{
-        transform: translateX(calc(0px - (var(--positionY) - 5) * 5px))
-        translateY(calc((var(--positionX) - 5) * 5px));
-        // &:before{
-        //     transform: translateX(calc(0px - (var(--positionY) - 5) * -2px))
-        //     translateY(calc((var(--positionX) - 5) * -2px));
-        //     transition: $transition_default;
-        // }
-        // &:after{
-        //     transform: translateX(calc(0px - (var(--positionY) - 5) * 4px))
-        //     translateY(calc((var(--positionX) - 5) * 4px));
-        //     transition: $transition_default;
-        // }
+        transform: translate(calc(var(--positionZ) * 2px));
+        &:before{
+            transform: translate(calc(var(--positionZ) * 3px));
+        }
+        &:after{
+            transform: translate(calc(var(--positionZ) * 5px));
+        }
     }
  }
 .about__skills{
@@ -222,25 +220,21 @@ const stackLogos = ref([
     grid-template-columns: repeat(10, 1fr);
     place-items: center;
     height: 600px;
-    // display: flex;
-    // flex-direction: column;
     &__image{
         position: relative;
         width: fit-content;
         margin: 48px auto;
+        transition: $transition_default;
         &__picture{
-            background: var(--secondary_gradient);
-            transition: $transition_default;
+            background: var(--primary);
             display: flex;
             border-radius: 400px;
             overflow: hidden;
-            width: fit-content;
             width: 180px;
             align-items: flex-end;
             outline: 2px solid var(--text_color_transparent);
             outline-offset: 40px;
             margin: 16px;
-            animation: pulse 2s infinite ease;
             img{
                 min-width: 100%;
                 min-height: 100%;
@@ -249,104 +243,125 @@ const stackLogos = ref([
                 z-index: 1;
                 transition: $transition_default;
             }
-            &:hover{
-                
-            }
         }
         &__tag{
             transition: $transition_default;
-            color: var(--bg_color);
-            background-color: var(--text_color);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 20px;
-            padding: 8px 12px;
-            font-weight: 400;
+            border-radius: 40px;
+            padding: 8px 20px;
+            font-weight: 600;
             width: fit-content;
             position: absolute;
             top: 10%;
             right: -140px;
+            transition: $transition_default;
+
+            &.experience{
+                color: var(--bg_color);
+                background-color: var(--text_color);
+                animation: pulse 2s infinite ease;
+            }
 
             &.artist{
-                right: -120px;
-                top: 74px;
+                left: -140px;
+                top: 50px;
                 background-color: var(--bg_color);
                 color: var(--text_color);
                 font-size: 12px;
+                border: 2px solid var(--text_color_transparent);
+                z-index: 2;
+                img{
+                    position: absolute;
+                    transform: rotate(-20deg);
+                    width: 60px;
+                    right: -40px;
+                    top: -40px;
+                }
             }
             &.developer{
-                background-color: var(--text_color);
-                color: var(--bg_color);
-                border: 1px solid var(--primary);
-                box-shadow: 0 12px 40px 0 var(--text_color_transparent);
-                top: 60%;
-                // right: unset;
-                left: 80%;
+                background-color: rgba(0,0,0,0.8);
+                backdrop-filter: blur(20px);
+                color: var(--pure_white);
+                border: 1px solid var(--bg_color_transparent);
+                box-shadow: 4px 12px 20px 0 var(--text_color_transparent);
+                top: 90%;
+                left: 20%;
+                padding: 12px;
                 border-radius: 8px;
                 font-weight: normal;
-                font-size: 12px;
-                height: 100px;
-                aspect-ratio: 1;
+                font-size: 14px;
+                height: 80px;
+                z-index: 1;
+                justify-content: flex-start;
+                align-items: flex-start;
+                font-family: Courier;
+                letter-spacing: 2px;
+                span{
+                    overflow: hidden;
+                    border-right: .15em solid var(--primary);
+                    white-space: nowrap;
+                    animation: 
+                    typing 4.5s steps(15, end) infinite,
+                    blink-caret .8s step-end infinite;
+                }
             }
             &.designer{
-                background-color: var(--secondary);
-                color: rgba(255,255,255,0.8);
-                bottom: 10%;
+                background-color: var(--neutral);
+                color: rgba(0,0,0,0.8);
+                bottom: 0;
                 width: 80px;
                 aspect-ratio: 1;
                 top: unset;
-                z-index: 1;
-                right: 200px;
-                border-radius: 50%;
-                // text-transform: uppercase;
+                z-index: 3;
+                right: 220px;
+                border-radius: 20px;
                 font-size: 14px;
                 text-align: center;
                 padding: 8px;
-                // box-shadow: 0 12px 32px 0 var(--text_color_transparent), 
-                // inset -12px -12px 32px 0 rgba(0,0,0,0.6),
-                // inset 12px 12px 32px 0 rgba(255, 255, 255, 0.2);
+                box-shadow: 0 12px 32px 0 var(--text_color_transparent), 
+                inset -12px -12px 32px 0 rgba(0,0,0,0.4),
+                inset 12px 12px 32px 0 rgba(255, 255, 255, 0.8);
                 span{
                     position: absolute;
                     opacity: 0;
                 }
                 &:before{
-                    content: 'UI';
+                    content: 'UX';
                     position: absolute;
-                    top: -40px;
-                    right: -50%;
-                    width: 70px;
+                    top: -60%;
+                    right: -30%;
+                    width: 80px;
                     aspect-ratio: 1;
                     font-weight: bold;
                     font-size: 20px;
                     color: var(--pure_white);
-                    border-radius: 50%;
+                    border-radius: 20px;
                     background-color: rgba(0,0,0,0.4);
                     backdrop-filter: blur(12px);
                     display: grid;
                     place-items: center;
                     border: 1px solid var(--pure_white);
-                    // box-shadow: 0 12px 32px 0 var(--text_color_transparent), 
-                    // inset -12px -12px 32px 0 rgba(0,0,0,0.4),
-                    // inset 12px 12px 32px 0 rgba(255, 255, 255, 0.2);
+                    transition: $transition_default;
+                    box-shadow: 0 12px 32px 0 var(--text_color_transparent);
                 }
                 &:after{
-                    content: 'UX';
+                    content: 'UI';
                     position: absolute;
                     font-weight: bold;
                     font-size: 20px;
                     color: rgba(255,255,255,0.8);
-                    top: 60px;
-                    right: -20%;
-                    width: 50px;
+                    bottom: 130%;
+                    border-radius: 20px;
+                    right: 30%;
+                    width: 80px;
                     aspect-ratio: 1;
-                    border-radius: 50%;
-                    background-color: var(--tertiary);
+                    background: var(--secondary_gradient);
                     display: grid;
                     place-items: center;
-                    // box-shadow: 0 12px 32px 0 var(--text_color_transparent), 
-                    // inset -12px -12px 32px 0 rgba(0,0,0,0.6),
-                    // inset 12px 12px 32px 0 rgba(255, 255, 255, 0.2);
+                    transition: $transition_default;
+                    box-shadow: 2px 2px 0 0 var(--secondary),4px 12px 32px 0 var(--tertiary);
                 }
 
             }

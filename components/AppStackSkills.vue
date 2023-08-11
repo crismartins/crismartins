@@ -9,7 +9,7 @@
             <AppIcon :IconName="stack.logo"/>
         </li>
         <li v-if="props.stacks.length > props.maxItems" class="skills__stacks__button">
-            <AppButton type="button" class="gradient icononly" :class="items.length > props.maxItems ? 'opened' : ''" @click="showAll">
+            <AppButton type="button" class="secondary icononly" :class="items.length > props.maxItems ? 'opened' : ''" @click="showAll">
                 <AppIcon IconName="ph:plus-bold"/>
             </AppButton>
         </li>
@@ -52,7 +52,6 @@ function showAll(){
             font-size: 24px;
             width: 44px;
             display: grid;
-            border: 1px solid var(--pure_white);
             place-items: center;
             border-radius: 100%;
             background-color: var(--neutral);
