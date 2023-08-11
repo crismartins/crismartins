@@ -48,20 +48,16 @@ function showAll(){
         align-items: center;
         flex-wrap: wrap;
         &__item{
-            width: 64px;
-            height: 64px;
-            background-color: rgba(255,255,255, 0.8);
-            backdrop-filter: blur(40px);
+            aspect-ratio: 1;
+            font-size: 24px;
+            width: 44px;
             display: grid;
+            border: 1px solid var(--pure_white);
             place-items: center;
-            font-size: $size_32px;
-            border-radius: 64px;
-            border: 2px solid var(--neutral);
-            box-shadow: var(--shadow);
-            transition: $transition_default;
-            margin-left: -16px;
-            position: relative;
-            z-index: 0;
+            border-radius: 100%;
+            background-color: var(--neutral);
+            margin-left: -12px;
+            box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -4px 32px 0 var(--bg_color);
             &:first-child{
                 margin-left: 0;
             }

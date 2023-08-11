@@ -3,11 +3,11 @@
         <HomeHeroNew />
 
         <HomePortfolio />
+        <HomeAboutMe />
         <!-- <HomeHero /> -->
 
-        <!-- <HomeAboutMe /> -->
 
-        <!-- <HomeServices /> -->
+        <HomeServices />
 
 
         <HomeContact />

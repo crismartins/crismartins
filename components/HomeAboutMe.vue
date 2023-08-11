@@ -5,12 +5,12 @@
                 About
             </h2>
             <h3 class="large-title">
-                Who’s Cristopher Martins
+                UX/UI Designer and Frontend Developer Based in Brazil
             </h3>
 
             <HomeAboutMeSkills />
 
-            <div class="about__section__container__text">
+            <!-- <div class="about__section__container__text">
                 <p>
                     I'm half designer and half frontend developer, is that makes me a incomplete  professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal...
                 </p>
@@ -19,17 +19,15 @@
                         I'll do my best, trust me.
                     </strong>
                 </p>
-            </div>
+            </div> -->
             <div class="about__section__container__buttons">
-                <AppButton class="green">
-                    Let's Talk
+                <AppButton class="primary">
+                    See more
                 </AppButton>
                 <AppButton class="outline" hasLink="/#portfolio">
                     <AppIcon IconName="ph:download-simple-bold" /> Download CV
                 </AppButton>
             </div>
-
-            <HomeAboutMeClients />
 
         </div>
     </section>
@@ -46,6 +44,8 @@
         max-width: 920px;
         .small-title, .large-title{
             text-align: center;
+            max-width: 600px;
+            margin: auto;
         }
         &__text{
             padding-block: 24px;
@@ -58,8 +58,8 @@
         &__buttons{
             display: flex;
             justify-content: center;
-            gap: 12px;
-            padding-block: 24px;
+            gap: 20px;
+            padding-block: 40px;
         }
     }
 }

@@ -27,7 +27,7 @@ const { hasLink } = toRefs(props)
     border: 1px solid var(--text_color_transparent);
     background-color: var(--bg_color_transparent);
     backdrop-filter: blur(4px);
-    border-radius: 80px;
+    border-radius: 40px;
     padding: 16px 24px;
     font-size: $size_16px;
     display: flex;

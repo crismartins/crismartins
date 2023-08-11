@@ -1,11 +1,14 @@
 <template>
     <section class="services__section section">
         <div class="services__section__container container">
+            <header>
+                <h2 class="services__section__container__title small-title">
+                    Services
+                </h2>
+            </header>
             <div class="services__section__container__column">
                 <div class="services__section__container__column__selection">
-                    <h2 class="small-title">
-                        Services
-                    </h2>
+                    
                     <h3 class="large-title">
                         All you need to make your Business go beyond
                     </h3>
@@ -13,7 +16,7 @@
                     <ul class="services__section__container__column__selection__list">
                         <li class="services__section__container__column__selection__list__item">
                             <AppButton 
-                                class="gradient" 
+                                class="primary" 
                                 :class="service_1 ? 'active' : 'inactive'"
                                 @click="goService(1)"
                             >
@@ -21,12 +24,11 @@
                                     <AppIcon IconName="ph:devices-duotone" />
                                     UX/UI Design
                                 </strong>
-                                <AppIcon IconName="ph:arrow-right" />
                             </AppButton>
                         </li>
                         <li class="services__section__container__column__selection__list__item">
                             <AppButton 
-                                class="gradient" 
+                                class="primary" 
                                 :class="service_2 ? 'active' : 'inactive'"
                                 @click="goService(2)"
                             >
@@ -34,12 +36,11 @@
                                     <AppIcon IconName="ph:terminal-window-duotone" />
                                     Web Development
                                 </strong>
-                                <AppIcon IconName="ph:arrow-right" />
                             </AppButton>
                         </li>
                         <li class="services__section__container__column__selection__list__item">
                             <AppButton 
-                                class="gradient" 
+                                class="primary" 
                                 :class="service_3 ? 'active' : 'inactive'"
                                 @click="goService(3)"
                             >
@@ -47,12 +48,11 @@
                                     <AppIcon IconName="ph:bezier-curve-duotone" />
                                     Branding
                                 </strong>
-                                <AppIcon IconName="ph:arrow-right" />
                             </AppButton>
                         </li>
                         <li class="services__section__container__column__selection__list__item">
                             <AppButton 
-                                class="gradient" 
+                                class="primary" 
                                 :class="service_4 ? 'active' : 'inactive'"
                                 @click="goService(4)"
                             >
@@ -60,14 +60,11 @@
                                     <AppIcon IconName="ph:pencil-line-duotone" />
                                     Illustration
                                 </strong>
-                                <AppIcon IconName="ph:arrow-right" />
                             </AppButton>
                         </li>
                     </ul>
 
                 </div>
-            </div>
-            <div class="services__section__container__column">
                 <ul ref="container" class="services__section__container__column__details">
                     <li 
                         v-for="service in services"
@@ -79,11 +76,13 @@
                             :style="layer0"
                             class="services__section__container__column__details__item__card"
                         >
-                            <img 
-                                :src="service.image"
-                                width="240"
-                                height="386"
-                            />
+                            <figure>
+                                <img 
+                                    :src="service.image"
+                                    width="240"
+                                    height="386"
+                                />
+                            </figure>
 
                             <p>
                                 {{ service.description }}
@@ -108,22 +107,23 @@ let services = ref([
         id: 1,
         image: '/images/crismartins.png',
         description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    },
-    {
-        id: 2,
-        image: '/images/crismartins.png',
-        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    },
-    {
-        id: 3,
-        image: '/images/crismartins.png',
-        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    },
-    {
-        id: 4,
-        image: '/images/crismartins.png',
-        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
     }
+    // ,
+    // {
+    //     id: 2,
+    //     image: '/images/crismartins.png',
+    //     description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
+    // },
+    // {
+    //     id: 3,
+    //     image: '/images/crismartins.png',
+    //     description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
+    // },
+    // {
+    //     id: 4,
+    //     image: '/images/crismartins.png',
+    //     description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
+    // }
 ])
 const selected = ref(1)
 
@@ -157,43 +157,37 @@ function goService(id){
 .services__section{
     padding-block: 40px;
     &__container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        gap: 40px;
+        h2{
+            writing-mode:vertical-rl;
+            transform: rotate(-180deg);
+        }
         &__column{
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 400px 1fr;
             &__selection{
-                position: sticky;
-                top: 0;
-                min-height: 100vh;
                 justify-content: center;
                 display: flex;
                 flex-direction: column;
-                z-index: 1;
                 &__list{
-                    margin-block: 40px;
+                    margin-top: 40px;
+                    display: grid;
+                    gap: 24px;
+                    grid-template-columns: 1fr 1fr;
                     &__item{
-                        padding-block: 8px;
+                        display: flex;
                         button{
                             width: 100%;
-                            justify-content: space-between;
+                            display: grid;
+                            place-items: center;
+                            aspect-ratio: 1;
                             font-size: $size_24px;
-                            padding: 12px 20px;
-                            transform: scale(1.08);
-                            
-                            &.inactive{
-                                transform: scale(1);
-                                background: transparent;
-                                color: var(--text_color);
-                                border: none;
-                                box-shadow: none;
-                                & > i:last-child{
-                                    opacity: 0;
-                                }
-                            }
+                            padding: 12px;
+                        
                             strong{
-                                display: flex;
-                                align-items: center;
                                 font-weight: 500;
-                                gap: 16px;
                                 i{
                                     font-size: 60px;
                                 }
@@ -204,13 +198,12 @@ function goService(id){
             }
 
             &__details{
-                margin: 24px;
                 position: relative;
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 80px;
+                display: flex;
                 &__item{
-                    min-height: 100vh;
+                    background: var(--primary_gradient);
+                    border-radius: 40px;
+                    padding: 40px;
                     display: grid;
                     place-items: center;
                     position: relative;
@@ -230,12 +223,11 @@ function goService(id){
                     &__card{
                         position: relative;
                         z-index: 1;
-                        border: 2px solid var(--pure_white);
-                        background-color: rgba(255,255,255, 0.4);
-                        backdrop-filter: blur(40px);
-                        border-radius: 24px;
-                        padding: 40px;
+                        // border: 2px solid var(--pure_white);
+                        // background-color: rgba(255,255,255, 0.4);
+                        // backdrop-filter: blur(40px);
                         text-align: center;
+                        width: 100%;
                         button{
                             margin: auto;
                         }
