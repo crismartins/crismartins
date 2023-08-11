@@ -226,7 +226,7 @@
         margin: 48px auto;
         transition: $transition_default;
         &__picture{
-            background: var(--primary);
+            background: var(--secondary);
             display: flex;
             border-radius: 400px;
             overflow: hidden;
@@ -255,7 +255,7 @@
             width: fit-content;
             position: absolute;
             top: 10%;
-            right: -140px;
+            left: 120px;
             transition: $transition_default;
 
             &.experience{
@@ -315,7 +315,7 @@
                 aspect-ratio: 1;
                 top: unset;
                 z-index: 3;
-                right: 220px;
+                left: -90px;
                 border-radius: 20px;
                 font-size: 14px;
                 text-align: center;
