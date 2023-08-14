@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from '#imports'
+import { reactive } from '#imports'
 const projects = reactive([
     {
         id: 1,
@@ -135,7 +135,7 @@ const projects = reactive([
 <style lang="scss" scoped>
 .portfolio__section{
     padding-block: 0;
-    margin-top: -4%;
+    // margin-top: -4%;
     margin-bottom: 80px;
     &__container{
         width: 100%;

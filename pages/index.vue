@@ -7,9 +7,8 @@
         <!-- <HomeHero /> -->
 
 
-        <HomeServices />
-
-
+        <HomeServicesNew />
+        
         <HomeContact />
 
         <TheFooter />

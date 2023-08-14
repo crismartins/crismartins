@@ -68,10 +68,7 @@ body{
         list-style: none;
     }
 
-    ::selection {
-        background-color: var(--primary);
-        color: var(--light);
-    }
+    
 
     .gradient-font{
         background-color: var(--primary);
@@ -80,11 +77,19 @@ body{
         background-size: 100%;
         background-repeat: repeat;
 
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent; 
         -moz-background-clip: text;
         -moz-text-fill-color: transparent;
     }
+
+    // *::selection {
+    //     background-color: var(--secondary);
+    //     color: var(--pure_white);
+    //     -webkit-text-fill-color: unset; 
+    //     -moz-text-fill-color: unset;
+    // }
     
 }
 

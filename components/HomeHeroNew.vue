@@ -62,20 +62,20 @@ const hardSkills = reactive([
     {logo: 'logos:html-5', title: 'HTML 5'},
     {logo: 'logos:css-3', title: 'CSS 3'},
     {logo: 'logos:sass', title: 'Sass'},
-    {logo: 'logos:vue', title: 'Vue.JS'},
+    // {logo: 'logos:vue', title: 'Vue.JS'},
     // {logo: 'logos:flutter', title: 'Flutter'},
-    {logo: 'logos:nuxt', title: 'Nuxt.JS'}
+    // {logo: 'logos:nuxt', title: 'Nuxt.JS'}
 ])
 </script>
   
 <style lang="scss" scoped>
 .hero__section{
-    min-height: 100vh;
+    min-height: 90vh;
+    min-height: 90dvh;
     display: grid;
     place-items: center;
-    overflow:visible;
     &__container{
-        padding-top: 10%;
+        padding-block: 16% 80px;
         flex-grow: 1;
         &__presentation{
             position: relative;
@@ -174,7 +174,7 @@ const hardSkills = reactive([
                 }
             }
             &__button{
-                background-color: var(--text_color);
+                background-color: var(--bg_color);
                 border: 0;
                 border-radius: 100px;
                 padding: 8px;
