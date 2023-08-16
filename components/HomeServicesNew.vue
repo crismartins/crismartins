@@ -100,8 +100,8 @@ let services = reactive([
                     width: 50%;
                     aspect-ratio: 1;
                     border-radius: 100%;
-                    filter: blur(180px);
-                    box-shadow:  240px 20px 0 0 var(--secondary), 80px 240px 0 0 var(--primary);
+                    filter: blur(100px);
+                    box-shadow:  240px 20px 0 0 var(--primary), 80px 240px 0 0 var(--secondary);
                 }
             }
 

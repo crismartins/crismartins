@@ -1,10 +1,6 @@
 <template>
     <footer class="footer">
         <div class="footer__container container">
-            <TheLogo />
-            <h2 class="small-title">
-                Design & Development
-            </h2>
             <p>
                 © {{ currentYear }} cristophermartins.com
             </p>

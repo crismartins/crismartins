@@ -226,7 +226,7 @@
         margin: 48px auto;
         transition: $transition_default;
         &__picture{
-            background: var(--secondary);
+            background: var(--primary);
             display: flex;
             border-radius: 400px;
             overflow: hidden;
