@@ -105,13 +105,27 @@ body{
 
 @keyframes pulse {
     0%{
-        box-shadow: 0 0 0 0 var(--text_color_transparent),0 0 0 0 var(--text_color_transparent);
+        box-shadow: 0 0 0 0 rgba(#7371FC, 0.2),0 0 0 0 rgba(#7371FC, 0.2);
     }
     50%{
-        box-shadow: 0 0 0 8px var(--text_color_transparent), 0 0 0 16px var(--text_color_transparent);
+        box-shadow: 0 0 0 8px rgba(#7371FC, 0.2), 0 0 0 16px rgba(#7371FC, 0.2);
     }
     100%{
         box-shadow: 0 ;
+    }
+}
+@keyframes rotating {
+    0%{
+        rotate: 0deg;
+    }
+    40%{
+        rotate: 180deg;
+    }
+    60%{
+        rotate: 180deg;
+    }
+    100%{
+        rotate: 360deg;
     }
 }
 
