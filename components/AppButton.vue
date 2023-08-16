@@ -24,7 +24,7 @@ const { hasLink } = toRefs(props)
 
 <style lang="scss" >
 .button{
-    border: 1px solid var(--text_color_transparent);
+    border: 2px solid var(--text_color_transparent);
     background-color: var(--bg_color_transparent);
     backdrop-filter: blur(4px);
     border-radius: 40px;
@@ -49,25 +49,18 @@ const { hasLink } = toRefs(props)
         border-radius: 52px;
         font-size: $size_28px;
     }
-    &.gradient{
-        background: var(--primary_gradient);
-        color: var(--bg_color);
-        box-shadow: var(--shadow);
-        &:hover{
-            transform: scale(1.08);
-        }
-    }
+    
     &.outline{
         background-color: transparent;
-        border-color: var(--text_color);
+        border-color: var(--text_color_transparent);
         color: var(--text_color);
         i{
             transition: $transition_default;
         }
         &:hover{
-            background-color: var(--tertiary);
+            background-color: var(--text_color);
             color: var(--bg_color);
-            border-color: var(--tertiary);
+            border-color: var(--text_color);
             i{
                 animation: calling 2s infinite;
             }
@@ -84,13 +77,13 @@ const { hasLink } = toRefs(props)
         }
     }
     &.secondary{
-        background-color: var(--tertiary);
+        background: var(--primary_gradient);
         color: var(--bg_color);
-        border-color: var(--tertiary);
+        border: none;
         box-shadow: var(--shadow);
         &:hover{
-            background-color: var(--text_color);
             color: var(--bg_color);
+            box-shadow: 0 0 20px 0 var(--shadow);
         }
     }
 
