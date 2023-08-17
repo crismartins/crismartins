@@ -66,9 +66,6 @@ onMounted(() => {
         &.active{
             top: 0;
         }
-        @media(max-width: $br_mobile){
-            position: unset;
-        }
         .container__fluid{
             display: grid;
             grid-template-columns: repeat(3,1fr);
@@ -97,6 +94,10 @@ onMounted(() => {
                     opacity: 0;
                     color: var(--text_color);
                     transition: $transition_default;
+                    @media(max-width:$br_mobile){
+                        bottom: 0px;
+                        opacity: 1;
+                    }
                 }
                 &:hover{
                     strong{
@@ -106,14 +107,14 @@ onMounted(() => {
                 }
             }
             &__menu{
-                display: flex;
-                justify-content: center;
+                display: grid;
+                place-items: center;
                 @media(max-width: $br_mobile){
                     position: fixed;
-                    bottom: 40px;
                     z-index: 999;
-                    background-color: var(--text_color_transparent);
-                    border-radius: 40px;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
                 }
             }
             &__actions{

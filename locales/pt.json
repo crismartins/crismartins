@@ -6,14 +6,18 @@
             "route": "/"
         },
         "item2":{
+            "title": "Sobre",
+            "route": "/about"
+        },
+        "item3":{
             "title": "Serviços",
             "route": "/services"
         },
-        "item3":{
+        "item4":{
             "title": "Portfólio",
             "route": "/portfolio"
         },
-        "item4":{
+        "item5":{
             "title": "Contato",
             "route": "/contact"
         }

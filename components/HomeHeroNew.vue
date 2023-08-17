@@ -18,7 +18,7 @@
                     </li>
                 </ul>
                 <NuxtLink to="/about" class="hero__section__container__presentation__button">
-                    <picture class="hero__section__container__presentation__button__avatar">
+                    <figure class="hero__section__container__presentation__button__avatar">
                         <NuxtImg 
                             src="/images/crismartins_avatar.png"
                             format="webp"
@@ -26,7 +26,7 @@
                             quality="100"
                             densities="1 2 3 4"
                         />
-                    </picture>
+                    </figure>
                     <div>
                         <span>
                             About Me
@@ -37,7 +37,7 @@
             <div class="hero__section__container__text">
                 <div class="hero__section__container__text__wrapper">
                     <p class="hero__section__container__text__wrapper__name small-title">
-                        Hey! I'm Cristopher Martins
+                        I'm Cristopher Martins
                     </p>
                     <h1 class="hero__section__container__text__wrapper__title gradient-font">
                         Designer & Developer.
@@ -78,6 +78,9 @@ const hardSkills = reactive([
             display: grid;
             place-items: center;
             margin-bottom:32px;
+            @media(max-width: $br_mobile){
+                margin-top: 100px;
+            }
             &__skills{
                 position: absolute;
                 display: grid;
@@ -109,7 +112,7 @@ const hardSkills = reactive([
                     
                     --width: 16vw;
                     @media(max-width:$br_mobile){
-                        --width: 40vw;
+                        --width: 30vw;
                     }
                     @for $i from 0 to 8 {
                         &:nth-child(10n + #{$i}) {
@@ -117,6 +120,9 @@ const hardSkills = reactive([
                             transform: rotate(calc(#{$i} * 45deg));
                             animation: rotate infinite linear;
                             animation-duration: calc(20s - #{$i} * 1s);
+                            @media(max-width:$br_mobile){
+                                width: calc(18vw + #{$i} * 28vw);
+                            }
                         }
                     }
                 }
@@ -132,7 +138,6 @@ const hardSkills = reactive([
                 position: relative;
                 z-index: 8;
                 animation: pulse 2s infinite ease;
-                
                 div{
                     transition: $transition_default;
                     display: grid;
@@ -148,7 +153,7 @@ const hardSkills = reactive([
 
                 &:hover{
                     background-color: var(--tertiary);
-                    picture{
+                    figure{
                         width: 40px;
                     }
                     div{
@@ -202,12 +207,19 @@ const hardSkills = reactive([
             }
             &__name{
                 text-align: center;
+                letter-spacing: 4px;
+                @media(max-width:$br_mobile){
+                    font
+                }
             }
             &__title{
                 margin-block: 4px;
                 font-size: $size_72px;
                 text-align: center;
                 font-weight: 600;
+                @media(max-width:$br_mobile){
+                    font-size: $size_60px;
+                }
             }
             button{
                 margin-top: 40px;

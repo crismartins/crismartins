@@ -39,6 +39,10 @@ const { hasLink } = toRefs(props)
     gap: 8px;
     transition: $transition_default;
     width: fit-content;
+    @media(max-width:$br_mobile){
+        font-size: $size_20px;
+        padding: 20px 32px;
+    }
     &:hover{
         transform: scale(1.12);
     }
