@@ -15,6 +15,9 @@
             </div>
         </div>
     </header>
+    <pre>
+        {{ lastScroll }}
+    </pre>
 </template>
 
 <script setup>
