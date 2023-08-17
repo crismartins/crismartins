@@ -110,7 +110,7 @@ const hardSkills = reactive([
                         position: absolute;
                     }
                     
-                    --width: 16vw;
+                    --width: 18vw;
                     @media(max-width:$br_mobile){
                         --width: 30vw;
                     }
@@ -207,9 +207,8 @@ const hardSkills = reactive([
             }
             &__name{
                 text-align: center;
-                letter-spacing: 4px;
                 @media(max-width:$br_mobile){
-                    font
+                    letter-spacing: 4px;
                 }
             }
             &__title{
