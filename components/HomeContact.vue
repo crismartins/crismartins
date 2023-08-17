@@ -84,6 +84,7 @@
                 margin-block: 40px;
                 &__item{
                     font-size: 24px;
+                    color: red;
                     &:hover{
                         color: var(--tertiary);
                     }

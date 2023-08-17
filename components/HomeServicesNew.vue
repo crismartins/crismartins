@@ -144,7 +144,7 @@ let services = reactive([
                             font-weight: 400;
                         }
                         p{
-                            color: var(--text_color);
+                            color: var(--text_color_smooth);
                             margin-bottom: 40px;
                         }
                         button{

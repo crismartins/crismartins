@@ -27,14 +27,16 @@ $size_76px: 4.75rem;
 $size_80px: 5rem;
 
 //colors
-html.dark-theme{
+html.light-theme{
     --primary: #5EFC8D;
     --secondary: #7371FC;
     --tertiary: #473BF0;
     --text_color: rgb(12, 28, 37);
     --text_color_transparent: rgba(12, 28, 37, 0.12);
+    --text_color_smooth: rgba(12, 28, 37, 0.6);
     --bg_color: rgb(251, 251, 255);
     --bg_color_transparent: rgba(251, 251, 255, 0.2);
+    --bg_color_smooth: rgba(251, 251, 255, 0.6);
     --neutral:#ABB4D6;
     --primary_gradient: linear-gradient(45deg, #1f1c44 40%, #7371FC 100%);
     --secondary_gradient: linear-gradient(45deg, #473BF0 40%, #ABB4D6 100%);
@@ -42,14 +44,16 @@ html.dark-theme{
     //effects
     --shadow: rgba(12, 28, 37, 0.4);
 }
-html.light-theme{
+html.dark-theme{
     --primary: #5EFC8D;
     --secondary: #7371fc;
     --tertiary: rgb(71, 59, 240);
     --text_color: #FBFBFF;
     --text_color_transparent: rgba(251, 251, 255, 0.12);
+    --text_color_smooth: rgba(251, 251, 255, 0.6);
     --bg_color: #0c1c25;
     --bg_color_transparent: rgba(12, 28, 37, 0.2);
+    --bg_color_smooth: rgba(12, 28, 37, 0.6);
     --neutral:#ABB4D6;
     --primary_gradient: linear-gradient(45deg, #FBFBFF 40%, #ABB4D6 100%);
     --secondary_gradient: linear-gradient(45deg, #473BF0 40%, #7371FC 100%);

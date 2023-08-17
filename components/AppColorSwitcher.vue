@@ -2,24 +2,24 @@
     <div class="theme-switcher">
         <button
             :class="$colorMode.preference"
-            @click="toggleDarkMode($colorMode.preference === 'dark' ? 'light' : 'dark')"
+            @click="toggleDarkMode($colorMode.preference == 'dark' ? 'light' : 'dark')"
         >
             <span>
-                <Transition name="fade">
-                    <AppIcon v-if="$colorMode.preference === 'light'" class="light" IconName="ph:sun-dim" />
-                    <AppIcon v-else class="dark" IconName="ph:sunglasses-fill" />
-                </Transition>
+                <AppIcon 
+                    :class="$colorMode.preference" 
+                    :IconName="$colorMode.preference == 'dark' ? 'ph:sun-dim' : 'ph:sunglasses-fill'" 
+                />
             </span>
         </button>
     </div>
 </template>
 
 <script setup>
-    const colorMode = useColorMode();
-    function toggleDarkMode(theme) {
-        colorMode.preference = theme;
-        console.log()
-    }
+const colorMode = useColorMode()
+function toggleDarkMode(theme) {
+    colorMode.preference = theme
+    console.log()
+}
 </script>
 
 <style lang="scss" scoped>
@@ -39,10 +39,8 @@
             span{
                 display: grid;
                 place-items: center;
-                position: relative;
                 i{
                     font-size: 24px;
-                    position: absolute;
                 }
             }
         }

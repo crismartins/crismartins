@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link to="/" class="logo__wrap">
+    <span class="logo__wrap">
         <svg 
             width="40" 
             height="38" 
@@ -38,7 +38,7 @@
                 </clipPath>
             </defs>
         </svg>
-    </nuxt-link>
+    </span>
 </template>
 
 <style lang="scss" scoped>
@@ -48,6 +48,8 @@
       width:42px;
       height: auto;
       transition: $transition_default;
+      display: grid;
+      place-items: center;
     }
     // &:hover{
     //   svg{

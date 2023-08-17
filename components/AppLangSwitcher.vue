@@ -60,8 +60,8 @@ function changeLang(){
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border:2px solid var(--text_color_transparent);
-        background: transparent;
+        border: transparent;
+        background: var(--text_color_transparent);
         color: var(--text_color);
         padding: 8px 12px;
         border-radius: 16px;
@@ -87,15 +87,14 @@ function changeLang(){
             border-radius: 16px;
             overflow: hidden;
             display: flex;
-            background: var(--tertiary);
-            box-shadow: var(--shadow);
+            background: var(--text_color);
             flex-direction: column;
             li{
                 order: 1;
-                color: var(--neutral);
+                color: var(--bg_color_smooth);
                 transition: $transition_default;
                 &:hover{
-                    color: var(--pure_white);
+                    color: var(--bg_color);
                 }
                 label{
                     padding: 8px 12px;
@@ -120,7 +119,7 @@ function changeLang(){
                 }
                 &.active{
                     order: 0;
-                    color: var(--pure_white);
+                    color: var(--bg_color);
                 }
             }
         }

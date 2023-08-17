@@ -9,6 +9,7 @@ body{
     font-family: $font_main;
     background-color: var(--bg_color);
     color: var(--text_color);
+    scroll-behavior: smooth;
     
     *{
         box-sizing: border-box;

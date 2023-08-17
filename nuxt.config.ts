@@ -8,14 +8,7 @@ export default defineNuxtConfig({
         head: {
             charset: 'UTF-8',
             viewport: 'width=device-width, initial-scale=1.0',
-            title: 'Cris martins Designer & Developer',
-            meta: [
-                { 
-                    name: 'description', 
-                    content: 
-                    "Hey you! My name is Cristopher Martins and I've been workin as UI/UX Designer and Frontent Developer for over 10 years. Here you are able to see the most expressive projects that I had the opportunity to work with." 
-                }
-            ],
+            title: 'Cristopher Martins Designer & Developer'
         },
         //project pages & layout transitions
         pageTransition: { 
@@ -26,7 +19,7 @@ export default defineNuxtConfig({
         }
     },
     //main scss
-    css: ["@/assets/scss/main.scss"],
+    css: ['@/assets/scss/main.scss'],
     //vite
     vite: {
         css: {
@@ -53,8 +46,8 @@ export default defineNuxtConfig({
     ],
     //color mode
     colorMode: {
-        preference: 'system', // default value of $colorMode.preference    
-        fallback: 'light', // fallback value if not system preference found    
+        preference: 'dark', // default value of $colorMode.preference    
+        fallback: 'dark', // fallback value if not system preference found    
         classSuffix: '-theme'
     },
     //nuxt image
@@ -86,8 +79,8 @@ export default defineNuxtConfig({
     pinia: {
         autoImports: [
         // automatically imports `defineStore`
-        'defineStore', // import { defineStore } from 'pinia'
-        ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
-        ],
-    },
+            'defineStore', // import { defineStore } from 'pinia'
+            ['defineStore', 'definePiniaStore'] // import { defineStore as definePiniaStore } from 'pinia'
+        ]
+    }
 })

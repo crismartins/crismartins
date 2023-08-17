@@ -2,7 +2,9 @@
     <header id="header" class="header section">
         <div class="container__fluid">
             <div class="container__fluid__logo">
-                <TheLogo />
+                <NuxtLink to="/">
+                    <TheLogo /> <strong>Cristopher Martins</strong>
+                </NuxtLink>
             </div>
             <nav class="container__fluid__menu">
                 <AppMenu />
@@ -71,14 +73,47 @@ onMounted(() => {
             display: grid;
             grid-template-columns: repeat(3,1fr);
             align-items: center;
+            @media(max-width: $br_mobile){
+                display: flex;
+                justify-content: space-between;
+                
+            }
             &__logo{
                 display: flex;
+                align-items: center;
+                gap: 12px;
+                position: relative;
+                strong{
+                    margin-left: 52px;
+                    font-weight: 500;
+                    font-size: 12px;
+                    letter-spacing: 0.8px;
+                    text-transform: uppercase;
+                    position: absolute;
+                    display: grid;
+                    place-items: center;
+                    height: 100%;
+                    bottom: -10px;
+                    opacity: 0;
+                    color: var(--text_color);
+                    transition: $transition_default;
+                }
+                &:hover{
+                    strong{
+                        bottom: 0px;
+                        opacity: 1;
+                    }
+                }
             }
             &__menu{
                 display: flex;
                 justify-content: center;
                 @media(max-width: $br_mobile){
-                    display: none;
+                    position: fixed;
+                    bottom: 40px;
+                    z-index: 999;
+                    background-color: var(--text_color_transparent);
+                    border-radius: 40px;
                 }
             }
             &__actions{

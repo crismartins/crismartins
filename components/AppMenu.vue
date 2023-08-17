@@ -45,7 +45,7 @@ const menuItems = reactive([
                 display: block;
                 font-size: 14px;
                 font-weight: 400;
-                color: var(--text_color);
+                color: var(--text_color_smooth);
                 display: grid;
                 place-items: center;
                 span{
@@ -63,6 +63,7 @@ const menuItems = reactive([
                     display: block;
                 }
                 &:hover, &.active, &.router-link-exact-active{
+                    color: var(--text_color);
                     &::after{
                         width: 28px;
                     }

@@ -303,7 +303,7 @@
                     border-right: .15em solid var(--primary);
                     white-space: nowrap;
                     animation: 
-                    typing 4.5s steps(15, end) infinite,
+                    typing 4.5s steps(15, end),
                     blink-caret .8s step-end infinite;
                 }
             }
