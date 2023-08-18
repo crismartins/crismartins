@@ -1,5 +1,5 @@
 <template>
-    <header id="header" class="header section">
+    <header ref="navbar" class="header section" :class="{ active : scrollTop }">
         <div class="container__fluid">
             <div class="container__fluid__logo">
                 <NuxtLink to="/">
@@ -16,37 +16,49 @@
         </div>
     </header>
     <pre style="position: fixed; z-index: 9999; background-color: red; bottom: 50%;">
-        {{ lastScroll }}
+        {{ onScroll.lastScroll }}
+        {{ onScroll.position }}
     </pre>
 </template>
 
 <script setup>
 import {onMounted} from '#imports'
 
-onMounted(() => {
-    let lastScroll = 0
-    let element = document.getElementById('header')
-    document.addEventListener('scroll', () => {
-        let position = window.pageYOffset
-        
-        if (position <= 0) {
-            element.classList.add('active')
-            element.classList.remove('inactive')
-        }
+const navbar = ref(null)
 
-        if (position > lastScroll && !element.classList.contains('inactive')) {
+const scrollTop = ref(null)
+
+const onScroll = reactive({
+    lastScroll: null,
+    position: null
+})
+
+onMounted(() => {
+    onScroll.lastScroll = 0
+    document.addEventListener('scroll', (event) => {
+        onScroll.position = window.scrollY.toFixed()
+        if (onScroll.position <= 0 ) {
+            // navbar.value.classList.add('active')
+            // navbar.value.classList.remove('inactive')
+            scrollTop.value = true
+        }
+        
+        if (onScroll.position > onScroll.lastScroll) {
             // down
-            element.classList.remove('active')
-            element.classList.add('inactive')
+            // navbar.value.classList.remove('active')
+            // navbar.value.classList.add('inactive')
+            scrollTop.value = false
+
         } else if (
-            position < lastScroll &&
-            element.classList.contains('inactive')
+            onScroll.position < onScroll.lastScroll
         ) {
             // up
-            element.classList.remove('inactive')
-            element.classList.add('active')
+            // navbar.value.classList.remove('inactive')
+            // navbar.value.classList.add('active')
+            scrollTop.value = true
         }
-        lastScroll = position
+        onScroll.lastScroll = onScroll.position
+
     })
 })
 </script>
@@ -63,6 +75,7 @@ onMounted(() => {
         z-index: 999;
         background: var(--bg_color);
         background: linear-gradient(180deg, var(--bg_color) 70%, var(--bg_color_transparent) 90%, rgba(255, 255, 255, 0) 100%);
+        top: -100%;
         &.inactive{
             top: -100%;
         }

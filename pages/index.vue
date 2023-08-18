@@ -10,8 +10,6 @@
         <HomeServicesNew />
         
         <HomeContact />
-
-        <TheFooter />
         
     </div>
 </template>
