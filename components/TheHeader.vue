@@ -15,7 +15,7 @@
             </div>
         </div>
     </header>
-    <pre>
+    <pre style="position: fixed; z-index: 9999; background-color: red; bottom: 50%;">
         {{ lastScroll }}
     </pre>
 </template>

@@ -70,7 +70,7 @@ const menuItems = reactive([
                 cursor: pointer;
                 @media(max-width: $br_mobile){
                     font-size: 12px;
-                    padding:8px 8px 0 8px;
+                    padding:12px 8px 0 8px;
                     border-radius: 40px;
                 }
                 i{
@@ -83,13 +83,11 @@ const menuItems = reactive([
                 span{
                     padding-block: 8px;
                     @media(max-width: $br_mobile){
-                        padding-block: 2px 8px;
+                        padding-block: 2px 12px;
                     }
                 }
                 &:after{
                     content: "";
-                    bottom: 0;
-                    left: 0;
                     width: 0%;
                     height: 2px;
                     background-color: var(--secondary);

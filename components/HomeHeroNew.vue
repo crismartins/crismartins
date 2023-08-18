@@ -110,7 +110,7 @@ const hardSkills = reactive([
                         position: absolute;
                     }
                     
-                    --width: 18vw;
+                    --width: 16vw;
                     @media(max-width:$br_mobile){
                         --width: 30vw;
                     }
