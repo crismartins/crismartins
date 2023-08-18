@@ -2,7 +2,7 @@
     <header 
         ref="navbar" 
         class="header section" 
-        :class="scrollTop ? 'show' : 'hide'"
+        :class="onScroll.scrollTop ? 'show' : 'hide'"
     >
         <div class="container__fluid">
             <div class="container__fluid__logo">
@@ -19,21 +19,15 @@
             </div>
         </div>
     </header>
-    <pre style="position: fixed; z-index: 9999; background-color: red; bottom: 50%;">
-        {{ onScroll.lastScroll }}
-        {{ onScroll.position }}
-        {{ scrollTop }}
-    </pre>
 </template>
 
 <script setup>
-import {onMounted} from '#imports'
+import {onMounted, ref, reactive} from '#imports'
 
 const navbar = ref(null)
 
-const scrollTop = ref(true)
-
 const onScroll = reactive({
+    scrollTop: true,
     lastScroll: null,
     position: null
 })
@@ -43,16 +37,15 @@ onMounted(() => {
     document.addEventListener('scroll', () => {
         onScroll.position = window.scrollY.toFixed()
         if (onScroll.position <= 0 ) {
-            scrollTop.value = true
+            onScroll.scrollTop = true
         }
         
-        if (onScroll.position > onScroll.lastScroll) {
-            scrollTop.value = false
-
+        if (onScroll.position > onScroll.lastScroll && onScroll.position > 1) {
+            onScroll.scrollTop = false
         } else if (
-            onScroll.position < onScroll.lastScroll
+            onScroll.position < onScroll.lastScroll || onScroll.position < 1
         ) {
-            scrollTop.value = true
+            onScroll.scrollTop = true
         }
         onScroll.lastScroll = onScroll.position
 
