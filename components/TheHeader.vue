@@ -1,5 +1,9 @@
 <template>
-    <header ref="navbar" class="header section" :class="{ active : scrollTop }">
+    <header 
+        ref="navbar" 
+        class="header section" 
+        :class="scrollTop ? 'show' : 'hide'"
+    >
         <div class="container__fluid">
             <div class="container__fluid__logo">
                 <NuxtLink to="/">
@@ -18,6 +22,7 @@
     <pre style="position: fixed; z-index: 9999; background-color: red; bottom: 50%;">
         {{ onScroll.lastScroll }}
         {{ onScroll.position }}
+        {{ scrollTop }}
     </pre>
 </template>
 
@@ -26,7 +31,7 @@ import {onMounted} from '#imports'
 
 const navbar = ref(null)
 
-const scrollTop = ref(null)
+const scrollTop = ref(true)
 
 const onScroll = reactive({
     lastScroll: null,
@@ -35,26 +40,18 @@ const onScroll = reactive({
 
 onMounted(() => {
     onScroll.lastScroll = 0
-    document.addEventListener('scroll', (event) => {
+    document.addEventListener('scroll', () => {
         onScroll.position = window.scrollY.toFixed()
         if (onScroll.position <= 0 ) {
-            // navbar.value.classList.add('active')
-            // navbar.value.classList.remove('inactive')
             scrollTop.value = true
         }
         
         if (onScroll.position > onScroll.lastScroll) {
-            // down
-            // navbar.value.classList.remove('active')
-            // navbar.value.classList.add('inactive')
             scrollTop.value = false
 
         } else if (
             onScroll.position < onScroll.lastScroll
         ) {
-            // up
-            // navbar.value.classList.remove('inactive')
-            // navbar.value.classList.add('active')
             scrollTop.value = true
         }
         onScroll.lastScroll = onScroll.position
@@ -71,15 +68,14 @@ onMounted(() => {
         display: flex;
         width: 100%;
         transition: $transition_default;
-        top: 0;
         z-index: 999;
         background: var(--bg_color);
         background: linear-gradient(180deg, var(--bg_color) 70%, var(--bg_color_transparent) 90%, rgba(255, 255, 255, 0) 100%);
-        top: -100%;
-        &.inactive{
+        top: 0;
+        &.hide{
             top: -100%;
         }
-        &.active{
+        &.show{
             top: 0;
         }
         .container__fluid{
