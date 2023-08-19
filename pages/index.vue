@@ -1,10 +1,10 @@
 <template>
     <div>
-        <HomeHeroNew />
+        <HomeHero />
 
         <HomePortfolio />
+        
         <HomeAboutMe />
-        <!-- <HomeHero /> -->
 
 
         <HomeServicesNew />

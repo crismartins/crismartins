@@ -1,6 +1,5 @@
 <template>
     <header 
-        ref="navbar" 
         class="header section" 
         :class="onScroll.scrollTop ? 'show' : 'hide'"
     >
@@ -22,9 +21,7 @@
 </template>
 
 <script setup>
-import {onMounted, ref, reactive} from '#imports'
-
-const navbar = ref(null)
+import {onMounted, reactive} from '#imports'
 
 const onScroll = reactive({
     scrollTop: true,
@@ -120,6 +117,7 @@ onMounted(() => {
                     bottom: 0;
                     left: 0;
                     width: 100%;
+                    padding-inline: 20px;
                 }
             }
             &__actions{

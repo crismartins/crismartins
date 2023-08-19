@@ -1,106 +1,229 @@
 <template>
     <section class="hero__section section">
         <div class="hero__section__container container">
+            <div class="hero__section__container__presentation">
+                <ul class="hero__section__container__presentation__skills">
+                    <li 
+                        v-for="(skill, index) in hardSkills" 
+                        :key="index"
+                        class="hero__section__container__presentation__skills__item"
+                        :class="'skill_' + index"
+                    >
+                        <span class="hero__section__container__presentation__skills__item__icon">
+                            <AppIcon :IconName="skill.logo" />
+                            <small>
+                                {{ skill.title }}
+                            </small>
+                        </span>
+                    </li>
+                </ul>
+                <NuxtLink to="/about" class="hero__section__container__presentation__button">
+                    <figure class="hero__section__container__presentation__button__avatar">
+                        <NuxtImg 
+                            src="/images/crismartins_avatar.png"
+                            format="webp"
+                            width="200px"
+                            quality="100"
+                            densities="1 2 3 4"
+                        />
+                    </figure>
+                    <div>
+                        <span>
+                            About Me
+                        </span>
+                    </div>
+                </NuxtLink>
+            </div>
             <div class="hero__section__container__text">
-                <figure class="hero__section__container__text__avatar">
-                    <NuxtImg 
-                        src="/images/avatar2.png" 
-                        format="webp" 
-                        width="100px" 
-                        height="100px" 
-                        densities="x1 x2"
-                        quality="100"
-                    />
-                </figure>
-                <p class="hero__section__container__text__name small-title">
-                    Cristopher Martins
-                </p>
-                <h1 class="hero__section__container__text__title">
-                    Designer &
-                    Frontend Dev.
-                </h1>
-                <div class="hero__section__container__text__cta">
-                    <AppButton class="secondary">
-                        Let's Talk
-                    </AppButton>
-                    <AppButton class="outline" hasLink="/#portfolio">
-                        Portfolio <AppIcon IconName="ph:arrow-down-bold" />
+                <div class="hero__section__container__text__wrapper">
+                    <p class="hero__section__container__text__wrapper__name small-title">
+                        I'm Cristopher Martins
+                    </p>
+                    <h1 class="hero__section__container__text__wrapper__title gradient-font">
+                        Designer & Developer.
+                    </h1>
+                    <AppButton class="primary">
+                        Get in Touch
                     </AppButton>
                 </div>
             </div>
         </div>
-        <div class="hero__section__cta container">
-            <p>
-                As a <strong>Designer</strong> and <strong>Developer</strong> I’m able to create not only amazing designs 
-                but also developing your website, simple like that. 
-            </p>
-            <div class="hero__section__cta__buttons">
-                <AppButton class="secondary">
-                    Let's Talk
-                </AppButton>
-                <AppButton class="outline" hasLink="/#portfolio">
-                    Portfolio <AppIcon IconName="ph:arrow-down-bold" />
-                </AppButton>
-            </div>
-        </div>
-        <!-- <nuxt-img 
-            class="hero__section__container__image"
-            src="images/logo_lines.svg"
-            format="webp"
-            width="500"
-        /> -->
     </section>
 </template>
-
+  
 <script setup>
-   
+import { reactive } from '#imports'
+const hardSkills = reactive([
+    {logo: 'logos:figma', title: 'Figma'},
+    {logo: 'logos:adobe-xd', title: 'Adobe Xd'},
+    {logo: 'logos:adobe-photoshop', title: 'Adobe Photoshop'},
+    {logo: 'logos:adobe-illustrator', title: 'Adobe Illustrator'},
+    {logo: 'logos:javascript', title: 'Javascript'},
+    {logo: 'logos:html-5', title: 'HTML 5'},
+    {logo: 'logos:css-3', title: 'CSS 3'}
+])
 </script>
-
+  
 <style lang="scss" scoped>
 .hero__section{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgb(55,55,244);
-    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(226, 242, 255, 0.2) 50%, rgba(42, 255, 191,0.2) 100%);
+    min-height: 90vh;
+    min-height: 90dvh;
+    display: grid;
+    place-items: center;
     &__container{
-        padding-top: 100px;
+        padding-block: 16% 80px;
         flex-grow: 1;
+        &__presentation{
+            position: relative;
+            display: grid;
+            place-items: center;
+            margin-bottom:32px;
+            @media(max-width: $br_mobile){
+                margin-top: 100px;
+            }
+            &__skills{
+                position: absolute;
+                display: grid;
+                place-items: center;
+                z-index: -1;
+                &__item{
+                    position: absolute;
+                    aspect-ratio: 1;
+                    border-radius: 100%;
+                    border: 2px solid var(--text_color_transparent) ;
+                    display: flex;
+                    align-items: center;
+                    &__icon{
+                        aspect-ratio: 1;
+                        font-size: 24px;
+                        width: 44px;
+                        display: grid;
+                        place-items: center;
+                        border-radius: 100%;
+                        background-color: var(--neutral);
+                        margin-left: -20px;
+                        box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -4px 32px 0 var(--bg_color);
+                    }
+                    small{
+                        background-color: var(--tertiary);
+                        opacity: 0;
+                        position: absolute;
+                    }
+                    
+                    --width: 16vw;
+                    @media(max-width:$br_mobile){
+                        --width: 30vw;
+                    }
+                    @for $i from 0 to 8 {
+                        &:nth-child(10n + #{$i}) {
+                            width: calc(#{$i} * var(--width));
+                            transform: rotate(calc(#{$i} * 45deg));
+                            animation: rotate infinite linear;
+                            animation-duration: calc(20s - #{$i} * 1s);
+                            @media(max-width:$br_mobile){
+                                width: calc(18vw + #{$i} * 28vw);
+                            }
+                        }
+                    }
+                }
+            }
+            &__button{
+                background-color: var(--bg_color);
+                border: 0;
+                border-radius: 100px;
+                padding: 8px;
+                display: flex;
+                grid-template-columns: 2fr;
+                align-items: center;
+                position: relative;
+                z-index: 8;
+                animation: pulse 2s infinite ease;
+                div{
+                    transition: $transition_default;
+                    display: grid;
+                    grid-template-columns: 0fr;
+                    span{
+                        display: flex;
+                        overflow: hidden;
+                        transition: $transition_default;
+                        white-space: nowrap;
+                        color: var(--pure_white);
+                    }
+                }
+
+                &:hover{
+                    background-color: var(--tertiary);
+                    figure{
+                        width: 40px;
+                    }
+                    div{
+                        grid-template-columns: 1fr;
+                        span{
+                        padding: 8px 20px 8px 8px;
+                        }
+                    }
+                }
+                
+                
+                &__avatar{
+                    flex-shrink: 0;
+                    overflow: hidden;
+                    width: 80px;
+                    aspect-ratio: 1;
+                    border-radius: 50%;
+                    background-color: var(--secondary);
+                    display: grid;
+                    place-items: center;
+                    margin: 0;
+                    transition: $transition_default;
+                    img{
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                    }
+                }
+            }
+        }
+        &__text{
         display: grid;
         place-items: center;
-        &__text{
-            display: flex;
-            flex-direction: column;
-            &__avatar{
-                width: fit-content;
-                margin: 0 auto 44px auto;
-                border-radius: 40px;
-                overflow: hidden;
-                box-shadow: 0 0 0 16px rgba(#5e52ff, 0.2), 0 0 0 32px rgba(#40ff83, 0.2);
-                img{
-                    max-width: 100%;
-                    max-height: 100%;
-                    transform: scale(1.08);
-                    object-fit: cover;
-                }
+        position: relative;
+        &__wrapper{
+            display: grid;
+            place-items: center;
+            position: relative;
+            z-index: 2;
+            &:before{
+                content: '';
+                display: block;
+                background-color: var(--bg_color);
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                filter: blur(40px);
+                position: absolute;
+                z-index: -1;
             }
             &__name{
                 text-align: center;
+                @media(max-width:$br_mobile){
+                    letter-spacing: 4px;
+                }
             }
             &__title{
                 margin-block: 4px;
                 font-size: $size_72px;
                 text-align: center;
                 font-weight: 600;
+                @media(max-width:$br_mobile){
+                    font-size: $size_60px;
+                }
             }
-            &__cta{
-                margin-top: 44px;
-                display: flex;
-                gap: 12px;
-                justify-content: center;
+            button{
+                margin-top: 40px;
             }
+        }
         }
         &__image{
             position: absolute;

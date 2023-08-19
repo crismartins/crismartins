@@ -54,11 +54,13 @@ const menuItems = reactive([
             border: 1px solid var(--bg_color_smooth);
             border-radius: 40px;
             backdrop-filter: blur(16px);
-            margin: 0 20px 20px 20px;
+            margin-bottom: 20px;
             padding-inline: 16px;
             gap: 4px;
+            width: 100%;
         }
         &__item{
+            flex-grow: 1;
             &__link{
                 padding: 8px 16px;
                 display: block;
@@ -96,9 +98,6 @@ const menuItems = reactive([
                 }
                 &:hover, &.active, &.router-link-exact-active{
                     color: var(--text_color);
-                    @media(max-width: $br_mobile){
-                        color: var(--secondary);
-                    }
                     &::after{
                         width: 28px;
                     }
