@@ -12,6 +12,7 @@
             <ul class="portfolio__section__container__projects">
                 <li 
                     v-for="project in projects" 
+                    :id="project.id"
                     :key="project.id"
                     :ref="project.id"
                     class="portfolio__section__container__projects__item"
@@ -51,7 +52,7 @@
                     View portfolio
                 </AppButton>
             </div>
-            <!-- <div class="portfolio__section__container__projects__navigation">
+            <div class="portfolio__section__container__projects__navigation">
                 <ul class="portfolio__section__container__projects__navigation__arrows">
                     <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
                         <button @click="prevProj">
@@ -75,7 +76,7 @@
                         </button>
                     </li>
                 </ul>
-            </div> -->
+            </div>
 
         </div>
     </section>
@@ -84,26 +85,33 @@
 <script setup>
 import { reactive, ref } from '#imports'
 
-const featuredProject = ref(1)
+const selectedProj = ref(null)
+
 function prevProj(){
-    if(featuredProject.value > 1 ){
-        featuredProject.value = featuredProject.value - 1
-        return goToProj(featuredProject.value)
+    if(selectedProj.value > 1 ){
+        selectedProj.value = selectedProj.value - 1
+        return goToProj(selectedProj.value)
     }
 } 
 function nextProj(){
-    if(featuredProject.value < projects.length ){
-        featuredProject.value = featuredProject.value + 1
-        return goToProj(featuredProject.value)
+    if(selectedProj.value < projects.length ){
+        selectedProj.value = selectedProj.value + 1
+        return goToProj(selectedProj.value)
     }
 } 
 
 function goToProj(project) {
-    featuredProject.value = project
-    console.log(featuredProject)
-    // return featuredProject.scrollIntoView()
-    // this.$refs[featuredProject.value].scrollIntoView({ behavior: 'smooth' })
-    // scrollTo(featuredProject.value)
+    if(selectedProj.value != project){
+        selectedProj.value = project
+        console.log(selectedProj.value)
+        // const scrollTo =  document.getElementById(selectedProj.value)
+        document.getElementById(selectedProj.value).scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
+
+    }
+    // console.log(selectedProj)
+    // return selectedProj.scrollIntoView()
+    // this.$refs[selectedProj.value].scrollIntoView({ behavior: 'smooth' })
+    // scrollTo(selectedProj.value)
 }
 
 const projects = reactive([
