@@ -17,6 +17,8 @@
                     :ref="project.id"
                     class="portfolio__section__container__projects__item"
                     :class="{ active : featuredProject == project.id }"
+                    @touchstart="setDragStart" 
+                    @touchend="swipeSlider"
                 >
                     <NuxtLink class="portfolio__section__container__projects__item__contain" :to="project.name">
                         <header class="portfolio__section__container__projects__item__contain__header project-image">
@@ -101,17 +103,29 @@ function nextProj(){
 } 
 
 function goToProj(project) {
-    if(selectedProj.value != project){
-        selectedProj.value = project
-        console.log(selectedProj.value)
-        // const scrollTo =  document.getElementById(selectedProj.value)
-        document.getElementById(selectedProj.value).scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
-
-    }
+    selectedProj.value = project
+    console.log(selectedProj.value)
+    const scrollTo =  document.getElementById(selectedProj.value)
+    scrollTo.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'center' })
     // console.log(selectedProj)
     // return selectedProj.scrollIntoView()
     // this.$refs[selectedProj.value].scrollIntoView({ behavior: 'smooth' })
     // scrollTo(selectedProj.value)
+}
+
+const dragStartPosition = ref(null)
+function setDragStart(event) {
+    dragStartPosition.value = event.changedTouches[0].clientX
+}
+function swipeSlider(event) {
+    const touchPosition = parseInt(event.changedTouches[0].clientX)
+    if(Math.abs(touchPosition - dragStartPosition.value) > 20) {
+        if(touchPosition > dragStartPosition.value) {
+            prevProj()
+            return
+        }
+        nextProj()
+    }   
 }
 
 const projects = reactive([
