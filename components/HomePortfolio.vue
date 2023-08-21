@@ -14,9 +14,8 @@
                     v-for="project in projects" 
                     :id="project.id"
                     :key="project.id"
-                    :ref="project.id"
                     class="portfolio__section__container__projects__item"
-                    :class="{ active : featuredProject == project.id }"
+                    :class="{ active : selectedProj == project.id }"
                     @touchstart="setDragStart" 
                     @touchend="swipeSlider"
                 >
@@ -48,22 +47,17 @@
                     </NuxtLink>
                 </li>
             </ul>
-            <div class="section">
-                <AppButton class="outline">
-                    <AppIcon />
-                    View portfolio
-                </AppButton>
-            </div>
-            <div class="portfolio__section__container__projects__navigation">
+            
+            <div class="portfolio__section__container__projects__navigation section">
                 <ul class="portfolio__section__container__projects__navigation__arrows">
                     <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
-                        <button @click="prevProj">
-                            <AppIcon />
+                        <button class="outline" @click="prevProj">
+                            <AppIcon IconName="ph:arrow-left" />
                         </button>
                     </li>
                     <li class="portfolio__section__container__projects__navigation__arrows__item right-arrow">
-                        <button @click="nextProj">
-                            <AppIcon />
+                        <button class="outline" @click="nextProj">
+                            <AppIcon IconName="ph:arrow-right" />
                         </button>
                     </li>
                 </ul>
@@ -73,11 +67,13 @@
                         :key="project.id"
                         class="portfolio__section__container__projects__navigation__bullets__item"
                     >
-                        <button @click="goToProj(project.id)">
-                            {{ project.name }}
-                        </button>
+                        <button :class="{ active : selectedProj == project.id }" @click="goToProj(project.id)" />
                     </li>
                 </ul>
+                <AppButton class="outline" hasLink="/portfolio">
+                    <AppIcon IconName="ph:caret-right-bold" />
+                    View portfolio
+                </AppButton>
             </div>
 
         </div>
@@ -87,7 +83,7 @@
 <script setup>
 import { reactive, ref } from '#imports'
 
-const selectedProj = ref(null)
+const selectedProj = ref(1)
 
 function prevProj(){
     if(selectedProj.value > 1 ){
@@ -104,9 +100,8 @@ function nextProj(){
 
 function goToProj(project) {
     selectedProj.value = project
-    console.log(selectedProj.value)
     const scrollTo =  document.getElementById(selectedProj.value)
-    scrollTo.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'center' })
+    scrollTo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
     // console.log(selectedProj)
     // return selectedProj.scrollIntoView()
     // this.$refs[selectedProj.value].scrollIntoView({ behavior: 'smooth' })
@@ -115,10 +110,12 @@ function goToProj(project) {
 
 const dragStartPosition = ref(null)
 function setDragStart(event) {
-    dragStartPosition.value = event.changedTouches[0].clientX
+    dragStartPosition.value = event.changedTouches[0].clientX 
+    //?? event.clientX
 }
 function swipeSlider(event) {
-    const touchPosition = parseInt(event.changedTouches[0].clientX)
+    const touchPosition = parseInt(event.changedTouches[0].clientX) 
+    //?? parseInt(event.clientX)
     if(Math.abs(touchPosition - dragStartPosition.value) > 20) {
         if(touchPosition > dragStartPosition.value) {
             prevProj()
@@ -243,19 +240,21 @@ const projects = reactive([
             }
         }
         &__projects{
-            // flex-grow: 1;
-            padding-inline: 80px;
+            margin-left: 100px;
+            padding-inline: 40px;
             overflow: auto;
             display: flex;
             gap: 20px;
+            position: relative;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
             &__item{
                 max-width: 380px;
                 flex-shrink: 0;
                 position: relative;
-                &.active{
-                    flex-grow: 1;
-                    // transform: scale(1.2);
-                }
                 &:hover{
                     picture{
                         img{
@@ -266,6 +265,13 @@ const projects = reactive([
                         opacity: 1;
                         top: 0;
                     }
+                }
+                &.active{
+                    .project-titles{
+                        opacity: 1;
+                        top: 0;
+                    }
+
                 }
                 &__contain{
                     color: var(--text_color);
@@ -297,7 +303,7 @@ const projects = reactive([
                             height: 100%;
                             z-index: 999;
                             &__item{
-    
+                                font-size: 20px;
                             }
                         }
                     }
@@ -320,18 +326,53 @@ const projects = reactive([
                 }
             }
             &__navigation{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 &__arrows{
                     display: flex;
                     justify-content: space-between;
                     &__item{
-                    
+                        height: 100%;
+                        top: 0;
+                        display: grid;
+                        place-items: center;
+                        // position: absolute;
+                        button{
+                            background-color: transparent;
+                            color: var(--text_color);
+                            border: none;
+                        }
+                        &.right-arrow{
+                            right: 0;
+                        }
+                        &.left-arrow{
+                            left: 0;
+                        }
                     }
                 }
                 &__bullets{
                     display: flex;
-                    gap: 12px;
+                    gap: 20px;
+                    justify-content: center;
+                    flex-grow: 1;
                     &__item{
-    
+                        button{
+                            background-color: var(--text_color_transparent);
+                            border: 0;
+                            border-radius: 40px;
+                            width: 8px;
+                            height: 8px;
+                            padding: 0;
+                            transition: $transition_default;
+                            &:hover{
+                                background-color: var(--text_color_smooth);
+                            }
+                            &.active{
+                                background-color: var(--secondary);
+                                width: 48px;
+                            }
+                        }
                     }
                 }
             }
