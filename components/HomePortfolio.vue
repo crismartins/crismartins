@@ -15,11 +15,14 @@
                     :id="project.id"
                     :key="project.id"
                     class="portfolio__section__container__projects__item"
-                    :class="{ active : selectedProj == project.id }"
                     @touchstart="setDragStart" 
                     @touchend="swipeSlider"
                 >
-                    <NuxtLink class="portfolio__section__container__projects__item__contain" :to="project.name">
+                    <NuxtLink 
+                        :class="{ active : selectedProj == project.id }"
+                        class="portfolio__section__container__projects__item__contain" 
+                        :to="project.name"
+                    >
                         <header class="portfolio__section__container__projects__item__contain__header project-image">
                             <ul class="portfolio__section__container__projects__item__contain__header__stacks">
                                 <li
@@ -71,7 +74,6 @@
                     </li>
                 </ul>
                 <AppButton class="outline" hasLink="/portfolio">
-                    <AppIcon IconName="ph:caret-right-bold" />
                     View portfolio
                 </AppButton>
             </div>
@@ -89,11 +91,17 @@ function prevProj(){
     if(selectedProj.value > 1 ){
         selectedProj.value = selectedProj.value - 1
         return goToProj(selectedProj.value)
+    }else{
+        selectedProj.value = projects.length
+        return goToProj(selectedProj.value)
     }
 } 
 function nextProj(){
     if(selectedProj.value < projects.length ){
         selectedProj.value = selectedProj.value + 1
+        return goToProj(selectedProj.value)
+    }else{
+        selectedProj.value = 1
         return goToProj(selectedProj.value)
     }
 } 
@@ -102,10 +110,6 @@ function goToProj(project) {
     selectedProj.value = project
     const scrollTo =  document.getElementById(selectedProj.value)
     scrollTo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
-    // console.log(selectedProj)
-    // return selectedProj.scrollIntoView()
-    // this.$refs[selectedProj.value].scrollIntoView({ behavior: 'smooth' })
-    // scrollTo(selectedProj.value)
 }
 
 const dragStartPosition = ref(null)
@@ -244,7 +248,7 @@ const projects = reactive([
             padding-inline: 40px;
             overflow: auto;
             display: flex;
-            gap: 20px;
+            gap: 8px;
             position: relative;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
@@ -255,23 +259,28 @@ const projects = reactive([
                 max-width: 380px;
                 flex-shrink: 0;
                 position: relative;
-                &:hover{
-                    picture{
-                        img{
-                            transform: scale(1.2);
+                &__contain{
+                    display: block;
+                    transform: scale(0.84);
+                    &:hover{
+                        picture{
+                            img{
+                                transform: scale(1.2);
+                            }
+                        }
+                        .project-titles{
+                            opacity: 1;
+                            top: 0;
                         }
                     }
-                    .project-titles{
-                        opacity: 1;
-                        top: 0;
+                    &.active{
+                        transform: scale(1);
+                        .project-titles{
+                            opacity: 1;
+                            top: 0;
+                        }
+    
                     }
-                }
-                &.active{
-                    .project-titles{
-                        opacity: 1;
-                        top: 0;
-                    }
-
                 }
                 &__contain{
                     color: var(--text_color);
@@ -329,9 +338,14 @@ const projects = reactive([
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                gap: 24px;
+                @media(max-width: $br_mobile){
+                    flex-direction: column;
+                }
                 &__arrows{
                     display: flex;
                     justify-content: space-between;
+                    gap: 20px;
                     &__item{
                         height: 100%;
                         top: 0;
@@ -342,12 +356,26 @@ const projects = reactive([
                             background-color: transparent;
                             color: var(--text_color);
                             border: none;
+                            font-size: 24px;
+                            i{
+                                transition: $transition_default;
+                            }
                         }
                         &.right-arrow{
                             right: 0;
+                            &:hover{
+                                i{
+                                    transform: scale(1.2);
+                                }
+                            }
                         }
                         &.left-arrow{
                             left: 0;
+                            &:hover{
+                                i{
+                                    transform: scale(1.2);
+                                }
+                            }
                         }
                     }
                 }

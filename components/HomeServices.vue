@@ -13,57 +13,6 @@
                         All you need to make your Business go beyond
                     </h3>
 
-                    <ul class="services__section__container__column__selection__list">
-                        <li class="services__section__container__column__selection__list__item">
-                            <AppButton 
-                                class="primary" 
-                                :class="service_1 ? 'active' : 'inactive'"
-                                @click="goService(1)"
-                            >
-                                <strong>
-                                    <AppIcon IconName="ph:devices-duotone" />
-                                    UX/UI Design
-                                </strong>
-                            </AppButton>
-                        </li>
-                        <li class="services__section__container__column__selection__list__item">
-                            <AppButton 
-                                class="primary" 
-                                :class="service_2 ? 'active' : 'inactive'"
-                                @click="goService(2)"
-                            >
-                                <strong>
-                                    <AppIcon IconName="ph:terminal-window-duotone" />
-                                    Web Development
-                                </strong>
-                            </AppButton>
-                        </li>
-                        <li class="services__section__container__column__selection__list__item">
-                            <AppButton 
-                                class="primary" 
-                                :class="service_3 ? 'active' : 'inactive'"
-                                @click="goService(3)"
-                            >
-                                <strong>
-                                    <AppIcon IconName="ph:bezier-curve-duotone" />
-                                    Branding
-                                </strong>
-                            </AppButton>
-                        </li>
-                        <li class="services__section__container__column__selection__list__item">
-                            <AppButton 
-                                class="primary" 
-                                :class="service_4 ? 'active' : 'inactive'"
-                                @click="goService(4)"
-                            >
-                                <strong>
-                                    <AppIcon IconName="ph:pencil-line-duotone" />
-                                    Illustration
-                                </strong>
-                            </AppButton>
-                        </li>
-                    </ul>
-
                 </div>
                 <ul ref="container" class="services__section__container__column__details">
                     <li 
@@ -71,26 +20,26 @@
                         :key="service.id"
                         class="services__section__container__column__details__item"
                     >
-                        <article 
-                            :id="'service_'+service.id"
-                            :style="layer0"
-                            class="services__section__container__column__details__item__card"
-                        >
-                            <figure>
-                                <img 
-                                    :src="service.image"
-                                    width="240"
-                                    height="386"
-                                />
-                            </figure>
-
-                            <p>
-                                {{ service.description }}
-                            </p>
-                            <AppButton :ref="'target_'+service.id" class="outline">
-                                That's what I need!
-                            </AppButton>
-                        </article>
+                        <NuxtLink class="services__section__container__column__details__item__contain" to="/services">
+                            <header class="services__section__container__column__details__item__contain__header">
+                                <figure>
+                                    <AppIcon :IconName="service.icon" />
+                                </figure>
+                            </header>
+                            <div 
+                                class="services__section__container__column__details__item__contain__content"
+                            >
+                                <h4>
+                                    {{ service.title }}
+                                </h4>
+                                <p>
+                                    {{ service.description }}
+                                </p>
+                                <!-- <AppButton :ref="'target_'+service.id" class="outline small">
+                                    Contract
+                                </AppButton> -->
+                            </div>
+                        </NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -99,63 +48,32 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed} from '#imports'
-import { useElementVisibility, useParallax } from '@vueuse/core'
+import { reactive} from '#imports'
 
-let services = ref([
+let services = reactive([
     {
-        id: 1,
-        image: '/images/crismartins.png',
+        title: 'Graphics',
+        icon: 'lucide:paint-bucket',
+        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
+    },
+    {
+        title: 'UX & UI',
+        icon: 'lucide:pencil-ruler',
+        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
+    },
+    {
+        title: 'Development',
+        icon: 'lucide:code-2',
         description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
     }
-    // ,
-    // {
-    //     id: 2,
-    //     image: '/images/crismartins.png',
-    //     description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    // },
-    // {
-    //     id: 3,
-    //     image: '/images/crismartins.png',
-    //     description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    // },
-    // {
-    //     id: 4,
-    //     image: '/images/crismartins.png',
-    //     description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    // }
+
 ])
-const selected = ref(1)
-
-const target_1 = ref(null)
-const service_1 = useElementVisibility(target_1)
-const target_2 = ref(null)
-const service_2 = useElementVisibility(target_2)
-const target_3 = ref(null)
-const service_3 = useElementVisibility(target_3)
-const target_4 = ref(null)
-const service_4 = useElementVisibility(target_4)
-const container = ref(null)
-// const parallax = reactive(useParallax(container))
-
-// const layer0 = computed(() => ({
-//     transition: '.3s ease-out all',
-//     transform: `rotateX(${parallax.roll * 40}deg) rotateY(${
-//         parallax.tilt * 40
-//     }deg)`
-// }))
-
-function goService(id){
-    const element = document.getElementById('service_'+id)
-    element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
-    selected.value = id
-}
 
 </script>
 
 <style lang="scss" scoped>
 .services__section{
-    padding-block: 40px;
+    padding-block: 80px;
     &__container{
         display: flex;
         gap: 40px;
@@ -163,75 +81,128 @@ function goService(id){
             writing-mode:vertical-rl;
             transform: rotate(-180deg);
         }
+        h3{
+            position:relative; 
+            z-index: 2;
+        }
         &__column{
             display: grid;
             gap: 40px;
-            grid-template-columns: 400px 1fr;
+            grid-template-columns: 1fr 1fr;
+            @media(max-width:$br_mobile){
+                grid-template-columns: 1fr;
+            }
+
             &__selection{
-                justify-content: center;
-                display: flex;
-                flex-direction: column;
-                &__list{
-                    margin-top: 40px;
-                    display: grid;
-                    gap: 24px;
-                    grid-template-columns: 1fr 1fr;
-                    &__item{
-                        display: flex;
-                        button{
-                            width: 100%;
-                            display: grid;
-                            place-items: center;
-                            aspect-ratio: 1;
-                            font-size: $size_24px;
-                            padding: 12px;
-                        
-                            strong{
-                                font-weight: 500;
-                                i{
-                                    font-size: 60px;
-                                }
-                            }
-                        }
-                    }
+                position: relative;
+                &:before{
+                    content: '';
+                    background: var(--tertiary);
+                    position: absolute;
+                    opacity: 0.4;
+                    top: 20%;
+                    left: 5%;
+                    width: 50%;
+                    aspect-ratio: 1;
+                    border-radius: 100%;
+                    filter: blur(100px);
+                    box-shadow:  240px 20px 0 0 var(--primary), 80px 240px 0 0 var(--secondary);
                 }
             }
 
             &__details{
                 position: relative;
                 display: flex;
+                flex-direction: column;
                 &__item{
-                    background: var(--primary_gradient);
-                    border-radius: 40px;
-                    padding: 40px;
-                    display: grid;
-                    place-items: center;
-                    position: relative;
-                    &:before{
-                        content: '';
-                        background: var(--primary);
-                        position: absolute;
-                        opacity: 0.4;
-                        top: 20%;
-                        left: 5%;
-                        width: 50%;
-                        aspect-ratio: 1;
-                        border-radius: 100%;
-                        filter: blur(100px);
-                        box-shadow:  240px 20px 0 0 var(--secondary), 80px 240px 0 0 var(--tertiary);
-                    }
-                    &__card{
+                    &__contain{
+                        padding-block: 40px;
+                        padding-inline: 24px;
                         position: relative;
-                        z-index: 1;
-                        // border: 2px solid var(--pure_white);
-                        // background-color: rgba(255,255,255, 0.4);
-                        // backdrop-filter: blur(40px);
-                        text-align: center;
-                        width: 100%;
-                        button{
-                            margin: auto;
+                        display: flex;
+                        gap: 24px;
+                        color: var(--text_color);
+                        // align-items: center;
+                        justify-content: space-between;
+                        border-bottom: 1px solid var(--text_color_transparent);
+                        transition: $transition_default;
+                        &:hover{
+                            border-radius: 40px;
+                            box-shadow: 0 16px 20px 0 var(--text_color_transparent);
+                            transform: scale(1.08);
+                            background-color: var(--bg_color);
+                        }
+                        &__header{
+                            figure{
+                                background-color: var(--bg_color_transparent);
+                                aspect-ratio: 1;
+                                border-radius: 50%;
+                                display: grid;
+                                place-items: center;
+                                font-size: 32px;
+                                color: var(--text_color);
+                                width: 72px;
+                                margin: 0;
+                                margin: auto;
+                                transition: $transition_default;
+                            }
+                        }
+                        &__content{
+                            h4{
+                                font-size: 24px;
+                                font-weight: 400;
+                                margin: 0;
+                            }
+                            p{
+                                color: var(--text_color_smooth);
+                                margin-bottom: 20px;
+                            }
+                        }
+                        
+                        
+                    }
+                    &:nth-child(1){
+                        // grid-area: 1 / 1 / 3 / 1;
+                        figure{
+                            // color: var(--tertiary);
+                            
+                            background: linear-gradient(45deg, #ff4fd0 40%, #f4f973 100%);
+                            box-shadow: 0 20px 0 0 rgba(#ff4fd0, 0.4),
+                            0 40px 0 0 rgba(#ff4fd0, 0.2);
+                            color: rgba(white, 0.8);
                         }
                     }
+                    &:nth-child(2){
+                        figure{
+                            // color: var(--secondary);
+                            
+                            background: linear-gradient(45deg, #b01ad9 40%, #ff34c9 100%);
+                            box-shadow: 0 20px 0 0 rgba(#b01ad9, 0.4),
+                            0 40px 0 0 rgba(#b01ad9, 0.2);
+                            color: rgba(white, 0.8);
+                        }
+                    }
+                    &:nth-child(3){
+                        figure{
+                            // color: var(--primary);
+                            background: linear-gradient(45deg, #083dec 40%, #31eaa0 100%);
+                            box-shadow: 0 20px 0 0 rgba(#083dec, 0.4),
+                            0 40px 0 0 rgba(#083dec, 0.2);
+                            color: rgba(white, 0.8);
+                            
+                        }
+                    }
+                    &:nth-child(4){
+                        // grid-area: 2 / 2 / 2 / 4;
+                        figure{
+                            background: linear-gradient(45deg, #ff5e23 40%, #f4f973 100%);
+                            
+                        }
+                    }
+                    &:last-child{
+                        // grid-column: 1 / 4;
+                    }
+                    
                 }
             }
         }
