@@ -68,6 +68,9 @@
         display: grid;
         grid-template-columns: 1fr 300px;
         align-items: center;
+        @media(max-width:$br_mobile){
+            grid-template-columns: 1fr;
+        }
         h3{
             font-size: 48px;
             margin-block: 20px 40px;

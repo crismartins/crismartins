@@ -18,26 +18,30 @@
                     @touchstart="setDragStart" 
                     @touchend="swipeSlider"
                 >
-                    <NuxtLink 
+                    <div 
                         :class="{ active : selectedProj == project.id }"
                         class="portfolio__section__container__projects__item__contain" 
-                        :to="project.name"
                     >
                         <header class="portfolio__section__container__projects__item__contain__header project-image">
-                            <ul class="portfolio__section__container__projects__item__contain__header__stacks">
-                                <li
-                                    v-for="stack in project.stacks"
-                                    :key="stack.name"
-                                    class="portfolio__section__container__projects__item__contain__header__stacks__item"
-                                >
-                                    <AppIcon :IconName="stack.logo" />
-                                </li>
-                            </ul>
                             <picture class="portfolio__section__container__projects__item__contain__header__picture">
                                 <img 
                                     :src="project.image"
                                 />
                             </picture>
+                            <div class="portfolio__section__container__projects__item__contain__header__info">
+                                <ul class="portfolio__section__container__projects__item__contain__header__info__stacks">
+                                    <li
+                                        v-for="stack in project.stacks"
+                                        :key="stack.name"
+                                        class="portfolio__section__container__projects__item__contain__header__info__stacks__item"
+                                    >
+                                        <AppIcon :IconName="stack.logo" />
+                                    </li>
+                                </ul>
+                                <AppButton :isLink="project.name" class="outline">
+                                    View
+                                </AppButton>
+                            </div>
                         </header>
                         <div class="portfolio__section__container__projects__item__contain__body project-titles">
                             <h3>
@@ -47,7 +51,7 @@
                                 {{ project.type }}
                             </p>
                         </div>
-                    </NuxtLink>
+                    </div>
                 </li>
             </ul>
             
@@ -73,7 +77,9 @@
                         <button :class="{ active : selectedProj == project.id }" @click="goToProj(project.id)" />
                     </li>
                 </ul>
-                <AppButton class="outline" hasLink="/portfolio">
+            </div>
+            <div class="portfolio__section__container__projects__cta section">
+                <AppButton class="primary" hasLink="/portfolio">
                     View portfolio
                 </AppButton>
             </div>
@@ -109,17 +115,15 @@ function nextProj(){
 function goToProj(project) {
     selectedProj.value = project
     const scrollTo =  document.getElementById(selectedProj.value)
-    scrollTo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
+    scrollTo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
 }
 
 const dragStartPosition = ref(null)
 function setDragStart(event) {
-    dragStartPosition.value = event.changedTouches[0].clientX 
-    //?? event.clientX
+    dragStartPosition.value = event.changedTouches[0].clientX ?? event.clientX
 }
 function swipeSlider(event) {
-    const touchPosition = parseInt(event.changedTouches[0].clientX) 
-    //?? parseInt(event.clientX)
+    const touchPosition = parseInt(event.changedTouches[0].clientX) ?? parseInt(event.clientX)
     if(Math.abs(touchPosition - dragStartPosition.value) > 20) {
         if(touchPosition > dragStartPosition.value) {
             prevProj()
@@ -224,74 +228,74 @@ const projects = reactive([
 <style lang="scss" scoped>
 .portfolio__section{
     padding-block: 0;
-    // margin-top: -4%;
+    margin-top: -12vh;
     margin-bottom: 80px;
+    @media (max-width: $br_mobile) {
+        margin-top: 0;
+    }
     &__container{
         width: 100%;
         gap: 40px;
         position: relative;
         &__header{
             position: absolute;
-            z-index: 999;
-            padding-left: 20px;
+            z-index: 2;
+            padding: 0 0 40px 20px;
+            height: 100%;
+            @media(max-width:$br_mobile){
+                padding: 0 0 40px 0;
+                position: relative;
+                text-align: center;
+            }
             h2{
                 writing-mode:vertical-rl;
                 transform: rotate(-180deg);
-                // text-orientation: upright;
+                position: sticky;
+                top: 140px;
+                @media(max-width:$br_mobile){
+                    writing-mode:horizontal-tb;
+                    transform: rotate(0);
+                }
             }
             p{
                 font-size: 20px;
             }
         }
         &__projects{
-            margin-left: 100px;
-            padding-inline: 40px;
-            overflow: auto;
+            padding-inline: 100px;
+            overflow: hidden;
             display: flex;
+            justify-content: flex-start;
             gap: 8px;
             position: relative;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-            &::-webkit-scrollbar {
-                display: none;
+            @media(max-width:$br_mobile){
+                margin: 0;
+                padding-inline: calc(3% + 20px);
             }
             &__item{
-                max-width: 380px;
                 flex-shrink: 0;
                 position: relative;
+                margin-inline: -3%;
+                max-width: 38%;
+                @media(max-width:$br_mobile){
+                    max-width: 98%;
+                }
                 &__contain{
                     display: block;
                     transform: scale(0.84);
-                    &:hover{
-                        picture{
-                            img{
-                                transform: scale(1.2);
-                            }
-                        }
-                        .project-titles{
-                            opacity: 1;
-                            top: 0;
-                        }
-                    }
-                    &.active{
-                        transform: scale(1);
-                        .project-titles{
-                            opacity: 1;
-                            top: 0;
-                        }
-    
-                    }
-                }
-                &__contain{
+                    overflow: hidden;
                     color: var(--text_color);
+                    position: relative;
+                    transition: $transition_default;
+                    z-index: 1;
                     &__header{
                         position: relative;
+                        overflow: hidden;
+                        border-radius: 32px;
                         &__picture{
                             display: block;
-                            max-height: 440px;
-                            border-radius: 24px;
-                            overflow: hidden;
-                            background-color: var(--tertiary);
+                            width: 100%;
+                            max-height:62vh;
                             img{
                                 object-fit: cover;
                                 min-width: 100%;
@@ -299,20 +303,23 @@ const projects = reactive([
                                 transition: $transition_default;
                             }
                         }
-                        &__stacks{
-                            width: 100%;
+                        &__info{
+                            display: flex;
+                            position: absolute;
+                            bottom:0;
                             background: var(--bg_color_smooth);
                             background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, var(--bg_color_transparent) 40%, var(--bg_color_smooth) 100%);
-                            position: absolute;
-                            padding:20px;
-                            bottom:0;
-                            display: flex;
-                            align-items: flex-end;
-                            gap: 12px;
-                            height: 100%;
-                            z-index: 999;
-                            &__item{
-                                font-size: 20px;
+                            width: 100%;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 20px;
+                            &__stacks{
+                                display: flex;
+                                gap: 12px;
+                                z-index: 2;
+                                &__item{
+                                    font-size: 20px;
+                                }
                             }
                         }
                     }
@@ -323,7 +330,7 @@ const projects = reactive([
                         top: -40px;
                         transition: $transition_default;
                         h3{
-                            font-size: $size_28px ;
+                            font-size: $size_24px ;
                             font-weight: 400;
                             margin-block: 20px 8px;
                         }
@@ -332,6 +339,23 @@ const projects = reactive([
                             color: var(--text_color_smooth);
                         }
                     }
+                    &:hover{
+                        z-index: 4;
+                        transform: scale(0.84) translateY(5vh);
+                        .project-titles{
+                            opacity: 1;
+                            top: 0;
+                        }
+                    }
+                    &.active{
+                        transform: scale(1);
+                        z-index: 2;
+                        .project-titles{
+                            opacity: 1;
+                            top: 0;
+                        }
+    
+                    }
                 }
             }
             &__navigation{
@@ -339,8 +363,10 @@ const projects = reactive([
                 justify-content: space-between;
                 align-items: center;
                 gap: 24px;
+                padding-inline: 68px;
                 @media(max-width: $br_mobile){
                     flex-direction: column;
+                    padding-inline: 20px;
                 }
                 &__arrows{
                     display: flex;
@@ -383,7 +409,6 @@ const projects = reactive([
                     display: flex;
                     gap: 20px;
                     justify-content: center;
-                    flex-grow: 1;
                     &__item{
                         button{
                             background-color: var(--text_color_transparent);
@@ -402,6 +427,16 @@ const projects = reactive([
                             }
                         }
                     }
+                }
+            }
+            &__cta{
+                margin-block: 40px;
+                padding-inline: 68px;
+                .button{
+                    margin-inline: auto;
+                }
+                @media(max-width:$br_mobile){
+                    padding-inline: 20px;
                 }
             }
         }

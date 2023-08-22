@@ -59,14 +59,21 @@ onMounted(() => {
         width: 100%;
         transition: $transition_default;
         z-index: 999;
-        background: var(--bg_color);
-        background: linear-gradient(180deg, var(--bg_color) 70%, var(--bg_color_transparent) 90%, rgba(255, 255, 255, 0) 100%);
         top: 0;
         &.hide{
             top: -100%;
         }
         &.show{
             top: 0;
+            background-color: var(--bg_color);
+            box-shadow: 0 12px 20px 12px var(--bg_color);
+            .container__fluid{
+                &__menu{
+                    @media(max-width: $br_mobile){
+                        bottom: 0;
+                    }
+                }
+            }
         }
         .container__fluid{
             display: grid;
@@ -114,10 +121,11 @@ onMounted(() => {
                 @media(max-width: $br_mobile){
                     position: fixed;
                     z-index: 999;
-                    bottom: 0;
+                    bottom: -100%;
                     left: 0;
                     width: 100%;
                     padding-inline: 20px;
+                    transition: $transition_default;
                 }
             }
             &__actions{

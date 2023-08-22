@@ -10,6 +10,6 @@
 
 <style scoped lang="scss">
 .body-container{
-    overflow: hidden;
+    min-height: 100%;
 }
 </style>

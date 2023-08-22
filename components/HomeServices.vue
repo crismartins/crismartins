@@ -77,9 +77,18 @@ let services = reactive([
     &__container{
         display: flex;
         gap: 40px;
+        @media(max-width:$br_mobile){
+            flex-direction: column;
+        }
         h2{
             writing-mode:vertical-rl;
             transform: rotate(-180deg);
+            position: sticky;
+            top: 140px;
+            @media(max-width:$br_mobile){
+                writing-mode:horizontal-tb;
+                transform: rotate(0);
+            }
         }
         h3{
             position:relative; 
@@ -122,13 +131,13 @@ let services = reactive([
                         display: flex;
                         gap: 24px;
                         color: var(--text_color);
-                        // align-items: center;
                         justify-content: space-between;
-                        border-bottom: 1px solid var(--text_color_transparent);
+                        box-shadow: 0 1px 0px 0 var(--text_color_transparent);
                         transition: $transition_default;
                         &:hover{
+                            border: 0;
                             border-radius: 40px;
-                            box-shadow: 0 16px 20px 0 var(--text_color_transparent);
+                            box-shadow: 0 16px 40px 0 var(--shadow);
                             transform: scale(1.08);
                             background-color: var(--bg_color);
                         }

@@ -67,9 +67,21 @@ const hardSkills = reactive([
 <style lang="scss" scoped>
 .hero__section{
     min-height: 90vh;
-    min-height: 90dvh;
+    min-height: 100dvh;
     display: grid;
     place-items: center;
+    overflow: hidden;
+    max-width: 100%;
+    position: relative;
+    &::before{
+        position: absolute;
+        content: '';
+        bottom: 0;
+        width: 100%;
+        height: 20px;
+        background-color: var(--bg_color);
+        box-shadow: 0 -12px 20px 12px var(--bg_color);
+    }
     &__container{
         padding-block: 16% 80px;
         flex-grow: 1;
