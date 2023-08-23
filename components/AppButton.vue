@@ -69,6 +69,15 @@ const { hasLink } = toRefs(props)
                 animation: calling 2s infinite;
             }
         }
+        &.inverted{
+            border-color: var(--bg_color_transparent);
+            color: var(--bg_color);
+            &:hover{
+                background-color: var(--bg_color);
+                color: var(--text_color);
+                border-color: var(--bg_color);
+            }
+        }
     }
     &.primary{
         background: var(--secondary_gradient);

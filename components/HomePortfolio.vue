@@ -253,8 +253,8 @@ const projects = reactive([
             h2{
                 writing-mode:vertical-rl;
                 transform: rotate(-180deg);
-                position: sticky;
-                top: 140px;
+                // position: sticky;
+                // top: 140px;
                 @media(max-width:$br_mobile){
                     writing-mode:horizontal-tb;
                     transform: rotate(0);
@@ -376,7 +376,6 @@ const projects = reactive([
                 justify-content: space-between;
                 align-items: center;
                 gap: 24px;
-                padding-inline: 68px;
                 @media(max-width: $br_mobile){
                     flex-direction: column;
                     padding-inline: 20px;
@@ -451,7 +450,6 @@ const projects = reactive([
             }
             &__cta{
                 margin-block: 40px;
-                padding-inline: 68px;
                 @media(max-width:$br_mobile){
                     padding-inline: 20px;
                     .button{

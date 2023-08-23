@@ -1,14 +1,14 @@
 <template>
     <section class="contact__section section">
-        <div class="contact__section__container container">
+        <div class="contact__section__container container__fluid">
             <div class="contact__section__container__column">
                 
                 <h2 class="small-title">
                     Say Hi!
                 </h2>
-                <h3 class="gradient-font">
+                <strong>
                     hello@cristophermartins.com.br
-                </h3>
+                </strong>
 
                 
                 <ul class="contact__section__container__column__social">
@@ -36,7 +36,7 @@
                     
                 </ul>
 
-                <AppButton class="primary">
+                <AppButton class="outline inverted">
                     Let's work together
                 </AppButton>
             </div>
@@ -56,52 +56,71 @@
 
 <style lang="scss">
 .contact__section{
-    padding-block: 20px;
-    min-height: 100vh;
-    min-height: 100dvh;
+    padding-block: 40px;
     display: flex;
     align-items: center;
     &__container{
-        // background: var(--secondary_gradient);
-        padding: 80px 40px;
+        background: var(--primary_gradient);
         border-radius: 40px;
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        align-items: center;
+        display: flex;
+        padding: 80px 40px;
+        color: var(--bg_color);
         @media(max-width:$br_mobile){
-            grid-template-columns: 1fr;
+            flex-direction: column;
+            padding: 40px 20px;
         }
-        h3{
-            font-size: 48px;
+        h2{
+            @media(max-width: $br_mobile){
+                text-align: center;
+            }
+        }
+        strong{
+            font-size: $size_48px;
             margin-block: 20px 40px;
             word-break: break-all;
+            font-weight: 500;
+            @media(max-width: $br_mobile){
+                text-align: center;
+                font-size: $size_40px;
+            }
         }
         &__column{
-            button{
-                margin-block: 40px;
-            }
+            flex-grow: 1;
             &__social{
                 display: flex;
                 align-items: center;
                 gap: 20px;
                 margin-block: 40px;
+                @media(max-width: $br_mobile){
+                    justify-content: center;
+                }
                 &__item{
                     font-size: 24px;
-                    color: red;
+                    color: var(--bg_color_smooth);
                     &:hover{
                         color: var(--tertiary);
                     }
                 }
             }
+            button{
+                margin-top: 40px;
+                @media(max-width: $br_mobile){
+                    margin-inline: auto;
+                }
+            }
             &__logo{
-                animation: 4s rotating ease infinite;
-                border-radius: 50%;
-                aspect-ratio: 1;
                 display: grid;
                 place-items: center;
+                @media(max-width: $br_mobile){
+                    margin-block: 40px;
+                }
                 .footer-logo{
                     svg{
+                        animation: 4s rotating ease infinite;
                         width: 300px;
+                        @media(max-width: $br_mobile){
+                            width: 60vw;
+                        }
                     }
                 }
             }
