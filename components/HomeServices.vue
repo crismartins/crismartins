@@ -123,6 +123,7 @@ let services = reactive([
             &__details{
                 position: relative;
                 display: flex;
+                gap: 16px;
                 flex-direction: column;
                 &__item{
                     &__contain{
@@ -130,15 +131,14 @@ let services = reactive([
                         padding-inline: 24px;
                         position: relative;
                         display: flex;
-                        gap: 24px;
+                        gap: 40px;
                         color: var(--text_color);
                         justify-content: space-between;
-                        box-shadow: 0 1px 0px 0 var(--text_color_transparent);
+                        border: 1px solid var(--text_color_transparent);
                         transition: $transition_default;
+                        border-radius: 40px;
                         &:hover{
-                            border: 0;
-                            border-radius: 40px;
-                            box-shadow: 0 16px 40px 0 var(--shadow);
+                            box-shadow: 0 20px 40px 0 var(--shadow);
                             transform: scale(1.08);
                             background-color: var(--bg_color);
                         }
@@ -165,54 +165,38 @@ let services = reactive([
                             }
                             p{
                                 color: var(--text_color_smooth);
-                                margin-bottom: 20px;
                             }
                         }
                         
                         
                     }
                     &:nth-child(1){
-                        // grid-area: 1 / 1 / 3 / 1;
                         figure{
-                            // color: var(--tertiary);
                             
                             background: linear-gradient(45deg, #ff4fd0 40%, #f4f973 100%);
-                            box-shadow: 0 20px 0 0 rgba(#ff4fd0, 0.4),
-                            0 40px 0 0 rgba(#ff4fd0, 0.2);
+                            box-shadow: 12px 20px 0 0 rgba(#ff4fd0, 0.4),
+                            24px 40px 0 0 rgba(#ff4fd0, 0.2);
                             color: rgba(white, 0.8);
                         }
                     }
                     &:nth-child(2){
                         figure{
-                            // color: var(--secondary);
                             
                             background: linear-gradient(45deg, #b01ad9 40%, #ff34c9 100%);
-                            box-shadow: 0 20px 0 0 rgba(#b01ad9, 0.4),
-                            0 40px 0 0 rgba(#b01ad9, 0.2);
+                            box-shadow: 12px 20px 0 0 rgba(#b01ad9, 0.4),
+                            24px 40px 0 0 rgba(#b01ad9, 0.2);
                             color: rgba(white, 0.8);
                         }
                     }
                     &:nth-child(3){
                         figure{
-                            // color: var(--primary);
                             background: linear-gradient(45deg, #083dec 40%, #31eaa0 100%);
-                            box-shadow: 0 20px 0 0 rgba(#083dec, 0.4),
-                            0 40px 0 0 rgba(#083dec, 0.2);
+                            box-shadow: 12px 20px 0 0 rgba(#083dec, 0.4),
+                            24px 40px 0 0 rgba(#083dec, 0.2);
                             color: rgba(white, 0.8);
                             
                         }
                     }
-                    &:nth-child(4){
-                        // grid-area: 2 / 2 / 2 / 4;
-                        figure{
-                            background: linear-gradient(45deg, #ff5e23 40%, #f4f973 100%);
-                            
-                        }
-                    }
-                    &:last-child{
-                        // grid-column: 1 / 4;
-                    }
-                    
                 }
             }
         }

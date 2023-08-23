@@ -4,8 +4,7 @@
 
         <HomePortfolio />
 
-        <!-- <HomeAboutMe /> -->
-
+        <HomeAboutMe />
 
         <HomeServices />
         

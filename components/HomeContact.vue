@@ -4,7 +4,7 @@
             <div class="contact__section__container__column">
                 
                 <h2 class="small-title">
-                    Say Hi!
+                    Say Hey
                 </h2>
                 <strong>
                     hello@cristophermartins.com.br
@@ -75,13 +75,14 @@
             }
         }
         strong{
-            font-size: $size_48px;
+            font-size: $size_40px;
             margin-block: 20px 40px;
             word-break: break-all;
             font-weight: 500;
+            display: block;
             @media(max-width: $br_mobile){
                 text-align: center;
-                font-size: $size_40px;
+                font-size: $size_28px;
             }
         }
         &__column{

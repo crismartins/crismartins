@@ -8,11 +8,11 @@
                 UX/UI Designer and Frontend Developer Based in Brazil
             </h3>
 
-            <HomeAboutMeDetails />
+            <!-- <HomeAboutMeDetails /> -->
 
-            <AppStackSkills :stacks="stackLogos" :maxItems="7" />
+            <!-- <AppStackSkills :stacks="stackLogos" :maxItems="7" /> -->
 
-            <!-- <div class="about__section__container__text">
+            <div class="about__section__container__text">
                 <p>
                     I'm half designer and half frontend developer, is that makes me a incomplete  professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal...
                 </p>
@@ -21,7 +21,7 @@
                         I'll do my best, trust me.
                     </strong>
                 </p>
-            </div> -->
+            </div>
             <div class="about__section__container__buttons">
                 <AppButton class="primary">
                     See more
@@ -55,7 +55,7 @@ const stackLogos = ref([
 
 <style lang="scss" scoped>
 .about__section{
-    padding-block: 82px;
+    padding-block: 80px;
     &__container{
         max-width: 920px;
         display: grid;

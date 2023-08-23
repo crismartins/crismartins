@@ -56,33 +56,34 @@
                     </div>
                 </li>
             </ul>
-            
-            <div class="portfolio__section__container__projects__navigation container">
-                <ul class="portfolio__section__container__projects__navigation__arrows">
-                    <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
-                        <button class="outline" @click="prevProj">
-                            <AppIcon IconName="ph:arrow-left" />
-                        </button>
-                    </li>
-                    <li class="portfolio__section__container__projects__navigation__arrows__item right-arrow">
-                        <button class="outline" @click="nextProj">
-                            <AppIcon IconName="ph:arrow-right" />
-                        </button>
-                    </li>
-                </ul>
-                <ul class="portfolio__section__container__projects__navigation__bullets">
-                    <li 
-                        v-for="project in projects" 
-                        :key="project.id"
-                        class="portfolio__section__container__projects__navigation__bullets__item"
-                    >
-                        <button :class="{ active : selectedProj == project.id }" @click="goToProj(project.id)" />
-                    </li>
-                </ul>
-                <AppButton class="primary" hasLink="/portfolio">
-                    View Portfolio
-                    <AppIcon IconName="ph:caret-right-bold" />
-                </AppButton>
+            <div class="section">
+                <div class="portfolio__section__container__projects__navigation container">
+                    <ul class="portfolio__section__container__projects__navigation__arrows">
+                        <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
+                            <button class="outline" @click="prevProj">
+                                <AppIcon IconName="ph:arrow-left" />
+                            </button>
+                        </li>
+                        <li class="portfolio__section__container__projects__navigation__arrows__item right-arrow">
+                            <button class="outline" @click="nextProj">
+                                <AppIcon IconName="ph:arrow-right" />
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="portfolio__section__container__projects__navigation__bullets">
+                        <li 
+                            v-for="project in projects" 
+                            :key="project.id"
+                            class="portfolio__section__container__projects__navigation__bullets__item"
+                        >
+                            <button :class="{ active : selectedProj == project.id }" @click="goToProj(project.id)" />
+                        </li>
+                    </ul>
+                    <AppButton class="primary" hasLink="/portfolio">
+                        View Portfolio
+                        <AppIcon IconName="ph:caret-right-bold" />
+                    </AppButton>
+                </div>
             </div>
 
         </div>
@@ -384,7 +385,6 @@ const projects = reactive([
                     width: 100%;
                     position: absolute;
                     top: 38vh;
-                    z-index: 4;
                     left: 0;
                     padding-inline: 20px;
                     &__item{
@@ -410,9 +410,11 @@ const projects = reactive([
                         }
                         &.right-arrow{
                             right: 0;
+                            z-index: 4;
                         }
                         &.left-arrow{
                             left: 0;
+                            z-index: 4;
                         }
                     }
                 }
