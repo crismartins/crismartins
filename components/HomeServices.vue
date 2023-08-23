@@ -79,6 +79,7 @@ let services = reactive([
         gap: 40px;
         @media(max-width:$br_mobile){
             flex-direction: column;
+            gap: 20px;
         }
         h2{
             writing-mode:vertical-rl;

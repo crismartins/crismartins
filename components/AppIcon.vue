@@ -8,7 +8,7 @@
 const props = defineProps({
     IconName: {
         type: String,
-        default: "ph:caret-down-bold"
+        default: 'ph:caret-right'
     }
 })
 </script>

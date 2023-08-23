@@ -43,15 +43,15 @@ const { hasLink } = toRefs(props)
         font-size: $size_20px;
         padding: 20px 32px;
     }
-    &:hover{
-        transform: scale(1.12);
-    }
     &.icononly{
         width: 52px;
-        height: 52px;
+        aspect-ratio: 1;
         padding: 8px;
         border-radius: 52px;
         font-size: $size_28px;
+        &:hover{
+            transform: scale(1.12);
+        }
     }
     
     &.outline{
@@ -78,16 +78,33 @@ const { hasLink } = toRefs(props)
         &:hover{
             backdrop-filter: opacity(0.2);
             box-shadow: 0 12px 60px 0 var(--shadow);
+            transform: scale(1.12);
         }
     }
     &.secondary{
-        background: var(--primary_gradient);
+        background: var(--text_color);
         color: var(--bg_color);
         border: none;
-        box-shadow: var(--shadow);
         &:hover{
-            color: var(--bg_color);
-            box-shadow: 0 0 20px 0 var(--shadow);
+            background: var(--tertiary);
+        }
+    }
+    &.small{
+        padding: 12px 16px;
+        font-size: $size_14px;
+        width: auto;
+        @media(max-width:$br_mobile){
+            font-size: $size_16px;
+            padding: 16px 20px;
+        }
+    }
+    &.link{
+        padding-inline: 0;
+        border: none;
+        background-color: transparent;
+        color: var(--secondary);
+        &:hover{
+            text-decoration: underline;
         }
     }
 

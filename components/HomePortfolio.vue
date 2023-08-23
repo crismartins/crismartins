@@ -38,9 +38,7 @@
                                         <AppIcon :IconName="stack.logo" />
                                     </li>
                                 </ul>
-                                <AppButton :isLink="project.name" class="outline">
-                                    View
-                                </AppButton>
+                                
                             </div>
                         </header>
                         <div class="portfolio__section__container__projects__item__contain__body project-titles">
@@ -50,6 +48,10 @@
                             <p>
                                 {{ project.type }}
                             </p>
+                            <AppButton :isLink="project.name" class="outline small">
+                                Details
+                                <AppIcon IconName="ph:plus-bold" />
+                            </AppButton>
                         </div>
                     </div>
                 </li>
@@ -80,7 +82,8 @@
             </div>
             <div class="portfolio__section__container__projects__cta section">
                 <AppButton class="primary" hasLink="/portfolio">
-                    View portfolio
+                    View Portfolio
+                    <AppIcon IconName="ph:caret-right-bold" />
                 </AppButton>
             </div>
 
@@ -263,11 +266,17 @@ const projects = reactive([
         }
         &__projects{
             padding-inline: 100px;
-            overflow: hidden;
+            overflow-y: hidden;
+            overflow-x: auto;
             display: flex;
             justify-content: flex-start;
             gap: 8px;
             position: relative;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
             @media(max-width:$br_mobile){
                 margin: 0;
                 padding-inline: calc(3% + 20px);
@@ -338,6 +347,10 @@ const projects = reactive([
                             font-size: $size_16px;
                             color: var(--text_color_smooth);
                         }
+                        .button{
+                            margin-block: 24px;
+
+                        }
                     }
                     &:hover{
                         z-index: 4;
@@ -372,6 +385,13 @@ const projects = reactive([
                     display: flex;
                     justify-content: space-between;
                     gap: 20px;
+                    @media(max-width:$br_mobile){
+                        width: 100%;
+                        position: absolute;
+                        top: 38vh;
+                        z-index: 4;
+                        padding-inline: 20px;
+                    }
                     &__item{
                         height: 100%;
                         top: 0;
@@ -380,28 +400,28 @@ const projects = reactive([
                         // position: absolute;
                         button{
                             background-color: transparent;
-                            color: var(--text_color);
+                            color: var(--text_color_smooth);
                             border: none;
-                            font-size: 24px;
+                            font-size: $size_24px;
+                            padding: 12px 0;
+                            @media(max-width:$br_mobile){
+                                font-size: $size_32px;
+                            }
                             i{
                                 transition: $transition_default;
+                            }
+                            &:hover{
+                                color: var(--text_color);
+                                i{
+                                    transform: scale(1.2);
+                                }
                             }
                         }
                         &.right-arrow{
                             right: 0;
-                            &:hover{
-                                i{
-                                    transform: scale(1.2);
-                                }
-                            }
                         }
                         &.left-arrow{
                             left: 0;
-                            &:hover{
-                                i{
-                                    transform: scale(1.2);
-                                }
-                            }
                         }
                     }
                 }
@@ -432,11 +452,11 @@ const projects = reactive([
             &__cta{
                 margin-block: 40px;
                 padding-inline: 68px;
-                .button{
-                    margin-inline: auto;
-                }
                 @media(max-width:$br_mobile){
                     padding-inline: 20px;
+                    .button{
+                        margin-inline: auto;
+                    }
                 }
             }
         }
