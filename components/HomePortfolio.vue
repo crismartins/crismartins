@@ -57,7 +57,7 @@
                 </li>
             </ul>
             
-            <div class="portfolio__section__container__projects__navigation section">
+            <div class="portfolio__section__container__projects__navigation container">
                 <ul class="portfolio__section__container__projects__navigation__arrows">
                     <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
                         <button class="outline" @click="prevProj">
@@ -79,8 +79,6 @@
                         <button :class="{ active : selectedProj == project.id }" @click="goToProj(project.id)" />
                     </li>
                 </ul>
-            </div>
-            <div class="portfolio__section__container__projects__cta section">
                 <AppButton class="primary" hasLink="/portfolio">
                     View Portfolio
                     <AppIcon IconName="ph:caret-right-bold" />
@@ -266,8 +264,7 @@ const projects = reactive([
         }
         &__projects{
             padding-inline: 100px;
-            overflow-y: hidden;
-            overflow-x: auto;
+            overflow: hidden;
             display: flex;
             justify-content: flex-start;
             gap: 8px;
@@ -384,36 +381,31 @@ const projects = reactive([
                     display: flex;
                     justify-content: space-between;
                     gap: 20px;
-                    @media(max-width:$br_mobile){
-                        width: 100%;
-                        position: absolute;
-                        top: 38vh;
-                        z-index: 4;
-                        padding-inline: 20px;
-                    }
+                    width: 100%;
+                    position: absolute;
+                    top: 38vh;
+                    z-index: 4;
+                    left: 0;
+                    padding-inline: 20px;
                     &__item{
                         height: 100%;
                         top: 0;
                         display: grid;
                         place-items: center;
-                        // position: absolute;
                         button{
-                            background-color: transparent;
                             color: var(--text_color_smooth);
                             border: none;
-                            font-size: $size_24px;
                             padding: 12px 0;
-                            @media(max-width:$br_mobile){
-                                font-size: $size_32px;
-                            }
-                            i{
-                                transition: $transition_default;
-                            }
+                            font-size: $size_32px;
+                            background-color: var(--text_color_transparent);
+                            aspect-ratio: 1;
+                            border-radius: 50%;
+                            padding: 8px;
+                            transition: $transition_default;
                             &:hover{
-                                color: var(--text_color);
-                                i{
-                                    transform: scale(1.2);
-                                }
+                                color: var(--bg_color);
+                                transform: scale(1.2);
+                                background-color: var(--text_color_smooth);
                             }
                         }
                         &.right-arrow{
