@@ -24,8 +24,12 @@
                     >
                         <header class="portfolio__section__container__projects__item__contain__header project-image">
                             <picture class="portfolio__section__container__projects__item__contain__header__picture">
-                                <img 
+                                <NuxtImg 
                                     :src="project.image"
+                                    width="600px"
+                                    height="600px"
+                                    format="webp"
+                                    quality="100"
                                 />
                             </picture>
                             <div class="portfolio__section__container__projects__item__contain__header__info">
@@ -138,9 +142,9 @@ function swipeSlider(event) {
 const projects = reactive([
     {
         id: 1,
-        image: '/images/portfolio/curitiba_app.png', 
+        image: '/images/portfolio/ahoy_cover.png', 
         name: 'Ahoy', 
-        type: 'UI/UX Design for Recruitment App', 
+        type: 'UI/UX Design for Recruitment Application', 
         description: 'description',
         stacks: [
             {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
@@ -149,34 +153,33 @@ const projects = reactive([
     },
     {
         id: 2,
-        image: '/images/portfolio/curitiba_app.png', 
-        name: 'Curitiba App', 
-        type: 'UI/UX Design for City Hall Services App', 
+        image: '/images/portfolio/bon_cover.png', 
+        name: 'Balance of Nature', 
+        type: 'Homepage Development', 
         description: 'description',
         stacks: [
-            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
-            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
+            {logo: 'logos:html-5', name: 'HTML 5'},
+            {logo: 'logos:css-3', name: 'CSS 3'},
+            {logo: 'logos:javascript', name: 'Javascript'},
+            {logo: 'logos:vue', name: 'Vue.js'},
+            {logo: 'logos:nuxt', name: 'Nuxt.js'}
         ]
     },
     {
         id: 3,
-        image: '/images/portfolio/curitiba_app.png', 
-        name: 'Hourglass', 
-        type: 'UI/UX and Frontend development for Time Management System', 
+        image: '/images/portfolio/onr_app_cover.png', 
+        name: 'Onr', 
+        type: 'Mobile App Redesign', 
         description: 'description',
         stacks: [
-            {logo: 'logos:figma', name: 'Figma'},
-            {logo: 'logos:javascript', name: 'Javascript'},
-            {logo: 'logos:html-5', name: 'HTML 5'},
-            {logo: 'logos:css-3', name: 'CSS 3'},
-            {logo: 'logos:vue', name: 'Vue.js'}
+            {logo: 'logos:figma', name: 'Figma'}
         ]
     },
     {
         id: 4,
-        image: '/images/portfolio/curitiba_app.png', 
-        name: 'Termo 2.0', 
-        type: 'UI/UX Design for a "find the word" web placed game', 
+        image: '/images/portfolio/planing_pocker_cover.png', 
+        name: 'Planing Poker Online Room', 
+        type: 'Logo, UI/UX Design for a Sprint Planning App', 
         description: 'description',
         stacks: [
             {logo: 'logos:figma', name: 'Figma'},
@@ -188,21 +191,28 @@ const projects = reactive([
     },
     {
         id: 5,
-        image: '/images/portfolio/curitiba_app.png', 
-        name: 'Planning Poker Online Room', 
-        type: 'Logo, UI/UX Design for a Planning Pocker App', 
+        image: '/images/portfolio/curitiba_app_cover.png', 
+        name: 'Curitiba App', 
+        type: 'UI/UX Design for City Hall Services App', 
         description: 'description',
         stacks: [
-            {logo: 'logos:figma', name: 'Figma'},
-            {logo: 'logos:javascript', name: 'Javascript'},
-            {logo: 'logos:html-5', name: 'HTML 5'},
-            {logo: 'logos:css-3', name: 'CSS 3'},
-            {logo: 'logos:vue', name: 'Vue.js'}
+            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
+            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
         ]
     },
     {
         id: 6,
-        image: '/images/portfolio/curitiba_app.png', 
+        image: '/images/portfolio/ebanx_lp_cover.png', 
+        name: 'Ebanx', 
+        type: 'Webflow building page for a Event Landing Page', 
+        description: 'description',
+        stacks: [
+            {logo: 'logos:webflow', name: 'Webflow'}
+        ]
+    },
+    {
+        id: 7,
+        image: '/images/portfolio/alegra_website_cover.png', 
         name: 'Alegrafoods', 
         type: 'Frontend development for a Food Company', 
         description: 'description',
@@ -214,13 +224,15 @@ const projects = reactive([
         ]
     },
     {
-        id: 7,
-        image: '/images/portfolio/curitiba_app.png', 
-        name: 'Ebanx', 
-        type: 'Webflow building page for a Event Landing Page', 
+        id: 8,
+        image: '/images/portfolio/mago_jardineiro_cover.png', 
+        name: 'Mago Jardineiro', 
+        type: 'One Page Website Design', 
         description: 'description',
         stacks: [
-            {logo: 'logos:webflow', name: 'Webflow'}
+            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
+            {logo: 'logos:adobe-photoshop', name: 'Adobe Photoshop'},
+            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
         ]
     }
 ])
@@ -283,7 +295,7 @@ const projects = reactive([
                 flex-shrink: 0;
                 position: relative;
                 margin-inline: -3%;
-                max-width: 38%;
+                max-width: 600px;
                 @media(max-width:$br_mobile){
                     max-width: 98%;
                 }
@@ -300,9 +312,11 @@ const projects = reactive([
                         overflow: hidden;
                         border-radius: 32px;
                         &__picture{
+                            overflow: hidden;
+                            border-radius: 32px;
                             display: block;
                             width: 100%;
-                            max-height:62vh;
+                            aspect-ratio: 1;
                             img{
                                 object-fit: cover;
                                 min-width: 100%;
@@ -397,7 +411,7 @@ const projects = reactive([
                             border: none;
                             padding: 12px 0;
                             font-size: $size_32px;
-                            background-color: var(--text_color_transparent);
+                            background-color: var(--bg_color_transparent);
                             aspect-ratio: 1;
                             border-radius: 50%;
                             padding: 8px;
@@ -410,11 +424,11 @@ const projects = reactive([
                         }
                         &.right-arrow{
                             right: 0;
-                            z-index: 4;
+                            z-index: 5;
                         }
                         &.left-arrow{
                             left: 0;
-                            z-index: 4;
+                            z-index: 5;
                         }
                     }
                 }
