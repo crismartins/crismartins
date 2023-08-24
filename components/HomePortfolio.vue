@@ -265,7 +265,7 @@ const projects = reactive([
         }
         &__projects{
             padding-inline: 100px;
-            overflow: hidden;
+            overflow: auto;
             display: flex;
             justify-content: flex-start;
             gap: 8px;
