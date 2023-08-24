@@ -77,6 +77,13 @@ const stackLogos = ref([
             justify-content: center;
             gap: 20px;
             padding-block: 40px;
+            flex-wrap: wrap;
+            @media(max-width: $br_mobile){
+                justify-content: center;
+                .button{
+                    min-width: 90%;
+                }
+            }
         }
     }
 }

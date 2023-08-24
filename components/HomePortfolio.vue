@@ -294,10 +294,11 @@ const projects = reactive([
             &__item{
                 flex-shrink: 0;
                 position: relative;
-                margin-inline: -3%;
+                margin-inline: -40px;
                 max-width: 600px;
                 @media(max-width:$br_mobile){
                     max-width: 98%;
+                    margin-inline: -12px;
                 }
                 &__contain{
                     display: block;
@@ -319,8 +320,8 @@ const projects = reactive([
                             aspect-ratio: 1;
                             img{
                                 object-fit: cover;
-                                min-width: 100%;
-                                min-height: 100%;
+                                max-width: 100%;
+                                max-height: 100%;
                                 transition: $transition_default;
                             }
                         }
@@ -398,7 +399,7 @@ const projects = reactive([
                     gap: 20px;
                     width: 100%;
                     position: absolute;
-                    top: 38vh;
+                    top: 28vh;
                     left: 0;
                     padding-inline: 20px;
                     &__item{
