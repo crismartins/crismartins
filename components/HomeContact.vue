@@ -7,7 +7,7 @@
                     Say Hey
                 </h2>
                 <strong>
-                    hello@cristophermartins.com.br
+                    👋  Send me me a message or follow trough this chanels... 
                 </strong>
 
                 
@@ -22,13 +22,7 @@
                         <AppIcon IconName="ph:dribbble-logo" />
                     </li>
                     <li class="contact__section__container__column__social__item">
-                        <AppIcon IconName="ph:behance-logo" />
-                    </li>
-                    <li class="contact__section__container__column__social__item">
                         <AppIcon IconName="ph:instagram-logo" />
-                    </li>
-                    <li class="contact__section__container__column__social__item">
-                        <AppIcon IconName="ph:youtube-logo" />
                     </li>
                     <li class="contact__section__container__column__social__item">
                         <AppIcon IconName="ph:envelope" />
@@ -36,9 +30,6 @@
                     
                 </ul>
 
-                <AppButton class="outline inverted">
-                    Let's work together
-                </AppButton>
             </div>
             <div class="contact__section__container__column">
                 <div class="contact__section__container__column__logo">
@@ -77,7 +68,6 @@
         strong{
             font-size: $size_40px;
             margin-block: 20px 40px;
-            word-break: break-all;
             font-weight: 500;
             display: block;
             @media(max-width: $br_mobile){

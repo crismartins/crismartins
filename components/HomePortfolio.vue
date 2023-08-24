@@ -392,6 +392,7 @@ const projects = reactive([
                 @media(max-width: $br_mobile){
                     flex-direction: column;
                     padding-inline: 20px;
+                    gap: 40px;
                 }
                 &__arrows{
                     display: flex;
@@ -454,15 +455,6 @@ const projects = reactive([
                                 width: 48px;
                             }
                         }
-                    }
-                }
-            }
-            &__cta{
-                margin-block: 40px;
-                @media(max-width:$br_mobile){
-                    padding-inline: 20px;
-                    .button{
-                        margin-inline: auto;
                     }
                 }
             }
