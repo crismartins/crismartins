@@ -303,21 +303,33 @@ const projects = reactive([
                 &__contain{
                     display: block;
                     transform: scale(0.84);
-                    overflow: hidden;
                     color: var(--text_color);
                     position: relative;
                     transition: $transition_default;
                     z-index: 1;
                     &__header{
                         position: relative;
-                        overflow: hidden;
-                        border-radius: 32px;
+                        // overflow: hidden;
+                        // border-radius: 32px;
                         &__picture{
                             overflow: hidden;
                             border-radius: 32px;
-                            display: block;
+                            display: grid;
+                            place-items: center;
                             width: 100%;
                             aspect-ratio: 1;
+                            box-shadow: 0 12px 20px 0px var(--bg_color);
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                z-index: 1;
+                                width: 100%;
+                                height: 100%;
+                                bottom: 0px;
+                                transform: scale(1.02);
+                                background: var(--bg_color_smooth);
+                                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, var(--bg_color_transparent) 40%, var(--bg_color) 100%);
+                            }
                             img{
                                 object-fit: cover;
                                 max-width: 100%;
@@ -329,8 +341,6 @@ const projects = reactive([
                             display: flex;
                             position: absolute;
                             bottom:0;
-                            background: var(--bg_color_smooth);
-                            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, var(--bg_color_transparent) 40%, var(--bg_color_smooth) 100%);
                             width: 100%;
                             align-items: center;
                             justify-content: space-between;
@@ -368,6 +378,10 @@ const projects = reactive([
                     &:hover{
                         z-index: 4;
                         transform: scale(0.84) translateY(5vh);
+
+                        picture{
+                            box-shadow: 0 80px 80px 80px var(--bg_color);
+                        }
                         .project-titles{
                             opacity: 1;
                             top: 0;
@@ -376,6 +390,9 @@ const projects = reactive([
                     &.active{
                         transform: scale(1);
                         z-index: 2;
+                        picture{
+                            box-shadow: 0 40px 80px 80px var(--bg_color);
+                        }
                         .project-titles{
                             opacity: 1;
                             top: 0;

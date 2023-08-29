@@ -1,15 +1,20 @@
 html{
-    body{
-        transition: all 0.4s ease;
+    &.dark-theme{
+        body{
+            background-size: cover;
+        }
     }
 }
 body{
+    transition: all 0.4s ease;
     margin: 0;
     padding: 0;
     font-family: $font_main;
     background-color: var(--bg_color);
     color: var(--text_color);
     scroll-behavior: smooth;
+    background-image: var(--bg_texture);
+    background-attachment: fixed;
     
     *{
         box-sizing: border-box;
@@ -23,6 +28,7 @@ body{
     a{
         transition: $transition_default;
         text-decoration: none;
+        color: var(--secondary);
     }
     button{
         cursor: pointer;
@@ -146,4 +152,18 @@ body{
 @keyframes blink-caret {
 from, to { border-color: transparent }
 50% { border-color: var(--primary) }
+}
+
+@keyframes shake {
+    0% { transform: translate(0.04em, 0.04em) rotate(0deg); }
+    10% { transform: translate(-0.04em, -0.04em) rotate(-1deg); }
+    20% { transform: translate(-0.04em, 0em) rotate(1deg); }
+    30% { transform: translate(0.04em, 0.04em) rotate(0deg); }
+    40% { transform: translate(0.04em, -0.04em) rotate(1deg); }
+    50% { transform: translate(-0.04em, 0.04em) rotate(-1deg); }
+    60% { transform: translate(-0.04em, 0.04em) rotate(0deg); }
+    70% { transform: translate(0.04em, 0.04em) rotate(-1deg); }
+    80% { transform: translate(-0.04em, -0.04em) rotate(1deg); }
+    90% { transform: translate(0.04em, 0.04em) rotate(0deg); }
+    100% { transform: translate(0.04em, -0.04em) rotate(-1deg); }
 }

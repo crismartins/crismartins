@@ -12,7 +12,7 @@
                     <h3 class="large-title">
                         All you need to make your Business go beyond
                     </h3>
-
+                    <HomeAboutMeDetails />
                 </div>
                 <ul ref="container" class="services__section__container__column__details">
                     <li 
@@ -35,9 +35,6 @@
                                 <p>
                                     {{ service.description }}
                                 </p>
-                                <!-- <AppButton :ref="'target_'+service.id" class="outline small">
-                                    Contract
-                                </AppButton> -->
                             </div>
                         </NuxtLink>
                     </li>
@@ -137,6 +134,7 @@ let services = reactive([
                         border: 1px solid var(--text_color_transparent);
                         transition: $transition_default;
                         border-radius: 40px;
+                        background-color: var(--bg_color_smooth);
                         &:hover{
                             box-shadow: 0 20px 40px 0 var(--shadow);
                             transform: scale(1.08);

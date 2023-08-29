@@ -53,21 +53,26 @@ const { hasLink } = toRefs(props)
             transform: scale(1.12);
         }
     }
+
+    &.call{
+        i{
+            transition: $transition_default;
+        }
+        &:hover{
+            i{
+                animation: calling 2s infinite;
+            }
+        }
+    }
     
     &.outline{
         background-color: transparent;
         border-color: var(--text_color_transparent);
         color: var(--text_color);
-        i{
-            transition: $transition_default;
-        }
         &:hover{
             background-color: var(--text_color);
             color: var(--bg_color);
             border-color: var(--text_color);
-            i{
-                animation: calling 2s infinite;
-            }
         }
         &.inverted{
             border-color: var(--bg_color_transparent);

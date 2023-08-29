@@ -26,7 +26,7 @@
                 <AppButton class="primary">
                     See more
                 </AppButton>
-                <AppButton class="outline" hasLink="/#portfolio">
+                <AppButton class="outline call" hasLink="/#portfolio">
                     <AppIcon IconName="ph:download-simple-bold" /> Download CV
                 </AppButton>
             </div>

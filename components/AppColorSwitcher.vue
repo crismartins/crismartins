@@ -7,7 +7,7 @@
             <span>
                 <AppIcon 
                     :class="$colorMode.preference" 
-                    :IconName="$colorMode.preference == 'dark' ? 'ph:sun-dim' : 'ph:sunglasses-fill'" 
+                    :IconName="$colorMode.preference == 'dark' ? 'ph:sun-dim' : 'ph:moon-stars'" 
                 />
             </span>
         </button>
@@ -28,7 +28,6 @@ function toggleDarkMode(theme) {
             background-color: transparent;
             color: var(--text-color);
             border: 0;
-            border-radius: 60px;
             width: 32px;
             height: 32px;
             cursor: pointer;
