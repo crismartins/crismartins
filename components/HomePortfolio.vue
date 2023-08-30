@@ -309,8 +309,6 @@ const projects = reactive([
                     z-index: 1;
                     &__header{
                         position: relative;
-                        // overflow: hidden;
-                        // border-radius: 32px;
                         &__picture{
                             overflow: hidden;
                             border-radius: 32px;

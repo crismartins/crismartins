@@ -47,6 +47,8 @@ function showAll(){
         margin: auto;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 8px;
         &__item{
             aspect-ratio: 1;
             font-size: 24px;

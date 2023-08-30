@@ -8,8 +8,6 @@
 
         <HomeServices />
         
-        <HomeContact />
-        
     </div>
 </template>
 

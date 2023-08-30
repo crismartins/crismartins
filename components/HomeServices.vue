@@ -12,7 +12,7 @@
                     <h3 class="large-title">
                         All you need to make your Business go beyond
                     </h3>
-                    <HomeAboutMeDetails />
+                    <HomeServicesDetails />
                 </div>
                 <ul ref="container" class="services__section__container__column__details">
                     <li 
@@ -91,12 +91,13 @@ let services = reactive([
         h3{
             position:relative; 
             z-index: 2;
+            margin-bottom: 40px;
         }
         &__column{
             display: grid;
             gap: 40px;
             grid-template-columns: 1fr 1fr;
-            @media(max-width:$br_mobile){
+            @media(max-width:$br_tablet){
                 grid-template-columns: 1fr;
             }
 

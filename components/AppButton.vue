@@ -101,6 +101,7 @@ const { hasLink } = toRefs(props)
         border: none;
         &:hover{
             background: var(--tertiary);
+            color: var(--pure_white);
         }
     }
     &.small{
