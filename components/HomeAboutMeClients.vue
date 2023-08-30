@@ -1,10 +1,14 @@
 <template>
     <div class="about__clients">
         <h4>
-            Some Companies that I had the pleasure to work with:
+            Customers whoe trust me
         </h4>
         <ul class="about__clients__list">
-            <li class="about__clients__list__item" v-for="client in clients" :key="client.name">
+            <li 
+                v-for="client in clients" 
+                :key="client.name"
+                class="about__clients__list__item"
+            >
                 <nuxt-img 
                     :src="'images/clients/'+client.image"
                     :alt="client.name"
@@ -17,7 +21,8 @@
 </template>
 
 <script setup>
-const clients = ref([
+import { reactive } from '#imports'
+const clients = reactive([
     {name: 'Ebanx', image: 'ebanx.png'},
     {name: 'Ahoy by Belago', image: 'ahoy.png'},
     {name: 'Belago', image: 'belago.png'},

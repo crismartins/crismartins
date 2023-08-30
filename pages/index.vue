@@ -1,12 +1,12 @@
 <template>
     <div>
-        <HomeHero />
+        <HomeHero id="home" />
 
-        <HomePortfolio />
+        <HomePortfolio id="portfolio" />
 
-        <HomeAboutMe />
+        <HomeAboutMe id="about" />
 
-        <HomeServices />
+        <HomeServices id="services" />
         
     </div>
 </template>

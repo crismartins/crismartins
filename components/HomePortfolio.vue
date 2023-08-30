@@ -11,7 +11,7 @@
             </header>
             <ul class="portfolio__section__container__projects">
                 <li 
-                    v-for="project in projects" 
+                    v-for="(project, index) in projects" 
                     :id="project.id"
                     :key="project.id"
                     class="portfolio__section__container__projects__item"
@@ -52,7 +52,7 @@
                             <p>
                                 {{ project.type }}
                             </p>
-                            <AppButton :isLink="project.name" class="outline small">
+                            <AppButton @click="viewDetails(index)" class="outline small">
                                 Details
                                 <AppIcon IconName="ph:plus-bold" />
                             </AppButton>
@@ -83,12 +83,20 @@
                             <button :class="{ active : selectedProj == project.id }" @click="goToProj(project.id)" />
                         </li>
                     </ul>
-                    <AppButton class="primary" hasLink="/portfolio">
-                        View Portfolio
+                    <AppButton class="primary" hasLink="/#services">
+                        My Services
                         <AppIcon IconName="ph:caret-right-bold" />
                     </AppButton>
                 </div>
             </div>
+
+            <HomeAboutMeClients />
+
+            <AppModal
+                :projectDetails="openedDetails" 
+                :openedModal="showModal" 
+                @close="closeModal" 
+            />
 
         </div>
     </section>
@@ -236,6 +244,20 @@ const projects = reactive([
         ]
     }
 ])
+
+const showModal = ref(false)
+
+const openedDetails = ref(projects)
+
+function viewDetails(index){
+    openedDetails.value = projects[index]
+    console.log(openedDetails.value)
+    showModal.value = true
+}
+
+function closeModal(){
+    showModal.value = false
+}
 
 </script>
 

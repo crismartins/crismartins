@@ -6,8 +6,9 @@
             <AppIcon IconName="ph:caret-down-bold" />
         </button>
         <div 
+            v-on-click-outside="closeSwitcher"
             class="language__switcher__menu" 
-            :aria-hidden="langOptions" 
+            :aria-hidden="langOptions"
             @click="changeLang"
         >
             <ul>
@@ -44,10 +45,15 @@
 
 <script setup>
 import { ref } from '#imports'
+import { vOnClickOutside } from '@vueuse/components'
+
 const langOptions = ref(true)
 
 function changeLang(){
     langOptions.value = !langOptions.value
+}
+function closeSwitcher(){
+    langOptions.value = true
 }
 </script>
 

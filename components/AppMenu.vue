@@ -5,7 +5,11 @@
             :key="item.title"
             class="menu__list__item" 
         >
-            <nuxt-link class="menu__list__item__link" :to="$t(item.route)">
+            <nuxt-link 
+                class="menu__list__item__link" 
+                :class="{ 'active' : sectionVisible == $t(item.route) }" 
+                :to="{hash: $t(item.route)}"
+            >
                 <AppIcon :IconName="item.icon" />
                 <span>{{ $t(item.title) }}</span>
             </nuxt-link>
@@ -14,12 +18,47 @@
 </template>
 
 <script setup>
-import { reactive } from '#imports'
+import { ref, reactive, onMounted } from '#imports'
+
+const sectionVisible = ref('#home')
+
+onMounted(() => {
+    document.addEventListener('scroll', () => {
+        const home = document.querySelector('#home')
+        const portfolio = document.querySelector('#portfolio')
+        const about = document.querySelector('#about')
+        const services = document.querySelector('#services')
+        const contact = document.querySelector('#contact')
+        if(window.pageYOffset <= home.offsetTop + home.offsetHeight / 2){
+            sectionVisible.value = '#home'
+            console.log('home')
+        }else if(window.pageYOffset <= portfolio.offsetTop + portfolio.offsetHeight / 2){
+            sectionVisible.value = '#portfolio'
+            console.log('port')
+        }else if(window.pageYOffset <= about.offsetTop + about.offsetHeight / 2){
+            sectionVisible.value = '#about'
+            console.log('about')
+        }else if(window.pageYOffset <= services.offsetTop + services.offsetHeight / 2){
+            sectionVisible.value = '#services'
+            console.log('services')
+        }else if(window.pageYOffset <= contact.offsetTop + contact.offsetHeight / 2){
+            sectionVisible.value = '#contact'
+            console.log('contact')
+        }
+    })
+})
+
+
 const menuItems = reactive([
     {
         icon: 'ph:house-duotone',
         title: 'menu.item1.title', 
         route: 'menu.item1.route'
+    },
+    {
+        icon: 'ph:shooting-star-duotone',
+        title: 'menu.item4.title', 
+        route: 'menu.item4.route'
     },
     {
         icon: 'ph:user-circle-duotone',
@@ -30,11 +69,6 @@ const menuItems = reactive([
         icon: 'ph:wrench-duotone',
         title: 'menu.item3.title', 
         route: 'menu.item3.route'
-    },
-    {
-        icon: 'ph:shooting-star-duotone',
-        title: 'menu.item4.title', 
-        route: 'menu.item4.route'
     },
     {
         icon: 'ph:chat-circle-duotone',
@@ -96,7 +130,7 @@ const menuItems = reactive([
                     transition: $transition_default;
                     display: block;
                 }
-                &:hover, &.active, &.router-link-exact-active{
+                &:hover, &.active{
                     color: var(--text_color);
                     &::after{
                         width: 28px;

@@ -1,6 +1,6 @@
 <template>
     <footer class="footer section">
-        <div class="footer__container container">
+        <div id="contact" class="footer__container container">
             <div class="footer__container__column">
                 
                 <h2 class="small-title">
@@ -71,6 +71,10 @@ const currentYear = new Date().getFullYear()
 <style lang="scss" scoped>
 .footer{
     margin-top: 40px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     &__container{
         background: var(--primary_gradient);
         border-radius: 40px;

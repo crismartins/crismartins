@@ -44,8 +44,8 @@
                 </div>
             </div>
             <div class="about__section__container__buttons">
-                <AppButton class="primary">
-                    See more
+                <AppButton class="primary" hasLink="/#contact">
+                    Contact Me
                 </AppButton>
                 <AppButton class="outline call" hasLink="/#portfolio">
                     <AppIcon IconName="ph:download-simple-bold" /> Download CV

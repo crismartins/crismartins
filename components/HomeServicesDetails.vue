@@ -366,7 +366,6 @@
                     font-weight: bold;
                     font-size: 20px;
                     color: var(--bg_color);
-                    // border-radius: 40%;
                     background-color: var(--text_color_transparent);
                     backdrop-filter: blur(8px);
                     display: grid;

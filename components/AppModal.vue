@@ -42,6 +42,7 @@ const closeModal = () => {
     height: 100%;
     width: 100%;
     top: 0;
+    z-index: 999;
     &::backdrop {
         background: black;
         opacity: 0.5;

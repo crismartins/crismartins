@@ -1,24 +1,34 @@
 <template>
     <div class="theme-switcher">
         <button
-            :class="$colorMode.preference"
-            @click="toggleDarkMode($colorMode.preference == 'dark' ? 'light' : 'dark')"
+            :class="colorMode.value"
+            @click="toggleDarkMode(colorMode.value == 'dark' ? 'light' : 'dark')"
         >
             <span>
                 <AppIcon 
-                    :class="$colorMode.preference" 
-                    :IconName="$colorMode.preference == 'dark' ? 'ph:sun-dim' : 'ph:moon-stars'" 
+                    :class="colorMode.value" 
+                    :IconName="icon" 
                 />
             </span>
+            
         </button>
     </div>
 </template>
 
 <script setup>
+import { ref } from '#imports'
+// import { useColorMode } from '@vueuse/core'
+
 const colorMode = useColorMode()
+const icon = ref('ph:sun-dim')
+
 function toggleDarkMode(theme) {
     colorMode.preference = theme
-    console.log()
+    if(theme == 'dark'){
+        icon.value = 'ph:sun-dim'
+    }else{
+        icon.value = 'ph:moon-stars'
+    }
 }
 </script>
 

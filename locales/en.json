@@ -3,23 +3,23 @@
     "menu": {
         "item1":{
             "title": "Home",
-            "route": "/"
+            "route": "#home"
         },
         "item2":{
             "title": "About",
-            "route": "/about"
+            "route": "#about"
         },
         "item3":{
             "title": "Services",
-            "route": "/services"
+            "route": "#services"
         },
         "item4":{
             "title": "Portfolio",
-            "route": "/portfolio"
+            "route": "#portfolio"
         },
         "item5":{
             "title": "Contact",
-            "route": "/contact"
+            "route": "#contact"
         }
     }
 }
