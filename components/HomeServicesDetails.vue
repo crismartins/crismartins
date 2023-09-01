@@ -1,112 +1,112 @@
 <template>
     <div class="about__skills">
 
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
 
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
-        <div class="cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
+        <div class="about__skills__cell" />
         
 
-        <div class="mover">
-            <div class="about__skills__image">
-                <picture class="about__skills__image__picture">
+        <div class="about__skills__container">
+            <div class="about__skills__container__image">
+                <picture class="about__skills__container__image__picture">
                     <svg 
                         width="40" 
                         height="38" 
@@ -146,7 +146,7 @@
                         </defs>
                     </svg>
                 </picture>
-                <strong class="about__skills__image__tag artist">
+                <strong class="about__skills__container__image__tag artist">
                     <span>
                         Illustration
                         <NuxtImg 
@@ -156,14 +156,14 @@
                         />
                     </span>
                 </strong>
-                <strong class="about__skills__image__tag developer">
+                <strong class="about__skills__container__image__tag developer">
                     >_
                     <span>
                         Web
                         Development
                     </span>
                 </strong>
-                <strong class="about__skills__image__tag designer">
+                <strong class="about__skills__container__image__tag designer">
                     <span>B</span>
                     <small>
                         Branding
@@ -181,218 +181,215 @@
 </script>
 
 <style lang="scss" scoped>
-.cell {
-    width: 100%;
-    height: 100%;
-    // border: 1px solid gray;
-    z-index: 2;
-    @media(max-width: $br_mobile){
-        display: none;
+
+@for $i from 0 to 10 {
+    .about__skills__cell:nth-child(10n + #{$i + 1}):hover ~ .about__skills__container {
+        --positionX: #{$i};
+    }
+    .about__skills__cell:nth-child(n + #{10 * $i + 1}):nth-child(-n + #{10 * ($i + 1)}):hover ~ .about__skills__container {
+        --positionY: #{$i};
+    }
+    .about__skills__cell:nth-child(10n + #{$i + 1}):hover ~ .about__skills__container {
+        --positionZ: #{$i};
     }
 }
 
-@for $i from 0 to 10 {
- .cell:nth-child(10n + #{$i + 1}):hover ~ .mover {
-    --positionX: #{$i};
-  }
-  .cell:nth-child(n + #{10 * $i + 1}):nth-child(-n + #{10 * ($i + 1)}):hover ~ .mover {
-    --positionY: #{$i};
-  }
-  .cell:nth-child(10n + #{$i + 1}):hover ~ .mover {
-    --positionZ: #{$i};
-  }
-}
- .mover{
-    --positionX: 5;
-  --positionY: 5;
-  --positionZ: 5;
-    position: absolute;
-    transition: $transition_default;
-    perspective: 800px;
-    @media(max-width: $br_mobile){
-        position: relative;
-        perspective: none;
-    }
-    .about__skills__image{
-        transform: rotateX(calc(0deg - (var(--positionY) - 5) * 5deg))
-        rotateY(calc((var(--positionX) - 5) * 5deg));
-    }
-    .experience{
-        transform: translate(calc(var(--positionZ) * -1px));
-    }
-    .developer{
-        transform: translate(calc(var(--positionZ) * 4px));
-    }
-    .artist{
-        transform: translate(calc(var(--positionZ) * 2px));
-    }
-    .designer{
-        transform: translate(calc(var(--positionZ) * 2px));
-        &:before{
-            transform: translate(calc(var(--positionZ) * 3px));
-        }
-        &:after{
-            transform: translate(calc(var(--positionZ) * 5px));
-        }
-    }
- }
 .about__skills{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     place-items: center;
     height: 400px;
+    position: relative;
     @media(max-width: $br_mobile){
         grid-template-columns: auto;
     }
-    &__image{
-        position: relative;
-        transition: $transition_default;
-        height: 240px;
-        aspect-ratio: 1;
-        border-radius: 50%;
+    &__cell {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
         @media(max-width: $br_mobile){
-            height: 180px;
+            display: none;
         }
-        &__picture{
-            box-shadow: 0 0 80px 40px var(--secondary);
+    }
+    &__container{
+        --positionX: 5;
+        --positionY: 5;
+        --positionZ: 5;
+        position: absolute;
+        transition: $transition_default;
+        perspective: 800px;
+        @media(max-width: $br_mobile){
+            position: relative;
+            perspective: none;
+        }
+        &__image{
+            position: relative;
+            transition: $transition_default;
+            height: 240px;
+            aspect-ratio: 1;
             border-radius: 50%;
-            display: grid;
-            place-items: center;
-            height: 100%;
-            width: 100%;
-            svg {
+
+            transform: rotateX(calc(0deg - (var(--positionY) - 5) * 5deg))
+            rotateY(calc((var(--positionX) - 5) * 5deg));
+
+            @media(max-width: $br_mobile){
+                height: 180px;
+            }
+            &__picture{
+                box-shadow: 0 0 80px 40px var(--secondary);
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                height: 100%;
                 width: 100%;
-                transform: scale(1.2);
-                height: auto;
+                animation: rotate 8s infinite linear;
+                svg {
+                    width: 100%;
+                    transform: scale(1.2);
+                    height: auto;
+                }
             }
-        }
         
-        &__tag{
-            transition: $transition_default;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 40px;
-            padding: 8px 20px;
-            font-weight: 600;
-            width: fit-content;
-            position: absolute;
-            top: 10%;
-            left: 320px;
-            transition: $transition_default;
-
-            &.artist{
-                left: 240px;
-                top: 50px;
-                color: var(--text_color);
-                font-size: 14px;
-                font-weight: 400;
-                z-index: 2;
-                @media(max-width: $br_mobile){
-                    left: 80%;
-                    top: -10%;
-                }
-                img{
-                    position: absolute;
-                    width: 60px;
-                    left: -40px;
-                    top: -40px;
-                }
-            }
-            &.developer{
-                background-color: rgba(0,0,0,0.8);
-                backdrop-filter: blur(20px);
-                color: var(--pure_white);
-                border: 1px solid var(--bg_color_transparent);
-                box-shadow: 4px 12px 20px 0 var(--text_color_transparent);
-                top: 94%;
-                left: 34%;
-                padding: 12px;
-                border-radius: 8px;
-                font-weight: normal;
-                font-size: 12px;
-                height: 80px;
-                z-index: 1;
-                justify-content: flex-start;
-                align-items: flex-start;
-                font-family: Courier;
-                letter-spacing: 2px;
-                span{
-                    overflow: hidden;
-                    border-right: .15em solid var(--primary);
-                    white-space: nowrap;
-                    animation: 
-                    typing 4.5s steps(15, end) infinite,
-                    blink-caret .8s step-end infinite;
-                }
-            }
-            &.designer{
-                background-color: var(--pure_white);
-                color: rgba(0,0,0,0.8);
-                bottom: 0;
-                width: 100px;
-                aspect-ratio: 1;
-                top: unset;
-                z-index: 3;
-                left: -90px;
-                border-radius: 24px;
-                font-size: 14px;
-                text-align: center;
-                padding: 8px;
-                box-shadow: 0 12px 32px 0 var(--text_color_transparent);
+            &__tag{
+                transition: $transition_default;
                 display: flex;
-                flex-direction: column;
-                span{
-                    background: rgb(97,34,195);
-                    background: linear-gradient(45deg, rgba(97,34,195,1) 0%, rgba(97,34,195,1) 25%, rgba(0,255,185,1) 25%, rgba(0,255,185,1) 50%, rgba(246,45,170,1) 50%, rgba(246,45,170,1) 75%, rgba(247,238,72,1) 75%, rgba(247,238,72,1) 100%);
-                    font-size: 20px;
-                    color: var(--pure_white);
-                    text-shadow: 1px 2px 0 rgba(#000000, 1);
-                    display: inline-block;
-                    border-radius: 20px;
-                    padding: 8px;
-                }
-                small{
-                    margin-top: 4px;
-                    color: #000;
-                }
-                &:before{
-                    content: 'UX';
-                    position: absolute;
-                    top: -120%;
-                    right: -12%;
-                    width: 70px;
-                    aspect-ratio: 1;
-                    font-weight: bold;
-                    font-size: 20px;
-                    color: var(--bg_color);
-                    background-color: var(--text_color_transparent);
-                    backdrop-filter: blur(8px);
-                    display: grid;
-                    place-items: center;
-                    border: 2px solid var(--bg_color_smooth);
-                    transition: $transition_default;
-                    box-shadow: 0 12px 32px 0 var(--text_color_transparent);
-                }
-                &:after{
-                    content: 'UI';
-                    position: absolute;
-                    font-weight: bold;
-                    font-size: 20px;
-                    color: rgba(255, 255, 255, 1);
-                    bottom: 200%;
-                    border-radius: 40%;
-                    right: 30%;
-                    width: 80px;
-                    aspect-ratio: 1;
-                    background: linear-gradient(45deg, #b012ff 40%, #ff344f);
-                    box-shadow: 0px 0px 20px 0 #b012ff;
-                    display: grid;
-                    place-items: center;
-                    transition: $transition_default;
-                    text-shadow: 1px 2px 2px rgba(#000000, 0.4);
-                }
+                align-items: center;
+                justify-content: center;
+                border-radius: 40px;
+                padding: 8px 20px;
+                font-weight: 600;
+                width: fit-content;
+                position: absolute;
+                top: 10%;
+                left: 320px;
+                transition: $transition_default;
+    
+                &.artist{
+                    left: 240px;
+                    top: 50px;
+                    color: var(--text_color);
+                    font-size: 14px;
+                    font-weight: 400;
+                    z-index: 2;
 
+                    transform: translate(calc(var(--positionZ) * 2px));
+
+                    @media(max-width: $br_mobile){
+                        left: 80%;
+                        top: -10%;
+                    }
+                    img{
+                        position: absolute;
+                        width: 60px;
+                        left: -40px;
+                        top: -40px;
+                    }
+                }
+                &.developer{
+                    background-color: rgba(0,0,0,0.8);
+                    backdrop-filter: blur(20px);
+                    color: var(--pure_white);
+                    border: 1px solid var(--bg_color_transparent);
+                    box-shadow: 4px 12px 20px 0 var(--text_color_transparent);
+                    top: 94%;
+                    left: 34%;
+                    padding: 12px;
+                    border-radius: 8px;
+                    font-weight: normal;
+                    font-size: 12px;
+                    height: 80px;
+                    z-index: 1;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    font-family: Courier;
+                    letter-spacing: 2px;
+
+                    transform: translate(calc(var(--positionZ) * 4px));
+
+                    span{
+                        overflow: hidden;
+                        border-right: .15em solid var(--primary);
+                        white-space: nowrap;
+                        animation: 
+                        typing 4.5s steps(15, end) infinite,
+                        blink-caret .8s step-end infinite;
+                    }
+                }
+                &.designer{
+                    background-color: var(--pure_white);
+                    color: rgba(0,0,0,0.8);
+                    bottom: 0;
+                    width: 100px;
+                    aspect-ratio: 1;
+                    top: unset;
+                    z-index: 3;
+                    left: -90px;
+                    border-radius: 24px;
+                    font-size: 14px;
+                    text-align: center;
+                    padding: 8px;
+                    box-shadow: 0 12px 32px 0 var(--text_color_transparent);
+                    display: flex;
+                    flex-direction: column;
+
+                    transform: translate(calc(var(--positionZ) * 2px));
+            
+                    span{
+                        background: rgb(97,34,195);
+                        background: linear-gradient(45deg, rgb(158, 25, 43) 0%, rgb(158, 25, 43) 25%, rgb(255, 41, 84)  25%, rgb(255, 41, 84)  50%, rgb(255, 153, 0) 50%, rgb(255, 153, 0) 75%, rgb(255, 217, 0) 75%, rgb(255, 217, 0) 100%);
+                        font-size: 20px;
+                        color: var(--pure_white);
+                        display: inline-block;
+                        border-radius: 20px;
+                        padding: 8px;
+                    }
+                    small{
+                        margin-top: 4px;
+                        color: #000;
+                    }
+                    &:before{
+                        content: 'UX';
+                        position: absolute;
+                        top: -120%;
+                        right: -12%;
+                        width: 70px;
+                        height: 70px;
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: var(--bg_color);
+                        background-color: var(--text_color_transparent);
+                        backdrop-filter: blur(8px);
+                        display: grid;
+                        place-items: center;
+                        border: 2px solid var(--bg_color_smooth);
+                        transition: $transition_default;
+                        box-shadow: 0 12px 32px 0 var(--text_color_transparent);
+                    
+                        transform: translate(calc(var(--positionZ) * 3px));
+
+                    }
+                    &:after{
+                        content: 'UI';
+                        position: absolute;
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: rgba(255, 255, 255, 1);
+                        bottom: 200%;
+                        border-radius: 40%;
+                        right: 30%;
+                        width: 80px;
+                        height: 80px;
+                        background: linear-gradient(45deg, #b012ff 40%, #ff344f);
+                        box-shadow: 0px 0px 20px 0 #b012ff;
+                        display: grid;
+                        place-items: center;
+                        transition: $transition_default;
+                        text-shadow: 1px 2px 2px rgba(#000000, 0.4);
+
+                        transform: translate(calc(var(--positionZ) * 5px));
+                    }
+    
+                }
             }
         }
     }

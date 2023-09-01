@@ -1,41 +1,62 @@
 <template>
-    <ul class="skills__stacks">
+    <ul v-if="maxItems != null" class="skills__stacks">
         <li 
-            v-for="stack in items" 
+            v-for="stack in stackList" 
             :key="stack.name"
             class="skills__stacks__item" 
         >
             <strong>{{ stack.name }}</strong>
             <AppIcon :IconName="stack.logo"/>
         </li>
-        <li v-if="props.stacks.length > props.maxItems" class="skills__stacks__button">
-            <AppButton type="button" class="secondary icononly" :class="items.length > props.maxItems ? 'opened' : ''" @click="showAll">
+        <li class="skills__stacks__button">
+            <AppButton 
+                class="secondary icononly"
+                :class="stackList.length > maxItems ? 'opened' : ''"
+                @click="showAll"
+            >
                 <AppIcon IconName="ph:plus-bold"/>
             </AppButton>
+        </li>
+    </ul>
+    <ul v-else class="skills__stacks">
+        <li 
+            v-for="stack in stacks" 
+            :key="stack.name"
+            class="skills__stacks__item no-bg" 
+        >
+            <strong>{{ stack.name }}</strong>
+            <AppIcon :IconName="stack.logo"/>
         </li>
     </ul>
 </template>
 
 <script setup>
-import { ref } from '#imports'
+import { ref, onMounted } from '#imports'
 const props = defineProps({
     stacks: {
         type: Object
     },
     maxItems: {
-        type: Number
+        type: Number,
+        required: false
     }
 })
 
-const shortList = props.stacks.slice(0, props.maxItems)
+let stackList = ref(props.stacks)
 
-let items = ref(shortList)
+onMounted(() => {
+    if(props.maxItems != null){
+        stackList.value = props.stacks.slice(0, props.maxItems)
+    }else{
+        stackList.value = props.stacks
+    }
+})
 
 function showAll(){
-    if(items.value.length < props.stacks.length){
-        items.value = props.stacks
+    if(stackList.value.length == props.maxItems){
+        stackList.value = props.stacks
     }else{
-        items.value = shortList
+        stackList.value = props.stacks.slice(0, props.maxItems)
     }
 }
 
@@ -44,28 +65,32 @@ function showAll(){
 <style lang="scss" scoped>
     .skills__stacks{
         display: flex;
-        margin: auto;
+        // margin: auto;
         align-items: center;
         flex-wrap: wrap;
-        justify-content: center;
-        row-gap: 8px;
+        // gap: 12px;
         &__item{
             aspect-ratio: 1;
-            font-size: 24px;
-            width: 44px;
+            font-size: 20px;
+            width: 36px;
             display: grid;
             place-items: center;
+            transition: $transition_default;
             border-radius: 100%;
             background-color: var(--neutral);
-            margin-left: -12px;
+            margin-left: -8px;
             box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -4px 32px 0 var(--bg_color);
+            &.no-bg{
+                background-color: transparent;
+                box-shadow: none;
+            }
             &:first-child{
                 margin-left: 0;
             }
             strong{
                 background-color: var(--text_color);
                 color: var(--bg_color);
-                font-size: $size_12px;
+                font-size: $size_8px;
                 font-weight: normal;
                 padding: 4px 8px;
                 border-radius: $size_8px;
@@ -79,19 +104,19 @@ function showAll(){
             }
             &:hover{
                 z-index: 1;
-                transform: scale(1.08);
+                transform: scale(1.2);
                 strong{
-                    top: -40px;
+                    top: -28px;
                     opacity: 1;
                 }
             }
         }
         &__button{
             position: relative;
-            margin-left: -16px;
             
             button{
                 transition: $transition_default;
+                margin-left: -12px;
                 &.opened{
                     transform: rotate(45deg);
                 }

@@ -37,10 +37,10 @@ onMounted(() => {
             onScroll.scrollTop = true
         }
         
-        if (onScroll.position > onScroll.lastScroll && onScroll.position > 1) {
+        if (onScroll.position > onScroll.lastScroll && onScroll.position > 0) {
             onScroll.scrollTop = false
         } else if (
-            onScroll.position < onScroll.lastScroll || onScroll.position < 1
+            onScroll.position < onScroll.lastScroll || onScroll.position < 0
         ) {
             onScroll.scrollTop = true
         }
@@ -67,13 +67,13 @@ onMounted(() => {
             top: 0;
             background-color: var(--bg_color);
             box-shadow: 0 12px 20px 12px var(--bg_color);
-            .container__fluid{
-                &__menu{
-                    @media(max-width: $br_mobile){
-                        bottom: 0;
-                    }
-                }
-            }
+            // .container__fluid{
+            //     &__menu{
+            //         @media(max-width: $br_mobile){
+            //             bottom: 0;
+            //         }
+            //     }
+            // }
         }
         .container__fluid{
             display: grid;
@@ -121,7 +121,7 @@ onMounted(() => {
                 @media(max-width: $br_mobile){
                     position: fixed;
                     z-index: 999;
-                    bottom: -100%;
+                    bottom: 0;
                     left: 0;
                     width: 100%;
                     padding-inline: 20px;

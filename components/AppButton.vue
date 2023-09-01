@@ -44,11 +44,11 @@ const { hasLink } = toRefs(props)
         padding: 20px 32px;
     }
     &.icononly{
-        width: 52px;
+        width: 32px;
         aspect-ratio: 1;
-        padding: 8px;
-        border-radius: 52px;
-        font-size: $size_28px;
+        padding: 4px;
+        border-radius: 36px;
+        font-size: $size_16px;
         &:hover{
             transform: scale(1.12);
         }

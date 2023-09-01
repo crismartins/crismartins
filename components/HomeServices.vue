@@ -20,7 +20,7 @@
                         :key="service.id"
                         class="services__section__container__column__details__item"
                     >
-                        <NuxtLink class="services__section__container__column__details__item__contain" to="/services">
+                        <article class="services__section__container__column__details__item__contain" to="/services">
                             <header class="services__section__container__column__details__item__contain__header">
                                 <figure>
                                     <AppIcon :IconName="service.icon" />
@@ -36,7 +36,7 @@
                                     {{ service.description }}
                                 </p>
                             </div>
-                        </NuxtLink>
+                        </article>
                     </li>
                 </ul>
             </div>
@@ -137,7 +137,7 @@ let services = reactive([
                         border-radius: 40px;
                         background-color: var(--bg_color_smooth);
                         &:hover{
-                            box-shadow: 0 20px 40px 0 var(--shadow);
+                            box-shadow: 0 0px 40px 0 var(--text_color_transparent);
                             transform: scale(1.08);
                             background-color: var(--bg_color);
                         }

@@ -5,9 +5,6 @@
                 <h2 class="small-title">
                     Lastest Works
                 </h2>
-                <!-- <p>
-                    Welcome to the Portfolio area... here you'll find some selected works that I'm proud of have the opportunity to work in, hope you like.
-                </p> -->
             </header>
             <ul class="portfolio__section__container__projects">
                 <li 
@@ -21,42 +18,45 @@
                     <div 
                         :class="{ active : selectedProj == project.id }"
                         class="portfolio__section__container__projects__item__contain" 
+                        @click="goToProj(project.id)"
                     >
                         <header class="portfolio__section__container__projects__item__contain__header project-image">
-                            <picture class="portfolio__section__container__projects__item__contain__header__picture">
+                            <picture class="portfolio__section__container__projects__item__contain__header__picture" @click="viewDetails(index)">
                                 <NuxtImg 
                                     :src="project.image"
-                                    width="600px"
-                                    height="600px"
+                                    width="400px"
+                                    height="400px"
                                     format="webp"
                                     quality="100"
                                 />
                             </picture>
                             <div class="portfolio__section__container__projects__item__contain__header__info">
-                                <ul class="portfolio__section__container__projects__item__contain__header__info__stacks">
-                                    <li
-                                        v-for="stack in project.stacks"
-                                        :key="stack.name"
-                                        class="portfolio__section__container__projects__item__contain__header__info__stacks__item"
-                                    >
-                                        <AppIcon :IconName="stack.logo" />
-                                    </li>
-                                </ul>
                                 
+                                <AppStackSkills class="portfolio__section__container__projects__item__contain__header__info__stacks" :stacks="project.stacks" />
+
                             </div>
                         </header>
+                        
                         <div class="portfolio__section__container__projects__item__contain__body project-titles">
-                            <h3>
+                            <h3 class="portfolio__section__container__projects__item__contain__body__title">
                                 {{ project.name }}
                             </h3>
-                            <p>
-                                {{ project.type }}
-                            </p>
-                            <AppButton @click="viewDetails(index)" class="outline small">
-                                Details
-                                <AppIcon IconName="ph:plus-bold" />
-                            </AppButton>
+                            <h4 class="portfolio__section__container__projects__item__contain__body__subtitle">
+                                {{ project.client }}
+                            </h4>
                         </div>
+                        <footer class="portfolio__section__container__projects__item__contain__footer project-titles">
+                            <ul class="portfolio__section__container__projects__item__contain__footer__tags">
+                                <li 
+                                    v-for="tag in project.tags" 
+                                    :key="tag" 
+                                    class="portfolio__section__container__projects__item__contain__footer__tags__item"
+                                >
+                                    {{ tag }}
+                                </li>
+                            </ul>
+                            
+                        </footer>
                     </div>
                 </li>
             </ul>
@@ -92,10 +92,10 @@
 
             <HomeAboutMeClients />
 
-            <AppModal
+            <HomePortfolioProjectModal
                 :projectDetails="openedDetails" 
-                :openedModal="showModal" 
-                @close="closeModal" 
+                :openedModal="showModal"
+                @close:modal="closeModal"
             />
 
         </div>
@@ -151,96 +151,122 @@ const projects = reactive([
     {
         id: 1,
         image: '/images/portfolio/ahoy_cover.png', 
-        name: 'Ahoy', 
-        type: 'UI/UX Design for Recruitment Application', 
-        description: 'description',
+        name: 'Employee Recruitment Web Application', 
+        client: 'Ahoy by Belago', 
+        description: 'The design for employee recruitment web application was created by the employee.',
         stacks: [
-            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
-            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
+            {logo: 'skill-icons:xd', name: 'Adobe Xd'},
+            {logo: 'skill-icons:illustrator', name: 'Adobe Illustrator'}
+        ],
+        tags: [
+            'UX/UI', 'Web Application'
         ]
     },
     {
         id: 2,
         image: '/images/portfolio/bon_cover.png', 
-        name: 'Balance of Nature', 
-        type: 'Homepage Development', 
-        description: 'description',
+        name: 'Website Homepage Development', 
+        client: 'Balance of Nature', 
+        description: 'Frontend development for an American food suplements company.',
         stacks: [
-            {logo: 'logos:html-5', name: 'HTML 5'},
-            {logo: 'logos:css-3', name: 'CSS 3'},
-            {logo: 'logos:javascript', name: 'Javascript'},
-            {logo: 'logos:vue', name: 'Vue.js'},
-            {logo: 'logos:nuxt', name: 'Nuxt.js'}
+            {logo: 'devicon:html5', name: 'HTML 5'},
+            {logo: 'devicon:css3', name: 'CSS 3'},
+            {logo: 'devicon:javascript', name: 'Javascript'},
+            {logo: 'devicon:vuejs', name: 'Vue.js'},
+            {logo: 'logos:nuxt-icon', name: 'Nuxt.js'}
+        ],
+        tags: [
+            'Landing Page', 'Website', 'Web Responsive', 'Website Optimization'
         ]
     },
     {
         id: 3,
         image: '/images/portfolio/onr_app_cover.png', 
-        name: 'Onr', 
-        type: 'Mobile App Redesign', 
-        description: 'description',
+        name: 'Real State Services Mobile App', 
+        client: 'Onr', 
+        description: 'Redesign for a mobile application.',
         stacks: [
-            {logo: 'logos:figma', name: 'Figma'}
+            {logo: 'devicon:figma', name: 'Figma'}
+        ],
+        tags: [
+            'UX/UI', 'Mobile Application'
         ]
     },
     {
         id: 4,
         image: '/images/portfolio/planing_pocker_cover.png', 
-        name: 'Planing Poker Online Room', 
-        type: 'Logo, UI/UX Design for a Sprint Planning App', 
-        description: 'description',
+        name: 'Sprint Planning Web App', 
+        client: 'Planing Poker Online Room', 
+        description: 'Sprint Planning Web App development in partnership with a ',
         stacks: [
-            {logo: 'logos:figma', name: 'Figma'},
-            {logo: 'logos:javascript', name: 'Javascript'},
-            {logo: 'logos:html-5', name: 'HTML 5'},
-            {logo: 'logos:css-3', name: 'CSS 3'},
-            {logo: 'logos:vue', name: 'Vue.js'}
+            {logo: 'devicon:figma', name: 'Figma'},
+            {logo: 'devicon:javascript', name: 'Javascript'},
+            {logo: 'devicon:html5', name: 'HTML 5'},
+            {logo: 'devicon:css3', name: 'CSS 3'},
+            {logo: 'devicon:sass', name: 'Sass'},
+            {logo: 'devicon:vuejs', name: 'Vue.js'},
+            {logo: 'logos:nuxt-icon', name: 'Nuxt.js'}
+        ],
+        tags: [
+            'UX/UI','Logotype', 'Web Application', 'Web Responsive'
         ]
     },
     {
         id: 5,
         image: '/images/portfolio/curitiba_app_cover.png', 
-        name: 'Curitiba App', 
-        type: 'UI/UX Design for City Hall Services App', 
-        description: 'description',
+        name: 'City Hall Services App', 
+        client: 'Curitiba App', 
+        description: 'UI and UX study for a Mobile App',
         stacks: [
-            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
-            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
+            {logo: 'skill-icons:xd', name: 'Adobe Xd'},
+            {logo: 'skill-icons:illustrator', name: 'Adobe Illustrator'}
+        ],
+        tags: [
+            'UX/UI', 'Mobile Application', 'Icon Design'
         ]
     },
     {
         id: 6,
         image: '/images/portfolio/ebanx_lp_cover.png', 
-        name: 'Ebanx', 
-        type: 'Webflow building page for a Event Landing Page', 
+        name: 'Event Landing Page', 
+        client: 'Ebanx', 
         description: 'description',
         stacks: [
-            {logo: 'logos:webflow', name: 'Webflow'}
+            {logo: 'skill-icons:webflow', name: 'Webflow'}
+        ],
+        tags: [
+            'Landing Page', 'Web Application', 'Web Responsive'
         ]
     },
     {
         id: 7,
         image: '/images/portfolio/alegra_website_cover.png', 
-        name: 'Alegrafoods', 
-        type: 'Frontend development for a Food Company', 
+        name: 'Website Development', 
+        client: 'Alegrafoods', 
         description: 'description',
         stacks: [
-            {logo: 'logos:wordpress', name: 'Wordpress'},
-            {logo: 'logos:jquery', name: 'JQuery'},
-            {logo: 'logos:html-5', name: 'HTML 5'},
-            {logo: 'logos:css-3', name: 'CSS 3'}
+            {logo: 'skill-icons:wordpress', name: 'Wordpress'},
+            {logo: 'skill-icons:jquery', name: 'JQuery'},
+            {logo: 'devicon:html5', name: 'HTML 5'},
+            {logo: 'devicon:css3', name: 'CSS 3'}
+        ],
+        tags: [
+            'Website', 'Wordpress', 'Web Responsive'
         ]
     },
     {
         id: 8,
         image: '/images/portfolio/mago_jardineiro_cover.png', 
-        name: 'Mago Jardineiro', 
-        type: 'One Page Website Design', 
+        name: 'One Page Website', 
+        client: 'Mago Jardineiro', 
         description: 'description',
         stacks: [
-            {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
-            {logo: 'logos:adobe-photoshop', name: 'Adobe Photoshop'},
-            {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'}
+            {logo: 'skill-icons:xd', name: 'Adobe Xd'},
+            {logo: 'skill-icons:photoshop', name: 'Adobe Photoshop'},
+            {logo: 'skill-icons:illustrator', name: 'Adobe Illustrator'}
+        ],
+        tags: [
+            'UX/UI', 'Landing Page', 'Website', 'Web Responsive'
         ]
     }
 ])
@@ -251,7 +277,6 @@ const openedDetails = ref(projects)
 
 function viewDetails(index){
     openedDetails.value = projects[index]
-    console.log(openedDetails.value)
     showModal.value = true
 }
 
@@ -275,7 +300,7 @@ function closeModal(){
         position: relative;
         &__header{
             position: absolute;
-            z-index: 2;
+            z-index: 4;
             padding: 0 0 40px 20px;
             height: 100%;
             @media(max-width:$br_mobile){
@@ -316,8 +341,8 @@ function closeModal(){
             &__item{
                 flex-shrink: 0;
                 position: relative;
-                margin-inline: -40px;
-                max-width: 600px;
+                margin-inline: -28px;
+                max-width: 400px;
                 @media(max-width:$br_mobile){
                     max-width: 98%;
                     margin-inline: -12px;
@@ -332,6 +357,7 @@ function closeModal(){
                     &__header{
                         position: relative;
                         &__picture{
+                            cursor: pointer;
                             overflow: hidden;
                             border-radius: 32px;
                             display: grid;
@@ -339,22 +365,23 @@ function closeModal(){
                             width: 100%;
                             aspect-ratio: 1;
                             box-shadow: 0 12px 20px 0px var(--bg_color);
+                            position: relative;
                             &:before{
                                 content: '';
                                 position: absolute;
                                 z-index: 1;
                                 width: 100%;
-                                height: 100%;
+                                height: 40%;
                                 bottom: 0px;
-                                transform: scale(1.02);
-                                background: var(--bg_color_smooth);
-                                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, var(--bg_color_transparent) 40%, var(--bg_color) 100%);
+                                background: var(--text_color_smooth);
+                                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, var(--text_color_transparent) 40%, var(--text_color) 100%);
                             }
                             img{
                                 object-fit: cover;
                                 max-width: 100%;
                                 max-height: 100%;
                                 transition: $transition_default;
+                                display: block;
                             }
                         }
                         &__info{
@@ -365,13 +392,9 @@ function closeModal(){
                             align-items: center;
                             justify-content: space-between;
                             padding: 20px;
+                            z-index: 1;
                             &__stacks{
-                                display: flex;
-                                gap: 12px;
-                                z-index: 2;
-                                &__item{
-                                    font-size: 20px;
-                                }
+                                justify-content: flex-start;
                             }
                         }
                     }
@@ -381,24 +404,56 @@ function closeModal(){
                         width: 100%;
                         top: -40px;
                         transition: $transition_default;
-                        h3{
-                            font-size: $size_24px ;
-                            font-weight: 400;
+                        &__title{
+                            font-size: $size_20px;
+                            font-weight: 300;
                             margin-block: 20px 8px;
                         }
-                        p{
-                            font-size: $size_16px;
-                            color: var(--text_color_smooth);
+                        &__subtitle{
+                            font-size: $size_14px;
+                            margin:0;
+                            padding-block: 4px;
+                            font-weight: normal;
+                            color: var(--secondary);
+                            text-transform: uppercase;
                         }
                         .button{
                             margin-block: 24px;
 
                         }
                     }
+                    &__footer{
+                        opacity: 0;
+                        position: relative;
+                        width: 100%;
+                        top: -40px;
+                        transition: $transition_default;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 20px;
+                        position: relative;
+                        &__tags{
+                            margin-block: 20px;
+                            display: flex;
+                            gap: 8px;
+                            flex-wrap: wrap;
+                            &__item{
+                                background-color: var(--text_color_transparent);
+                                color: var(--text_color_smooth);
+                                border-radius: 8px;
+                                padding: 4px 8px;
+                                font-size: $size_12px;
+                                font-weight: 400;
+                            }
+                        }
+                    }
                     &:hover{
                         z-index: 4;
                         transform: scale(0.84) translateY(5vh);
-
+                        @media(max-width:$br_mobile){
+                            z-index: 1;
+                        }
                         picture{
                             box-shadow: 0 80px 80px 80px var(--bg_color);
                         }
@@ -425,6 +480,7 @@ function closeModal(){
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                margin-block: 40px;
                 gap: 24px;
                 @media(max-width: $br_mobile){
                     flex-direction: column;

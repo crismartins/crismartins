@@ -8,10 +8,12 @@
                 UX/UI Designer and Frontend Developer Based in Brazil
             </h3>
 
-            <small class="about__section__container__stacks-title">
-                Current working with these tools...
-            </small>
-            <AppStackSkills :stacks="stackLogos" :maxItems="7" />
+            <div class="about__section__container__stacks">
+                <strong>
+                    Current working with these tools...
+                </strong>
+                <AppStackSkills :stacks="stackLogos" :maxItems="7" />
+            </div>
 
             <div class="about__section__container__columns">
 
@@ -67,10 +69,11 @@ const stackLogos = ref([
     {logo: 'logos:html-5', name: 'HTML 5'},
     {logo: 'logos:css-3', name: 'CSS 3'},
     {logo: 'logos:sass', name: 'Sass'},
+    {logo: 'skill-icons:wordpress', name: 'Wordpress'},
     {logo: 'logos:vue', name: 'Vue.JS'},
+    {logo: 'logos:nuxt-icon', name: 'Nuxt.JS'},
     {logo: 'logos:react', name: 'React.JS'},
-    {logo: 'logos:flutter', name: 'Flutter'},
-    {logo: 'logos:nuxt', name: 'Nuxt.JS'}
+    {logo: 'logos:flutter', name: 'Flutter'}
 ])
 </script>
 
@@ -85,11 +88,15 @@ const stackLogos = ref([
             max-width: 600px;
             margin: auto;
         }
-        &__stacks-title{
+        &__stacks{
             margin-block: 40px;
             text-transform: uppercase;
             font-size: $size_12px;
-        text-align: center;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
         &__columns{
             display: grid;

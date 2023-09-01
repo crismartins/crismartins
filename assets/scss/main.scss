@@ -1,10 +1,13 @@
 html{
     scroll-behavior: smooth;
-    &.dark-theme{
-        body{
-            background-size: cover;
-        }
-    }
+    // &.dark-theme{
+    //     body{
+    //         // background-size: cover;
+    //         @media(max-width: $br_mobile){
+
+    //         }
+    //     }
+    // }
 }
 body{
     transition: all 0.4s ease;
@@ -81,7 +84,10 @@ body{
         list-style: none;
     }
 
-    
+    .visibility-hidden{
+        position: absolute;
+        opacity: 0;
+    }
 
     .gradient-font{
         background-color: var(--primary);

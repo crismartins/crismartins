@@ -1,7 +1,7 @@
 <template>
     <div class="about__clients">
         <h4>
-            Customers whoe trust me
+            Customers who but trust me
         </h4>
         <ul class="about__clients__list">
             <li 
@@ -23,18 +23,24 @@
 <script setup>
 import { reactive } from '#imports'
 const clients = reactive([
+    {name: 'Balance of Nature', image: 'frontall-usa.png'},
     {name: 'Ebanx', image: 'ebanx.png'},
     {name: 'Ahoy by Belago', image: 'ahoy.png'},
     {name: 'Belago', image: 'belago.png'},
-    {name: 'Frontall USA', image: 'frontall-usa.png'}
+    {name: 'Frontall USA', image: 'frontall-usa.png'},
+    {name: 'Onr', image: 'frontall-usa.png'},
+    {name: 'Páprica', image: 'frontall-usa.png'},
+    {name: 'Visionnaire', image: 'frontall-usa.png'},
+    {name: 'ICI', image: 'frontall-usa.png'}
 ])
 </script>
 
 <style lang="scss" scoped>
 .about__clients{
     text-align: center;
+    padding: 40px 20px;
     h4{
-        font-size: $size_14px;
+        font-size: $size_16px;
         font-weight: normal;
         margin-block: 12px;
     }
@@ -44,12 +50,13 @@ const clients = reactive([
         align-items: center;
         padding-block: 12px;
         gap: 24px;
+        flex-wrap: wrap;
         &__item{
             display: grid;
             place-items: center;
             transition: $transition_default;
             opacity: 0.4;
-            filter: brightness(10);
+            // filter: brightness(10);
             &:hover{
                 opacity: 1;
             }

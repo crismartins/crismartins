@@ -17,7 +17,7 @@
                         </span>
                     </li>
                 </ul>
-                <NuxtLink to="/about" class="hero__section__container__presentation__button">
+                <NuxtLink to="/#about" class="hero__section__container__presentation__button">
                     <figure class="hero__section__container__presentation__button__avatar">
                         <NuxtImg 
                             src="/images/crismartins_avatar.png"
@@ -42,7 +42,7 @@
                     <h1 class="hero__section__container__text__wrapper__title gradient-font">
                         Designer & Developer.
                     </h1>
-                    <AppButton class="primary">
+                    <AppButton hasLink="/#contact" class="primary">
                         Get in Touch
                     </AppButton>
                 </div>
@@ -232,7 +232,7 @@ const hardSkills = reactive([
                     font-size: $size_60px;
                 }
             }
-            button{
+            .button{
                 margin-top: 40px;
             }
         }

@@ -163,9 +163,11 @@ const currentYear = new Date().getFullYear()
         display: flex;
         gap: 12px;
         justify-content: space-between;
+        margin-block: 0;
         @media(max-width: $br_mobile){
             flex-direction: column;
             justify-content: center;
+            margin-bottom: 80px;
         }
         p{
             font-size:$size_12px;
