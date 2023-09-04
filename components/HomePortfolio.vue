@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <HomeAboutMeClients />
+            <HomeClients />
 
             <HomePortfolioProjectModal
                 :projectDetails="openedDetails" 
@@ -151,6 +151,7 @@ const projects = reactive([
     {
         id: 1,
         image: '/images/portfolio/ahoy_cover.png', 
+        gallery: [ {image: '/images/portfolio/ahoy_cover.png', title: 'title'},{image: '/images/portfolio/ahoy_cover.png', title: 'title'}],
         name: 'Employee Recruitment Web Application', 
         client: 'Ahoy by Belago', 
         description: 'The design for employee recruitment web application was created by the employee.',
@@ -160,11 +161,13 @@ const projects = reactive([
         ],
         tags: [
             'UX/UI', 'Web Application'
-        ]
+        ],
+        live_url: 'https://google.com/'
     },
     {
         id: 2,
         image: '/images/portfolio/bon_cover.png', 
+        gallery: [ {image: '/images/portfolio/bon_cover.png', title: 'title'},{image: '/images/portfolio/bon_cover.png', title: 'title'}],
         name: 'Website Homepage Development', 
         client: 'Balance of Nature', 
         description: 'Frontend development for an American food suplements company.',
@@ -177,11 +180,13 @@ const projects = reactive([
         ],
         tags: [
             'Landing Page', 'Website', 'Web Responsive', 'Website Optimization'
-        ]
+        ],
+        live_url: 'https://google.com'
     },
     {
         id: 3,
         image: '/images/portfolio/onr_app_cover.png', 
+        gallery: [ {image: '/images/portfolio/onr_app_cover.png', title: 'title'},{image: '/images/portfolio/onr_app_cover.png', title: 'title'}],
         name: 'Real State Services Mobile App', 
         client: 'Onr', 
         description: 'Redesign for a mobile application.',
@@ -190,11 +195,13 @@ const projects = reactive([
         ],
         tags: [
             'UX/UI', 'Mobile Application'
-        ]
+        ],
+        live_url: 'https://google.com'
     },
     {
         id: 4,
         image: '/images/portfolio/planing_pocker_cover.png', 
+        gallery: [ {image: '/images/portfolio/planing_pocker_cover.png', title: 'title'},{image: '/images/portfolio/planing_pocker_cover.png', title: 'title'}],
         name: 'Sprint Planning Web App', 
         client: 'Planing Poker Online Room', 
         description: 'Sprint Planning Web App development in partnership with a ',
@@ -209,11 +216,13 @@ const projects = reactive([
         ],
         tags: [
             'UX/UI','Logotype', 'Web Application', 'Web Responsive'
-        ]
+        ],
+        live_url: 'https://google.com'
     },
     {
         id: 5,
         image: '/images/portfolio/curitiba_app_cover.png', 
+        gallery: [ {image: '/images/portfolio/curitiba_app_cover.png', title: 'title'},{image: '/images/portfolio/curitiba_app_cover.png', title: 'title'}],
         name: 'City Hall Services App', 
         client: 'Curitiba App', 
         description: 'UI and UX study for a Mobile App',
@@ -223,11 +232,13 @@ const projects = reactive([
         ],
         tags: [
             'UX/UI', 'Mobile Application', 'Icon Design'
-        ]
+        ],
+        live_url: 'https://google.com'
     },
     {
         id: 6,
         image: '/images/portfolio/ebanx_lp_cover.png', 
+        gallery: [ {image: '/images/portfolio/ebanx_lp_cover.png', title: 'title'},{image: '/images/portfolio/ebanx_lp_cover.png', title: 'title'}],
         name: 'Event Landing Page', 
         client: 'Ebanx', 
         description: 'description',
@@ -236,11 +247,13 @@ const projects = reactive([
         ],
         tags: [
             'Landing Page', 'Web Application', 'Web Responsive'
-        ]
+        ],
+        live_url: 'https://google.com'
     },
     {
         id: 7,
         image: '/images/portfolio/alegra_website_cover.png', 
+        gallery: [ {image: '/images/portfolio/alegra_website_cover.png', title: 'title'},{image: '/images/portfolio/alegra_website_cover.png', title: 'title'}],
         name: 'Website Development', 
         client: 'Alegrafoods', 
         description: 'description',
@@ -252,11 +265,13 @@ const projects = reactive([
         ],
         tags: [
             'Website', 'Wordpress', 'Web Responsive'
-        ]
+        ],
+        live_url: 'https://google.com'
     },
     {
         id: 8,
         image: '/images/portfolio/mago_jardineiro_cover.png', 
+        gallery: [ {image: '/images/portfolio/mago_jardineiro_cover.png', title: 'title'},{image: '/images/portfolio/mago_jardineiro_cover.png', title: 'title'}],
         name: 'One Page Website', 
         client: 'Mago Jardineiro', 
         description: 'description',
@@ -267,7 +282,8 @@ const projects = reactive([
         ],
         tags: [
             'UX/UI', 'Landing Page', 'Website', 'Web Responsive'
-        ]
+        ],
+        live_url: 'https://google.com'
     }
 ])
 

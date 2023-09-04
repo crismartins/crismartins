@@ -62,7 +62,9 @@ const closeModal = () => {
         width: 100%;
         padding: 40px;
         @media(max-width:$br_mobile){
-            padding: 20px;
+            padding: 0px;
+            min-height: 100vh;
+            min-height: 100dvh;
         }
         &::before {
             content: '';
@@ -74,11 +76,10 @@ const closeModal = () => {
         }
         &__content{
             position: relative;
-            background-color: var(--bg_color);
-            background:var(--bg_color_smooth);
+            background-color:var(--bg_color);
             backdrop-filter: blur(12px);
             width: 100%;
-            max-width: 600px;
+            // max-width: 600px;
             border-radius: 24px;
             padding: 20px;
             .close-modal{

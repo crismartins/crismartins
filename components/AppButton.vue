@@ -107,7 +107,7 @@ const { hasLink } = toRefs(props)
     &.small{
         padding: 12px 16px;
         font-size: $size_14px;
-        width: auto;
+        width: fit-content;
         @media(max-width:$br_mobile){
             font-size: $size_16px;
             padding: 16px 20px;

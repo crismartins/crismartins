@@ -26,16 +26,36 @@
                 {{ projectDetails.description }}
             </p>
             <div class="modal__project__body__gallery">
-                <picture>
+                <!-- <picture>
                     <nuxt-img 
                         v-if="projectDetails.image"
                         :src="projectDetails.image" 
                         :alt="projectDetails.name" 
                     />
-                </picture>
+                </picture> -->
+                <figure v-for="item in projectDetails.gallery" :key="item.title">
+                    <nuxt-img 
+                        :src="item.image" 
+                        :alt="item.title" 
+                    />
+                    <figcaption>
+                        {{ item.title }}
+                    </figcaption>
+                </figure>
             </div>
-            <AppStackSkills :stacks="projectDetails.stacks" />
         </div>
+        <footer class="modal__project__footer">
+            <AppStackSkills :stacks="projectDetails.stacks" />
+            <AppButton 
+                v-if="projectDetails.live_url" 
+                class="outline small" 
+                :hasLink="projectDetails.live_url" 
+                target="_blank"
+            >
+                View live
+                <AppIcon IconName="ph:arrow-up-right-bold" />
+            </AppButton>
+        </footer>
     </AppModal>
 </template>
 
@@ -94,7 +114,6 @@ function closeModal(){
         
     }
     &__body{
-        // padding-block: 20px;
         &__description{
             font-weight: normal;
             font-size: $size_16px;
@@ -104,15 +123,22 @@ function closeModal(){
         &__gallery{
             text-align: center;
             margin-block: 40px;
-            picture{
-                border-radius: 40px;
-                overflow: hidden;
-                display: block;
+            display: flex;
+            flex-direction: column;
+            figure{
+                flex-shrink: 0;
                 img{
+                    border-radius: 12px;
                     min-width: 100%;
                     min-height: 100%;
                     object-fit: cover;
                     display: block;
+                    margin-top: 40px;
+                }
+                figcaption{
+                    margin-block: 40px;
+                    margin-inline: auto;
+                    max-width: 600px;
                 }
             }
         }
@@ -121,6 +147,16 @@ function closeModal(){
             font-weight: 300;
             margin-block: 8px;
             text-align: center;
+        }
+    }
+    &__footer{
+        padding-block: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        @media(max-width: $br_mobile){
+            flex-direction: column;
+            align-items: center;
         }
     }
 }

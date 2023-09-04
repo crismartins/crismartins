@@ -44,6 +44,7 @@ html.light-theme{
     --pure_white: #ffffff;
     //effects
     --shadow: rgba(12, 28, 37, 0.4);
+    --logo_filters: invert(50%) brightness(0);
 }
 html.dark-theme{
     --primary: #5EFC8D;
@@ -62,6 +63,7 @@ html.dark-theme{
     --pure_white: #ffffff;
     //effects
     --shadow: rgba(115, 113, 252,0.6);
+    --logo_filters: invert(50%) brightness(10);
 }
 
 //responsive breakpoints
