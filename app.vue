@@ -1,8 +1,19 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>
+
+<script setup lang="ts">
+useSeoMeta({
+    title: 'Cristopher Martins - Designer & Developer',
+    ogTitle: 'Cristopher Martins - Designer & Developer',
+    description: "Hey I'm Cristopher Martins and this is my website Portfolio, hope you like my works!",
+    ogDescription: "Hey I'm Cristopher Martins and this is my website Portfolio, hope you like my works!",
+    ogImage: '/images/crismartins_avatar.png',
+    twitterCard: 'summary_large_image'
+})
+</script>
 
 <style lang="scss">
     .page-enter-active,
