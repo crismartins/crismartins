@@ -1,13 +1,12 @@
 html{
     scroll-behavior: smooth;
-    // &.dark-theme{
-    //     body{
-    //         // background-size: cover;
-    //         @media(max-width: $br_mobile){
-
-    //         }
-    //     }
-    // }
+    &.dark-theme{
+        body{
+            @media(max-width: $br_mobile){
+                background-size: cover;
+            }
+        }
+    }
 }
 body{
     transition: all 0.4s ease;
@@ -175,4 +174,13 @@ from, to { border-color: transparent }
     80% { transform: translate(-0.04em, -0.04em) rotate(1deg); }
     90% { transform: translate(0.04em, 0.04em) rotate(0deg); }
     100% { transform: translate(0.04em, -0.04em) rotate(-1deg); }
+}
+
+@keyframes fade{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

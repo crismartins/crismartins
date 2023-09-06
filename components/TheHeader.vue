@@ -57,7 +57,7 @@ onMounted(() => {
         padding-block: 24px;
         display: flex;
         width: 100%;
-        transition: $transition_default;
+        transition: all 1s ease-in-out;
         z-index: 999;
         top: 0;
         &.hide{
@@ -67,13 +67,6 @@ onMounted(() => {
             top: 0;
             background-color: var(--bg_color);
             box-shadow: 0 12px 20px 12px var(--bg_color);
-            // .container__fluid{
-            //     &__menu{
-            //         @media(max-width: $br_mobile){
-            //             bottom: 0;
-            //         }
-            //     }
-            // }
         }
         .container__fluid{
             display: grid;

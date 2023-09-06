@@ -1,19 +1,19 @@
 <template>
-    <section class="about__clients section">
-        <h4 class="about__clients__title">
+    <section class="about__clients">
+        <h4 class="about__clients__title container">
             Trusted by:
         </h4>
-        <div class="container marquee">
-            <ul class="about__clients__list container">
+        <div class="about__clients__marquee">
+            <ul class="about__clients__marquee__list container">
                 <li 
                     v-for="client in clients" 
                     :key="client.name"
-                    class="about__clients__list__item"
+                    class="about__clients__marquee__list__item"
                 >
                     <figure>
                         <nuxt-img 
                             :src="client.image"
-                            width="120px"
+                            width="140px"
                             :alt="client.name"
                             :title="client.name"
                             format="webp"
@@ -21,16 +21,16 @@
                     </figure>
                 </li>
             </ul>
-            <ul class="about__clients__list container" aria-hidden="true">
+            <ul class="about__clients__marquee__list container" aria-hidden="true">
                 <li 
                     v-for="client in clients" 
                     :key="client.name"
-                    class="about__clients__list__item"
+                    class="about__clients__marquee__list__item"
                 >
                     <figure>
                         <nuxt-img 
                             :src="client.image"
-                            width="120px"
+                            width="140px"
                             :alt="client.name"
                             :title="client.name"
                             format="webp"
@@ -68,41 +68,84 @@ const clients = reactive([
   }
 }
 .about__clients{
-    text-align: center;
-    padding: 40px 20px;
+    padding-block: 40px 20px;
+    @media(max-width: $br_mobile){
+        text-align: center;
+    }
     &__title{
         font-size: $size_12px;
         font-weight: normal;
         margin-block: 12px;
         color: var(--text_color_smooth);
     }
-    .marquee{
+    &__marquee{
         --gap: 16px;
         position: relative;
         display: flex;
         overflow: hidden;
         user-select: none;
         gap: var(--gap);
-    }
-    &__list{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding-block: 12px;
-        gap: --gap;
-        min-width: 100%;
-        flex-shrink: 0;
-        animation: 12s scroll infinite linear;
-        &__item{
-            display: grid;
-            place-items: center;
-            transition: $transition_default;
-            figure{
-                opacity: 0.4;
-                filter: var(--logo_filters);
+        @media(max-width:$br_mobile){
+            margin-inline: 20px;
+        }
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 20px;
+            border-radius: 80px;
+            background-color: var(--bg_color);
+            box-shadow: 0 0 12px 12px var(--bg_color);
+            top: 0;
+            z-index: 2;
+            @media(max-width:$br_mobile){
+                display: none;
+            }
+        }
+        &:before{
+            left: 0;
+        }
+        &:after{
+            right: 0;
+        }
+        &__list{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-block: 12px;
+            gap: var(--gap);
+            min-width: 100%;
+            flex-shrink: 0;
+            animation: 12s scroll infinite linear;
+            @media(max-width:$br_mobile){
+                animation: none;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            &__item{
+                display: grid;
+                width: 100%;
+                place-items: center;
                 transition: $transition_default;
-                &:hover{
-                    opacity: 1;
+                background-color: var(--bg_color_smooth);
+                border-radius: 20px;
+                border: 1px solid var(--text_color_transparent);
+                @media(max-width:$br_mobile){
+                    max-width: 100px;
+                }
+                figure{
+                    opacity: 0.4;
+                    filter: var(--logo_filters);
+                    transition: $transition_default;
+                    display: block;
+                    img{
+                        display: block;
+                        max-height: 100px;
+                        width: auto;
+                    }
+                    &:hover{
+                        opacity: 1;
+                    }
                 }
             }
         }

@@ -236,7 +236,7 @@
                 height: 180px;
             }
             &__picture{
-                box-shadow: 0 0 80px 40px var(--secondary);
+                // box-shadow: 0 0 80px 40px var(--secondary);
                 border-radius: 50%;
                 display: grid;
                 place-items: center;
@@ -266,7 +266,7 @@
     
                 &.artist{
                     left: 240px;
-                    top: 50px;
+                    top: 20px;
                     color: var(--text_color);
                     font-size: 14px;
                     font-weight: 400;
@@ -275,7 +275,7 @@
                     transform: translate(calc(var(--positionZ) * 2px));
 
                     @media(max-width: $br_mobile){
-                        left: 80%;
+                        left: 90%;
                         top: -10%;
                     }
                     img{
@@ -291,19 +291,18 @@
                     color: var(--pure_white);
                     border: 1px solid var(--bg_color_transparent);
                     box-shadow: 4px 12px 20px 0 var(--text_color_transparent);
-                    top: 94%;
+                    top: unset;
+                    bottom: -30%;
                     left: 34%;
                     padding: 12px;
                     border-radius: 8px;
                     font-weight: normal;
                     font-size: 12px;
-                    height: 80px;
+                    height: 60px;
                     z-index: 1;
                     justify-content: flex-start;
                     align-items: flex-start;
                     font-family: Courier;
-                    letter-spacing: 2px;
-
                     transform: translate(calc(var(--positionZ) * 4px));
 
                     span{
@@ -316,8 +315,7 @@
                     }
                 }
                 &.designer{
-                    background-color: var(--pure_white);
-                    color: rgba(0,0,0,0.8);
+                    // background-color: var(--pure_white);
                     bottom: 0;
                     width: 100px;
                     aspect-ratio: 1;
@@ -345,15 +343,15 @@
                     }
                     small{
                         margin-top: 4px;
-                        color: #000;
+                        color: var(--text_color);
                     }
                     &:before{
                         content: 'UX';
                         position: absolute;
                         top: -120%;
                         right: -12%;
-                        width: 70px;
-                        height: 70px;
+                        width: 60px;
+                        height: 60px;
                         font-weight: bold;
                         font-size: 20px;
                         color: var(--bg_color);
@@ -375,10 +373,10 @@
                         font-size: 20px;
                         color: rgba(255, 255, 255, 1);
                         bottom: 200%;
-                        border-radius: 40%;
+                        border-radius: 16px;
                         right: 30%;
-                        width: 80px;
-                        height: 80px;
+                        width: 60px;
+                        height: 60px;
                         background: linear-gradient(45deg, #b012ff 40%, #ff344f);
                         box-shadow: 0px 0px 20px 0 #b012ff;
                         display: grid;

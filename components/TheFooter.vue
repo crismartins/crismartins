@@ -1,31 +1,39 @@
 <template>
-    <footer class="footer section">
-        <div id="contact" class="footer__container container">
+    <footer id="contact" class="footer section">
+        <div class="footer__container container">
             <div class="footer__container__column">
                 
                 <h2 class="small-title">
-                    Say Hey
+                    Say Hey 👋
                 </h2>
-                <strong>
-                    👋  Send me a message or follow me here... 
-                </strong>
+                <p>
+                    Send me a message or follow me...
+                    <strong>
+                        hello@cristophermartins.com
+                    </strong>
+                </p>
 
                 
                 <ul class="footer__container__column__social">
                     <li class="footer__container__column__social__item">
-                        <AppIcon IconName="ph:linkedin-logo" />
+                        <NuxtLink to="https://www.linkedin.com/in/cristopher-martins-designer-and-developer/" target="_new">
+                            <AppIcon IconName="ph:linkedin-logo-duotone" />
+                        </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
-                        <AppIcon IconName="ph:github-logo" />
+                        <NuxtLink to="https://github.com/crismartins" target="_new">
+                            <AppIcon IconName="ph:github-logo-duotone" />
+                        </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
-                        <AppIcon IconName="ph:dribbble-logo" />
+                        <NuxtLink to="https://dribbble.com/cris_martins" target="_new">
+                            <AppIcon IconName="ph:dribbble-logo-duotone" />
+                        </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
-                        <AppIcon IconName="ph:instagram-logo" />
-                    </li>
-                    <li class="footer__container__column__social__item">
-                        <AppIcon IconName="ph:envelope" />
+                        <NuxtLink to="https://instagram.com/crismart_arts" target="_new">
+                            <AppIcon IconName="ph:instagram-logo-duotone" />
+                        </NuxtLink>
                     </li>
                     
                 </ul>
@@ -55,7 +63,7 @@
         </div>
         <div class="footer__copyright container">
             <p>
-                Proudly designed and developed by <NuxtLink to="/about">Cristopher Martins</NuxtLink> 👨‍💻👨‍🎨
+                Proudly designed and developed by <NuxtLink to="/#about">Cristopher Martins</NuxtLink> 👨‍💻👨‍🎨
             </p>
             <p>
                 © {{ currentYear }} cristophermartins.com
@@ -75,6 +83,20 @@ const currentYear = new Date().getFullYear()
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    &:before{
+        content: '';
+        background: var(--tertiary);
+        position: absolute;
+        opacity: 0.4;
+        top: 0%;
+        left: 16%;
+        width: 50%;
+        height: 80%;
+        border-radius: 100%;
+        filter: blur(100px);
+        box-shadow:  280px 20px 0 0 var(--primary), 80px 280px 0 0 var(--secondary);
+    }
     &__container{
         background: var(--primary_gradient);
         border-radius: 40px;
@@ -92,14 +114,23 @@ const currentYear = new Date().getFullYear()
                 text-align: center;
             }
         }
-        strong{
-            font-size: $size_32px;
+        p{
             margin-block: 20px 40px;
-            font-weight: 400;
-            display: block;
+            font-size: $size_20px;
+            color: var(--bg_color_smooth);
             @media(max-width: $br_mobile){
                 text-align: center;
-                font-size: $size_24px;
+                font-size: $size_16px;
+            }
+            strong{
+                font-size: $size_32px;
+                font-weight: 400;
+                display: block;
+                color: var(--bg_color);
+                @media(max-width: $br_mobile){
+                    text-align: center;
+                    font-size: $size_20px;
+                }
             }
         }
         &__column{
@@ -115,10 +146,13 @@ const currentYear = new Date().getFullYear()
                     justify-content: center;
                 }
                 &__item{
-                    font-size: 24px;
-                    color: var(--bg_color_smooth);
-                    &:hover{
-                        color: var(--tertiary);
+                    a{
+                        font-size: $size_28px;
+                        color: var(--bg_color_smooth);
+                        transition: $transition_default;
+                        &:hover{
+                            color: var(--tertiary);
+                        }
                     }
                 }
             }

@@ -103,19 +103,6 @@ let services = reactive([
 
             &__selection{
                 position: relative;
-                &:before{
-                    content: '';
-                    background: var(--tertiary);
-                    position: absolute;
-                    opacity: 0.4;
-                    top: 20%;
-                    left: 5%;
-                    width: 50%;
-                    aspect-ratio: 1;
-                    border-radius: 100%;
-                    filter: blur(100px);
-                    box-shadow:  240px 20px 0 0 var(--primary), 80px 240px 0 0 var(--secondary);
-                }
             }
 
             &__details{

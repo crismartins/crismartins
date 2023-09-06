@@ -47,11 +47,11 @@ const closeModal = () => {
     background-color: transparent;
     border: 0;
     padding: 0;
-    opacity: 0;
-    transition: $transition_default;
     color: var(--text-color);
+    transition: $transition_default;
     &[open]{
-        opacity: 1;
+        animation: fade 0.4s ease;
+        transform: scale(1);
     }
     &__container{
         overflow: auto;
@@ -79,6 +79,7 @@ const closeModal = () => {
             background-color:var(--bg_color);
             backdrop-filter: blur(12px);
             width: 100%;
+            max-width: fit-content;
             // max-width: 600px;
             border-radius: 24px;
             padding: 20px;

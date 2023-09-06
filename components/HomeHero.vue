@@ -20,9 +20,8 @@
                 <NuxtLink to="/#about" class="hero__section__container__presentation__button">
                     <figure class="hero__section__container__presentation__button__avatar">
                         <NuxtImg 
-                            src="/images/crismartins_avatar.png"
+                            src="/images/cristoon.svg"
                             format="webp"
-                            width="200px"
                             quality="100"
                             densities="1 2 3 4"
                         />
@@ -167,6 +166,9 @@ const hardSkills = reactive([
                     background-color: var(--tertiary);
                     figure{
                         width: 40px;
+                        img{
+                            width: 28px;
+                        }
                     }
                     div{
                         grid-template-columns: 1fr;
@@ -179,7 +181,6 @@ const hardSkills = reactive([
                 
                 &__avatar{
                     flex-shrink: 0;
-                    overflow: hidden;
                     width: 80px;
                     aspect-ratio: 1;
                     border-radius: 50%;
@@ -188,11 +189,11 @@ const hardSkills = reactive([
                     place-items: center;
                     margin: 0;
                     transition: $transition_default;
+                    position: relative;
                     img{
-                        min-width: 100%;
-                        min-height: 100%;
-                        object-fit: cover;
-                        object-position: top;
+                        width: 60px;
+                        position: absolute;
+                        transition: $transition_default;
                     }
                 }
             }

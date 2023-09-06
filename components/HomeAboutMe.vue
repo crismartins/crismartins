@@ -19,8 +19,7 @@
 
                 <div class="about__section__container__columns__avatar">
                     <figure class="about__section__container__columns__avatar__image">
-                        <NuxtImg width="120px" src="/images/cristoon.svg" />
-                        <strong>
+                        <strong class="about__section__container__columns__avatar__image__tag">
                             <span>
                                 ✨ 
                             </span>
@@ -28,6 +27,19 @@
                             <small>
                                 years of experience
                             </small>
+                        </strong>
+                        <NuxtImg src="/images/crismartins_avatar.png" />
+                        <strong class="about__section__container__columns__avatar__image__areas logic">
+                            <span>
+                                <AppIcon IconName="fluent:brain-circuit-20-regular" />
+                                Logic
+                            </span>
+                        </strong>
+                        <strong class="about__section__container__columns__avatar__image__areas creativity">
+                            <span>
+                                <AppIcon IconName="fluent-emoji:sparkling-heart" />
+                                Creativity
+                            </span>
                         </strong>
                     </figure>
                 </div>
@@ -61,19 +73,22 @@
 <script setup>
 import { ref } from '#imports'
 const stackLogos = ref([
-    {logo: 'logos:figma', name: 'Figma'},
-    {logo: 'logos:adobe-xd', name: 'Adobe Xd'},
-    {logo: 'logos:adobe-photoshop', name: 'Adobe Photoshop'},
-    {logo: 'logos:adobe-illustrator', name: 'Adobe Illustrator'},
-    {logo: 'logos:javascript', name: 'Javascript'},
-    {logo: 'logos:html-5', name: 'HTML 5'},
-    {logo: 'logos:css-3', name: 'CSS 3'},
-    {logo: 'logos:sass', name: 'Sass'},
+    {logo: 'devicon:figma', name: 'Figma'},
+    {logo: 'skill-icons:xd', name: 'Adobe Xd'},
+    {logo: 'skill-icons:photoshop', name: 'Adobe Photoshop'},
+    {logo: 'skill-icons:illustrator', name: 'Adobe Illustrator'},
+    {logo: 'devicon:javascript', name: 'Javascript'},
+    {logo: 'devicon:html5', name: 'HTML 5'},
+    {logo: 'devicon:css3', name: 'CSS 3'},
+    {logo: 'devicon:sass', name: 'Sass'},
+    {logo: 'devicon:bootstrap', name: 'Bootstrap'},
+    {logo: 'skill-icons:jquery', name: 'JQuery'},
     {logo: 'skill-icons:wordpress', name: 'Wordpress'},
-    {logo: 'logos:vue', name: 'Vue.JS'},
-    {logo: 'logos:nuxt-icon', name: 'Nuxt.JS'},
-    {logo: 'logos:react', name: 'React.JS'},
-    {logo: 'logos:flutter', name: 'Flutter'}
+    {logo: 'devicon:vuejs', name: 'Vue.JS'},
+    {logo: 'logos:nuxt-icon', name: 'Nuxt.JS'}
+    // {logo: 'devicon:react', name: 'React.JS'},
+    // {logo: 'logos:blender', name: 'Blender'},
+    // {logo: 'devicon:flutter', name: 'Flutter'}
 ])
 </script>
 
@@ -83,6 +98,7 @@ const stackLogos = ref([
     &__container{
         max-width: 920px;
         display: grid;
+        position: relative;
         .small-title, .large-title{
             text-align: center;
             max-width: 600px;
@@ -110,14 +126,20 @@ const stackLogos = ref([
                 display: grid;
                 place-items: center;
                 margin-block: 20px;
-                border-right: 2px solid var(--text_color_smooth);
-                border-radius: 0 0 40px 0;
+                position: relative;
                 @media(max-width: $br_mobile){
                     border: none;
                 }
                 &__image{
+                    border-radius: 50%;
+                    background-color: var(--secondary);
+                    background: var(--secondary_gradient);
+                    // overflow: hidden;
                     position: relative;
-                    strong{
+                    display: grid;
+                    place-items: center;
+                    transition: $transition_default;
+                    &__tag{
                         position: absolute;
                         background-color: var(--text_color);
                         color: var(--bg_color);
@@ -127,11 +149,12 @@ const stackLogos = ref([
                         padding: 8px 12px;
                         border: 2px solid var(--bg_color);
                         box-shadow: 4px 8px 12px 0 var(--text_color_transparent);
-                        left: 80%;
-                        top: 10%;
+                        left: 58%;
+                        top: -8px;
                         display: flex;
                         align-items: center;
-                        gap: 4px;
+                        gap: 8px;
+                        z-index: 1;
                         span{
                             position: absolute;
                             right: -20px;
@@ -143,12 +166,77 @@ const stackLogos = ref([
                             font-size: $size_14px;
                             line-height: 12px;
                             font-weight: normal;
+                            max-width: 70px;
                         }
+                    }
+                    &__areas{
+                        position: absolute;
+                        aspect-ratio: 1;
+                        border-radius: 50%;
+                        display: grid;
+                        place-items: center;
+                        font-size: $size_14px;
+                        font-weight: 400;
+                        color: var(--pure_white);
+                        opacity: 0.4;
+                        transition: $transition_default;
+                        z-index: 0;
+                        border: 2px solid var(--text_color_transparent);
+                        span{
+                            display: flex;
+                            gap: 4px;
+                            flex-direction: column;
+                        }
+                        i{
+                            font-size: $size_28px;
+                        }
+                        
+                        &.logic{
+                            background-color: var(--tertiary);
+                            font-family: Courier;
+                            width: 80%;
+                        }
+                        &.creativity{
+                            background-color: var(--tertiary );
+                            width: 60%;
+                        }
+                    }
+                    &:hover{
+                        .logic{
+                            transform: translateX( -90%);
+                            width: 120px;
+                            opacity: 1;
+                            background-color: #00072d;
+                            border-radius: 28px;
+                            animation: pulse 2s ease infinite;
+
+                        }
+                        .creativity{
+                            width: 120px;
+                            transform: translateX( 90%);
+                            opacity: 1;
+                            background-color: #480ca8;
+                            border-radius: 28px;
+                            animation: pulse 2s ease infinite;
+                        }
+                        img{
+                            // filter: grayscale(100%);
+                        }
+                    }
+                    img{
+                        position: relative;
+                        display: block;
+                        z-index: 2;
+                        max-width: 240px;
+                        transition: $transition_default;
+                        border-radius: 50%;
                     }
                 }
             }
             &__text{
                 margin-block: 24px;
+                position: relative;
+                
                 @media(max-width: $br_mobile){
                     text-align: center;
                 }

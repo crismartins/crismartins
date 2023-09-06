@@ -126,13 +126,10 @@ function closeModal(){
             display: flex;
             flex-direction: column;
             figure{
-                flex-shrink: 0;
                 img{
                     border-radius: 12px;
-                    min-width: 100%;
-                    min-height: 100%;
-                    object-fit: cover;
-                    display: block;
+                    max-width: 100%;
+                    display: inline-block;
                     margin-top: 40px;
                 }
                 figcaption{

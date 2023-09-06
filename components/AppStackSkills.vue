@@ -15,6 +15,9 @@
                 @click="showAll"
             >
                 <AppIcon IconName="ph:plus-bold"/>
+                <span v-if="stackList.length == maxItems">
+                    {{ stacks.length - maxItems }}
+                </span>
             </AppButton>
         </li>
     </ul>
@@ -117,8 +120,15 @@ function showAll(){
             button{
                 transition: $transition_default;
                 margin-left: -12px;
+                gap: 0px;
+                i{
+                    font-size: $size_14px;
+                }
                 &.opened{
                     transform: rotate(45deg);
+                }
+                span{
+                    font-size: $size_12px;
                 }
             }
         }
