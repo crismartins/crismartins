@@ -219,8 +219,24 @@ const stackLogos = ref([
                             border-radius: 28px;
                             animation: pulse 2s ease infinite;
                         }
-                        img{
-                            // filter: grayscale(100%);
+                    }
+                    @media(max-width: $br_mobile){
+                        .logic{
+                            transform: translateX( -90%);
+                            width: 120px;
+                            opacity: 1;
+                            background-color: #00072d;
+                            border-radius: 28px;
+                            animation: pulse 2s ease infinite;
+
+                        }
+                        .creativity{
+                            width: 120px;
+                            transform: translateX( 90%);
+                            opacity: 1;
+                            background-color: #480ca8;
+                            border-radius: 28px;
+                            animation: pulse 2s ease infinite;
                         }
                     }
                     img{

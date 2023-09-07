@@ -354,12 +354,12 @@
                         height: 60px;
                         font-weight: bold;
                         font-size: 20px;
-                        color: var(--bg_color);
+                        color: var(--text_color);
                         background-color: var(--text_color_transparent);
                         backdrop-filter: blur(8px);
                         display: grid;
                         place-items: center;
-                        border: 2px solid var(--bg_color_smooth);
+                        border: 2px solid var(--text_color_smooth);
                         transition: $transition_default;
                         box-shadow: 0 12px 32px 0 var(--text_color_transparent);
                     

@@ -134,7 +134,7 @@ const clients = reactive([
                     max-width: 100px;
                 }
                 figure{
-                    opacity: 0.4;
+                    opacity: 0.6;
                     filter: var(--logo_filters);
                     transition: $transition_default;
                     display: block;

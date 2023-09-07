@@ -1,12 +1,12 @@
 html{
     scroll-behavior: smooth;
-    &.dark-theme{
-        body{
-            @media(max-width: $br_mobile){
-                background-size: cover;
-            }
-        }
-    }
+    // &.dark-theme{
+    //     body{
+    //         @media(max-width: $br_mobile){
+    //             background-size: cover;
+    //         }
+    //     }
+    // }
 }
 body{
     transition: all 0.4s ease;

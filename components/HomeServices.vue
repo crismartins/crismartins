@@ -86,12 +86,14 @@ let services = reactive([
             @media(max-width:$br_mobile){
                 writing-mode:horizontal-tb;
                 transform: rotate(0);
+                text-align: center;
             }
         }
         h3{
             position:relative; 
             z-index: 2;
             margin-bottom: 40px;
+            text-align: center;
         }
         &__column{
             display: grid;
