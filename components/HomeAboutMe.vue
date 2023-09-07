@@ -139,6 +139,7 @@ const stackLogos = ref([
                     display: grid;
                     place-items: center;
                     transition: $transition_default;
+                    animation: pulse 2s ease infinite;
                     &__tag{
                         position: absolute;
                         background-color: var(--text_color);
@@ -177,7 +178,7 @@ const stackLogos = ref([
                         place-items: center;
                         font-size: $size_14px;
                         font-weight: 400;
-                        color: var(--pure_white);
+                        color: var(--text_color);
                         opacity: 0.4;
                         transition: $transition_default;
                         z-index: 0;
@@ -186,6 +187,7 @@ const stackLogos = ref([
                             display: flex;
                             gap: 4px;
                             flex-direction: column;
+                            transition: $transition_default;
                         }
                         i{
                             font-size: $size_28px;
@@ -204,39 +206,35 @@ const stackLogos = ref([
                     &:hover{
                         .logic{
                             transform: translateX( -90%);
-                            width: 120px;
+                            width: 110px;
                             opacity: 1;
-                            background-color: #00072d;
-                            border-radius: 28px;
-                            animation: pulse 2s ease infinite;
-
+                            background-color: var(--bg_color);
+                            border-color: var(--secondary);
+                            
                         }
                         .creativity{
-                            width: 120px;
+                            width: 110px;
                             transform: translateX( 90%);
                             opacity: 1;
-                            background-color: #480ca8;
-                            border-radius: 28px;
-                            animation: pulse 2s ease infinite;
+                            background-color: var(--bg_color);
+                            border-color: var(--secondary);
                         }
                     }
                     @media(max-width: $br_mobile){
                         .logic{
                             transform: translateX( -90%);
-                            width: 120px;
+                            width: 110px;
                             opacity: 1;
-                            background-color: #00072d;
-                            border-radius: 28px;
-                            animation: pulse 2s ease infinite;
-
+                            background-color: var(--bg_color);
+                            border-color: var(--secondary);
+                            
                         }
                         .creativity{
-                            width: 120px;
+                            width: 110px;
                             transform: translateX( 90%);
                             opacity: 1;
-                            background-color: #480ca8;
-                            border-radius: 28px;
-                            animation: pulse 2s ease infinite;
+                            background-color: var(--bg_color);
+                            border-color: var(--secondary);
                         }
                     }
                     img{

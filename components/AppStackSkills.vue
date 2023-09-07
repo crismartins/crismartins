@@ -71,7 +71,8 @@ function showAll(){
         // margin: auto;
         align-items: center;
         flex-wrap: wrap;
-        // gap: 12px;
+        row-gap: 12px;
+        justify-content: center;
         &__item{
             aspect-ratio: 1;
             font-size: 20px;

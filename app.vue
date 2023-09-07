@@ -5,6 +5,8 @@
 </template>
 
 <script setup lang="ts">
+import { useSeoMeta } from '#imports'
+
 useSeoMeta({
     title: 'Cristopher Martins - Designer & Developer',
     ogTitle: 'Cristopher Martins - Designer & Developer',

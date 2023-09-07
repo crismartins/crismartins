@@ -55,6 +55,7 @@ function changeLang(){
 function closeSwitcher(){
     langOptions.value = true
 }
+
 </script>
 
 <style lang="scss" scoped>

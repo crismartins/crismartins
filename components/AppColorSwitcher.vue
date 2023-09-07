@@ -17,7 +17,6 @@
 
 <script setup>
 import { ref } from '#imports'
-// import { useColorMode } from '@vueuse/core'
 
 const colorMode = useColorMode()
 const icon = ref('ph:sun-dim')
