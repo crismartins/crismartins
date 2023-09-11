@@ -4,7 +4,7 @@
             <div class="footer__container__column">
                 
                 <h2 class="small-title">
-                    Say Hey 👋
+                    Say Hey
                 </h2>
                 <p>
                     Send me a message or follow me...
@@ -110,6 +110,7 @@ const currentYear = new Date().getFullYear()
             padding: 40px 20px;
         }
         h2{
+            display: flex;
             @media(max-width: $br_mobile){
                 text-align: center;
             }

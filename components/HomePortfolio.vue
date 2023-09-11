@@ -306,7 +306,7 @@ function closeModal(){
 <style lang="scss" scoped>
 .portfolio__section{
     padding-block: 0;
-    margin-top: -12vh;
+    // margin-top: -12vh;
     margin-bottom: 80px;
     @media (max-width: $br_mobile) {
         margin-top: 0;

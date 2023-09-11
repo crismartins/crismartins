@@ -127,9 +127,9 @@ const clients = reactive([
                 width: 100%;
                 place-items: center;
                 transition: $transition_default;
-                background-color: var(--bg_color_smooth);
+                // background-color: var(--bg_color_smooth);
                 border-radius: 20px;
-                border: 1px solid var(--text_color_transparent);
+                // border: 1px solid var(--text_color_transparent);
                 @media(max-width:$br_mobile){
                     max-width: 100px;
                 }

@@ -66,7 +66,7 @@ const hardSkills = reactive([
 <style lang="scss" scoped>
 .hero__section{
     min-height: 90vh;
-    min-height: 100dvh;
+    min-height: 90dvh;
     display: grid;
     place-items: center;
     overflow: hidden;

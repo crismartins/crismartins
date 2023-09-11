@@ -21,7 +21,7 @@
                     <figure class="about__section__container__columns__avatar__image">
                         <strong class="about__section__container__columns__avatar__image__tag">
                             <span>
-                                ✨ 
+                                <AppIcon IconName="fluent-emoji:trophy" />
                             </span>
                             10+ 
                             <small>
