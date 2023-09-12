@@ -55,7 +55,6 @@ const langCookie = useCookie('lang')
 
 watch(locale, () => {
     langCookie.value = locale.value
-    console.log('lang',langCookie.value)
 })
 
 function changeLang(){
