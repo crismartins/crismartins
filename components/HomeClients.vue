@@ -1,5 +1,5 @@
 <template>
-    <section class="about__clients">
+    <section class="about__clients section">
         <h4 class="about__clients__title container">
             Trusted by:
         </h4>

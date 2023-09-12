@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { toRefs } from '#imports'
+import { toRefs, watch } from '#imports'
 const props = defineProps({
     openedModal: {
         type: Boolean,
@@ -33,6 +33,10 @@ const emits = defineEmits(['close:modal'])
 const closeModal = () => {
     emits('close:modal')
 }
+
+watch(openedModal, () => {
+    document.querySelector('body').style.overflow = openedModal.value ? 'hidden' : 'unset'
+})
 
 </script>
 
@@ -52,20 +56,6 @@ const closeModal = () => {
     &[open]{
         animation: fade 0.4s ease;
         transform: scale(1);
-    }
-    &__container{
-        overflow: auto;
-        display: grid;
-        place-items: center;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        padding: 40px;
-        @media(max-width:$br_mobile){
-            padding: 0px;
-            min-height: 100vh;
-            min-height: 100dvh;
-        }
         &::before {
             content: '';
             background:var(--bg_color_transparent);
@@ -74,13 +64,26 @@ const closeModal = () => {
             width: 100%;
             height: 100%;
         }
+    }
+    &__container{
+        display: grid;
+        place-items: center;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 40px;
+        overflow: auto;
+        @media(max-width:$br_mobile){
+            padding: 0px;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
         &__content{
             position: relative;
             background-color:var(--bg_color);
             backdrop-filter: blur(12px);
             width: 100%;
             max-width: fit-content;
-            // max-width: 600px;
             border-radius: 24px;
             padding: 20px;
             .close-modal{

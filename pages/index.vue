@@ -12,7 +12,5 @@
 </template>
 
 <script setup>
-// definePageMeta({
-//     middleware: ['lang']
-// })
+
 </script>

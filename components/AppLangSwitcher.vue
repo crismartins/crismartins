@@ -2,7 +2,7 @@
     
     <div class="language__switcher" >
         <button class="language__switcher__button" @click="changeLang">
-            <span v-html="$i18n.locale == 'pt' ? 'POR' : 'ENG'" />
+            <span v-html="langCookie == 'pt' ? 'POR' : 'ENG'" />
             <AppIcon IconName="ph:caret-down-bold" />
         </button>
         <div 
@@ -12,26 +12,26 @@
             @click="changeLang"
         >
             <ul>
-                <li :class="$i18n.locale == 'en' ? 'active' : 'inactive' ">
+                <li :class="langCookie == 'en' ? 'active' : 'inactive' ">
                     <label for="en" >
                         ENG
                         <AppIcon IconName="circle-flags:us" />
                         <input 
                             id="en" 
-                            v-model="$i18n.locale" 
+                            v-model="locale" 
                             type="radio" 
                             name="language" 
                             value="en"
                         />
                     </label>
                 </li>
-                <li :class="$i18n.locale == 'pt' ? 'active' : 'inactive'">
+                <li :class="langCookie == 'pt' ? 'active' : 'inactive'">
                     <label for="pt" >
                         POR
                         <AppIcon IconName="circle-flags:br" />
                         <input 
                             id="pt" 
-                            v-model="$i18n.locale" 
+                            v-model="locale" 
                             type="radio" 
                             name="language" 
                             value="pt"
@@ -44,10 +44,19 @@
 </template>
 
 <script setup>
-import { ref } from '#imports'
+import { ref, useI18n, useCookie, watch } from '#imports'
 import { vOnClickOutside } from '@vueuse/components'
 
+const { locale } = useI18n()
+
 const langOptions = ref(true)
+
+const langCookie = useCookie('lang')
+
+watch(locale, () => {
+    langCookie.value = locale.value
+    console.log('lang',langCookie.value)
+})
 
 function changeLang(){
     langOptions.value = !langOptions.value

@@ -1,7 +1,8 @@
+import { defineNuxtConfig } from 'nuxt/config'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
-// https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
     app: {
         //head
@@ -42,8 +43,13 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/color-mode',
         '@pinia/nuxt',
-        '@vueuse/nuxt'
+        '@vueuse/nuxt',
+        '@nuxtjs/i18n'
     ],
+
+    i18n:{ 
+        vueI18n: './i18n.config.ts'
+    },
     //color mode
     colorMode: {
         preference: 'dark', // default value of $colorMode.preference    
