@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { useI18n, useHead, useCookie } from '#imports'
+import { useI18n, useHead } from '#imports'
 const { locale } = useI18n()
 useHead({
     htmlAttrs: {

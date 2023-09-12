@@ -1,25 +1,69 @@
 {
-    "title": "testando",
     "menu": {
         "item1":{
             "title": "Início",
             "route": "#home"
         },
         "item2":{
+            "title": "Portfólio",
+            "route": "#portfolio"
+        },
+        "item3":{
             "title": "Sobre",
             "route": "#about"
         },
-        "item3":{
+        "item4":{
             "title": "Serviços",
             "route": "#services"
-        },
-        "item4":{
-            "title": "Portfólio",
-            "route": "#portfolio"
         },
         "item5":{
             "title": "Contato",
             "route": "#contact"
         }
+    },
+    "hero": {
+        "cta": "Sobre",
+        "title": "Olá, sou Cristopher Martins",
+        "subtitle": "Designer & Dev.",
+        "button": "Entre em contato"
+    },
+    "portfolio": {
+        "title": "Últimos Trabalhos",
+        "button": "Meus Serviços"
+    },
+    "clients": {
+        "title": "Clientes"
+    },
+    "about": {
+        "title": "Sobre",
+        "subtitle": "UX/UI Designer e Desenvolvedor Frontend",
+        "tools": "Trabalhando com as seguintes ferramentas...",
+        "text": " I'm half designer and half frontend developer, is that makes me a incomplete professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal... I'll do my best, trust me. "
+    },
+    "services": {
+        "title": "Serviços",
+        "subtitle": "Tudo o que você precisa para o seu projeto ir além",
+        "serviços": [
+            {
+             "title": "Gráfico",
+             "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            },
+            {
+             "title": "UX e UI",
+             "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            },
+            {
+             "title": "Desenvolvimento",
+             "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            }
+        ]
+    },
+    "contact": {
+        "title": "Mande um Salve",
+        "subtitle": "Me mande uma mensagem ou me siga-me em..."
+    },
+    "footer": {
+        "copyright": "Site orgulhosamente criado e desenvolvido por "
     }
+
 }

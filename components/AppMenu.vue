@@ -57,18 +57,18 @@ const menuItems = reactive([
     },
     {
         icon: 'ph:shooting-star-duotone',
-        title: 'menu.item4.title', 
-        route: 'menu.item4.route'
-    },
-    {
-        icon: 'ph:user-circle-duotone',
         title: 'menu.item2.title', 
         route: 'menu.item2.route'
     },
     {
-        icon: 'ph:wrench-duotone',
+        icon: 'ph:user-circle-duotone',
         title: 'menu.item3.title', 
         route: 'menu.item3.route'
+    },
+    {
+        icon: 'ph:wrench-duotone',
+        title: 'menu.item4.title', 
+        route: 'menu.item4.route'
     },
     {
         icon: 'ph:chat-circle-duotone',

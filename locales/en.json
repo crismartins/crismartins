@@ -1,25 +1,34 @@
 {
-    "title": "testing",
     "menu": {
         "item1":{
             "title": "Home",
             "route": "#home"
         },
         "item2":{
+            "title": "Portfolio",
+            "route": "#portfolio"
+        },
+        "item3":{
             "title": "About",
             "route": "#about"
         },
-        "item3":{
+        "item4":{
             "title": "Services",
             "route": "#services"
-        },
-        "item4":{
-            "title": "Portfolio",
-            "route": "#portfolio"
         },
         "item5":{
             "title": "Contact",
             "route": "#contact"
         }
+    },
+    "hero": {
+        "cta": "About me",
+        "title": "Hey, I'm Cristopher Martins",
+        "subtitle": "Designer & Developer.",
+        "button": "Get in touch"
+    },
+    "portfolio": {
+        "title": "Latest Works",
+        "button": "My Services"
     }
 }

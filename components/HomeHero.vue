@@ -28,7 +28,7 @@
                     </figure>
                     <div>
                         <span>
-                            About Me
+                            {{ $t(heroHome.cta) }}
                         </span>
                     </div>
                 </NuxtLink>
@@ -36,13 +36,13 @@
             <div class="hero__section__container__text">
                 <div class="hero__section__container__text__wrapper">
                     <p class="hero__section__container__text__wrapper__name small-title">
-                        I'm Cristopher Martins
+                        {{ $t(heroHome.title) }}
                     </p>
                     <h1 class="hero__section__container__text__wrapper__title gradient-font">
-                        Designer & Developer.
+                        {{ $t(heroHome.subTitle) }}
                     </h1>
                     <AppButton hasLink="/#contact" class="primary">
-                        Get in Touch
+                        {{ $t(heroHome.button) }}
                     </AppButton>
                 </div>
             </div>
@@ -61,6 +61,13 @@ const hardSkills = reactive([
     {logo: 'logos:html-5', title: 'HTML 5'},
     {logo: 'logos:css-3', title: 'CSS 3'}
 ])
+
+const heroHome = reactive({
+    cta: 'hero.cta',
+    title: 'hero.title',
+    subTitle: 'hero.subtitle',
+    button: 'hero.button'
+})
 </script>
   
 <style lang="scss" scoped>

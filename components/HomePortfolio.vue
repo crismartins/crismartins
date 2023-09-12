@@ -3,7 +3,7 @@
         <div class="portfolio__section__container">
             <header class="portfolio__section__container__header">
                 <h2 class="small-title">
-                    Lastest Works
+                    {{ $t(portfolio.title) }}
                 </h2>
             </header>
             <ul class="portfolio__section__container__projects">
@@ -84,7 +84,7 @@
                         </li>
                     </ul>
                     <AppButton class="primary" hasLink="/#services">
-                        My Services
+                        {{ $t(portfolio.button) }}
                         <AppIcon IconName="ph:caret-right-bold" />
                     </AppButton>
                 </div>
@@ -287,6 +287,11 @@ const projects = reactive([
         live_url: 'https://google.com'
     }
 ])
+
+const portfolio = {
+    title: 'portfolio.title',
+    button: 'portfolio.button'
+}
 
 const showModal = ref(false)
 
