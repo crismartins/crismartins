@@ -117,7 +117,7 @@ function closeModal(){
         &__description{
             font-weight: normal;
             font-size: $size_16px;
-            text-align: center;
+            // text-align: center;
             padding-block: 12px;
         }
         &__gallery{
