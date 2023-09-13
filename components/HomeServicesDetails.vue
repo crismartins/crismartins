@@ -148,7 +148,7 @@
                 </picture>
                 <strong class="about__skills__container__image__tag artist">
                     <span>
-                        Illustration
+                        {{ locale == 'en' ? 'Illustration' : 'Ilustração' }}
                         <NuxtImg 
                             src="/images/illustration_hand.png"
                             
@@ -159,8 +159,7 @@
                 <strong class="about__skills__container__image__tag developer">
                     >_
                     <span>
-                        Web
-                        Development
+                        {{ locale == 'en' ? 'Web Development' : 'Desenvolvimento Web' }}
                     </span>
                 </strong>
                 <strong class="about__skills__container__image__tag designer">

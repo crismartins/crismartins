@@ -38,7 +38,9 @@
         "title": "Sobre",
         "subtitle": "UX/UI Designer e Desenvolvedor Frontend",
         "tools": "Trabalhando com as seguintes ferramentas...",
-        "text": " I'm half designer and half frontend developer, is that makes me a incomplete professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal... I'll do my best, trust me. "
+        "cta_1": "Contato",
+        "cta_2": "Download CV",
+        "cta_2_link": "http://google.com"
     },
     "services": {
         "title": "Serviços",
@@ -61,9 +63,6 @@
     "contact": {
         "title": "Mande um Salve",
         "subtitle": "Me mande uma mensagem ou me siga-me em..."
-    },
-    "footer": {
-        "copyright": "Site orgulhosamente criado e desenvolvido por "
     }
 
 }

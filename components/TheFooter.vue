@@ -63,7 +63,8 @@
         </div>
         <div class="footer__copyright container">
             <p>
-                Proudly designed and developed by <NuxtLink to="/#about">Cristopher Martins</NuxtLink> 👨‍💻👨‍🎨
+                {{ locale == 'en' ? 'Website proudly designed and developed by' : 'Site orgulhosamente criado e desenvolvido por' }}
+                <NuxtLink to="/#about">Cristopher Martins</NuxtLink> 👨‍💻👨‍🎨
             </p>
             <p>
                 © {{ currentYear }} cristophermartins.com

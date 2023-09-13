@@ -2,15 +2,15 @@
     <section class="about__section section">
         <div class="about__section__container container">
             <h2 class="small-title">
-                About
+                {{ $t(about.title) }}
             </h2>
             <h3 class="large-title">
-                UX/UI Designer and Frontend Developer Based in Brazil
+                {{ $t(about.subTitle) }}
             </h3>
 
             <div class="about__section__container__stacks">
                 <strong>
-                    Current working with these tools...
+                    {{ $t(about.tools) }}
                 </strong>
                 <AppStackSkills :stacks="stackLogos" :maxItems="7" />
             </div>
@@ -25,44 +25,52 @@
                             </span>
                             10+ 
                             <small>
-                                years of experience
+                                {{ locale == 'en' ? 'years of experience' : 'anos de experiência' }}
                             </small>
                         </strong>
                         <NuxtImg src="/images/crismartins_avatar.png" />
                         <strong class="about__section__container__columns__avatar__image__areas logic">
                             <span>
                                 <AppIcon IconName="fluent:brain-circuit-20-regular" />
-                                Logic
+                                {{ locale == 'en' ? 'Logic' : 'Lógica' }}
                             </span>
                         </strong>
                         <strong class="about__section__container__columns__avatar__image__areas creativity">
                             <span>
                                 <AppIcon IconName="fluent-emoji:sparkling-heart" />
-                                Creativity
+                                {{ locale == 'en' ? 'Creativity' : 'Criatividade' }}
                             </span>
                         </strong>
                     </figure>
                 </div>
 
                 
-                <div class="about__section__container__columns__text">
-                    <p>
-                        I'm half designer and half frontend developer, is that makes me a incomplete  professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal...
-                    </p>
+                <div v-if="locale == 'en'" class="about__section__container__columns__text" >
+                    <p>I'm half designer and half frontend developer, is that makes me a incomplete  professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal...</p>
                     <br/>
                     <p>
-                        <strong>
-                            I'll do my best, trust me.
-                        </strong>
+                        <strong>I'll do my best, trust me.</strong>
+                    </p>
+                </div>
+                <div v-else class="about__section__container__columns__text" >
+                    <p>I'm half designer and half frontend developer, is that makes me a incomplete  professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal...</p>
+                    <br/>
+                    <p>
+                        <strong>I'll do my best, trust me.</strong>
                     </p>
                 </div>
             </div>
             <div class="about__section__container__buttons">
                 <AppButton class="primary" hasLink="/#contact">
-                    Contact Me
+                    {{ $t(about.cta1) }}
                 </AppButton>
-                <AppButton class="outline call" hasLink="/#portfolio">
-                    <AppIcon IconName="ph:download-simple-bold" /> Download CV
+                <AppButton 
+                    class="outline call" 
+                    target="_new" 
+                    :hasLink="$t(about.cta2Link)"
+                >
+                    <AppIcon IconName="ph:download-simple-bold" />
+                    {{ $t(about.cta2) }}
                 </AppButton>
             </div>
 
@@ -71,7 +79,8 @@
 </template>
 
 <script setup>
-import { ref } from '#imports'
+import { ref, useI18n , reactive } from '#imports'
+const { locale } = useI18n()
 const stackLogos = ref([
     {logo: 'devicon:figma', name: 'Figma'},
     {logo: 'skill-icons:xd', name: 'Adobe Xd'},
@@ -90,6 +99,15 @@ const stackLogos = ref([
     // {logo: 'logos:blender', name: 'Blender'},
     // {logo: 'devicon:flutter', name: 'Flutter'}
 ])
+
+const about = reactive({
+    title: 'about.title',
+    subTitle: 'about.subtitle',
+    tools: 'about.tools',
+    cta1: 'about.cta_1',
+    cta2: 'about.cta_2',
+    cta2Link: 'about.cta_2_link'
+})
 </script>
 
 <style lang="scss" scoped>
