@@ -3,37 +3,37 @@
         <div class="services__section__container container">
             <header>
                 <h2 class="services__section__container__title small-title">
-                    Services
+                    {{ $t(services.title) }}
                 </h2>
             </header>
             <div class="services__section__container__column">
                 <div class="services__section__container__column__selection">
                     
                     <h3 class="large-title">
-                        All you need to make your Business go beyond
+                        {{ $t(services.subTitle) }}
                     </h3>
                     <HomeServicesDetails />
                 </div>
                 <ul ref="container" class="services__section__container__column__details">
                     <li 
-                        v-for="service in services"
+                        v-for="service in services.list"
                         :key="service.id"
                         class="services__section__container__column__details__item"
                     >
                         <article class="services__section__container__column__details__item__contain" to="/services">
                             <header class="services__section__container__column__details__item__contain__header">
                                 <figure>
-                                    <AppIcon :IconName="service.icon" />
+                                    <AppIcon :IconName="$t(service.icon)" />
                                 </figure>
                             </header>
                             <div 
                                 class="services__section__container__column__details__item__contain__content"
                             >
                                 <h4>
-                                    {{ service.title }}
+                                    {{ $t(service.title) }}
                                 </h4>
                                 <p>
-                                    {{ service.description }}
+                                    {{ $t(service.description) }}
                                 </p>
                             </div>
                         </article>
@@ -47,24 +47,27 @@
 <script setup>
 import { reactive} from '#imports'
 
-let services = reactive([
-    {
-        title: 'Graphics',
-        icon: 'lucide:paint-bucket',
-        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    },
-    {
-        title: 'UX & UI',
-        icon: 'lucide:pencil-ruler',
-        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    },
-    {
-        title: 'Development',
-        icon: 'lucide:code-2',
-        description: 'UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems.'
-    }
-
-])
+let services = reactive({
+    title: 'services.title',
+    subTitle: 'services.subtitle',
+    list: [
+        {
+            title: 'services.service_1.title',
+            icon: 'services.service_1.icon',
+            description: 'services.service_1.text'
+        },
+        {
+            title: 'services.service_2.title',
+            icon: 'services.service_2.icon',
+            description: 'services.service_2.text'
+        },
+        {
+            title: 'services.service_3.title',
+            icon: 'services.service_3.icon',
+            description: 'services.service_3.text'
+        }
+    ]
+})
 
 </script>
 
@@ -93,7 +96,9 @@ let services = reactive([
             position:relative; 
             z-index: 2;
             margin-bottom: 40px;
-            text-align: center;
+            @media(max-width: $br_tablet){
+                text-align: center;
+            }
         }
         &__column{
             display: grid;

@@ -1,7 +1,7 @@
 <template>
     <section class="about__clients section">
         <h4 class="about__clients__title container">
-            Trusted by:
+            {{ locale == 'en' ? 'Trusted by:' : 'Clientes:' }}
         </h4>
         <div class="about__clients__marquee">
             <ul class="about__clients__marquee__list container">
@@ -43,7 +43,8 @@
 </template>
 
 <script setup>
-import { reactive } from '#imports'
+import { reactive, useI18n } from '#imports'
+const { locale } = useI18n()
 const clients = reactive([
     {name: 'Balance of Nature', image: 'images/clients/balance_of_nature.png'},
     {name: 'Frontall USA', image: 'images/clients/frontall_usa.png'},

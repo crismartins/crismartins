@@ -83,7 +83,7 @@ watch(openedModal, () => {
             background-color:var(--bg_color);
             backdrop-filter: blur(12px);
             width: 100%;
-            max-width: fit-content;
+            // max-width: fit-content;
             border-radius: 24px;
             padding: 20px;
             .close-modal{

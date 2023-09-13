@@ -4,10 +4,10 @@
             <div class="footer__container__column">
                 
                 <h2 class="small-title">
-                    Say Hey
+                    {{ $t(contact.title) }}
                 </h2>
                 <p>
-                    Send me a message or follow me...
+                    {{ $t(contact.subtitle) }}
                     <strong>
                         hello@cristophermartins.com
                     </strong>
@@ -74,7 +74,14 @@
 </template>
 
 <script setup>
+import { reactive, useI18n } from '#imports'
+const { locale } = useI18n()
 const currentYear = new Date().getFullYear()
+
+const contact = reactive({
+    title: 'contact.title',
+    subtitle: 'contact.subtitle'
+})
 </script>
 
 <style lang="scss" scoped>

@@ -31,9 +31,6 @@
         "title": "Últimos Trabalhos",
         "button": "Meus Serviços"
     },
-    "clients": {
-        "title": "Clientes"
-    },
     "about": {
         "title": "Sobre",
         "subtitle": "UX/UI Designer e Desenvolvedor Frontend",
@@ -45,20 +42,24 @@
     "services": {
         "title": "Serviços",
         "subtitle": "Tudo o que você precisa para o seu projeto ir além",
-        "serviços": [
-            {
-             "title": "Gráfico",
-             "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
-            },
-            {
-             "title": "UX e UI",
-             "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
-            },
-            {
-             "title": "Desenvolvimento",
-             "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
-            }
-        ]
+        "service_1": 
+        {
+            "icon": "lucide:paint-bucket",
+            "title": "Gráfico",
+            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+        },
+        "service_2": 
+        {
+            "icon": "lucide:pencil-ruler",
+            "title": "UX e UI",
+            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+        },
+        "service_3": 
+        {
+            "icon": "lucide:code-2",
+            "title": "Desenvolvimento",
+            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+        }
     },
     "contact": {
         "title": "Mande um Salve",

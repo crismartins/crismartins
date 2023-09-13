@@ -176,6 +176,8 @@
 </template>
 
 <script setup>
+import { useI18n } from '#imports'
+const { locale } = useI18n()
 
 </script>
 

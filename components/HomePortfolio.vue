@@ -127,8 +127,7 @@ function nextProj(){
 } 
 
 function goToProj(project) {
-    // selectedProj.value = project
-    console.log(project)
+    selectedProj.value = project
     const scrollTo =  document.getElementById(project)
     scrollTo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
 }

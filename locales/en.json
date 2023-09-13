@@ -30,5 +30,39 @@
     "portfolio": {
         "title": "Latest Works",
         "button": "My Services"
+    },
+    "about": {
+        "title": "About",
+        "subtitle": "UX/UI Designer and Frontend Developer based in Brazil",
+        "tools": "Working with these following tools...",
+        "cta_1": "Contact",
+        "cta_2": "Download CV",
+        "cta_2_link": "http://google.com"
+    },
+    "services": {
+        "title": "Services",
+        "subtitle": "Everything you need for your project go beyond",
+        "service_1": 
+        {
+            "icon": "lucide:paint-bucket",
+            "title": "Graphic",
+            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+        },
+        "service_2": 
+        {
+            "icon": "lucide:pencil-ruler",
+            "title": "UX & UI",
+            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+        },
+        "service_3": 
+        {
+            "icon": "lucide:code-2",
+            "title": "Development",
+            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+        }
+    },
+    "contact": {
+        "title": "Say Hi!",
+        "subtitle": "Send me a message or follow me on..."
     }
 }
