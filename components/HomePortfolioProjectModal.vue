@@ -22,9 +22,6 @@
             
         </header>
         <div class="modal__project__body">
-            <p class="modal__project__body__description">
-                {{ projectDetails.description }}
-            </p>
             <div class="modal__project__body__gallery">
                 <!-- <picture>
                     <nuxt-img 
@@ -43,6 +40,9 @@
                     </figcaption>
                 </figure>
             </div>
+            <p class="modal__project__body__description">
+                {{ projectDetails.description }}
+            </p>
         </div>
         <footer class="modal__project__footer">
             <AppStackSkills :stacks="projectDetails.stacks" />
@@ -122,15 +122,22 @@ function closeModal(){
         }
         &__gallery{
             text-align: center;
-            margin-block: 40px;
+            margin-block: 20px;
             display: flex;
-            flex-direction: column;
+            gap: 40px;
+            overflow: auto;
+            // flex-direction: column;
+            max-width: max-content;
             figure{
+                flex-shrink: 0;
+                // max-width: 100vw;
                 img{
-                    border-radius: 12px;
                     max-width: 100%;
+                    max-height: 60vh;
+                    border-radius: 12px;
                     display: inline-block;
                     margin-top: 40px;
+                    border: 2px solid var(--text_color);
                 }
                 figcaption{
                     margin-block: 40px;

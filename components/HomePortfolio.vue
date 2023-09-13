@@ -159,7 +159,7 @@ const projects = reactive([
             {image: '/images/portfolio/ahoy_cover.png', title: 'Design System'}
         ],
         name: 'Employee Recruitment Web Application', 
-        client: 'Ahoy by Belago', 
+        client: '2022/2023 - Ahoy by Belago', 
         description: 'A AHOY é uma empresa especializada em recrutamento e alocação de profissionais especializados na área de Tecnologia da Informação (TI). Nasceu do desejo, do Grupo Belago Techologies, em trazer para o mercado brasileiro a experiência multinacional do Grupo nas operações da Inglaterra, Estados Unidos e Rússia. A proposta desse projeto foi criar o design de interface para um sistema de gerenciamento de vagas, candidatos e empresas cientes da Ahoy com o objetivo de aumentar a performance de seus recrutadores através de um sistema intuitivo focado na clareza e experiência do usuário da plataforma. A definição das necessidades do cliente e o planejamento das telas foram organizadas através de reuniões após cada etapa de entrega ou adição de novas funcionalidades seguindo um cronograma de prioridades estipulado pelo cliente. A entrega final ainda contou com um design system e documentação do fluxo de telas e jornada do usuário através de um organograma visual.',
         stacks: [
             {logo: 'skill-icons:xd', name: 'Adobe Xd'},
@@ -178,7 +178,7 @@ const projects = reactive([
             {image: '/images/portfolio/bon_cover.png', title: 'Adaptação para dispositivos mobile(smartphones)'}
         ],
         name: 'Website Homepage Development', 
-        client: 'Balance of Nature', 
+        client: '2022/2023 - Balance of Nature', 
         description: 'Frontend development for an American food suplements company.',
         stacks: [
             {logo: 'devicon:html5', name: 'HTML 5'},
@@ -199,8 +199,8 @@ const projects = reactive([
             {image: '/images/portfolio/onr_app_cover.png', title: 'Design anterior'},
             {image: '/images/portfolio/onr_app_cover.png', title: 'Design repaginado'}
         ],
-        name: 'Real State Services Mobile App', 
-        client: 'Onr', 
+        name: 'Aplicação móvel para Serviço de Registro Eletrônico de Imóveis', 
+        client: '2023 - Onr', 
         description: 'O Operador Nacional do Sistema de Registro Eletrônico de Imóveis (ONR) é uma entidade sem fins lucrativos, de natureza jurídica especial (serviço social autônomo), instituída pela Lei n. 13.465, de 11 de julho de 2017, composta por todos os Oficiais de Registro de Imóveis dos Estados e do Distrito Federal. Nossa sede está localizada no SRTVS, Quadra 701, Lote 5, Bloco A, Sala 221 a 230, Centro Empresarial Brasília, CEP: 70340-907, em Brasília-DF.',
         stacks: [
             {logo: 'devicon:figma', name: 'Figma'}
@@ -220,8 +220,8 @@ const projects = reactive([
             {image: '/images/portfolio/planing_pocker_cover.png', title: 'Resultados do planejamento'}
         ],
         name: 'Sprint Planning Web App', 
-        client: 'Planing Poker Online Room', 
-        description: 'Sprint Planning Web App development in partnership with a ',
+        client: '2023 - Planing Poker Online Room', 
+        description: 'Sprint Planning Web App design and development in partnership with a fullstack developer friend',
         stacks: [
             {logo: 'devicon:figma', name: 'Figma'},
             {logo: 'devicon:javascript', name: 'Javascript'},
@@ -244,8 +244,8 @@ const projects = reactive([
             {image: '/images/portfolio/curitiba_app_cover.png', title: 'Telas de acesso e tela inicial'},
             {image: '/images/portfolio/curitiba_app_cover.png', title: 'Principais serviços e funcionalidades'}
         ],
-        name: 'City Hall Services App', 
-        client: 'Curitiba App', 
+        name: 'Curitiba City Hall Mobile App', 
+        client: '2020/2021 - ICI', 
         description: 'O aplicativo Curitiba APP é um concentrador de aplicativos e serviços da Prefeitura Municipal de Curitiba e colocará a interação entre os cidadãos e a administração pública em um novo nível de conectividade, centralizando o consumo dos principais serviços públicos em um único local.',
         stacks: [
             {logo: 'skill-icons:xd', name: 'Adobe Xd'},
@@ -264,7 +264,7 @@ const projects = reactive([
             {image: '/images/portfolio/ebanx_lp_cover.png', title: 'versão mobile'}
         ],
         name: 'Event Landing Page', 
-        client: 'Ebanx', 
+        client: '2019 - Ebanx', 
         description: 'description',
         stacks: [
             {logo: 'skill-icons:webflow', name: 'Webflow'}
@@ -282,7 +282,7 @@ const projects = reactive([
             {image: '/images/portfolio/alegra_website_cover.png', title: 'Versão mobile'}
         ],
         name: 'Website Development', 
-        client: 'Alegrafoods', 
+        client: '2018 - Alegrafoods', 
         description: 'Da união de três grandes cooperativas, nasce uma nova holding genuinamente paranaense. Inspirada na grandeza de seus realizadores, a Unium é uma marca com mais de 5 mil cooperados. Gente que reconhece na cooperação e no trabalho honesto o segredo para o crescimento sustentável e o aumento da competitividade do agronegócio local e global.',
         stacks: [
             {logo: 'skill-icons:wordpress', name: 'Wordpress'},
@@ -303,7 +303,7 @@ const projects = reactive([
             {image: '/images/portfolio/mago_jardineiro_cover.png', title: 'Versão responsiva'}
         ],
         name: 'One Page Website', 
-        client: 'Mago Jardineiro', 
+        client: '2018 - Mago Jardineiro', 
         description: 'Ademar da Silva Brasileiro ganhou o apelido de Mago Jardineiro por ter aquele tão famoso “dedo verde”, uma intimidade com o reino vegetal que remete à infância no sítio, onde aprendeu com os avós a cultivar a vida.',
         stacks: [
             {logo: 'skill-icons:xd', name: 'Adobe Xd'},

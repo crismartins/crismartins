@@ -17,6 +17,10 @@ body{
     color: var(--text_color);
     background-image: var(--bg_texture);
     background-attachment: fixed;
+
+    @media(max-width: $br_mobile){
+        background-image: none;
+    }
     
     *{
         box-sizing: border-box;
@@ -111,7 +115,24 @@ body{
     //     -webkit-text-fill-color: unset; 
     //     -moz-text-fill-color: unset;
     // }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+        &-track {
+            background: transparent;
+        }
     
+        &-thumb {
+            background-color: var(--text_color_transparent);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: $transition_default;
+            &:hover {
+                background-color: var(--text_color_smooth);
+            }
+        }
+
+    }
 }
 
 //animations
