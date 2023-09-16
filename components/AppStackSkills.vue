@@ -72,6 +72,7 @@ function showAll(){
         align-items: center;
         flex-wrap: wrap;
         row-gap: 12px;
+        column-gap: 8px;
         justify-content: center;
         &__item{
             aspect-ratio: 1;
@@ -82,11 +83,13 @@ function showAll(){
             transition: $transition_default;
             border-radius: 100%;
             background-color: var(--neutral);
-            margin-left: -8px;
+            margin-left: -12px;
             box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -4px 32px 0 var(--bg_color);
             &.no-bg{
                 background-color: transparent;
                 box-shadow: none;
+                width: fit-content;
+                margin-left: 0; 
             }
             &:first-child{
                 margin-left: 0;

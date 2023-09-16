@@ -22,30 +22,30 @@
             
         </header>
         <div class="modal__project__body">
-            <div class="modal__project__body__gallery">
-                <!-- <picture>
-                    <nuxt-img 
-                        v-if="projectDetails.image"
-                        :src="projectDetails.image" 
-                        :alt="projectDetails.name" 
-                    />
-                </picture> -->
-                <figure v-for="item in projectDetails.gallery" :key="item.title">
-                    <nuxt-img 
-                        :src="item.image" 
-                        :alt="item.title" 
-                    />
-                    <figcaption>
-                        {{ item.title }}
-                    </figcaption>
-                </figure>
-            </div>
-            <p class="modal__project__body__description">
-                {{ projectDetails.description }}
-            </p>
+            <ul class="modal__project__body__gallery">
+                <li 
+                    v-for="item in projectDetails.gallery" 
+                    :key="item.title" 
+                    class="modal__project__body__gallery__item"
+                >
+                    <figure>
+                        <nuxt-img 
+                            :src="item.image" 
+                            :alt="item.title" 
+                        />
+                        <figcaption>
+                            {{ item.title }}
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+            <div class="modal__project__body__description" v-html="projectDetails.description" />
         </div>
         <footer class="modal__project__footer">
-            <AppStackSkills :stacks="projectDetails.stacks" />
+            <small>
+                Stacks:
+                <AppStackSkills :stacks="projectDetails.stacks" />
+            </small>
             <AppButton 
                 v-if="projectDetails.live_url" 
                 class="outline small" 
@@ -84,6 +84,7 @@ function closeModal(){
 .modal__project{
     &__header{
         margin: 0 40px 0 0;
+        padding: 20px;
         &__title{
             font-size: $size_20px;
             font-weight: 300;
@@ -118,49 +119,67 @@ function closeModal(){
             font-weight: normal;
             font-size: $size_16px;
             // text-align: center;
-            padding-block: 12px;
+            padding-block: 28px;
+            padding-inline: 20px;
         }
         &__gallery{
             text-align: center;
-            margin-block: 20px;
+            // margin-block: 20px;
             display: flex;
             gap: 40px;
             overflow: auto;
-            // flex-direction: column;
-            max-width: max-content;
-            figure{
+            width: 100%;
+            max-width: calc(100vw - 9px);
+            background-color: var(--secondary);
+            padding: 20px;
+            &__item{
                 flex-shrink: 0;
-                // max-width: 100vw;
-                img{
-                    max-width: 100%;
-                    max-height: 60vh;
-                    border-radius: 12px;
-                    display: inline-block;
-                    margin-top: 40px;
-                    border: 2px solid var(--text_color);
-                }
-                figcaption{
-                    margin-block: 40px;
-                    margin-inline: auto;
-                    max-width: 600px;
+                max-width: 90%;
+                max-height: 90vh;
+                overflow: auto;
+                box-shadow: 0 0 0 2px var(--bg_color_transparent);
+                background-color: var(--bg_color_transparent);
+                border-radius: 8px;
+                margin-top: 40px;
+                figure{
+                    img{
+                        border-radius: 8px;
+                        max-width: 100%;
+                        // max-height: 60vh;
+                        display: inline-block;
+                    }
+                    figcaption{
+                        margin-block: 20px;
+                        font-size: $size_14px;
+                        margin-inline: auto;
+                        max-width: 600px;
+                        color: var(--pure_white);
+                    }
                 }
             }
         }
-        &__tools-title{
-            font-size: $size_12px;
-            font-weight: 300;
-            margin-block: 8px;
-            text-align: center;
-        }
+        
     }
     &__footer{
-        padding-block: 20px;
+        padding: 28px 20px;
         display: flex;
         justify-content: space-between;
-        gap: 20px;
+        align-items: center;
+        gap: 28px;
+        small{
+            text-transform: uppercase;
+            color: var(--text_color_smooth);
+            font-size: $size_12px;
+            ul{
+                margin-top: 12px;
+            }
+        }
         @media(max-width: $br_mobile){
             flex-direction: column;
             align-items: center;
+            small{
+                text-align: center;
+            }
         }
     }
 }
