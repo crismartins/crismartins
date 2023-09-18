@@ -33,32 +33,32 @@
     },
     "about": {
         "title": "About",
-        "subtitle": "UX/UI Designer and Frontend Developer based in Brazil",
-        "tools": "Working with these following tools...",
+        "subtitle": "UX/UI Designer and Frontend Developer based in Brazil ",
+        "tools": "Previous experience in these tools...",
         "cta_1": "Contact",
         "cta_2": "Download CV",
-        "cta_2_link": "http://google.com"
+        "cta_2_link": "https://docs.google.com/document/d/e/2PACX-1vRX95NTr5uq9LqNM20eeh9Kd_8o6UF_WhTTVhKbxfeeKFYo7u-XmPQNCmyxTZo-i8pjB5OC9mL47kBC/pub"
     },
     "services": {
         "title": "Services",
-        "subtitle": "Everything you need for your project go beyond",
+        "subtitle": "Unlock Your Company's Potential with Expert Services",
         "service_1": 
         {
             "icon": "lucide:paint-bucket",
             "title": "Graphic",
-            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            "text": "Visual identity design, vector illustrations, editorial illustrations, and concept art creation."   
         },
         "service_2": 
         {
             "icon": "lucide:pencil-ruler",
             "title": "UX & UI",
-            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            "text": "Experience design and interface design for websites, mobile applications, software, and web systems."   
         },
         "service_3": 
         {
             "icon": "lucide:code-2",
             "title": "Development",
-            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            "text": "Frontend development of websites and web systems, interactive and optimized for search engines."   
         }
     },
     "contact": {

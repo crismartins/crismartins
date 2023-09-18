@@ -34,31 +34,31 @@
     "about": {
         "title": "Sobre",
         "subtitle": "UX/UI Designer e Desenvolvedor Frontend",
-        "tools": "Trabalhando com as seguintes ferramentas...",
+        "tools": "Experiência nas seguintes ferramentas...",
         "cta_1": "Contato",
         "cta_2": "Download CV",
-        "cta_2_link": "http://google.com"
+        "cta_2_link": "https://docs.google.com/document/d/e/2PACX-1vRX95NTr5uq9LqNM20eeh9Kd_8o6UF_WhTTVhKbxfeeKFYo7u-XmPQNCmyxTZo-i8pjB5OC9mL47kBC/pub"
     },
     "services": {
         "title": "Serviços",
-        "subtitle": "Tudo o que você precisa para o seu projeto ir além",
+        "subtitle": "Desbloqueie o Potencial da sua Empresa com Serviços Especializados",
         "service_1": 
         {
             "icon": "lucide:paint-bucket",
             "title": "Gráfico",
-            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            "text": "Criação de identidade visual, ilustracões vetoriais, ilustrações editoriais e artes conceito."   
         },
         "service_2": 
         {
             "icon": "lucide:pencil-ruler",
             "title": "UX e UI",
-            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            "text": "Design de experiências e design de interfaces para Websites, Aplicações mobile, Softwares e Sistemas web."   
         },
         "service_3": 
         {
             "icon": "lucide:code-2",
             "title": "Desenvolvimento",
-            "text": "UX and UI Design for Web Applications, Mobile Applications, Softwares or Systems."   
+            "text": "Desenvolvimento frontend de Websites e Sistemas web, interativos e otimizados para mecanismos de busca."   
         }
     },
     "contact": {

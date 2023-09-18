@@ -32,6 +32,11 @@
                         <nuxt-img 
                             :src="item.image" 
                             :alt="item.title" 
+                            sizes="100vw sm:80vw md:600px"
+                            format="webp"
+                            densities="x1 x2"
+                            quality="100"
+                            placeholder
                         />
                         <figcaption>
                             {{ item.title }}

@@ -46,17 +46,31 @@
 
                 
                 <div v-if="locale == 'en'" class="about__section__container__columns__text" >
-                    <p>I'm half designer and half frontend developer, is that makes me a incomplete  professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal...</p>
+                    <p>
+                        As a seasoned designer and frontend developer with <strong>over a decade of experience in the technology sector</strong>, I am dedicated to consistently <strong>delivering excellence to my clients</strong>. 
+                        On my website, you will discover a portfolio showcasing projects I've had the privilege of working on, as well as an overview of the technology services I offer.
+                    </p>
                     <br/>
                     <p>
-                        <strong>I'll do my best, trust me.</strong>
+                        My objective is to craft tailored and optimized experiences that captivate users, achieved through a profound comprehension of their needs and expectations while engaging with the interfaces I design and develop.
+                    </p>
+                    <br/>
+                    <p>
+                        With that in mind, please feel free to explore my website and uncover how I can assist you in <strong>creating and developing enchanting designs</strong>.
                     </p>
                 </div>
                 <div v-else class="about__section__container__columns__text" >
-                    <p>I'm half designer and half frontend developer, is that makes me a incomplete  professional? I don't think so, probably the opposite, because everything I do always need to be the best a can do. Not only working on a project but also for life... could be studying to learn a new skill or improve another, handling with people I try to give my full attention for what they're saying, even with my hobbies, like to play an instrument, this is my goal...</p>
+                    <p>
+                        Designer e desenvolvedor frontend com <strong>mais de 10 anos de experiência no setor de tecnologia</strong>, estou comprometido em entregar sempre o <strong>melhor do melhor</strong> para os meus clientes.
+                        Aqui no meu website você encontrará alguns projetos onde tive o prazer de trabalhar e os serviços que presto na área de tecnologia.
+                    </p>
                     <br/>
                     <p>
-                        <strong>I'll do my best, trust me.</strong>
+                        Meu objetivo é desenvolver experiencias personalizadas e otimizadas para encantar usuários através de um profundo entendimento das suas necessidades e expectativas ao interagir com as interfaces que desenho e que desenvolvo.
+                    </p>
+                    <br/>
+                    <p>
+                        Sendo assim, fique à vontade para explorar o meu website e descobrir como posso ajudar você à <strong>criar e desenvolver designs que encantam.</strong>
                     </p>
                 </div>
             </div>
