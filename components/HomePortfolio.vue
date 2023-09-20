@@ -23,11 +23,14 @@
                         <header class="portfolio__section__container__projects__item__contain__header project-image">
                             <picture class="portfolio__section__container__projects__item__contain__header__picture" @click="viewDetails(index)">
                                 <NuxtImg 
+                                    :alt="project.name"
                                     :src="project.image"
                                     width="400px"
                                     height="400px"
                                     format="webp"
                                     quality="100"
+                                    densities="x1 x2"
+                                    preload
                                 />
                             </picture>
                             <div class="portfolio__section__container__projects__item__contain__header__info">
@@ -64,12 +67,20 @@
                 <div class="portfolio__section__container__projects__navigation container">
                     <ul class="portfolio__section__container__projects__navigation__arrows">
                         <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
-                            <button class="outline" @click="prevProj">
+                            <button 
+                                aria-label="Previous"
+                                class="outline" 
+                                @click="prevProj"
+                            >
                                 <AppIcon IconName="ph:arrow-left" />
                             </button>
                         </li>
                         <li class="portfolio__section__container__projects__navigation__arrows__item right-arrow">
-                            <button class="outline" @click="nextProj">
+                            <button 
+                                aria-label="Next"
+                                class="outline" 
+                                @click="nextProj"
+                            >
                                 <AppIcon IconName="ph:arrow-right" />
                             </button>
                         </li>
@@ -80,10 +91,22 @@
                             :key="project.id"
                             class="portfolio__section__container__projects__navigation__bullets__item"
                         >
-                            <button :class="{ active : selectedProj == project.id }" @click="goToProj(project.id)" />
+                            <button 
+                                :aria-label="project.name"
+                                :class="{ active : selectedProj == project.id }" 
+                                @click="goToProj(project.id)" 
+                            >
+                                <span class="visually-hidden">
+                                    {{ project.name }}
+                                </span>
+                            </button>
                         </li>
                     </ul>
-                    <AppButton class="primary" hasLink="/#services">
+                    <AppButton 
+                        :aria-label="$t(portfolio.button)"
+                        class="primary" 
+                        hasLink="/#services"
+                    >
                         {{ $t(portfolio.button) }}
                         <AppIcon IconName="ph:caret-right-bold" />
                     </AppButton>
@@ -295,7 +318,7 @@ function closeModal(){
                         transition: $transition_default;
                         &__title{
                             font-size: $size_20px;
-                            font-weight: 300;
+                            font-weight: 400;
                             margin-block: 20px 8px;
                         }
                         &__subtitle{

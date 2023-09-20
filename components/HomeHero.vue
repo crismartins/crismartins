@@ -17,13 +17,21 @@
                         </span>
                     </li>
                 </ul>
-                <NuxtLink to="/#about" class="hero__section__container__presentation__button">
+                <NuxtLink 
+                    :aria-label="$t(heroHome.cta)"
+                    to="/#about" 
+                    class="hero__section__container__presentation__button"
+                >
                     <figure class="hero__section__container__presentation__button__avatar">
                         <NuxtImg 
+                            alt="Cristopher Martins"
                             src="/images/cristoon.svg"
+                            width="60px"
+                            height="84px"
                             format="webp"
                             quality="100"
-                            densities="1 2 3 4"
+                            densities="x1 x2"
+                            preload
                         />
                     </figure>
                     <div>
@@ -41,7 +49,11 @@
                     <h1 class="hero__section__container__text__wrapper__title gradient-font">
                         {{ $t(heroHome.subTitle) }}
                     </h1>
-                    <AppButton hasLink="/#contact" class="primary">
+                    <AppButton 
+                        :aria-label="$t(heroHome.button)"
+                        hasLink="/#contact" 
+                        class="primary"
+                    >
                         {{ $t(heroHome.button) }}
                     </AppButton>
                 </div>

@@ -1,6 +1,7 @@
 <template>
     <div class="theme-switcher">
         <button
+            :aria-label="colorMode.value"
             :class="colorMode.value"
             @click="toggleDarkMode(colorMode.value == 'dark' ? 'light' : 'dark')"
         >
@@ -9,6 +10,9 @@
                     :class="colorMode.value" 
                     :IconName="icon" 
                 />
+                <small class="visually-hidden">
+                    {{ colorMode.value }}
+                </small>
             </span>
             
         </button>

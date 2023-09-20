@@ -5,7 +5,10 @@
     >
         <div class="container__fluid">
             <div class="container__fluid__logo">
-                <NuxtLink to="/">
+                <NuxtLink 
+                    aria-label="Homepage"
+                    to="/"
+                >
                     <TheLogo /> <strong>Cristopher Martins</strong>
                 </NuxtLink>
             </div>

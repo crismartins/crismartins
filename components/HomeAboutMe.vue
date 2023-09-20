@@ -28,7 +28,15 @@
                                 {{ locale == 'en' ? 'years of experience' : 'anos de experiência' }}
                             </small>
                         </strong>
-                        <NuxtImg src="/images/crismartins_avatar.png" />
+                        <NuxtImg 
+                            alt="Cristopher Martins" 
+                            src="/images/crismartins_avatar.png"
+                            width="240px"
+                            height="240px"
+                            format="webp"
+                            densities="x1 x2"
+                            quality="100"
+                        />
                         <strong class="about__section__container__columns__avatar__image__areas logic">
                             <span>
                                 <AppIcon IconName="fluent:brain-circuit-20-regular" />
@@ -75,10 +83,15 @@
                 </div>
             </div>
             <div class="about__section__container__buttons">
-                <AppButton class="primary" hasLink="/#contact">
+                <AppButton 
+                    :aria-label="$t(about.cta1)"
+                    class="primary" 
+                    hasLink="/#contact"
+                >
                     {{ $t(about.cta1) }}
                 </AppButton>
                 <AppButton 
+                    :aria-label="$t(about.cta2)"
                     class="outline call" 
                     target="_new" 
                     :hasLink="$t(about.cta2Link)"

@@ -11,12 +11,15 @@
                     class="about__clients__marquee__list__item"
                 >
                     <figure>
-                        <nuxt-img 
+                        <NuxtImg 
                             :src="client.image"
                             width="140px"
                             :alt="client.name"
                             :title="client.name"
                             format="webp"
+                            densities="x1 x2"
+                            quality="100"
+                            placeholder
                         />
                     </figure>
                 </li>
@@ -28,12 +31,15 @@
                     class="about__clients__marquee__list__item"
                 >
                     <figure>
-                        <nuxt-img 
+                        <NuxtImg 
                             :src="client.image"
                             width="140px"
                             :alt="client.name"
                             :title="client.name"
                             format="webp"
+                            densities="x1 x2"
+                            quality="100"
+                            placeholder
                         />
                     </figure>
                 </li>

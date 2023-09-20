@@ -90,11 +90,6 @@ body{
         list-style: none;
     }
 
-    .visibility-hidden{
-        position: absolute;
-        opacity: 0;
-    }
-
     .gradient-font{
         background-color: var(--primary);
         background-image: var(--primary_gradient);
@@ -204,4 +199,10 @@ from, to { border-color: transparent }
     to {
         opacity: 1;
     }
+}
+
+//accessibility
+.visually-hidden{
+    position: absolute;
+    opacity: 0;
 }

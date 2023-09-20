@@ -16,22 +16,38 @@
                 
                 <ul class="footer__container__column__social">
                     <li class="footer__container__column__social__item">
-                        <NuxtLink to="https://www.linkedin.com/in/cristopher-martins-designer-and-developer/" target="_new">
+                        <NuxtLink 
+                            aria-label="Linkedin"
+                            to="https://www.linkedin.com/in/cristopher-martins-designer-and-developer/" 
+                            target="_new"
+                        >
                             <AppIcon IconName="ph:linkedin-logo-duotone" />
                         </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
-                        <NuxtLink to="https://github.com/crismartins" target="_new">
+                        <NuxtLink 
+                            aria-label="GitHub"
+                            to="https://github.com/crismartins" 
+                            target="_new"
+                        >
                             <AppIcon IconName="ph:github-logo-duotone" />
                         </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
-                        <NuxtLink to="https://dribbble.com/cris_martins" target="_new">
+                        <NuxtLink 
+                            aria-label="Dribbble"
+                            to="https://dribbble.com/cris_martins" 
+                            target="_new"
+                        >
                             <AppIcon IconName="ph:dribbble-logo-duotone" />
                         </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
-                        <NuxtLink to="https://instagram.com/crismart_arts" target="_new">
+                        <NuxtLink 
+                            aria-label="Instagram"
+                            to="https://instagram.com/crismart_arts" 
+                            target="_new"
+                        >
                             <AppIcon IconName="ph:instagram-logo-duotone" />
                         </NuxtLink>
                     </li>
@@ -64,7 +80,10 @@
         <div class="footer__copyright container">
             <p>
                 {{ locale == 'en' ? 'Website proudly designed and developed by' : 'Site orgulhosamente criado e desenvolvido por' }}
-                <NuxtLink to="/#about">Cristopher Martins</NuxtLink> 👨‍💻👨‍🎨
+                <NuxtLink
+                    aria-label="About"
+                    to="/#about"
+                >Cristopher Martins</NuxtLink> 👨‍💻👨‍🎨
             </p>
             <p>
                 © {{ currentYear }} cristophermartins.com

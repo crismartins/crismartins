@@ -6,9 +6,13 @@
     >
         <div class="app__modal__container" @click.self="closeModal">
             <article class="app__modal__container__content">
-                <AppButton class="icononly outline close-modal" @click="closeModal">
+                <AppButton 
+                    aria-label="Close"
+                    class="icononly outline close-modal" 
+                    @click="closeModal"
+                >
                     <AppIcon IconName="ph:x-bold" />
-                    <span class="visibility-hidden">
+                    <span class="visually-hidden">
                         Close
                     </span>
                 </AppButton>

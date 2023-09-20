@@ -150,9 +150,14 @@
                     <span>
                         {{ locale == 'en' ? 'Illustration' : 'Ilustração' }}
                         <NuxtImg 
+                            alt=""
                             src="/images/illustration_hand.png"
-                            
                             format="webp"
+                            width="60px"
+                            height="92px"
+                            densities="x1 x2"
+                            quality="100"
+                            placeholder
                         />
                     </span>
                 </strong>

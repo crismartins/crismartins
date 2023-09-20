@@ -10,6 +10,7 @@
         </li>
         <li class="skills__stacks__button">
             <AppButton 
+                :aria-label="stackList.length > maxItems ? 'Less' : 'More'"
                 class="secondary icononly"
                 :class="stackList.length > maxItems ? 'opened' : ''"
                 @click="showAll"
@@ -17,6 +18,9 @@
                 <AppIcon IconName="ph:plus-bold"/>
                 <span v-if="stackList.length == maxItems">
                     {{ stacks.length - maxItems }}
+                </span>
+                <span class="visually-hidden">
+                    {{ stackList.length > maxItems ? 'Less' : 'More' }}
                 </span>
             </AppButton>
         </li>

@@ -29,7 +29,7 @@
                     class="modal__project__body__gallery__item"
                 >
                     <figure>
-                        <nuxt-img 
+                        <NuxtImg 
                             :src="item.image" 
                             :alt="item.title" 
                             sizes="100vw sm:80vw md:600px"
@@ -53,6 +53,7 @@
             </small>
             <AppButton 
                 v-if="projectDetails.live_url" 
+                aria-label="View live"
                 class="outline small" 
                 :hasLink="projectDetails.live_url" 
                 target="_blank"
