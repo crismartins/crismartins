@@ -186,7 +186,8 @@ const heroHome = reactive({
                     figure{
                         width: 40px;
                         img{
-                            width: 28px;
+                            width: 100%;
+                            height: auto;
                         }
                     }
                     div{
@@ -210,7 +211,6 @@ const heroHome = reactive({
                     transition: $transition_default;
                     position: relative;
                     img{
-                        width: 60px;
                         position: absolute;
                         transition: $transition_default;
                     }

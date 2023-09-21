@@ -14,6 +14,7 @@
                         <NuxtImg 
                             :src="client.image"
                             width="140px"
+                            height="140px"
                             :alt="client.name"
                             :title="client.name"
                             format="webp"
@@ -34,6 +35,7 @@
                         <NuxtImg 
                             :src="client.image"
                             width="140px"
+                            height="140px"
                             :alt="client.name"
                             :title="client.name"
                             format="webp"
@@ -149,6 +151,7 @@ const clients = reactive([
                         display: block;
                         max-height: 100px;
                         width: auto;
+                        height: auto;
                     }
                     &:hover{
                         opacity: 1;
