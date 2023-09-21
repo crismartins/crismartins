@@ -23,6 +23,7 @@
                         <input 
                             id="en" 
                             v-model="locale" 
+                            aria-hidden="true"
                             type="radio" 
                             name="language" 
                             value="en"
@@ -36,6 +37,7 @@
                         <input 
                             id="pt" 
                             v-model="locale" 
+                            aria-hidden="true"
                             type="radio" 
                             name="language" 
                             value="pt"
