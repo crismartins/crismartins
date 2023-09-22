@@ -110,6 +110,7 @@ import { ref, useI18n , reactive } from '#imports'
 const { locale } = useI18n()
 const stackLogos = ref([
     {logo: 'devicon:figma', name: 'Figma'},
+    // {logo: 'devicon:sketch', name: 'Sketch'},
     {logo: 'skill-icons:xd', name: 'Adobe Xd'},
     {logo: 'skill-icons:photoshop', name: 'Adobe Photoshop'},
     {logo: 'skill-icons:illustrator', name: 'Adobe Illustrator'},
@@ -121,8 +122,12 @@ const stackLogos = ref([
     {logo: 'skill-icons:jquery', name: 'JQuery'},
     {logo: 'skill-icons:wordpress', name: 'Wordpress'},
     {logo: 'devicon:vuejs', name: 'Vue.JS'},
-    {logo: 'logos:nuxt-icon', name: 'Nuxt.JS'}
-    // {logo: 'devicon:react', name: 'React.JS'},
+    {logo: 'logos:nuxt-icon', name: 'Nuxt.JS'},
+    {logo: 'logos:visual-studio-code', name: 'Visual Studio Code'},
+    {logo: 'devicon:bitbucket', name: 'Bitbucket'},
+    {logo: 'devicon:github', name: 'GitHub'},
+    {logo: 'devicon:gitlab', name: 'GitLab'}
+    // ,{logo: 'devicon:react', name: 'React.JS'},
     // {logo: 'logos:blender', name: 'Blender'},
     // {logo: 'devicon:flutter', name: 'Flutter'}
 ])

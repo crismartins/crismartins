@@ -7,10 +7,12 @@
                     {{ $t(contact.title) }}
                 </h2>
                 <p>
-                    {{ $t(contact.subtitle) }}
                     <strong>
-                        hello@cristophermartins.com
+                        <a href="mailto:hello@cristophermartins.com">
+                            hello@cristophermartins.com
+                        </a>
                     </strong>
+                    {{ $t(contact.subtitle) }}
                 </p>
 
                 
@@ -56,7 +58,29 @@
 
             </div>
             <div class="footer__container__column">
-                <div class="footer__container__column__logo">
+                <div class="footer__container__column__touch-hands">
+                    <NuxtImg 
+                        class="right-hand"
+                        alt="Cristopher Martins"
+                        src="/images/left_hand.png"
+                        width="480px"
+                        format="webp"
+                        quality="100"
+                        densities="x1 x2"
+                        placeholder
+                    />
+                    <NuxtImg 
+                        class="left-hand"
+                        alt="Cristopher Martins"
+                        src="/images/right_hand.png"
+                        width="480px"
+                        format="webp"
+                        quality="100"
+                        densities="x1 x2"
+                        placeholder
+                    />
+                </div>
+                <!-- <div class="footer__container__column__logo">
                     <svg 
                         class="footer-logo" 
                         width="508" 
@@ -74,7 +98,7 @@
                         <path d="M121.483 340.923C120.778 340.923 120.122 340.549 119.764 339.938L55.9932 230.487C55.6354 229.876 55.6354 229.128 55.9932 228.517C56.351 227.906 57.007 227.532 57.7127 227.532H126.572C127.278 227.532 127.944 227.906 128.292 228.517L157.702 278.987C158.06 279.598 158.06 280.347 157.702 280.957L123.203 339.938C122.845 340.549 122.189 340.923 121.483 340.923ZM61.1616 231.472L121.493 335.023L153.696 279.972L125.439 231.472H61.1517H61.1616Z" />
                         <path d="M224.7 63.0388L155.91 62.9206C155.205 62.9206 154.559 62.5463 154.201 61.9455L119.354 2.96479C118.996 2.3541 118.986 1.60552 119.354 0.984981C119.711 0.374293 120.367 0 121.073 0H190.271C190.976 0 191.642 0.374293 191.99 0.984981L226.42 60.0838C226.778 60.6945 226.778 61.4431 226.42 62.0538C226.062 62.6645 225.406 63.0388 224.7 63.0388ZM157.053 58.9807L221.261 59.089L189.118 3.93992H124.542L157.053 58.9807Z" />
                     </svg>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="footer__copyright container">
@@ -128,24 +152,35 @@ const contact = reactive({
         background: var(--primary_gradient);
         border-radius: 40px;
         display: flex;
-        padding: 80px 40px;
         color: var(--bg_color);
         overflow: hidden;
         position: relative;
+        &:before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: var(--text_color);
+            z-index: 1;
+            opacity: 0.2;
+        }
         @media(max-width:$br_mobile){
             flex-direction: column;
-            padding: 40px 20px;
         }
         h2{
             display: flex;
+            position: relative;
+            z-index: 2;
             @media(max-width: $br_mobile){
-                text-align: center;
+                justify-content: center;
             }
         }
         p{
             margin-block: 20px 40px;
-            font-size: $size_20px;
+            font-size: $size_16px;
             color: var(--bg_color_smooth);
+            position: relative;
+            z-index: 2;
             @media(max-width: $br_mobile){
                 text-align: center;
                 font-size: $size_16px;
@@ -154,7 +189,11 @@ const contact = reactive({
                 font-size: $size_32px;
                 font-weight: 400;
                 display: block;
-                color: var(--bg_color);
+                a{
+                    &:hover{
+                        color: var(--tertiary);
+                    }
+                }
                 @media(max-width: $br_mobile){
                     text-align: center;
                     font-size: $size_20px;
@@ -163,6 +202,13 @@ const contact = reactive({
         }
         &__column{
             flex-grow: 1;
+            min-width: 40%;
+            // position: relative;
+            padding: 80px 40px;
+            @media(max-width: $br_mobile){
+                padding: 40px 20px;
+            }
+           
             &__social{
                 position: relative;
                 z-index: 2;
@@ -175,19 +221,13 @@ const contact = reactive({
                 }
                 &__item{
                     a{
-                        font-size: $size_28px;
-                        color: var(--bg_color_smooth);
+                        font-size: $size_20px;
+                        color: var(--secondary);
                         transition: $transition_default;
                         &:hover{
                             color: var(--tertiary);
                         }
                     }
-                }
-            }
-            button{
-                margin-top: 40px;
-                @media(max-width: $br_mobile){
-                    margin-inline: auto;
                 }
             }
             &__logo{
@@ -215,6 +255,35 @@ const contact = reactive({
                         @media(max-width: $br_mobile){
                             width: 60vw;
                         }
+                    }
+                }
+            }
+            &__touch-hands{
+                position: absolute;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                transform: rotate(-34deg);
+                top: 12%;
+                z-index: 0;
+                // filter: grayscale(1);
+                @media(max-width: $br_mobile){
+                    position: relative;
+                    transform: rotate(0deg);
+                    height: 200px;
+                }
+                .right-hand{
+                    position: absolute;
+                    right: 55%;
+                    @media(max-width: $br_mobile){
+                        right: 50%;
+                    }
+                }
+                .left-hand{
+                    position: absolute;
+                    left: 55%;
+                    @media(max-width: $br_mobile){
+                        left: 50%;
                     }
                 }
             }
