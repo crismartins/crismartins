@@ -336,7 +336,7 @@ const projectList = reactive([
         description: `<p>From the union of three major cooperatives emerges a new, genuinely Paraná-based holding company. Inspired by the greatness of its founders, Unium is a brand with over 5,000 cooperators. These are individuals who recognize that cooperation and honest work are the secrets to sustainable growth and increasing the competitiveness of the local and global agribusiness sector.</p><p>In partnership with páprica.ag, the proposal for this project was the development of a WordPress website by creating a theme from scratch, following a prototype created by the partner agency.</p><p>The result was an exclusive and interactive website with mobile responsiveness and integration with the client's internal tools.</p>`,
         stacks: [
             {logo: 'skill-icons:wordpress', name: 'Wordpress'},
-            {logo: 'skill-icons:jquery', name: 'JQuery'},
+            {logo: 'devicon:jquery', name: 'JQuery'},
             {logo: 'devicon:html5', name: 'HTML 5'},
             {logo: 'devicon:css3', name: 'CSS 3'},
             {logo: 'devicon:bitbucket', name: 'Bitbucket'}
@@ -679,7 +679,7 @@ const listaProjetos = reactive([
         description: '<p>Da união de três grandes cooperativas, nasce uma nova holding genuinamente paranaense. Inspirada na grandeza de seus realizadores, a Unium é uma marca com mais de 5 mil cooperados. Gente que reconhece na cooperação e no trabalho honesto o segredo para o crescimento sustentável e o aumento da competitividade do agronegócio local e global.</p><p>Em parceria com a páprica.ag, a proposto deste projeto foi o desenvolvimento de um website em wordpress através da criacão de um tema do zero seguindo um protótipo criado pela agência parceira.</p><p>O resultado foi um website exclusivo e interativo com adaptação para dispositivos móveis e integração com ferramentas internas dos cliente.</p>',
         stacks: [
             {logo: 'skill-icons:wordpress', name: 'Wordpress'},
-            {logo: 'skill-icons:jquery', name: 'JQuery'},
+            {logo: 'devicon:jquery', name: 'JQuery'},
             {logo: 'devicon:html5', name: 'HTML 5'},
             {logo: 'devicon:css3', name: 'CSS 3'},
             {logo: 'devicon:bitbucket', name: 'Bitbucket'}

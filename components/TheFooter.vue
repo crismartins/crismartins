@@ -2,9 +2,8 @@
     <footer id="contact" class="footer section">
         <div class="footer__container container">
             <div class="footer__container__column">
-                
-                <h2 class="small-title">
-                    {{ $t(contact.title) }}
+                <h2 class="main-title gradient-font">
+                    Get in Touch
                 </h2>
                 <p>
                     <strong>
@@ -12,10 +11,38 @@
                             hello@cristophermartins.com
                         </a>
                     </strong>
-                    {{ $t(contact.subtitle) }}
                 </p>
 
-                
+                <div class="footer__container__column__touch-hands">
+                    <NuxtImg 
+                        class="right-hand"
+                        alt="Cristopher Martins"
+                        src="/images/left_hand.png"
+                        width="480px"
+                        format="webp"
+                        quality="100"
+                        densities="x1 x2"
+                        placeholder
+                    />
+                    <NuxtImg 
+                        class="left-hand"
+                        alt="Cristopher Martins"
+                        src="/images/right_hand.png"
+                        width="480px"
+                        format="webp"
+                        quality="100"
+                        densities="x1 x2"
+                        placeholder
+                    />
+                </div>
+            </div>
+            <div class="footer__container__column">
+                <h3 class="small-title">
+                    {{ $t(contact.title) }}
+                </h3>
+                <p>
+                    {{ $t(contact.subtitle) }}
+                </p>
                 <ul class="footer__container__column__social">
                     <li class="footer__container__column__social__item">
                         <NuxtLink 
@@ -55,31 +82,7 @@
                     </li>
                     
                 </ul>
-
-            </div>
-            <div class="footer__container__column">
-                <div class="footer__container__column__touch-hands">
-                    <NuxtImg 
-                        class="right-hand"
-                        alt="Cristopher Martins"
-                        src="/images/left_hand.png"
-                        width="480px"
-                        format="webp"
-                        quality="100"
-                        densities="x1 x2"
-                        placeholder
-                    />
-                    <NuxtImg 
-                        class="left-hand"
-                        alt="Cristopher Martins"
-                        src="/images/right_hand.png"
-                        width="480px"
-                        format="webp"
-                        quality="100"
-                        densities="x1 x2"
-                        placeholder
-                    />
-                </div>
+                
                 <!-- <div class="footer__container__column__logo">
                     <svg 
                         class="footer-logo" 
@@ -160,9 +163,9 @@ const contact = reactive({
             width: 100%;
             height: 100%;
             position: absolute;
-            background-color: var(--text_color);
+            background-color: var(--primary);
             z-index: 1;
-            opacity: 0.2;
+            // opacity: 0.6;
         }
         @media(max-width:$br_mobile){
             flex-direction: column;
@@ -203,10 +206,14 @@ const contact = reactive({
         &__column{
             flex-grow: 1;
             min-width: 40%;
-            // position: relative;
+            position: relative;
             padding: 80px 40px;
             @media(max-width: $br_mobile){
                 padding: 40px 20px;
+            }
+            .main-title{
+                font-size:120px;
+                margin: 0;
             }
            
             &__social{

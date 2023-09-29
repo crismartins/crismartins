@@ -119,7 +119,7 @@ const stackLogos = ref([
     {logo: 'devicon:css3', name: 'CSS 3'},
     {logo: 'devicon:sass', name: 'Sass'},
     {logo: 'devicon:bootstrap', name: 'Bootstrap'},
-    {logo: 'skill-icons:jquery', name: 'JQuery'},
+    {logo: 'devicon:jquery', name: 'JQuery'},
     {logo: 'skill-icons:wordpress', name: 'Wordpress'},
     {logo: 'devicon:vuejs', name: 'Vue.JS'},
     {logo: 'logos:nuxt-icon', name: 'Nuxt.JS'},
