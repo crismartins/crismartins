@@ -130,28 +130,26 @@ function closeModal(){
         }
         &__gallery{
             text-align: center;
-            // margin-block: 20px;
+            margin-block: 20px;
             display: flex;
+            // flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
             gap: 40px;
-            overflow: auto;
             width: 100%;
-            max-width: calc(100vw - 9px);
             background-color: var(--secondary);
             padding: 20px;
             &__item{
-                flex-shrink: 0;
-                max-width: 90%;
-                max-height: 90vh;
-                overflow: auto;
-                box-shadow: 0 0 0 2px var(--bg_color_transparent);
-                background-color: var(--bg_color_transparent);
-                border-radius: 8px;
+                max-width: fit-content;
                 margin-top: 40px;
                 figure{
+                    border-radius: 8px;
+                    max-height: 90vh;
+                    overflow: auto;
                     img{
                         border-radius: 8px;
                         max-width: 100%;
-                        // max-height: 60vh;
                         display: inline-block;
                     }
                     figcaption{

@@ -29,7 +29,7 @@
     },
     "portfolio": {
         "title": "Últimos Trabalhos",
-        "button": "Meus Serviços"
+        "button": "Clientes"
     },
     "about": {
         "title": "Sobre",
@@ -62,8 +62,7 @@
         }
     },
     "contact": {
-        "title": "Entre em Contato",
-        "subtitle": "Mande-me uma mensagem ou me siga-me em..."
+        "title": "Entre em Contato"
     }
 
 }

@@ -1,8 +1,6 @@
 <template>
-    <section class="about__clients section">
-        <h4 class="about__clients__title container">
-            {{ locale == 'en' ? 'Trusted by:' : 'Clientes:' }}
-        </h4>
+    <section id="clients" class="about__clients section">
+        
         <div class="about__clients__marquee">
             <ul class="about__clients__marquee__list container">
                 <li 

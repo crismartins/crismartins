@@ -3,15 +3,8 @@
         <div class="footer__container container">
             <div class="footer__container__column">
                 <h2 class="main-title gradient-font">
-                    Get in Touch
+                    {{ $t(contact.title) }}
                 </h2>
-                <p>
-                    <strong>
-                        <a href="mailto:hello@cristophermartins.com">
-                            hello@cristophermartins.com
-                        </a>
-                    </strong>
-                </p>
 
                 <div class="footer__container__column__touch-hands">
                     <NuxtImg 
@@ -37,11 +30,12 @@
                 </div>
             </div>
             <div class="footer__container__column">
-                <h3 class="small-title">
-                    {{ $t(contact.title) }}
-                </h3>
                 <p>
-                    {{ $t(contact.subtitle) }}
+                    <strong>
+                        <a href="mailto:hello@cristophermartins.com">
+                            hello@cristophermartins.com
+                        </a>
+                    </strong>
                 </p>
                 <ul class="footer__container__column__social">
                     <li class="footer__container__column__social__item">
@@ -50,7 +44,7 @@
                             to="https://www.linkedin.com/in/cristopher-martins-designer-and-developer/" 
                             target="_new"
                         >
-                            <AppIcon IconName="ph:linkedin-logo-duotone" />
+                            <AppIcon IconName="ph:linkedin-logo-duotone" /> Linkedin
                         </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
@@ -59,7 +53,7 @@
                             to="https://github.com/crismartins" 
                             target="_new"
                         >
-                            <AppIcon IconName="ph:github-logo-duotone" />
+                            <AppIcon IconName="ph:github-logo-duotone" /> GitHub
                         </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
@@ -68,7 +62,7 @@
                             to="https://dribbble.com/cris_martins" 
                             target="_new"
                         >
-                            <AppIcon IconName="ph:dribbble-logo-duotone" />
+                            <AppIcon IconName="ph:dribbble-logo-duotone" /> Dribbble
                         </NuxtLink>
                     </li>
                     <li class="footer__container__column__social__item">
@@ -77,7 +71,7 @@
                             to="https://instagram.com/crismart_arts" 
                             target="_new"
                         >
-                            <AppIcon IconName="ph:instagram-logo-duotone" />
+                            <AppIcon IconName="ph:instagram-logo-duotone" /> Instagram
                         </NuxtLink>
                     </li>
                     
@@ -152,20 +146,22 @@ const contact = reactive({
         box-shadow:  280px 20px 0 0 var(--primary), 80px 280px 0 0 var(--secondary);
     }
     &__container{
-        background: var(--primary_gradient);
+        background-color: var(--bg_color);
         border-radius: 40px;
         display: flex;
+        align-items: center;
         color: var(--bg_color);
         overflow: hidden;
         position: relative;
+        min-height: 440px;
         &:before{
             content: '';
             width: 100%;
             height: 100%;
             position: absolute;
-            background-color: var(--primary);
+            background: var(--secondary_gradient);
             z-index: 1;
-            // opacity: 0.6;
+            opacity: 0.2;
         }
         @media(max-width:$br_mobile){
             flex-direction: column;
@@ -193,8 +189,9 @@ const contact = reactive({
                 font-weight: 400;
                 display: block;
                 a{
+                    color: var(--text_color);
                     &:hover{
-                        color: var(--tertiary);
+                        color: var(--primary);
                     }
                 }
                 @media(max-width: $br_mobile){
@@ -204,15 +201,15 @@ const contact = reactive({
             }
         }
         &__column{
-            flex-grow: 1;
-            min-width: 40%;
+            // flex-grow: 1;
+            // min-width: 40%;
             position: relative;
             padding: 80px 40px;
             @media(max-width: $br_mobile){
-                padding: 40px 20px;
+                padding: 20px;
             }
             .main-title{
-                font-size:120px;
+                font-size:100px;
                 margin: 0;
             }
            
@@ -220,19 +217,23 @@ const contact = reactive({
                 position: relative;
                 z-index: 2;
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 gap: 20px;
                 margin-block: 40px;
                 @media(max-width: $br_mobile){
-                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
                 }
                 &__item{
                     a{
+                        display: flex;
+                        gap: 12px;
                         font-size: $size_20px;
-                        color: var(--secondary);
+                        color: var(--text_color_smooth);
                         transition: $transition_default;
                         &:hover{
-                            color: var(--tertiary);
+                            color: var(--text_color);
+                            text-decoration: underline;
                         }
                     }
                 }
@@ -271,7 +272,7 @@ const contact = reactive({
                 width: 100%;
                 height: 100%;
                 transform: rotate(-34deg);
-                top: 12%;
+                top: 0;
                 z-index: 0;
                 // filter: grayscale(1);
                 @media(max-width: $br_mobile){

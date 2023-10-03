@@ -29,7 +29,7 @@
     },
     "portfolio": {
         "title": "Latest Works",
-        "button": "My Services"
+        "button": "Trusted by"
     },
     "about": {
         "title": "About",
@@ -62,7 +62,6 @@
         }
     },
     "contact": {
-        "title": "Say Hi!",
-        "subtitle": "Send me a message or follow me on..."
+        "title": "Get in Touch"
     }
 }

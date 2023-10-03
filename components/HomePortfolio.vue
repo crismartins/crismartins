@@ -102,14 +102,18 @@
                             </button>
                         </li>
                     </ul>
-                    <AppButton 
+                    <NuxtLink class="link" to="#clients">
+                        {{ $t(portfolio.button) }}
+                        <AppIcon IconName="ph:arrow-down-bold" />
+                    </NuxtLink>
+                    <!-- <AppButton 
                         :aria-label="$t(portfolio.button)"
                         class="primary" 
                         hasLink="/#services"
                     >
                         {{ $t(portfolio.button) }}
                         <AppIcon IconName="ph:caret-right-bold" />
-                    </AppButton>
+                    </AppButton> -->
                 </div>
             </div>
 
@@ -443,6 +447,9 @@ function closeModal(){
                     display: flex;
                     gap: 20px;
                     justify-content: center;
+                    @media (max-width: $br_mobile){
+                        gap: 12px;
+                    }
                     &__item{
                         button{
                             background-color: var(--text_color_transparent);
@@ -458,8 +465,17 @@ function closeModal(){
                             &.active{
                                 background-color: var(--secondary);
                                 width: 48px;
+                                @media (max-width: $br_mobile){
+                                    width: 8px;
+                                }
                             }
                         }
+                    }
+                }
+                .link{
+                    color: var(--text_color);
+                    &:hover{
+                        color: var(--secondary);
                     }
                 }
             }
