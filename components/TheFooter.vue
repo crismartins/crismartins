@@ -191,7 +191,7 @@ const contact = reactive({
                 a{
                     color: var(--text_color);
                     &:hover{
-                        color: var(--primary);
+                        color: var(--secondary);
                     }
                 }
                 @media(max-width: $br_mobile){
@@ -211,6 +211,10 @@ const contact = reactive({
             .main-title{
                 font-size:100px;
                 margin: 0;
+                @media(max-width: $br_mobile){
+                    text-align: center;
+                    font-size: 80px;
+                }
             }
            
             &__social{
