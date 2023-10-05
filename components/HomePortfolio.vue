@@ -106,14 +106,6 @@
                         {{ $t(portfolio.button) }}
                         <AppIcon IconName="ph:arrow-down-bold" />
                     </NuxtLink>
-                    <!-- <AppButton 
-                        :aria-label="$t(portfolio.button)"
-                        class="primary" 
-                        hasLink="/#services"
-                    >
-                        {{ $t(portfolio.button) }}
-                        <AppIcon IconName="ph:caret-right-bold" />
-                    </AppButton> -->
                 </div>
             </div>
 
@@ -263,6 +255,26 @@ function closeModal(){
                     max-width: 98%;
                     margin-inline: -12px;
                 }
+                &:hover{
+                    > div{
+                        z-index: 4;
+                        transform: scale(0.84) translateY(5vh);
+                        @media(max-width:$br_mobile){
+                            z-index: 1;
+                        }
+                        picture{
+                            box-shadow: 0 40px 80px 80px var(--bg_color);
+                        }
+                        .project-titles{
+                            opacity: 1;
+                            top: 0;
+                        }
+                        &.active{
+                            transform: none;
+                            z-index: 2;
+                        }
+                    }
+                }
                 &__contain{
                     display: block;
                     transform: scale(0.84);
@@ -364,20 +376,7 @@ function closeModal(){
                             }
                         }
                     }
-                    &:hover{
-                        z-index: 4;
-                        transform: scale(0.84) translateY(5vh);
-                        @media(max-width:$br_mobile){
-                            z-index: 1;
-                        }
-                        picture{
-                            box-shadow: 0 80px 80px 80px var(--bg_color);
-                        }
-                        .project-titles{
-                            opacity: 1;
-                            top: 0;
-                        }
-                    }
+                   
                     &.active{
                         transform: scale(1);
                         z-index: 2;
@@ -474,6 +473,9 @@ function closeModal(){
                 }
                 .link{
                     color: var(--text_color);
+                    display: flex;
+                    gap: 12px;
+                    align-items: center;
                     &:hover{
                         color: var(--secondary);
                     }

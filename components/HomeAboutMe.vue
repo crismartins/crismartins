@@ -238,6 +238,8 @@ const about = reactive({
                             gap: 4px;
                             flex-direction: column;
                             transition: $transition_default;
+                            opacity: 0;
+                            text-align: center;
                         }
                         i{
                             font-size: $size_28px;
@@ -260,7 +262,10 @@ const about = reactive({
                             opacity: 1;
                             background-color: var(--bg_color);
                             border-color: var(--secondary);
-                            
+                            border-radius: 20px;
+                            span{
+                                opacity: 1;
+                            }
                         }
                         .creativity{
                             width: 110px;
@@ -268,6 +273,10 @@ const about = reactive({
                             opacity: 1;
                             background-color: var(--bg_color);
                             border-color: var(--secondary);
+                            border-radius: 20px;
+                            span{
+                                opacity: 1;
+                            }
                         }
                     }
                     @media(max-width: $br_mobile){
@@ -277,7 +286,9 @@ const about = reactive({
                             opacity: 1;
                             background-color: var(--bg_color);
                             border-color: var(--secondary);
-                            
+                            span{
+                                opacity: 1;
+                            }
                         }
                         .creativity{
                             width: 110px;
@@ -285,6 +296,9 @@ const about = reactive({
                             opacity: 1;
                             background-color: var(--bg_color);
                             border-color: var(--secondary);
+                            span{
+                                opacity: 1;
+                            }
                         }
                     }
                     img{

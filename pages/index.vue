@@ -56,7 +56,7 @@ const projectList = reactive([
         image: '/images/portfolio/bon_cover.png', 
         gallery: [ 
             {image: '/images/portfolio/bon-website/Balance-of-Nature.png', title: 'Home page'},
-            {image: '/images/portfolio/bon-website/Balance-of-Nature_mobile.png', title: 'WMobile version'}
+            {image: '/images/portfolio/bon-website/Balance-of-Nature_mobile.png', title: 'Mobile version'}
         ],
         name: 'Homepage Development', 
         client: '2022/2023 - Balance of Nature', 
@@ -100,12 +100,12 @@ const projectList = reactive([
         image: '/images/portfolio/planing_pocker_cover.png', 
         gallery: [ 
             {image: '/images/portfolio/planing-pocker/login.png', title: 'Login via Google'},
-            {image: '/images/portfolio/planing-pocker/select_options.png', title: 'Opções de início de planejamento'},
+            {image: '/images/portfolio/planing-pocker/select_options.png', title: 'Select options to start planning'},
             {image: '/images/portfolio/planing-pocker/start_planning.png', title: 'Selecting cards'},
             {image: '/images/portfolio/planing-pocker/entering_room.png', title: 'Entering in a new room'},
             {image: '/images/portfolio/planing-pocker/enter_room.png', title: 'Accessing created room'},
             {image: '/images/portfolio/planing-pocker/before_start.png', title: 'Planning screen'},
-            {image: '/images/portfolio/planing-pocker/planing_started_ready.png', title: 'Estimativas selecionadas pelos membros do time'},
+            {image: '/images/portfolio/planing-pocker/planing_started_ready.png', title: 'Selected estimates by team members'},
             {image: '/images/portfolio/planing-pocker/participants_vote.png', title: 'Results'}
         ],
         name: 'Web application for Sprint planning', 
@@ -122,7 +122,7 @@ const projectList = reactive([
             {logo: 'devicon:github', name: 'Github'}
         ],
         tags: [
-            'UX/UI','Logotype', 'Web Application', 'Web responsive'
+            'UX/UI','Logotype', 'Web Application', 'Web Responsive'
         ],
         live_url: ''
     },
@@ -150,7 +150,7 @@ const projectList = reactive([
         id: 6,
         image: '/images/portfolio/cute_faces_cover.png', 
         gallery: [ 
-            {image: '/images/portfolio/cute-faces/cute_faces_heroes.png', title: 'Collection brand'},
+            {image: '/images/portfolio/cute-faces/cute_faces_heroes.png', title: 'Collection logo'},
             {image: '/images/portfolio/cute-faces/quadro_1.png', title: 'Hero 1'},
             {image: '/images/portfolio/cute-faces/quadro_2.png', title: 'Hero 2'},
             {image: '/images/portfolio/cute-faces/quadro_3.png', title: 'Hero 3'},
@@ -208,7 +208,7 @@ const projectList = reactive([
             {image: '/images/portfolio/curitiba-app/inicio.png', title: 'Initial screen'},
             {image: '/images/portfolio/curitiba-app/onibus_buscar.png', title: 'Find bus'},
             {image: '/images/portfolio/curitiba-app/onibus_postos.png', title: 'Bus stops'},
-            {image: '/images/portfolio/curitiba-app/onibus_trajeto.png', title: 'Bus path'},
+            {image: '/images/portfolio/curitiba-app/onibus_trajeto.png', title: 'Bus route'},
             {image: '/images/portfolio/curitiba-app/iss.png', title: 'Taxes payment'},
             {image: '/images/portfolio/curitiba-app/noticias_lista.png', title: 'News list'},
             {image: '/images/portfolio/curitiba-app/noticias_aberto.png', title: 'Opened news'},
@@ -253,7 +253,7 @@ const projectList = reactive([
             {logo: 'file-icons:tortoisesvn', name: 'Tortoise SVN'}
         ],
         tags: [
-            'UX/UI', 'Chat', 'Web application'
+            'UX/UI', 'Chat', 'Web Application'
         ],
         live_url: 'https://156.curitiba.pr.gov.br/'
     },
@@ -263,7 +263,7 @@ const projectList = reactive([
         gallery: [ 
             {image: '/images/portfolio/mago-jardineiro/home.png', title: 'Homepage'},
             {image: '/images/portfolio/mago-jardineiro/home_mobile.png', title: 'Homepage mobile'},
-            {image: '/images/portfolio/mago-jardineiro/open_menu.png', title: 'Open menu'}
+            {image: '/images/portfolio/mago-jardineiro/open_menu.png', title: 'Opened menu'}
         ],
         name: 'One Page Website', 
         client: '2021 - Mago Jardineiro', 
@@ -274,7 +274,7 @@ const projectList = reactive([
             {logo: 'skill-icons:illustrator', name: 'Adobe Illustrator'}
         ],
         tags: [
-            'UX/UI', 'Landing Page', 'Website', 'Responsive'
+            'UX/UI', 'Landing Page', 'Website', 'Web Responsive'
         ],
         live_url: 'https://magojardineiro.com.br'
     },
@@ -287,14 +287,14 @@ const projectList = reactive([
             {image: '/images/portfolio/ambience/projetos.png', title: 'Projects'},
             {image: '/images/portfolio/ambience/projeto_novo.png', title: 'New project'},
             {image: '/images/portfolio/ambience/etapa_1.png', title: 'Environment'},
-            {image: '/images/portfolio/ambience/etapa_2.png', title: 'Design style'},
+            {image: '/images/portfolio/ambience/etapa_2.png', title: 'Interior Design Style'},
             {image: '/images/portfolio/ambience/etapa_3.png', title: 'Substyle'},
             {image: '/images/portfolio/ambience/etapa_4.png', title: 'Environment size'},
             {image: '/images/portfolio/ambience/etapa_5.png', title: 'Environment pictures'},
             {image: '/images/portfolio/ambience/etapa_6.png', title: 'Project requested successfully'}
         ],
         name: 'Application for interior design requests', 
-        client: '2020 - Idealização MVP',
+        client: '2020 - Idealization MVP',
         description: '<p>Ambience was conceived as an experimental Minimum Viable Product (MVP) designed for online interior design project requests. Through this platform, clients would provide essential project information, and in return, they would receive their completed design via email.</p><p>Although it has been discontinued, the primary screens for accessing and requesting a new room project were designed. This project could also be revisited in the event of new opportunities or demand in the field of interior design.</p>',
         stacks: [
             {logo: 'skill-icons:xd', name: 'Adobe Xd'},

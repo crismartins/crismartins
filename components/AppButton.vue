@@ -122,6 +122,9 @@ const { hasLink } = toRefs(props)
             text-decoration: underline;
         }
     }
+    &.full-width{
+        width: 100%;
+    }
 
     @keyframes calling {
         0%{
