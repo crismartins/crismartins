@@ -89,8 +89,10 @@ function closeModal(){
 <style lang="scss" scoped>
 .modal__project{
     &__header{
-        margin: 0 40px 0 0;
-        padding: 20px;
+        padding-inline: 24px 40px;
+        background-color: var(--bg_color);
+        position: sticky;
+        top: -4px;
         &__title{
             font-size: $size_20px;
             font-weight: 300;

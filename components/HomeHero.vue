@@ -141,7 +141,7 @@ const heroHome = reactive({
                     }
                     
                     --width: 16vw;
-                    @media(max-width:$br_mobile){
+                    @media(max-width:$br_tablet){
                         --width: 30vw;
                     }
                     @for $i from 0 to 8 {

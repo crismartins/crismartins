@@ -6,16 +6,18 @@
     >
         <div class="app__modal__container" @click.self="closeModal">
             <article class="app__modal__container__content">
-                <AppButton 
-                    aria-label="Close"
-                    class="icononly outline close-modal" 
-                    @click="closeModal"
-                >
-                    <AppIcon IconName="ph:x-bold" />
-                    <span class="visually-hidden">
-                        Close
-                    </span>
-                </AppButton>
+                <div class="app__modal__container__content__wrap__close">
+                    <AppButton 
+                        aria-label="Close"
+                        class="icononly outline close-modal" 
+                        @click="closeModal"
+                    >
+                        <AppIcon IconName="ph:x-bold" />
+                        <span class="visually-hidden">
+                            Close
+                        </span>
+                    </AppButton>
+                </div>
                 <slot />
             </article>
         </div>
@@ -77,7 +79,7 @@ watch(openedModal, () => {
         width: 100%;
         max-width: 100%;
         padding: 40px;
-        overflow: auto;
+        
         @media(max-width:$br_mobile){
             padding: 0px;
             min-height: 100vh;
@@ -89,10 +91,24 @@ watch(openedModal, () => {
             backdrop-filter: blur(12px);
             width: 100%;
             border-radius: 24px;
-            .close-modal{
-                position: absolute;
-                right: 20px;
-                top: 20px;
+            overflow: auto;
+            overflow-x: hidden;
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            &__wrap__close{
+                position: sticky;
+                top:0;
+                display: flex;
+                justify-content: right;
+                z-index: 1;
+                padding: 20px 20px 0px;
+                
             }
         }
     }
