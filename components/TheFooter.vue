@@ -71,7 +71,7 @@
                     <li class="footer__container__column__social__item">
                         <NuxtLink 
                             aria-label="Instagram"
-                            to="https://instagram.com/crismart_arts" 
+                            to="https://www.instagram.com/crismartins_design_dev" 
                             target="_new"
                         >
                             <AppIcon IconName="ph:instagram-logo-duotone" /> Instagram
