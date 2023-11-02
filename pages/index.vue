@@ -60,7 +60,7 @@ const projectList = reactive([
         ],
         name: 'Homepage Development', 
         client: '2022/2023 - Balance of Nature', 
-        description: `<p>Balance of Nature is an American company based in St. George, Utah, specializing in dietary supplements. Their product range includes capsules containing a blend of fruits and vegetables, as well as a mix of fibers and seasonings.</p><p>While providing frontend development services for the company, the objective of this project was to create a new and highly optimized version of the website's homepage.</p><p>As a result of this project, the website's performance improved by over XX% on both desktop and mobile devices (smartphones). This enhancement led to an increased visitor retention rate on the website and, consequently, boosted the company's online sales.</p>`,
+        description: `<p>Balance of Nature is an American company based in St. George, Utah, specializing in dietary supplements. Their product range includes capsules containing a blend of fruits and vegetables, as well as a mix of fibers and seasonings.</p><p>While providing frontend development services for the company, the objective of this project was to create a new and highly optimized version of the website's homepage.</p><p>As a result of this project, the website's performance improved on both desktop and mobile devices (smartphones). This enhancement led to an increased visitor retention rate on the website and, consequently, boosted the company's online sales.</p>`,
         stacks: [
             {logo: 'devicon:html5', name: 'HTML 5'},
             {logo: 'devicon:css3', name: 'CSS 3'},
@@ -403,7 +403,7 @@ const listaProjetos = reactive([
         ],
         name: 'Desenvolvimento de Homepage', 
         client: '2022/2023 - Balance of Nature', 
-        description: '<p>Balance of Nature é uma empresa Americana (St. George, UTAH) de suplementos alimentares onde dentre seus produtos estão capsulas de frutas e verduras, e um mix de Fibras e temperos.</p><p>Prestando serviços de desenvolvimento frontend para a empresa, a proposta desse projeto foi desenvolver uma versão nova e mais otimizada para a página inicial do website.</p><p>Como resultado desse projeto o site melhorou a sua performance em mais de XX% tanto em desktop quanto em dispositivos móveis(smartphones), melhorando assim a taxa de retenção de visitantes no website e consequentemente as vedas online da empresa.</p>',
+        description: '<p>Balance of Nature é uma empresa Americana (St. George, UTAH) de suplementos alimentares onde dentre seus produtos estão capsulas de frutas e verduras, e um mix de Fibras e temperos.</p><p>Prestando serviços de desenvolvimento frontend para a empresa, a proposta desse projeto foi desenvolver uma versão nova e mais otimizada para a página inicial do website.</p><p>Como resultado desse projeto o site melhorou a sua performance tanto em desktop quanto em dispositivos móveis(smartphones), melhorando assim a taxa de retenção de visitantes no website e consequentemente as vedas online da empresa.</p>',
         stacks: [
             {logo: 'devicon:html5', name: 'HTML 5'},
             {logo: 'devicon:css3', name: 'CSS 3'},
