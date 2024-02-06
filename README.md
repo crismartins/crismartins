@@ -1,5 +1,5 @@
-<h1 align="center">Hey 👋, I'm Cristopher Martins</h1>
-<h3 align="center">A passionate Product Designer and Frontend Developer from Brazil with 12+ years of experience.</h3>
+<h1>Hey 👋, I'm Cristopher Martins</h1>
+<h3>A passionate Product Designer and Frontend Developer from Brazil with 12+ years of experience.</h3>
 
 
 - 🔭 I’m currently working on **personal projects**
