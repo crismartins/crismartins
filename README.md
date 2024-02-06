@@ -1,9 +1,6 @@
 <h1 align="center">Hey 👋, I'm Cristopher Martins</h1>
 <h3 align="center">A passionate Product Designer and Frontend Developer from Brazil with 12+ years of experience.</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=crismartins&label=Profile%20views&color=0e75b6&style=flat" alt="crismartins" /> </p>
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=crismartins" alt="crismartins" /></a> </p>
 
 - 🔭 I’m currently working on **personal projects**
 
