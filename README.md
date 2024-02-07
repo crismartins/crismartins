@@ -21,7 +21,7 @@ What sets me apart is my commitment to a continuous cycle of learning, sharing i
 - ⚡ Fun fact: **Originaly I'm a designer but long time ago I started studing programing just to get my creations live.**
 
 
-<h3 align="left">💻 Programing Languages, Design Tools and more...</h3>
+<h2 align="left">💻 Programing Languages, Design Tools and more...</h2>
 <p align="left">
 <img src='https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white'/>
 <img src='https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6'/>
@@ -52,7 +52,7 @@ What sets me apart is my commitment to a continuous cycle of learning, sharing i
 <img src='https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white'/>
 </p>
 
-<h3 align="left">👇 Connect with me:</h3>
+<h2 align="left">👇 Connect with me:</h2>
 <p align="left">
 <a href="https://linkedin.com/in/cristopher-martins-designer-and-developer" target="blank"><img src='https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white'/></a>
 <a href="https://instagram.com/crismartins_design_dev" target="blank"><img src='https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white'/></a>
