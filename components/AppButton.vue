@@ -27,22 +27,23 @@ const { hasLink } = toRefs(props)
     border: 2px solid var(--text_color_transparent);
     background-color: var(--bg_color_transparent);
     backdrop-filter: blur(4px);
-    border-radius: 40px;
-    padding: 16px 24px;
+    border-radius: 12px;
+    padding: 12px 20px;
     font-size: $size_16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text_color);
-    font-weight: 400;
+    font-weight: 500;
     cursor: pointer;
     gap: 8px;
     transition: $transition_default;
     width: fit-content;
-    @media(max-width:$br_mobile){
-        font-size: $size_20px;
-        padding: 20px 32px;
-    }
+    font-family: $font_secondary;
+    // @media(max-width:$br_mobile){
+    //     font-size: $size_20px;
+    //     padding: 20px 32px;
+    // }
     &.icononly{
         width: 32px;
         aspect-ratio: 1;
@@ -69,10 +70,14 @@ const { hasLink } = toRefs(props)
         background-color: transparent;
         border-color: var(--text_color_transparent);
         color: var(--text_color);
+        border: 2px solid var(--text_color_transparent);
+        box-shadow: 0 8px 0px 0 var(--text_color_transparent);
         &:hover{
             background-color: var(--text_color);
             color: var(--bg_color);
             border-color: var(--text_color);
+            box-shadow: 0 4px 0px 0 var(--text_color_transparent);
+            transform: translateY(8px);
         }
         &.inverted{
             border-color: var(--bg_color_transparent);
@@ -85,14 +90,18 @@ const { hasLink } = toRefs(props)
         }
     }
     &.primary{
-        background: var(--secondary_gradient);
-        border: none;
-        box-shadow: 0 8px 40px 0 var(--shadow);
-        color: var(--pure_white);
+        background: var(--bg_color);
+        border: 2px solid var(--text_color);
+        box-shadow: 0 8px 0px 0 var(--text_color);
+        color: var(--text_color);
+        text-transform: uppercase;
         &:hover{
-            backdrop-filter: opacity(0.2);
-            box-shadow: 0 12px 60px 0 var(--shadow);
-            transform: scale(1.12);
+            box-shadow: 0 4px 0px 0 var(--text_color);
+            transform: translateY(8px);
+        }
+        &:active, &:focus{
+            box-shadow: 0 4px 0px 0 var(--text_color);
+            transform: translateY(8px);
         }
     }
     &.secondary{

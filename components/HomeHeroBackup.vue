@@ -1,8 +1,22 @@
 <template>
     <section class="hero__section section">
         <div class="hero__section__container container">
-            <!-- <div class="hero__section__container__presentation">
-                
+            <div class="hero__section__container__presentation">
+                <ul class="hero__section__container__presentation__skills">
+                    <li 
+                        v-for="(skill, index) in hardSkills" 
+                        :key="index"
+                        class="hero__section__container__presentation__skills__item"
+                        :class="'skill_' + index"
+                    >
+                        <span class="hero__section__container__presentation__skills__item__icon">
+                            <AppIcon :IconName="skill.logo" />
+                            <small>
+                                {{ skill.title }}
+                            </small>
+                        </span>
+                    </li>
+                </ul>
                 <NuxtLink 
                     :aria-label="$t(heroHome.cta)"
                     to="/#about" 
@@ -26,18 +40,15 @@
                         </span>
                     </div>
                 </NuxtLink>
-            </div> -->
+            </div>
             <div class="hero__section__container__text">
-                <h1 class="hero__section__container__text__name small-title">
-                    {{ $t(heroHome.title) }}
-                </h1>
                 <div class="hero__section__container__text__wrapper">
-                    <h2 class="hero__section__container__text__wrapper__title gradient-font">
-                        {{ $t(heroHome.subTitle) }}
-                    </h2>
-                    <p class="hero__section__container__text__wrapper__subtitle">
-                        {{ $t(heroHome.text) }}
+                    <p class="hero__section__container__text__wrapper__name small-title">
+                        {{ $t(heroHome.title) }}
                     </p>
+                    <h1 class="hero__section__container__text__wrapper__title gradient-font">
+                        {{ $t(heroHome.subTitle) }}
+                    </h1>
                     <AppButton 
                         :aria-label="$t(heroHome.button)"
                         hasLink="/#contact" 
@@ -53,14 +64,20 @@
   
 <script setup>
 import { reactive } from '#imports'
-
-
+const hardSkills = reactive([
+    {logo: 'logos:figma', title: 'Figma'},
+    {logo: 'logos:adobe-xd', title: 'Adobe Xd'},
+    {logo: 'logos:adobe-photoshop', title: 'Adobe Photoshop'},
+    {logo: 'logos:adobe-illustrator', title: 'Adobe Illustrator'},
+    {logo: 'logos:javascript', title: 'Javascript'},
+    {logo: 'logos:html-5', title: 'HTML 5'},
+    {logo: 'logos:css-3', title: 'CSS 3'}
+])
 
 const heroHome = reactive({
     cta: 'hero.cta',
     title: 'hero.title',
     subTitle: 'hero.subtitle',
-    text: 'hero.text',
     button: 'hero.button'
 })
 </script>
@@ -84,9 +101,8 @@ const heroHome = reactive({
         box-shadow: 0 -12px 20px 12px var(--bg_color);
     }
     &__container{
-        // padding-block: 16% 80px;
+        padding-block: 16% 80px;
         flex-grow: 1;
-        max-width: 980px;
         &__presentation{
             position: relative;
             display: grid;
@@ -202,25 +218,39 @@ const heroHome = reactive({
             }
         }
         &__text{
+        display: grid;
+        place-items: center;
         position: relative;
-        display: flex;
-        gap: $size_24px;
-        &__name{
-            
-        }
         &__wrapper{
+            display: grid;
+            place-items: center;
             position: relative;
             z-index: 2;
+            &:before{
+                content: '';
+                display: block;
+                background-color: var(--bg_color);
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+                filter: blur(40px);
+                position: absolute;
+                z-index: -1;
+            }
+            &__name{
+                text-align: center;
+                @media(max-width:$br_mobile){
+                    letter-spacing: 4px;
+                }
+            }
             &__title{
                 margin-block: 4px;
                 font-size: $size_72px;
+                text-align: center;
                 font-weight: 600;
                 @media(max-width:$br_mobile){
                     font-size: $size_60px;
                 }
-            }
-            &__subtitle{
-                font-size: $size_20px;
             }
             .button{
                 margin-top: 40px;

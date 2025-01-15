@@ -51,8 +51,7 @@ watch(openedModal, () => {
     position: fixed;
     height: 100%;
     width: 100%;
-    top: 0;
-    left: 0;
+    inset: 0;
     z-index: 999;
     background-color: transparent;
     border: 0;
@@ -64,8 +63,8 @@ watch(openedModal, () => {
         transform: scale(1);
         &::before {
             content: '';
-            background:var(--bg_color_transparent);
-            backdrop-filter: blur(12px);
+            // background:var(--bg_color_transparent);
+            // backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
             height: 100%;
@@ -78,7 +77,6 @@ watch(openedModal, () => {
         height: 100%;
         width: 100%;
         max-width: 100%;
-        padding: 40px;
         
         @media(max-width:$br_mobile){
             padding: 0px;
@@ -88,9 +86,7 @@ watch(openedModal, () => {
         &__content{
             position: relative;
             background-color:var(--bg_color);
-            backdrop-filter: blur(12px);
             width: 100%;
-            border-radius: 24px;
             overflow: auto;
             overflow-x: hidden;
             max-height: 100%;
@@ -102,8 +98,9 @@ watch(openedModal, () => {
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
             &__wrap__close{
-                position: sticky;
-                top:0;
+                position: fixed;
+                top: 0;
+                right: 0;
                 display: flex;
                 justify-content: right;
                 z-index: 1;

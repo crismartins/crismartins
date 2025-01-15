@@ -51,27 +51,27 @@ onMounted(() => {
 
 const menuItems = reactive([
     {
-        icon: 'ph:house-duotone',
+        icon: 'ph:house',
         title: 'menu.item1.title', 
         route: 'menu.item1.route'
     },
     {
-        icon: 'ph:shooting-star-duotone',
+        icon: 'ph:shooting-star',
         title: 'menu.item2.title', 
         route: 'menu.item2.route'
     },
     {
-        icon: 'ph:user-circle-duotone',
+        icon: 'ph:user-circle',
         title: 'menu.item3.title', 
         route: 'menu.item3.route'
     },
     {
-        icon: 'ph:wrench-duotone',
+        icon: 'ph:wrench',
         title: 'menu.item4.title', 
         route: 'menu.item4.route'
     },
     {
-        icon: 'ph:chat-circle-duotone',
+        icon: 'ph:chat-circle',
         title: 'menu.item5.title', 
         route: 'menu.item5.route'
     }
@@ -82,13 +82,11 @@ const menuItems = reactive([
 <style lang="scss" scoped>
     .menu__list{
         display: flex;
-        gap: 16px;
+        gap: 40px;
         @media(max-width: $br_mobile){
-            background-color: var(--bg_color_smooth);
-            border: 1px solid var(--bg_color_smooth);
-            border-radius: 40px;
-            backdrop-filter: blur(16px);
-            margin-bottom: 24px;
+            background-color: var(--bg_color);
+            border-top: 1px solid var(--text_color_transparent);
+            padding-bottom: 16px;
             padding-inline: 16px;
             gap: 4px;
             width: 100%;
@@ -96,16 +94,17 @@ const menuItems = reactive([
         &__item{
             flex-grow: 1;
             &__link{
-                padding: 8px 16px;
+                // padding: 8px 16px;
                 display: block;
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: 400;
+                font-family: $font_primary;
                 color: var(--text_color_smooth);
                 display: grid;
                 place-items: center;
                 cursor: pointer;
                 @media(max-width: $br_mobile){
-                    font-size: 12px;
+                    font-size: 10px;
                     padding:12px 8px 0 8px;
                     border-radius: 40px;
                 }
@@ -124,7 +123,7 @@ const menuItems = reactive([
                 span{
                     padding-block: 8px;
                     @media(max-width: $br_mobile){
-                        padding-block: 2px 12px;
+                        padding-block: 8px 12px;
                     }
                     @media(max-width: $br_smaller){
                         display: none;
@@ -134,9 +133,15 @@ const menuItems = reactive([
                     content: "";
                     width: 0%;
                     height: 2px;
-                    background-color: var(--secondary);
+                    background-color: var(--primary);
                     transition: $transition_default;
                     display: block;
+                    position: absolute;
+                    bottom: 0;
+                    @media(max-width: $br_mobile) {
+                        bottom: inherit;
+                        top: 0;
+                    }
                 }
                 &:hover, &.active{
                     color: var(--text_color);

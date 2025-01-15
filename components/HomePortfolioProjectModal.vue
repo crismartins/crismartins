@@ -1,42 +1,53 @@
 <template>
-    <AppModal 
-        class="modal__project"
-        :openedModal="openedModal" 
-        @close:modal="closeModal" 
-    >
-        
-        <header class="modal__project__header">
-            <h2 class="modal__project__header__title">{{ projectDetails.name }}</h2>
-            <h3 class="modal__project__header__subtitle">
-                {{ projectDetails.client }}
-            </h3>
-            <ul class="modal__project__header__tags">
-                <li 
-                    v-for="tag in projectDetails.tags" 
-                    :key="tag" 
-                    class="modal__project__header__tags__item"
-                >
-                    {{ tag }}
-                </li>
-            </ul>
-            
-        </header>
+    <AppModal class="modal__project" :openedModal="openedModal"
+@close:modal="closeModal">
         <div class="modal__project__body">
+            <div class="modal__project__body__description">
+                <header class="modal__project__body__description__header">
+                    <h2 class="modal__project__body__description__header__title">{{ projectDetails.name }}</h2>
+                    <h3 class="modal__project__body__description__header__subtitle">
+                        {{ projectDetails.client }}
+                    </h3>
+                    <ul class="modal__project__body__description__header__tags">
+                        <li v-for="tag in projectDetails.tags"
+                            :key="tag"
+                            class="modal__project__body__description__header__tags__item">
+                            {{ tag }}
+                        </li>
+                    </ul>
+
+                </header>
+                <div class="modal__project__body__description__content" v-html="projectDetails.description" />
+                <footer class="modal__project__body__description__footer">
+                    <small>
+                        Stacks & Tools:
+                        <AppStackSkills :stacks="projectDetails.stacks" />
+                    </small>
+                    <AppButton 
+                        v-if="projectDetails.live_url"
+                        aria-label="See More" 
+                        class="outline small full-width"
+                        :hasLink="projectDetails.live_url"
+                        target="_blank"
+                    >
+                        See More
+                        <AppIcon IconName="ph:arrow-up-right-bold" />
+                    </AppButton>
+                </footer>
+            </div>
             <ul class="modal__project__body__gallery">
-                <li 
-                    v-for="item in projectDetails.gallery" 
-                    :key="item.title" 
-                    class="modal__project__body__gallery__item"
-                >
+                <li v-for="item in projectDetails.gallery"
+                    :key="item.title"
+                    class="modal__project__body__gallery__item">
                     <figure>
                         <NuxtImg 
-                            :src="item.image" 
+                            :src="item.image"
                             :alt="item.title" 
-                            sizes="100vw sm:80vw md:600px"
+                            sizes="100vw sm:600px md:600px lg:1280px" 
                             format="webp"
                             densities="x1 x2"
-                            quality="100"
-                            placeholder
+                            quality="100" 
+                            placeholder 
                         />
                         <figcaption>
                             {{ item.title }}
@@ -44,24 +55,7 @@
                     </figure>
                 </li>
             </ul>
-            <div class="modal__project__body__description" v-html="projectDetails.description" />
         </div>
-        <footer class="modal__project__footer">
-            <small>
-                Stacks:
-                <AppStackSkills :stacks="projectDetails.stacks" />
-            </small>
-            <AppButton 
-                v-if="projectDetails.live_url" 
-                aria-label="View live"
-                class="outline small" 
-                :hasLink="projectDetails.live_url" 
-                target="_blank"
-            >
-                View live
-                <AppIcon IconName="ph:arrow-up-right-bold" />
-            </AppButton>
-        </footer>
     </AppModal>
 </template>
 
@@ -88,68 +82,116 @@ function closeModal(){
 
 <style lang="scss" scoped>
 .modal__project{
-    &__header{
-        padding-inline: 24px 40px;
-        background-color: var(--bg_color);
-        position: sticky;
-        top: -4px;
-        &__title{
-            font-size: $size_20px;
-            font-weight: 300;
-            margin-block: 20px 8px;
+    &__body{
+        display: grid;
+        grid-template-columns: 440px 1fr;
+        @media(max-width: $br_mobile) {
+            grid-template-columns: 1fr;
         }
-        &__subtitle{
-            font-size: $size_14px;
-            margin: 0;
-            padding-block: 4px;
-            font-weight: normal;
-            color: var(--secondary);
-            text-transform: uppercase;
-        }
-        &__tags{
-            margin-block: 20px;
+        &__description{
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            &__item{
-                background-color: var(--text_color_transparent);
-                color: var(--text_color);
-                border-radius: 8px;
-                padding: 4px 8px;
-                font-size: $size_12px;
-                font-weight: 400;
+            flex-direction: column;
+            &__header{
+                padding: 40px 40px 0 40px;
+                @media(max-width: $br_mobile) {
+                    padding-inline: 20px;
+                }
+                &__title{
+                    font-size: $size_24px;
+                    margin-block: 20px 8px;
+                    line-height: $size_32px;
+                }
+                &__subtitle{
+                    font-size: $size_14px;
+                    margin: 0;
+                    padding-block: 4px;
+                    font-weight: normal;
+                    font-family: $font_tertiary;
+                    color: var(--text_color_smooth);
+                    text-transform: uppercase;
+                }
+                &__tags{
+                    margin-block: 20px;
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+                
+                    &__item {
+                        background-color: var(--text_color_transparent);
+                        color: var(--text_color);
+                        border-radius: 8px;
+                        padding: 4px 8px;
+                        font-size: $size_12px;
+                        font-family: $font_secondary;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        border: 1px solid var(--text_color);
+                    }
+                }
+                
+            }
+            &__content{
+                flex-grow: 1;
+                font-weight: normal;
+                font-size: $size_16px;
+                padding-inline: 40px;
+                @media(max-width: $br_mobile) {
+                    padding-inline: 20px;
+                }
+            }
+            &__footer {
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                gap: 28px;
+                @media(max-width: $br_mobile) {
+                    padding-inline: 20px;
+                }
+
+                small {
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: var(--text_color_smooth);
+                    font-size: $size_12px;
+                    font-weight: 400;
+                    letter-spacing: 4px;
+
+                    ul {
+                        margin-top: 12px;
+                        letter-spacing: normal;
+                    }
+                }
+
+                @media(max-width: $br_mobile) {
+                    flex-direction: column;
+                    align-items: center;
+
+                    small {
+                        text-align: center;
+                    }
+                }
             }
         }
-        
-    }
-    &__body{
-        &__description{
-            font-weight: normal;
-            font-size: $size_16px;
-            // text-align: center;
-            padding-block: 28px;
-            padding-inline: 20px;
-        }
         &__gallery{
+            position: sticky;
+            top: 0;
+            max-height: 100vh;
+            overflow: auto;
             text-align: center;
-            margin-block: 20px;
             display: flex;
-            // flex-direction: column;
             flex-wrap: wrap;
-            align-items: center;
             justify-content: center;
             gap: 40px;
             width: 100%;
-            background-color: var(--secondary);
+            background-color: var(--text_color_transparent);
             padding: 20px;
             &__item{
                 max-width: fit-content;
-                margin-top: 40px;
                 figure{
-                    border-radius: 8px;
-                    max-height: 90vh;
-                    overflow: auto;
                     img{
+                        border: 1px solid var(--text_color_transparent);
                         border-radius: 8px;
                         max-width: 100%;
                         display: inline-block;
@@ -157,6 +199,7 @@ function closeModal(){
                     figcaption{
                         margin-block: 20px;
                         font-size: $size_14px;
+                        font-family: $font_secondary;
                         margin-inline: auto;
                         max-width: 600px;
                         color: var(--pure_white);
@@ -166,27 +209,5 @@ function closeModal(){
         }
         
     }
-    &__footer{
-        padding: 28px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 28px;
-        small{
-            text-transform: uppercase;
-            color: var(--text_color_smooth);
-            font-size: $size_12px;
-            ul{
-                margin-top: 12px;
-            }
-        }
-        @media(max-width: $br_mobile){
-            flex-direction: column;
-            align-items: center;
-            small{
-                text-align: center;
-            }
-        }
-    }
-}
-</style>
+    
+}</style>

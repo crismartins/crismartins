@@ -9,35 +9,29 @@
             <ul class="portfolio__section__container__projects">
                 <li 
                     v-for="(project, index) in projects" 
-                    :id="project.id"
+                    :id="index"
                     :key="project.id"
                     class="portfolio__section__container__projects__item"
                     @touchstart="setDragStart" 
                     @touchend="swipeSlider"
                 >
                     <div 
-                        :class="{ active : selectedProj == project.id }"
+                        :class="{ active : selectedProj == index }"
                         class="portfolio__section__container__projects__item__contain" 
                         @click="goToProj(project.id)"
                     >
                         <header class="portfolio__section__container__projects__item__contain__header project-image">
-                            <picture class="portfolio__section__container__projects__item__contain__header__picture" @click="viewDetails(index)">
+                            <picture class="portfolio__section__container__projects__item__contain__header__picture" @click="viewDetails(index, project.name)">
                                 <NuxtImg 
                                     :alt="project.name"
                                     :src="project.image"
-                                    width="400px"
-                                    height="400px"
-                                    format="webp"
+                                    sizes="100vw sm:380px md:400px lg:800px"
                                     quality="100"
                                     densities="x1 x2"
-                                    preload
+                                    loading="lazy"
                                 />
                             </picture>
-                            <div class="portfolio__section__container__projects__item__contain__header__info">
-                                
-                                <AppStackSkills class="portfolio__section__container__projects__item__contain__header__info__stacks" :stacks="project.stacks" />
-
-                            </div>
+                           
                         </header>
                         
                         <div class="portfolio__section__container__projects__item__contain__body project-titles">
@@ -67,34 +61,34 @@
                 <div class="portfolio__section__container__projects__navigation container">
                     <ul class="portfolio__section__container__projects__navigation__arrows">
                         <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
-                            <button 
+                            <AppButton 
                                 aria-label="Previous"
-                                class="outline" 
+                                class="primary" 
                                 @click="prevProj"
                             >
                                 <AppIcon IconName="ph:arrow-left" />
-                            </button>
+                            </AppButton>
                         </li>
                         <li class="portfolio__section__container__projects__navigation__arrows__item right-arrow">
-                            <button 
+                            <AppButton 
                                 aria-label="Next"
-                                class="outline" 
+                                class="primary" 
                                 @click="nextProj"
                             >
                                 <AppIcon IconName="ph:arrow-right" />
-                            </button>
+                            </AppButton>
                         </li>
                     </ul>
                     <ul class="portfolio__section__container__projects__navigation__bullets">
                         <li 
-                            v-for="project in projects" 
+                            v-for="(project, index) in projects" 
                             :key="project.id"
                             class="portfolio__section__container__projects__navigation__bullets__item"
                         >
                             <button 
                                 :aria-label="project.name"
-                                :class="{ active : selectedProj == project.id }" 
-                                @click="goToProj(project.id)" 
+                                :class="{ active : selectedProj == index }" 
+                                @click="goToProj(index)" 
                             >
                                 <span class="visually-hidden">
                                     {{ project.name }}
@@ -102,10 +96,10 @@
                             </button>
                         </li>
                     </ul>
-                    <NuxtLink class="link" to="#clients">
+                    <!-- <NuxtLink class="link" to="#clients">
                         {{ $t(portfolio.button) }}
                         <AppIcon IconName="ph:arrow-down-bold" />
-                    </NuxtLink>
+                    </NuxtLink> -->
                 </div>
             </div>
 
@@ -122,33 +116,38 @@
 </template>
 
 <script setup>
-import { ref } from '#imports'
+import { ref, toRefs, computed, watch } from '#imports'
+import { useRouter, useRoute } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
+
 const props = defineProps({
     projects: {
         type: Object,
         required: true
     }
 })
+const { projects } = toRefs(props)
 
-const { projects } = props
-
-const selectedProj = ref(1)
+const selectedProj = ref(0)
 
 function prevProj(){
-    if(selectedProj.value > 1 ){
+    if(selectedProj.value > 0 ){
         selectedProj.value = selectedProj.value - 1
         return goToProj(selectedProj.value)
     }else{
-        selectedProj.value = projects.length
+        selectedProj.value = projects.value.length - 1
         return goToProj(selectedProj.value)
     }
 } 
-function nextProj(){
-    if(selectedProj.value < projects.length ){
+function nextProj() {
+    console.log(selectedProj.value)
+    if(selectedProj.value < projects.value.length - 1 ){
         selectedProj.value = selectedProj.value + 1
         return goToProj(selectedProj.value)
     }else{
-        selectedProj.value = 1
+        selectedProj.value = 0
         return goToProj(selectedProj.value)
     }
 } 
@@ -160,6 +159,7 @@ function goToProj(project) {
 }
 
 const dragStartPosition = ref(null)
+
 function setDragStart(event) {
     dragStartPosition.value = event.changedTouches[0].clientX ?? event.clientX
 }
@@ -179,37 +179,112 @@ const portfolio = {
     button: 'portfolio.button'
 }
 
-const showModal = ref(false)
 
-const openedDetails = ref(projects)
+const modalName = ref(null)
+const showModal = computed(() => modalName.value !== null)
+const modalContent = ref(null)
 
-function viewDetails(index){
-    openedDetails.value = projects[index]
-    showModal.value = true
+const openedDetails = ref(projects.value)
+
+const sanitizeName = (name) =>  name.toLowerCase().replace(/\s+/g, '-')
+
+function viewDetails(index, name) {
+    const sanitizedName = sanitizeName(name)
+    modalName.value = sanitizedName
+
+    // Find the project by matching sanitizedName
+    const project = projects.value.find(
+        (proj) => sanitizeName(proj.name) === sanitizedName
+    )
+
+    if (project) {
+        modalContent.value = project
+        openedDetails.value = project
+        selectedProj.value = index
+    } else {
+        modalContent.value = 'Content not found'
+    }
+
+    router.push({ query: { modal: sanitizedName } })
 }
 
-function closeModal(){
+function closeModal() {
+    modalName.value = null
+    modalContent.value = null
+    const { modal, ...rest } = route.query
+    router.push({ query: rest })
+    const projectIndex = projects.value.findIndex(item => item.id === openedDetails.value.id)
     showModal.value = false
+    selectedProj.value = projectIndex
+    goToProj(selectedProj.value)
 }
+
+const initializeModalFromQuery = () => {
+    if (route.query.modal) {
+        const modalFromQuery = route.query.modal
+
+        // Find the project by matching sanitizedName
+        const project = projects.value.find(
+            (proj) => sanitizeName(proj.name) === modalFromQuery
+        )
+
+        if (project) {
+            modalName.value = modalFromQuery
+            modalContent.value = project
+            openedDetails.value = project
+            selectedProj.value = projects.value.indexOf(project)
+        } else {
+            modalName.value = null
+            modalContent.value = 'Content not found'
+        }
+    }
+}
+
+watch(
+    () => route.query.modal,
+    (newModal) => {
+        if (newModal) {
+            const project = projects.value.find(
+                (proj) => sanitizeName(proj.name) === newModal
+            )
+
+            if (project) {
+                modalName.value = newModal
+                modalContent.value = project
+                openedDetails.value = project
+                selectedProj.value = projects.value.indexOf(project)
+            } else {
+                modalName.value = null
+                modalContent.value = 'Content not found'
+            }
+        } else {
+            modalName.value = null
+            modalContent.value = null
+        }
+    }
+)
+
+// Initialize modal on page load
+initializeModalFromQuery()
 
 </script>
 
 <style lang="scss" scoped>
 .portfolio__section{
     padding-block: 0;
-    // margin-top: -12vh;
     margin-bottom: 80px;
     @media (max-width: $br_mobile) {
         margin-top: 0;
     }
     &__container{
         width: 100%;
+        margin-inline: auto;
         gap: 40px;
         position: relative;
         &__header{
             position: absolute;
             z-index: 4;
-            padding: 0 0 40px 20px;
+            padding: 0 0 40px 40px;
             height: 100%;
             @media(max-width:$br_mobile){
                 padding: 0 0 40px 0;
@@ -231,11 +306,11 @@ function closeModal(){
             }
         }
         &__projects{
-            padding-inline: 100px;
+            padding-inline: 140px;
             overflow: auto;
             display: flex;
             justify-content: flex-start;
-            gap: 8px;
+            gap: 20px;
             position: relative;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
@@ -250,9 +325,11 @@ function closeModal(){
                 flex-shrink: 0;
                 position: relative;
                 margin-inline: -28px;
-                max-width: 400px;
+                max-width: 380px;
+                width: 100%;
                 @media(max-width:$br_mobile){
-                    max-width: 98%;
+                    max-width: 380px;
+                    // max-width: 98%;
                     margin-inline: -12px;
                 }
                 &:hover{
@@ -287,22 +364,27 @@ function closeModal(){
                         &__picture{
                             cursor: pointer;
                             overflow: hidden;
-                            border-radius: 32px;
+                            border-radius: 12px;
                             display: grid;
                             place-items: center;
                             width: 100%;
-                            aspect-ratio: 1;
                             box-shadow: 0 12px 20px 0px var(--bg_color);
                             position: relative;
-                            &:before{
-                                content: '';
-                                position: absolute;
-                                z-index: 1;
-                                width: 100%;
-                                height: 40%;
-                                bottom: 0px;
-                                background: var(--text_color_smooth);
-                                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 20%, var(--text_color_transparent) 40%, var(--text_color) 100%);
+                            border: 1px solid var(--text_color_smooth);
+                            background-color: var(--bg_color);
+                            &.web{
+                                padding-top: 40px;
+                                &:before{
+                                    content: '';
+                                    position: absolute;
+                                    width: 14px;
+                                    height: 14px;
+                                    background-color: #e44242;
+                                    border-radius: 50%;
+                                    top: 12px;
+                                    left: 16px;
+                                    box-shadow: 22px 0 0 0 #d9b116, 44px 0 0 0 #2dc12d;
+                                }
                             }
                             img{
                                 object-fit: cover;
@@ -310,19 +392,6 @@ function closeModal(){
                                 max-height: 100%;
                                 transition: $transition_default;
                                 display: block;
-                            }
-                        }
-                        &__info{
-                            display: flex;
-                            position: absolute;
-                            bottom:0;
-                            width: 100%;
-                            align-items: center;
-                            justify-content: space-between;
-                            padding: 20px;
-                            z-index: 1;
-                            &__stacks{
-                                justify-content: flex-start;
                             }
                         }
                     }
@@ -334,15 +403,17 @@ function closeModal(){
                         transition: $transition_default;
                         &__title{
                             font-size: $size_20px;
-                            font-weight: 400;
+                            font-weight: 600;
                             margin-block: 20px 8px;
+                            line-height: $size_28px;
                         }
                         &__subtitle{
                             font-size: $size_14px;
+                            font-family: $font_tertiary;
                             margin:0;
                             padding-block: 4px;
                             font-weight: normal;
-                            color: var(--secondary);
+                            color: var(--text_color_smooth);
                             text-transform: uppercase;
                         }
                         .button{
@@ -368,11 +439,14 @@ function closeModal(){
                             flex-wrap: wrap;
                             &__item{
                                 background-color: var(--text_color_transparent);
-                                color: var(--text_color_smooth);
+                                color: var(--text_color);
                                 border-radius: 8px;
                                 padding: 4px 8px;
                                 font-size: $size_12px;
-                                font-weight: 400;
+                                font-family: $font_secondary;
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                border: 1px solid var(--text_color);
                             }
                         }
                     }
@@ -393,13 +467,14 @@ function closeModal(){
             }
             &__navigation{
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
                 margin-block: 40px;
                 gap: 24px;
                 @media(max-width: $br_mobile){
                     flex-direction: column;
-                    padding-inline: 20px;
+                    padding-inline: 0;
+                    margin-block: 20px;
                     gap: 40px;
                 }
                 &__arrows{
@@ -410,27 +485,15 @@ function closeModal(){
                     position: absolute;
                     top: 28vh;
                     left: 0;
-                    padding-inline: 20px;
+                    padding-inline: 40px;
                     &__item{
                         height: 100%;
                         top: 0;
                         display: grid;
                         place-items: center;
                         button{
-                            color: var(--text_color_smooth);
-                            border: none;
-                            padding: 12px 0;
-                            font-size: $size_32px;
-                            background-color: var(--bg_color_transparent);
+                            font-size: $size_20px;
                             aspect-ratio: 1;
-                            border-radius: 50%;
-                            padding: 8px;
-                            transition: $transition_default;
-                            &:hover{
-                                color: var(--bg_color);
-                                transform: scale(1.2);
-                                background-color: var(--text_color_smooth);
-                            }
                         }
                         &.right-arrow{
                             right: 0;
@@ -440,6 +503,10 @@ function closeModal(){
                             left: 0;
                             z-index: 5;
                         }
+                    }
+                    @media(max-width: $br_mobile) {
+                        position: unset;
+                        padding-inline: 0;
                     }
                 }
                 &__bullets{
@@ -462,7 +529,7 @@ function closeModal(){
                                 background-color: var(--text_color_smooth);
                             }
                             &.active{
-                                background-color: var(--secondary);
+                                background-color: var(--primary);
                                 width: 48px;
                                 @media (max-width: $br_mobile){
                                     width: 8px;
@@ -483,5 +550,4 @@ function closeModal(){
             }
         }
     }
-}
-</style>
+}</style>
