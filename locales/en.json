@@ -24,7 +24,8 @@
     "hero": {
         "cta": "About me",
         "title": "Hey, I'm Cristopher Martins",
-        "subtitle": "Designer & Developer.",
+        "subtitle": "Logic Designer & Creative Developer",
+        "text": "My mission is to turn complex ideas into simple, beautiful digital solutions.",
         "button": "Get in touch"
     },
     "portfolio": {
