@@ -12,11 +12,14 @@ body{
     transition: all 0.4s ease;
     margin: 0;
     padding: 0;
-    font-family: $font_main;
+    font-family: $font_tertiary;
     background-color: var(--bg_color);
     color: var(--text_color);
     background-image: var(--bg_texture);
     background-attachment: fixed;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
 
     @media(max-width: $br_mobile){
         background-image: none;
@@ -27,7 +30,7 @@ body{
     }
     
     h1,h2,h3,h4,h5,h6{
-        // font-family: $font_serif;
+        font-family: $font_primary;
         font-weight: 600;
     }
     
@@ -40,7 +43,7 @@ body{
         cursor: pointer;
     }
     button, input, textarea{
-        font-family: $font_main;
+        font-family: $font_secondary;
     }
 
     img{
@@ -52,10 +55,11 @@ body{
 
     .small-title{
         text-transform: uppercase;
-        letter-spacing: 0.4rem;
-        font-size: $size_16px;
+        // letter-spacing: 0.4rem;
+        font-size: $size_24px;
         margin-block: 4px;
         font-weight: 400;
+        font-family: $font_secondary;
         @media(max-width: $br_mobile){
             font-size: $size_14px;
         }
