@@ -2,14 +2,16 @@
     <div>
         <HomeHero id="home" />
 
-        <HomePortfolio 
-            id="portfolio"
-            :projects="latestWorks"
-        />
+        <HomePortfolio id="portfolio" :projects="latestWorks" />
+
+        <HomeClients />
 
         <HomeAboutMe id="about" />
 
         <HomeServices id="services" />
+
+        <HomeContact id="contact" />
+
 
     </div>
 </template>
