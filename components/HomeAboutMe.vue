@@ -24,11 +24,11 @@
                             </small>
                         </strong>
                         <NuxtImg v-if="colorMode.value == 'dark'" alt="Cristopher Martins"
-                            src="/images/crismartins_avatar_v2.png" width="400px" height="400px" format="webp"
+                            src="/images/crismartins_avatar_v2.png" width="800px" height="800px" format="webp"
                             densities="x1 x2" quality="100" />
 
                         <NuxtImg v-if="colorMode.value == 'light'" alt="Cristopher Martins"
-                            src="/images/crismartins_avatar_v3.png" width="400px" height="400px" format="webp"
+                            src="/images/crismartins_avatar_v3.png" width="800px" height="800px" format="webp"
                             densities="x1 x2" quality="100" />
 
                         <strong class="about__section__container__columns__avatar__image__areas logic">
@@ -69,7 +69,7 @@
                     </p>
                     <br />
                     <p>
-                        Sou especializado no design e desenvolvimento de sites e aplicações bonitos, intuitivos e responsivos. Meu olhar atento aos detalhes e comprometimento com a inovação me permitem transformar ideias em experiências digitais intuitivas e envolventes.
+                        Sou especializado no design e desenvolvimento de sites e aplicações bonitas, intuitivas e responsivas. Meu olhar atento aos detalhes e comprometimento com a inovação me permitem transformar ideias em experiências digitais intuitivas e envolventes.
                     </p>
                     <br />
                     <p>
