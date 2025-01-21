@@ -77,17 +77,21 @@ function closeSwitcher(){
     position: relative;
     font-size: $size_12px;
     width: fit-content;
+    font-family: $font_secondary;
     &__button{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border: transparent;
-        background: var(--text_color_transparent);
+        border: 1px solid var(--text_color_transparent);
+        background: var(--bg_color);
         color: var(--text_color);
         padding: 8px 12px;
-        border-radius: 16px;
+        border-radius: 20px;
         font-size: $size_12px;
-        min-width: 72px;
+        min-width: 64px;
+        &:hover{
+            background-color: var(--text_color_transparent);
+        }
         i{
             margin-left:8px;
         }
@@ -105,7 +109,7 @@ function closeSwitcher(){
             top: 0;
         }
         ul{
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
             display: flex;
             background: var(--text_color);

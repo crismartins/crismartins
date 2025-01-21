@@ -1,21 +1,13 @@
 <template>
-    <ul v-if="maxItems != null" class="skills__stacks">
-        <li 
-            v-for="stack in stackList" 
-            :key="stack.name"
-            class="skills__stacks__item" 
-        >
+    <ul v-if="!small" class="skills__stacks">
+        <li v-for="stack in stackList" :key="stack.name" class="skills__stacks__item">
             <strong>{{ stack.name }}</strong>
-            <AppIcon :IconName="stack.logo"/>
+            <AppIcon :IconName="stack.logo" />
         </li>
-        <li class="skills__stacks__button">
-            <AppButton 
-                :aria-label="stackList.length > maxItems ? 'Less' : 'More'"
-                class="secondary icononly"
-                :class="stackList.length > maxItems ? 'opened' : ''"
-                @click="showAll"
-            >
-                <AppIcon IconName="ph:plus-bold"/>
+        <li v-if="maxItems && stacks.length > maxItems" class="skills__stacks__button">
+            <AppButton :aria-label="stackList.length > maxItems ? 'Less' : 'More'" class="secondary icononly"
+                :class="stackList.length > maxItems ? 'opened' : ''" @click="showAll">
+                <AppIcon IconName="ph:plus-bold" />
                 <span v-if="stackList.length == maxItems">
                     {{ stacks.length - maxItems }}
                 </span>
@@ -25,20 +17,31 @@
             </AppButton>
         </li>
     </ul>
-    <ul v-else class="skills__stacks">
-        <li 
-            v-for="stack in stacks" 
-            :key="stack.name"
-            class="skills__stacks__item no-bg" 
-        >
+    <ul v-else class="skills__stacks small">
+        <li v-for="stack in stackList" :key="stack.name" class="skills__stacks__item">
             <strong>{{ stack.name }}</strong>
-            <AppIcon :IconName="stack.logo"/>
+            <AppIcon :IconName="stack.logo" />
+        </li>
+        <li v-if="maxItems && stacks.length > maxItems" class="skills__stacks__button">
+            <AppButton 
+                :aria-label="stackList.length > maxItems ? 'Less' : 'More'" 
+                class="secondary icononly"
+                :class="stackList.length > maxItems ? 'opened' : ''" @click="showAll"
+            >
+                <AppIcon IconName="ph:plus-bold" />
+                <span v-if="stackList.length == maxItems">
+                    {{ stacks.length - maxItems }}
+                </span>
+                <span class="visually-hidden">
+                    {{ stackList.length > maxItems ? 'Less' : 'More' }}
+                </span>
+            </AppButton>
         </li>
     </ul>
 </template>
 
 <script setup>
-import { ref, onMounted } from '#imports'
+import { ref, onMounted, watch } from '#imports'
 const props = defineProps({
     stacks: {
         type: Object
@@ -46,11 +49,21 @@ const props = defineProps({
     maxItems: {
         type: Number,
         required: false
+    },
+    small: {
+        type: Boolean
     }
 })
 
 let stackList = ref(props.stacks)
 
+watch(() => props.stacks, (newVal) => {
+    if (props.maxItems != null) {
+        stackList.value = newVal.slice(0, props.maxItems)
+    } else {
+        stackList.value = newVal
+    }
+})
 onMounted(() => {
     if(props.maxItems != null){
         stackList.value = props.stacks.slice(0, props.maxItems)
@@ -75,20 +88,31 @@ function showAll(){
         // margin: auto;
         align-items: center;
         flex-wrap: wrap;
-        row-gap: 12px;
-        column-gap: 8px;
+        gap: 20px;
         justify-content: center;
+        &.small{
+            gap: 0;
+            .skills__stacks__item{
+                background-color: var(--bg_color);
+                border-radius: 50%;
+                width: 40px;
+                font-size: $size_20px;
+                margin-left: -12px;
+                box-shadow: none;
+                border-color: var(--text_color_transparent)
+            }
+        }
         &__item{
             aspect-ratio: 1;
-            font-size: 20px;
-            width: 36px;
+            font-size: $size_40px;
+            width: 80px;
             display: grid;
             place-items: center;
             transition: $transition_default;
-            border-radius: 100%;
-            background-color: var(--neutral);
-            margin-left: -12px;
-            box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -4px 32px 0 var(--bg_color);
+            border-radius: 20px;
+            background-color: var(--text_color_transparent);
+            border: 1px solid var(--text_color_transparent);
+            box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -12px 32px 0 var(--bg_color);
             &.no-bg{
                 background-color: transparent;
                 box-shadow: none;

@@ -30,6 +30,7 @@ const { hasLink } = toRefs(props)
     border-radius: 12px;
     padding: 12px 20px;
     font-size: $size_16px;
+    line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,10 +41,13 @@ const { hasLink } = toRefs(props)
     transition: $transition_default;
     width: fit-content;
     font-family: $font_secondary;
-    // @media(max-width:$br_mobile){
-    //     font-size: $size_20px;
-    //     padding: 20px 32px;
-    // }
+    &.lg{
+        font-size: $size_20px;
+        padding: 20px 32px;
+    }
+    &:focus{
+        outline: transparent;
+    }
     &.icononly{
         width: 32px;
         aspect-ratio: 1;
@@ -75,7 +79,6 @@ const { hasLink } = toRefs(props)
         &:hover{
             background-color: var(--text_color);
             color: var(--bg_color);
-            border-color: var(--text_color);
             box-shadow: 0 4px 0px 0 var(--text_color_transparent);
             transform: translateY(8px);
         }
@@ -95,12 +98,15 @@ const { hasLink } = toRefs(props)
         box-shadow: 0 8px 0px 0 var(--text_color);
         color: var(--text_color);
         text-transform: uppercase;
-        &:hover{
+        &:hover,&:focus{
+            border-color: var(--text_color);
             box-shadow: 0 4px 0px 0 var(--text_color);
             transform: translateY(8px);
+            // background-color: var(--primary);
         }
-        &:active, &:focus{
-            box-shadow: 0 4px 0px 0 var(--text_color);
+        &:active{
+            box-shadow: 0 4px 0px 0 var(--primary);
+            border-color: var(--primary);
             transform: translateY(8px);
         }
     }

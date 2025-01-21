@@ -8,7 +8,7 @@
             <nuxt-link 
                 class="menu__list__item__link" 
                 :class="{ 'active' : sectionVisible == $t(item.route) }" 
-                :to="{hash: $t(item.route)}"
+                :to="{ path: '/', hash: $t(item.route)}"
             >
                 <AppIcon :IconName="item.icon" />
                 <span>{{ $t(item.title) }}</span>
@@ -20,7 +20,7 @@
 <script setup>
 import { ref, reactive, onMounted } from '#imports'
 
-const sectionVisible = ref('#home')
+const sectionVisible = ref('')
 
 onMounted(() => {
     document.addEventListener('scroll', () => {
@@ -29,19 +29,19 @@ onMounted(() => {
         const about = document.querySelector('#about')
         const services = document.querySelector('#services')
         const contact = document.querySelector('#contact')
-        if(window.pageYOffset <= home.offsetTop + home.offsetHeight / 2){
+        if(window.scrollY <= home.offsetTop + home.offsetHeight / 2){
             sectionVisible.value = '#home'
            
-        }else if(window.pageYOffset <= portfolio.offsetTop + portfolio.offsetHeight / 2){
+        }else if(window.scrollY <= portfolio.offsetTop + portfolio.offsetHeight / 2){
             sectionVisible.value = '#portfolio'
            
-        }else if(window.pageYOffset <= about.offsetTop + about.offsetHeight / 2){
+        }else if(window.scrollY <= about.offsetTop + about.offsetHeight / 2){
             sectionVisible.value = '#about'
            
-        }else if(window.pageYOffset <= services.offsetTop + services.offsetHeight / 2){
+        }else if(window.scrollY <= services.offsetTop + services.offsetHeight / 2){
             sectionVisible.value = '#services'
            
-        }else if(window.pageYOffset <= contact.offsetTop + contact.offsetHeight / 2){
+        }else if(window.scrollY <= contact.offsetTop + contact.offsetHeight / 2){
             sectionVisible.value = '#contact'
            
         }
@@ -51,27 +51,27 @@ onMounted(() => {
 
 const menuItems = reactive([
     {
-        icon: 'ph:house',
+        icon: 'cris-icon:home',
         title: 'menu.item1.title', 
         route: 'menu.item1.route'
     },
     {
-        icon: 'ph:shooting-star',
+        icon: 'cris-icon:portfolio',
         title: 'menu.item2.title', 
         route: 'menu.item2.route'
     },
     {
-        icon: 'ph:user-circle',
+        icon: 'cris-icon:about',
         title: 'menu.item3.title', 
         route: 'menu.item3.route'
     },
     {
-        icon: 'ph:wrench',
+        icon: 'cris-icon:services',
         title: 'menu.item4.title', 
         route: 'menu.item4.route'
     },
     {
-        icon: 'ph:chat-circle',
+        icon: 'cris-icon:logo-symbol',
         title: 'menu.item5.title', 
         route: 'menu.item5.route'
     }
@@ -104,12 +104,12 @@ const menuItems = reactive([
                 place-items: center;
                 cursor: pointer;
                 @media(max-width: $br_mobile){
-                    font-size: 10px;
+                    font-size: $size_8px;
                     padding:12px 8px 0 8px;
                     border-radius: 40px;
                 }
                 i{
-                    font-size: 20px;
+                    font-size: $size_24px;
                     display: none;
                     @media(max-width: $br_mobile){
                         display: flex;
@@ -120,6 +120,7 @@ const menuItems = reactive([
                         min-width: 28px;
                     }
                 }
+                
                 span{
                     padding-block: 8px;
                     @media(max-width: $br_mobile){
@@ -143,13 +144,30 @@ const menuItems = reactive([
                         top: 0;
                     }
                 }
-                &:hover, &.active{
+                @media(min-width: $br_desktop){
+
+                    &:hover{
+                        color: var(--text_color);
+                        &::after{
+                            width: 28px;
+                        }
+                    }
+                }
+                &.active{
                     color: var(--text_color);
                     &::after{
                         width: 28px;
                     }
                 }
             }
+                        &:last-child {
+                            i {
+                                background-color: var(--primary);
+                                padding: 4px;
+                                border-radius: 50%;
+                                font-size: $size_16px;
+                            }
+                        }
         }
         
     }
