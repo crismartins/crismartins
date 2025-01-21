@@ -21,9 +21,9 @@ body{
     font-style: normal;
     font-weight: 300;
 
-    @media(max-width: $br_mobile){
-        background-image: none;
-    }
+    // @media(max-width: $br_mobile){
+    //     background-image: none;
+    // }
     
     *{
         box-sizing: border-box;
@@ -37,7 +37,7 @@ body{
     a{
         transition: $transition_default;
         text-decoration: none;
-        color: var(--secondary);
+        color: var(--primary);
     }
     button{
         cursor: pointer;
@@ -61,15 +61,16 @@ body{
         font-weight: 400;
         font-family: $font_secondary;
         @media(max-width: $br_mobile){
-            font-size: $size_14px;
+            font-size: $size_20px;
         }
     }
     .large-title{
         margin-block: 4px;
         font-size: $size_40px;
         font-weight: 400;
+        line-height: $size_52px;
         @media(max-width: $br_mobile){
-            font-size: $size_32px;
+            font-size: $size_40px;
         }
     }
     .section{
@@ -106,6 +107,10 @@ body{
         -webkit-text-fill-color: transparent; 
         -moz-background-clip: text;
         -moz-text-fill-color: transparent;
+    }
+
+    *:focus{
+        outline-color: transparent;
     }
 
     // *::selection {
@@ -146,10 +151,10 @@ body{
 
 @keyframes pulse {
     0%{
-        box-shadow: 0 0 0 0 rgba(#7371FC, 0.2),0 0 0 0 rgba(#7371FC, 0.2);
+        box-shadow: 0 0 0 0 rgba(#4C4C64, 0.2),0 0 0 0 rgba(#4C4C64, 0.2);
     }
     50%{
-        box-shadow: 0 0 0 8px rgba(#7371FC, 0.2), 0 0 0 16px rgba(#7371FC, 0.2);
+        box-shadow: 0 0 0 8px rgba(#4C4C64, 0.2), 0 0 0 16px rgba(#4C4C64, 0.2);
     }
     100%{
         box-shadow: 0 ;
