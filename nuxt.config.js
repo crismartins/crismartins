@@ -19,6 +19,7 @@ export default defineNuxtConfig({
             name: 'layout', mode: 'out-in' 
         }
     },
+
     //GTM
     gtm: {
         id: 'GTM-MVCQMF2', // Your GTM single container ID, array of container ids ['GTM-xxxxxx', 'GTM-yyyyyy'] or array of objects [{id: 'GTM-xxxxxx', queryParams: { gtm_auth: 'abc123', gtm_preview: 'env-4', gtm_cookies_win: 'x'}}, {id: 'GTM-yyyyyy', queryParams: {gtm_auth: 'abc234', gtm_preview: 'env-5', gtm_cookies_win: 'x'}}], // Your GTM single container ID or array of container ids ['GTM-xxxxxx', 'GTM-yyyyyy']
@@ -38,8 +39,10 @@ export default defineNuxtConfig({
         trackOnNextTick: false, // Whether or not call trackView in Vue.nextTick
         devtools: true // (optional)
     },
+
     //main scss
     css: ['@/assets/scss/main.scss'],
+
     //vite
     vite: {
         css: {
@@ -57,8 +60,9 @@ export default defineNuxtConfig({
             })
         ]
     },
+
     modules: [
-        'nuxt-icon',
+        '@nuxt/icon',
         '@nuxt/image',
         '@nuxtjs/color-mode',
         '@pinia/nuxt',
@@ -70,17 +74,19 @@ export default defineNuxtConfig({
     i18n:{ 
         vueI18n: './i18n.config.ts'
     },
+
     //color mode
     colorMode: {
         preference: 'dark', // default value of $colorMode.preference    
         fallback: 'dark', // fallback value if not system preference found    
         classSuffix: '-theme'
     },
+
     //nuxt image
     image: {
         quality: 80,
         densities: [1, 2, 3],
-        format: ['webp'],
+        format: ['webp', 'svg'],
         //image sizes
         presets: {
             cover: {
@@ -101,12 +107,24 @@ export default defineNuxtConfig({
             xxl: 1536
         }
     },
+
     //pinia config
     pinia: {
         autoImports: [
-        // automatically imports `defineStore`
+            // automatically imports `defineStore`
             'defineStore', // import { defineStore } from 'pinia'
             ['defineStore', 'definePiniaStore'] // import { defineStore as definePiniaStore } from 'pinia'
         ]
-    }
+    },
+
+    icon: {
+        customCollections: [
+            {
+                prefix: 'cris-icon',
+                dir: './assets/cris-icons'
+            }
+        ]
+    },
+
+    compatibilityDate: '2025-01-15'
 })
