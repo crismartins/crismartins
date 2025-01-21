@@ -26,43 +26,49 @@
         "title": "Hey, I'm Cristopher Martins",
         "subtitle": "Logic Designer & Creative Developer",
         "text": "My mission is to turn complex ideas into simple, beautiful digital solutions.",
-        "button": "Get in touch"
+        "button": "My Services"
     },
     "portfolio": {
         "title": "Latest Works",
-        "button": "Trusted by"
+        "button": "See More"
+    },
+    "clients": {
+        "title":  "Partners who trust me" 
     },
     "about": {
         "title": "About",
-        "subtitle": "UX/UI Designer and Frontend Developer based in Brazil ",
-        "tools": "Previous experience in these tools...",
+        "subtitle": "Passion, Creativity, and Code",
+        "tools": "Proficiency on the following tools and stacks...",
         "cta_1": "Contact",
-        "cta_2": "Download CV",
-        "cta_2_link": "/resume_cristopher.pdf"
+        "cta_2": "LinkedIn",
+        "cta_2_link": "https://www.linkedin.com/in/cristopher-martins-designer-and-developer/"
     },
     "services": {
         "title": "Services",
-        "subtitle": "Unlock Your Company's Potential with Expert Services",
+        "subtitle": "I specialize in transforming creative ideas into digital realities",
+        "text": "Whether you're looking for a sleek, modern website or a complex web application, I have the skills and experience to bring your vision to life.",
         "service_1": 
         {
-            "icon": "lucide:paint-bucket",
-            "title": "Graphic",
-            "text": "Visual identity design, vector illustrations, editorial illustrations, and concept art creation."   
+            "icon": "cris-icon:graphic-design",
+            "title": "Graphic Design.",
+            "text": "Branding and illustration."
         },
         "service_2": 
         {
-            "icon": "lucide:pencil-ruler",
-            "title": "UX & UI",
-            "text": "Experience design and interface design for websites, mobile applications, software, and web systems."   
+            "icon": "cris-icon:web-design",
+            "title": "Web & Product Design.",
+            "text": "UX/UI Design and Web Development"   
         },
         "service_3": 
         {
-            "icon": "lucide:code-2",
-            "title": "Development",
-            "text": "Frontend development of websites and web systems, interactive and optimized for search engines."   
+            "icon": "cris-icon:mobile-apps",
+            "title": "Mobile Apps.",
+            "text": "Mobile Application Design and Development."   
         }
     },
     "contact": {
-        "title": "Get in Touch"
+        "title": "Let's make magic happen!",
+        "subtitle": "From initial concept to final product, I strive for excellence in every project. Let's make something great together. Hit me up and let's kick off your project now!",
+        "cta": "Get in Touch"
     }
 }

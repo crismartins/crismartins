@@ -26,44 +26,50 @@
         "title": "Oi, sou Cristopher Martins",
         "subtitle": "Designer Lógico & Dev. Criativo",
         "text": "Minha missão é tornar idéias complexas em soluções digitais intuitivas e atraentes.",
-        "button": "Entre em contato"
+        "button": "Meus Serviços"
     },
     "portfolio": {
         "title": "Últimos Trabalhos",
-        "button": "Clientes"
+        "button": "Veja Mais"
+    },
+    "clients": {
+        "title": "Parceiros que confiam no meu trabalho"
     },
     "about": {
         "title": "Sobre",
-        "subtitle": "UX/UI Designer e Desenvolvedor Frontend",
-        "tools": "Experiência nas seguintes ferramentas...",
+        "subtitle": "Paixão, Criatividade, e Código",
+        "tools": "Proficiência nas seguintes ferramentas e linguagens...",
         "cta_1": "Contato",
-        "cta_2": "Download CV",
-        "cta_2_link": "/curriculo_cristopher.pdf"
+        "cta_2": "LinkedIn",
+        "cta_2_link": "https://www.linkedin.com/in/cristopher-martins-designer-and-developer/"
     },
     "services": {
         "title": "Serviços",
-        "subtitle": "Desbloqueie o Potencial da sua Empresa com Serviços Especializados",
+        "subtitle": "Sou especializado em transformar idéias criativas em realidades digitais",
+        "text": "Se você está em busca de um site elegante e moderno ou de uma aplicação web complexa, tenho as habilidades e a experiência necessárias para transformar sua visão em realidade.",
         "service_1": 
         {
-            "icon": "lucide:paint-bucket",
-            "title": "Gráfico",
-            "text": "Criação de identidade visual, ilustracões vetoriais, ilustrações editoriais e artes conceito."   
+            "icon": "cris-icon:graphic-design",
+            "title": "Design Gráfico",
+            "text": "Branding e ilustrações."   
         },
         "service_2": 
         {
-            "icon": "lucide:pencil-ruler",
-            "title": "UX e UI",
-            "text": "Design de experiências e design de interfaces para Websites, Aplicações mobile, Softwares e Sistemas web."   
+            "icon": "cris-icon:web-design",
+            "title": "Web & Product Design.",
+            "text": "UX/UI Design e Desenvolvimento Web."   
         },
         "service_3": 
         {
-            "icon": "lucide:code-2",
-            "title": "Desenvolvimento",
-            "text": "Desenvolvimento frontend de Websites e Sistemas web, interativos e otimizados para mecanismos de busca."   
+            "icon": "cris-icon:mobile-apps",
+            "title": "Aplicativos Móveis.",
+            "text": "Design e Desenvolvimento de Aplicativos."   
         }
     },
     "contact": {
-        "title": "Entre em Contato"
+        "title": "Vamos fazer a mágica acontecer!",
+        "subtitle": "Desde o conceito inicial até o produto final, busco a excelência em cada projeto. Vamos criar algo incrível juntos. Entre em contato e vamos dar início ao seu projeto agora mesmo!",
+        "cta": "Entre em contato"
     }
 
 }
