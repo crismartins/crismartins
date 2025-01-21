@@ -1,7 +1,7 @@
 <template>
     <section class="error__page section">
         <div class="error__page__container container">
-            <NuxtImg 
+            <!-- <NuxtImg 
                 alt="Cristopher Martins" 
                 src="/images/cristoon.svg"
                 width="120px"
@@ -10,7 +10,7 @@
                 densities="x1 x2"
                 quality="100"
                 preload
-            />
+            /> -->
             <h1 v-if="props.error.statusCode === 404" class="gradient-font">
                 404 Error
             </h1>
