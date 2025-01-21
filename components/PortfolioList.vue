@@ -1,11 +1,6 @@
 <template>
-    <section class="portfolio__section">
+    <section class="portfolio__section section">
         <div class="portfolio__section__container">
-            <header class="portfolio__section__container__header">
-                <h2 class="small-title">
-                    {{ $t(portfolio.title) }}
-                </h2>
-            </header>
             <ul class="portfolio__section__container__projects">
                 <li 
                     v-for="(project, index) in projects" 
@@ -35,12 +30,12 @@
                         </header>
                         
                         <div class="portfolio__section__container__projects__item__contain__body project-titles">
-                            <h2 class="portfolio__section__container__projects__item__contain__body__title">
+                            <h3 class="portfolio__section__container__projects__item__contain__body__title">
                                 {{ project.name }}
-                            </h2>
-                            <h3 class="portfolio__section__container__projects__item__contain__body__subtitle">
-                                {{ project.client }}
                             </h3>
+                            <h4 class="portfolio__section__container__projects__item__contain__body__subtitle">
+                                {{ project.client }}
+                            </h4>
                         </div>
                         <footer class="portfolio__section__container__projects__item__contain__footer project-titles">
                             <ul class="portfolio__section__container__projects__item__contain__footer__tags">
@@ -57,51 +52,6 @@
                     </div>
                 </li>
             </ul>
-            <div class="section">
-                <div class="portfolio__section__container__projects__navigation container">
-                    <ul class="portfolio__section__container__projects__navigation__arrows">
-                        <li class="portfolio__section__container__projects__navigation__arrows__item left-arrow">
-                            <AppButton 
-                                aria-label="Previous"
-                                class="primary" 
-                                @click="prevProj"
-                            >
-                                <AppIcon IconName="ph:arrow-left" />
-                            </AppButton>
-                        </li>
-                        <li class="portfolio__section__container__projects__navigation__arrows__item right-arrow">
-                            <AppButton 
-                                aria-label="Next"
-                                class="primary" 
-                                @click="nextProj"
-                            >
-                                <AppIcon IconName="ph:arrow-right" />
-                            </AppButton>
-                        </li>
-                    </ul>
-                    <ul class="portfolio__section__container__projects__navigation__bullets">
-                        <li 
-                            v-for="(project, index) in projects" 
-                            :key="project.id"
-                            class="portfolio__section__container__projects__navigation__bullets__item"
-                        >
-                            <button 
-                                :aria-label="project.name"
-                                :class="{ active : selectedProj == index }" 
-                                @click="goToProj(index)" 
-                            >
-                                <span class="visually-hidden">
-                                    {{ project.name }}
-                                </span>
-                            </button>
-                        </li>
-                    </ul>
-                    <AppButton class="outline" hasLink="/portfolio">
-                        {{ $t(portfolio.button) }}
-                        <AppIcon IconName="cris-icon:arrow-right" />
-                    </AppButton>
-                </div>
-            </div>
 
             <HomePortfolioProjectModal
                 :projectDetails="openedDetails" 
@@ -130,52 +80,31 @@ const { projects } = toRefs(props)
 
 const selectedProj = ref(0)
 
-function prevProj(){
-    if(selectedProj.value > 0 ){
-        selectedProj.value = selectedProj.value - 1
-        return goToProj(selectedProj.value)
-    }else{
-        selectedProj.value = projects.value.length - 1
-        return goToProj(selectedProj.value)
-    }
-} 
-function nextProj() {
-    console.log(selectedProj.value)
-    if(selectedProj.value < projects.value.length - 1 ){
-        selectedProj.value = selectedProj.value + 1
-        return goToProj(selectedProj.value)
-    }else{
-        selectedProj.value = 0
-        return goToProj(selectedProj.value)
-    }
-} 
+// function prevProj(){
+//     if(selectedProj.value > 0 ){
+//         selectedProj.value = selectedProj.value - 1
+//         return goToProj(selectedProj.value)
+//     }else{
+//         selectedProj.value = projects.value.length - 1
+//         return goToProj(selectedProj.value)
+//     }
+// } 
+// function nextProj() {
+//     console.log(selectedProj.value)
+//     if(selectedProj.value < projects.value.length - 1 ){
+//         selectedProj.value = selectedProj.value + 1
+//         return goToProj(selectedProj.value)
+//     }else{
+//         selectedProj.value = 0
+//         return goToProj(selectedProj.value)
+//     }
+// } 
 
-function goToProj(project) {
-    selectedProj.value = project
-    const scrollTo =  document.getElementById(project)
-    scrollTo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
-}
-
-const dragStartPosition = ref(null)
-
-function setDragStart(event) {
-    dragStartPosition.value = event.changedTouches[0].clientX ?? event.clientX
-}
-function swipeSlider(event) {
-    const touchPosition = parseInt(event.changedTouches[0].clientX) ?? parseInt(event.clientX)
-    if(Math.abs(touchPosition - dragStartPosition.value) > 20) {
-        if(touchPosition > dragStartPosition.value) {
-            prevProj()
-            return
-        }
-        nextProj()
-    }   
-}
-
-const portfolio = {
-    title: 'portfolio.title',
-    button: 'portfolio.button'
-}
+// function goToProj(project) {
+//     selectedProj.value = project
+//     const scrollTo =  document.getElementById(project)
+//     scrollTo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+// }
 
 
 const modalName = ref(null)
@@ -273,80 +202,39 @@ initializeModalFromQuery()
         margin-inline: auto;
         gap: 40px;
         position: relative;
-        &__header{
-            position: absolute;
-            z-index: 4;
-            padding: 0 0 40px 40px;
-            height: 100%;
-            @media(max-width:$br_mobile){
-                padding: 0 0 40px 0;
-                position: relative;
-                text-align: center;
-            }
-            h2{
-                writing-mode:vertical-rl;
-                transform: rotate(-180deg);
-                // position: sticky;
-                // top: 140px;
-                @media(max-width:$br_mobile){
-                    writing-mode:horizontal-tb;
-                    transform: rotate(0);
-                }
-            }
-            p{
-                font-size: 20px;
-            }
-        }
+        
         &__projects{
-            padding-inline: 140px;
-            overflow: auto;
-            display: flex;
-            justify-content: flex-start;
-            gap: 20px;
+            display: grid;
+            gap: 32px;
             position: relative;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-            &::-webkit-scrollbar {
-                display: none;
+            grid-template-columns: repeat(4, 1fr);
+            @media(max-width: $br_desktop){
+                grid-template-columns: repeat(3, 1fr);
             }
-            @media(max-width:$br_mobile){
-                margin: 0;
-                padding-inline: calc(3% + 20px);
+            @media(max-width: $br_tablet){
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media(max-width: $br_mobile){
+                grid-template-columns: 1fr;
             }
             &__item{
                 flex-shrink: 0;
                 position: relative;
-                margin-inline: -28px;
-                max-width: 380px;
                 width: 100%;
-                @media(max-width:$br_mobile){
-                    max-width: 380px;
-                    // max-width: 98%;
-                    margin-inline: -12px;
-                }
                 &:hover{
                     > div{
                         z-index: 4;
-                        transform: scale(0.84) translateY(5vh);
+                        transform: scale(1.04);
                         @media(max-width:$br_mobile){
                             z-index: 1;
                         }
                         picture{
                             box-shadow: 0 40px 80px 80px var(--bg_color);
                         }
-                        .project-titles{
-                            opacity: 1;
-                            top: 0;
-                        }
-                        &.active{
-                            transform: none;
-                            z-index: 2;
-                        }
                     }
                 }
                 &__contain{
                     display: block;
-                    transform: scale(0.84);
                     color: var(--text_color);
                     position: relative;
                     transition: $transition_default;
@@ -364,21 +252,22 @@ initializeModalFromQuery()
                             position: relative;
                             border: 1px solid var(--text_color_smooth);
                             background-color: var(--bg_color);
-                            
+                            transition: $transition_default;
                             img{
                                 object-fit: cover;
                                 max-width: 100%;
                                 max-height: 100%;
                                 transition: $transition_default;
                                 display: block;
+                                @media(max-width:$br_mobile){
+                                    width: 100%;
+                                }
                             }
                         }
                     }
                     &__body{
-                        opacity: 0;
                         position: relative;
                         width: 100%;
-                        top: -40px;
                         transition: $transition_default;
                         &__title{
                             font-size: $size_20px;
@@ -401,10 +290,8 @@ initializeModalFromQuery()
                         }
                     }
                     &__footer{
-                        opacity: 0;
                         position: relative;
                         width: 100%;
-                        top: -40px;
                         transition: $transition_default;
                         display: flex;
                         justify-content: space-between;
@@ -430,101 +317,7 @@ initializeModalFromQuery()
                         }
                     }
                    
-                    &.active{
-                        transform: scale(1);
-                        z-index: 2;
-                        picture{
-                            box-shadow: 0 40px 80px 80px var(--bg_color);
-                        }
-                        .project-titles{
-                            opacity: 1;
-                            top: 0;
-                        }
-    
-                    }
-                }
-            }
-            &__navigation{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-block: 40px;
-                gap: 24px;
-                @media(max-width: $br_mobile){
-                    flex-direction: column;
-                    padding-inline: 0;
-                    margin-block: 20px;
-                    gap: 40px;
-                }
-                &__arrows{
-                    display: flex;
-                    justify-content: space-between;
-                    gap: 20px;
-                    width: 100%;
-                    position: absolute;
-                    top: 28vh;
-                    left: 0;
-                    padding-inline: 40px;
-                    &__item{
-                        height: 100%;
-                        top: 0;
-                        display: grid;
-                        place-items: center;
-                        button{
-                            font-size: $size_20px;
-                            aspect-ratio: 1;
-                        }
-                        &.right-arrow{
-                            right: 0;
-                            z-index: 5;
-                        }
-                        &.left-arrow{
-                            left: 0;
-                            z-index: 5;
-                        }
-                    }
-                    @media(max-width: $br_mobile) {
-                        position: unset;
-                        padding-inline: 0;
-                    }
-                }
-                &__bullets{
-                    display: flex;
-                    gap: 20px;
-                    justify-content: center;
-                    @media (max-width: $br_mobile){
-                        gap: 12px;
-                    }
-                    &__item{
-                        button{
-                            background-color: var(--text_color_transparent);
-                            border: 0;
-                            border-radius: 40px;
-                            width: 8px;
-                            height: 8px;
-                            padding: 0;
-                            transition: $transition_default;
-                            &:hover{
-                                background-color: var(--text_color_smooth);
-                            }
-                            &.active{
-                                background-color: var(--primary);
-                                width: 48px;
-                                @media (max-width: $br_mobile){
-                                    width: 8px;
-                                }
-                            }
-                        }
-                    }
-                }
-                .link{
-                    color: var(--text_color);
-                    display: flex;
-                    gap: 12px;
-                    align-items: center;
-                    &:hover{
-                        color: var(--secondary);
-                    }
+                    
                 }
             }
         }

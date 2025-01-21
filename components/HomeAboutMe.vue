@@ -8,12 +8,7 @@
                 {{ $t(about.subTitle) }}
             </h3>
 
-            <div class="about__section__container__stacks">
-                <strong>
-                    {{ $t(about.tools) }}
-                </strong>
-                <AppStackSkills :stacks="stackLogos" :maxItems="7" />
-            </div>
+
 
             <div class="about__section__container__columns">
 
@@ -23,81 +18,82 @@
                             <span>
                                 <AppIcon IconName="fluent-emoji:trophy" />
                             </span>
-                            10+ 
+                            10+
                             <small>
                                 {{ locale == 'en' ? 'years of experience' : 'anos de experiência' }}
                             </small>
                         </strong>
-                        <NuxtImg 
-                            alt="Cristopher Martins" 
-                            src="/images/crismartins_avatar.png"
-                            width="240px"
-                            height="240px"
-                            format="webp"
-                            densities="x1 x2"
-                            quality="100"
-                        />
+                        <NuxtImg v-if="colorMode.value == 'dark'" alt="Cristopher Martins"
+                            src="/images/crismartins_avatar_v2.png" width="400px" height="400px" format="webp"
+                            densities="x1 x2" quality="100" />
+
+                        <NuxtImg v-if="colorMode.value == 'light'" alt="Cristopher Martins"
+                            src="/images/crismartins_avatar_v3.png" width="400px" height="400px" format="webp"
+                            densities="x1 x2" quality="100" />
+
                         <strong class="about__section__container__columns__avatar__image__areas logic">
                             <span>
-                                <AppIcon IconName="fluent:brain-circuit-20-regular" />
+                                <AppIcon IconName="cris-icon:logic-side" />
                                 {{ locale == 'en' ? 'Logic' : 'Lógica' }}
                             </span>
                         </strong>
                         <strong class="about__section__container__columns__avatar__image__areas creativity">
                             <span>
-                                <AppIcon IconName="fluent-emoji:sparkling-heart" />
                                 {{ locale == 'en' ? 'Creativity' : 'Criatividade' }}
+                                <AppIcon IconName="cris-icon:creative-side" />
                             </span>
                         </strong>
                     </figure>
+
+                    
                 </div>
 
-                
-                <div v-if="locale == 'en'" class="about__section__container__columns__text" >
+
+
+                <div v-if="locale == 'en'" class="about__section__container__columns__text">
                     <p>
-                        As a seasoned designer and frontend developer with <strong>over a decade of experience in the technology sector</strong>, I am dedicated to consistently <strong>delivering excellence to my clients</strong>. 
-                        On my website, you will discover a portfolio showcasing projects I've had the privilege of working on, as well as an overview of the technology services I offer.
+                        Hi, I’m Cristopher—a seasoned <strong>Designer and Frontend Engineer</strong> from Brazil 🇧🇷 with <strong>over 12 years of experience</strong>. With a strong focus on UI/UX development, I blend design and technology to craft cohesive and impactful projects that help businesses excel in the digital world.
                     </p>
-                    <br/>
+                    <br />
                     <p>
-                        My objective is to craft tailored and optimized experiences that captivate users, achieved through a profound comprehension of their needs and expectations while engaging with the interfaces I design and develop.
+                        I specialize in designing and developing beautiful, user-friendly, and responsive websites and applications. My keen eye for detail and commitment to innovation allow me to transform ideas into intuitive and engaging digital experiences.
                     </p>
-                    <br/>
+                    <br />
                     <p>
-                        With that in mind, please feel free to explore my website and uncover how I can assist you in <strong>creating and developing enchanting designs</strong>.
-                    </p>
-                </div>
-                <div v-else class="about__section__container__columns__text" >
-                    <p>
-                        Designer e desenvolvedor frontend com <strong>mais de 10 anos de experiência no setor de tecnologia</strong>, estou comprometido em entregar sempre o <strong>melhor do melhor</strong> para os meus clientes.
-                        Aqui no meu website você encontrará alguns projetos onde tive o prazer de trabalhar e os serviços que presto na área de tecnologia.
-                    </p>
-                    <br/>
-                    <p>
-                        Meu objetivo é desenvolver experiencias personalizadas e otimizadas para encantar usuários através de um profundo entendimento das suas necessidades e expectativas ao interagir com as interfaces que desenho e que desenvolvo.
-                    </p>
-                    <br/>
-                    <p>
-                        Sendo assim, fique à vontade para explorar o meu website e descobrir como posso ajudar você à <strong>criar e desenvolver designs que encantam.</strong>
+                        By combining creativity with technical expertise, I deliver solutions that not only captivate users but also drive results. Let’s collaborate to create something exceptional!
                     </p>
                 </div>
+                <div v-else class="about__section__container__columns__text">
+                    <p>
+                        Olá, eu sou o Cristopher um <strong>Designer e Engenheiro Frontend</strong> experiente com <strong>mais de 12 anos de experiência</strong>. Com um forte foco no desenvolvimento voltado para <strong>UI/UX</strong>, eu combino design e tecnologia para criar projetos coesos e impactantes que ajudam empresas a se destacarem no mundo digital.
+                    </p>
+                    <br />
+                    <p>
+                        Sou especializado no design e desenvolvimento de sites e aplicações bonitos, intuitivos e responsivos. Meu olhar atento aos detalhes e comprometimento com a inovação me permitem transformar ideias em experiências digitais intuitivas e envolventes.
+                    </p>
+                    <br />
+                    <p>
+                        Combinando criatividade e expertise técnica, entrego soluções que não apenas cativam os usuários, mas também geram resultados. Vamos colaborar e criar algo excepcional juntos!
+                    </p>
+                </div>
+
             </div>
+
+            <div class="about__section__container__stacks">
+                <strong>
+                    {{ $t(about.tools) }}
+                </strong>
+                <AppStackSkills :stacks="stackLogos" />
+            </div>
+
             <div class="about__section__container__buttons">
-                <AppButton 
-                    :aria-label="$t(about.cta1)"
-                    class="primary" 
-                    hasLink="/#contact"
-                >
+                <AppButton :aria-label="$t(about.cta1)" class="primary" hasLink="/#contact">
                     {{ $t(about.cta1) }}
                 </AppButton>
-                <AppButton 
-                    :aria-label="$t(about.cta2)"
-                    class="outline call" 
-                    target="_new" 
-                    :hasLink="$t(about.cta2Link)"
-                >
-                    <AppIcon IconName="ph:download-simple-bold" />
+                <AppButton :aria-label="$t(about.cta2)" class="outline" target="_new"
+                    :hasLink="$t(about.cta2Link)">
                     {{ $t(about.cta2) }}
+                    <AppIcon IconName="cris-icon:arrow-up-right" />
                 </AppButton>
             </div>
 
@@ -106,7 +102,9 @@
 </template>
 
 <script setup>
-import { ref, useI18n , reactive } from '#imports'
+import { ref, useI18n, reactive } from '#imports'
+
+const colorMode = useColorMode()
 const { locale } = useI18n()
 const stackLogos = ref([
     {logo: 'devicon:figma', name: 'Figma'},
@@ -115,21 +113,26 @@ const stackLogos = ref([
     {logo: 'skill-icons:photoshop', name: 'Adobe Photoshop'},
     {logo: 'skill-icons:illustrator', name: 'Adobe Illustrator'},
     {logo: 'devicon:javascript', name: 'Javascript'},
+    {logo: 'devicon:typescript', name: 'Typescript'},
     {logo: 'devicon:html5', name: 'HTML 5'},
     {logo: 'devicon:css3', name: 'CSS 3'},
     {logo: 'devicon:sass', name: 'Sass'},
     {logo: 'devicon:bootstrap', name: 'Bootstrap'},
     {logo: 'devicon:jquery', name: 'JQuery'},
     {logo: 'skill-icons:wordpress', name: 'Wordpress'},
+    {logo: 'logos:shopify', name: 'Shopify'},
     {logo: 'devicon:vuejs', name: 'Vue.JS'},
+    {logo: 'devicon:vuetify', name: 'Vuetify'},
     {logo: 'logos:nuxt-icon', name: 'Nuxt.JS'},
+    {logo: 'devicon:react', name: 'React.JS'},
+    {logo: 'devicon:nextjs', name: 'Next.JS'},
+    {logo: 'devicon:tailwindcss', name: 'Tailwind CSS'},
+    {logo: 'devicon:flutter', name: 'Flutter'},
     {logo: 'logos:visual-studio-code', name: 'Visual Studio Code'},
     {logo: 'devicon:bitbucket', name: 'Bitbucket'},
     {logo: 'devicon:github', name: 'GitHub'},
     {logo: 'devicon:gitlab', name: 'GitLab'}
-    // ,{logo: 'devicon:react', name: 'React.JS'},
     // {logo: 'logos:blender', name: 'Blender'},
-    // {logo: 'devicon:flutter', name: 'Flutter'}
 ])
 
 const about = reactive({
@@ -156,13 +159,18 @@ const about = reactive({
         }
         &__stacks{
             margin-block: 40px;
+            font-family: $font_secondary;
             text-transform: uppercase;
-            font-size: $size_12px;
+            font-size: $size_16px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 40px;
+            strong{
+                font-weight: 300;
+
+            }
         }
         &__columns{
             display: grid;
@@ -173,35 +181,35 @@ const about = reactive({
                 grid-template-columns: 1fr;
             }
             &__avatar{
-                display: grid;
-                place-items: center;
                 margin-block: 20px;
                 position: relative;
-                @media(max-width: $br_mobile){
-                    border: none;
-                }
+                display: grid;
+                place-items: center;
                 &__image{
-                    border-radius: 50%;
-                    background-color: var(--secondary);
-                    background: var(--secondary_gradient);
+                    border-radius: 20px;
+                    background-color: var(--primary);
+                    // background: var(--secondary_gradient);
                     // overflow: hidden;
+                    aspect-ratio: 1;
                     position: relative;
                     display: grid;
                     place-items: center;
                     transition: $transition_default;
-                    animation: pulse 2s ease infinite;
+                    max-width: 300px;
+                    // animation: pulse 2s ease infinite;
                     &__tag{
+                        opacity: 0;
                         position: absolute;
                         background-color: var(--text_color);
                         color: var(--bg_color);
                         font-weight: 500;
-                        border-radius: 40px;
+                        border-radius: 12px;
                         font-size: $size_20px;
                         padding: 8px 12px;
                         border: 2px solid var(--bg_color);
                         box-shadow: 4px 8px 12px 0 var(--text_color_transparent);
-                        left: 58%;
-                        top: -8px;
+                        left: 0;
+                        top: 32px;
                         display: flex;
                         align-items: center;
                         gap: 8px;
@@ -222,94 +230,45 @@ const about = reactive({
                     }
                     &__areas{
                         position: absolute;
-                        aspect-ratio: 1;
-                        border-radius: 50%;
                         display: grid;
                         place-items: center;
-                        font-size: $size_14px;
-                        font-weight: 400;
                         color: var(--text_color);
-                        opacity: 0.4;
-                        transition: $transition_default;
-                        z-index: 0;
-                        border: 2px solid var(--text_color_transparent);
+                        z-index: 2;
                         span{
                             display: flex;
                             gap: 4px;
                             flex-direction: column;
                             transition: $transition_default;
-                            opacity: 0;
                             text-align: center;
+                            font-family: $font_secondary;
+                            text-transform: uppercase;
+                            // font-weight: normal;
                         }
                         i{
-                            font-size: $size_28px;
+                            font-size: 168px;
                         }
-                        
                         &.logic{
-                            background-color: var(--tertiary);
-                            font-family: Courier;
-                            width: 80%;
+                            transform: translate( -140%, 40%);
+                            
                         }
                         &.creativity{
-                            background-color: var(--tertiary );
-                            width: 60%;
+                            transform: translate(90%, -40%);
                         }
                     }
-                    &:hover{
-                        .logic{
-                            transform: translateX( -90%);
-                            width: 110px;
-                            opacity: 1;
-                            background-color: var(--bg_color);
-                            border-color: var(--secondary);
-                            border-radius: 20px;
-                            span{
-                                opacity: 1;
-                            }
-                        }
-                        .creativity{
-                            width: 110px;
-                            transform: translateX( 90%);
-                            opacity: 1;
-                            background-color: var(--bg_color);
-                            border-color: var(--secondary);
-                            border-radius: 20px;
-                            span{
-                                opacity: 1;
-                            }
-                        }
-                    }
-                    @media(max-width: $br_mobile){
-                        .logic{
-                            transform: translateX( -90%);
-                            width: 110px;
-                            opacity: 1;
-                            background-color: var(--bg_color);
-                            border-color: var(--secondary);
-                            span{
-                                opacity: 1;
-                            }
-                        }
-                        .creativity{
-                            width: 110px;
-                            transform: translateX( 90%);
-                            opacity: 1;
-                            background-color: var(--bg_color);
-                            border-color: var(--secondary);
-                            span{
-                                opacity: 1;
-                            }
-                        }
-                    }
+                    
+
                     img{
                         position: relative;
                         display: block;
                         z-index: 2;
-                        max-width: 240px;
+                        max-width: 300px;
+                        max-height: 300px;
+                        aspect-ratio: 1;
                         transition: $transition_default;
-                        border-radius: 50%;
+                        border-radius: 12px;
                     }
                 }
+
             }
             &__text{
                 margin-block: 24px;
@@ -322,7 +281,9 @@ const about = reactive({
                     font-size: $size_16px;
                     line-height: $size_32px;
                     margin: 0;
-
+                    strong{
+                        font-weight: 500;
+                    }
                 }
             }
         }
@@ -332,6 +293,9 @@ const about = reactive({
             gap: 20px;
             padding-block: 40px;
             flex-wrap: wrap;
+            i{
+                font-size: $size_24px;
+            }
             @media(max-width: $br_mobile){
                 justify-content: center;
                 .button{

@@ -1,49 +1,32 @@
 <template>
     <section class="hero__section section">
         <div class="hero__section__container container">
-            <!-- <div class="hero__section__container__presentation">
-                
-                <NuxtLink 
-                    :aria-label="$t(heroHome.cta)"
-                    to="/#about" 
-                    class="hero__section__container__presentation__button"
-                >
-                    <figure class="hero__section__container__presentation__button__avatar">
-                        <NuxtImg 
-                            alt="Cristopher Martins"
-                            src="/images/cristoon.svg"
-                            width="60px"
-                            height="84px"
-                            format="webp"
-                            quality="100"
-                            densities="x1 x2"
-                            preload
-                        />
-                    </figure>
-                    <div>
-                        <span>
-                            {{ $t(heroHome.cta) }}
-                        </span>
-                    </div>
-                </NuxtLink>
-            </div> -->
+
+            <div class="hero__section__container__greetings">
+                <div class="hero__section__container__greetings__avatar">
+                    <NuxtLink :aria-label="$t(heroHome.cta)" to="/#about">
+                        <NuxtImg alt="Cristopher Martins" src="/images/cristopher_martins_new.png" width="200px"
+                            height="200px" format="webp" quality="100" densities="x1 x2" preload />
+                    </NuxtLink>
+                </div>
+                <!-- <AppStackSkills small :stacks="stackLogos" maxItems="4" /> -->
+            </div>
             <div class="hero__section__container__text">
-                <h1 class="hero__section__container__text__name small-title">
-                    {{ $t(heroHome.title) }}
-                </h1>
+                <div class="hero__section__container__text">
+                    <h1 class="hero__section__container__text__name small-title">
+                        {{ $t(heroHome.title) }}
+                    </h1>
+                </div>
                 <div class="hero__section__container__text__wrapper">
                     <h2 class="hero__section__container__text__wrapper__title gradient-font">
                         {{ $t(heroHome.subTitle) }}
                     </h2>
-                    <p class="hero__section__container__text__wrapper__subtitle">
+                    <!-- <p class="hero__section__container__text__wrapper__subtitle">
                         {{ $t(heroHome.text) }}
-                    </p>
-                    <AppButton 
-                        :aria-label="$t(heroHome.button)"
-                        hasLink="/#contact" 
-                        class="primary"
-                    >
+                    </p> -->
+                    <AppButton :aria-label="$t(heroHome.button)" hasLink="/#services" class="primary">
                         {{ $t(heroHome.button) }}
+                        <AppIcon IconName="cris-icon:arrow-right" />
                     </AppButton>
                 </div>
             </div>
@@ -54,6 +37,34 @@
 <script setup>
 import { reactive } from '#imports'
 
+const stackLogos = ref([
+    { logo: 'devicon:figma', name: 'Figma' },
+    // {logo: 'devicon:sketch', name: 'Sketch'},
+    { logo: 'skill-icons:xd', name: 'Adobe Xd' },
+    { logo: 'skill-icons:photoshop', name: 'Adobe Photoshop' },
+    { logo: 'skill-icons:illustrator', name: 'Adobe Illustrator' },
+    { logo: 'devicon:javascript', name: 'Javascript' },
+    { logo: 'devicon:typescript', name: 'Typescript' },
+    { logo: 'devicon:html5', name: 'HTML 5' },
+    { logo: 'devicon:css3', name: 'CSS 3' },
+    { logo: 'devicon:sass', name: 'Sass' },
+    { logo: 'devicon:bootstrap', name: 'Bootstrap' },
+    { logo: 'devicon:jquery', name: 'JQuery' },
+    { logo: 'skill-icons:wordpress', name: 'Wordpress' },
+    { logo: 'logos:shopify', name: 'Shopify' },
+    { logo: 'devicon:vuejs', name: 'Vue.JS' },
+    { logo: 'devicon:vuetify', name: 'Vuetify' },
+    { logo: 'logos:nuxt-icon', name: 'Nuxt.JS' },
+    { logo: 'devicon:react', name: 'React.JS' },
+    { logo: 'devicon:nextjs', name: 'Next.JS' },
+    { logo: 'devicon:tailwindcss', name: 'Tailwind CSS' },
+    { logo: 'devicon:flutter', name: 'Flutter' },
+    { logo: 'logos:visual-studio-code', name: 'Visual Studio Code' },
+    { logo: 'devicon:bitbucket', name: 'Bitbucket' },
+    { logo: 'devicon:github', name: 'GitHub' },
+    { logo: 'devicon:gitlab', name: 'GitLab' }
+    // {logo: 'logos:blender', name: 'Blender'},
+])
 
 
 const heroHome = reactive({
@@ -71,132 +82,74 @@ const heroHome = reactive({
     min-height: 90dvh;
     display: grid;
     place-items: center;
-    overflow: hidden;
     max-width: 100%;
     position: relative;
-    &::before{
-        position: absolute;
-        content: '';
-        bottom: 0;
-        width: 100%;
-        height: 20px;
-        background-color: var(--bg_color);
-        box-shadow: 0 -12px 20px 12px var(--bg_color);
-    }
+    padding-block: 120px;
+    // &:before {
+    //     content: '';
+    //     background: var(--text_color_transparent);
+    //     position: absolute;
+    //     opacity: 0.4;
+    //     top: 0%;
+    //     left: 16%;
+    //     width: 50%;
+    //     height: 80%;
+    //     border-radius: 100%;
+    //     filter: blur(100px);
+    //     box-shadow: 280px 20px 0 0 var(--text_color_smooth), 80px 280px 0 0 var(--text_color_transparent);
+    // }
     &__container{
-        // padding-block: 16% 80px;
         flex-grow: 1;
         max-width: 980px;
-        &__presentation{
-            position: relative;
-            display: grid;
-            place-items: center;
-            margin-bottom:32px;
-            @media(max-width: $br_mobile){
-                margin-top: 100px;
+        &__greetings {
+            display: flex;
+            gap: 0px;
+            padding-block: 20px;
+            @media(max-width: $br_mobile) {
+                flex-direction: row;
+                align-items: center;
             }
-            &__skills{
-                position: absolute;
+    
+            &__avatar {
+                width: 40px;
+                border-radius: 40px;
+                border: 2px solid var(--text_color);
+                position: relative;
+                height: 40px;
                 display: grid;
                 place-items: center;
-                z-index: -1;
-                &__item{
-                    position: absolute;
-                    aspect-ratio: 1;
-                    border-radius: 100%;
-                    border: 2px solid var(--text_color_transparent) ;
-                    display: flex;
-                    align-items: center;
-                    &__icon{
-                        aspect-ratio: 1;
-                        font-size: 24px;
-                        width: 44px;
-                        display: grid;
-                        place-items: center;
-                        border-radius: 100%;
-                        background-color: var(--neutral);
-                        margin-left: -20px;
-                        box-shadow: 0 4px 20px 0 var(--text_color_transparent), inset 8px -4px 32px 0 var(--bg_color);
-                    }
-                    small{
-                        background-color: var(--tertiary);
-                        opacity: 0;
-                        position: absolute;
-                    }
-                    
-                    --width: 16vw;
-                    @media(max-width:$br_tablet){
-                        --width: 30vw;
-                    }
-                    @for $i from 0 to 8 {
-                        &:nth-child(10n + #{$i}) {
-                            width: calc(#{$i} * var(--width));
-                            transform: rotate(calc(#{$i} * 45deg));
-                            animation: rotate infinite linear;
-                            animation-duration: calc(20s - #{$i} * 1s);
-                            @media(max-width:$br_mobile){
-                                width: calc(18vw + #{$i} * 28vw);
-                            }
-                        }
-                    }
-                }
-            }
-            &__button{
-                background-color: var(--bg_color);
-                border: 0;
-                border-radius: 100px;
-                padding: 8px;
-                display: flex;
-                grid-template-columns: 2fr;
-                align-items: center;
-                position: relative;
-                z-index: 8;
-                animation: pulse 2s infinite ease;
-                div{
-                    transition: $transition_default;
-                    display: grid;
-                    grid-template-columns: 0fr;
-                    span{
-                        display: flex;
-                        overflow: hidden;
-                        transition: $transition_default;
-                        white-space: nowrap;
-                        color: var(--pure_white);
-                    }
-                }
-
-                &:hover{
-                    background-color: var(--tertiary);
-                    figure{
-                        width: 40px;
-                        img{
-                            width: 100%;
-                            height: auto;
-                        }
-                    }
-                    div{
-                        grid-template-columns: 1fr;
-                        span{
-                        padding: 8px 20px 8px 8px;
-                        }
-                    }
-                }
-                
-                
-                &__avatar{
-                    flex-shrink: 0;
-                    width: 80px;
-                    aspect-ratio: 1;
-                    border-radius: 50%;
-                    background-color: var(--secondary);
+                overflow: hidden;
+    
+                // animation: pulse 2s infinite ease;
+                a {
                     display: grid;
                     place-items: center;
-                    margin: 0;
-                    transition: $transition_default;
-                    position: relative;
-                    img{
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+    
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+    
+                    &:before {
+                        content: '';
                         position: absolute;
+                        height: 50%;
+                        width: 100%;
+                        bottom: -100%;
                         transition: $transition_default;
+                        background: linear-gradient(0deg,
+                                rgba(#8AED13, 0.8) 12%,
+                                rgba(#8AED13, 0) 100%);
+                    }
+    
+                    &:hover {
+                        &:before {
+                            bottom: 0;
+                        }
                     }
                 }
             }
@@ -204,10 +157,11 @@ const heroHome = reactive({
         &__text{
         position: relative;
         display: flex;
-        gap: $size_24px;
-        &__name{
-            
+        gap: $size_32px;
+        @media (max-width: $br_tablet){
+            flex-direction: column;
         }
+        
         &__wrapper{
             position: relative;
             z-index: 2;
@@ -224,6 +178,9 @@ const heroHome = reactive({
             }
             .button{
                 margin-top: 40px;
+                i{
+                    font-size: $size_24px;
+                }
             }
         }
         }

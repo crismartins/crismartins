@@ -21,7 +21,7 @@
                 <footer class="modal__project__body__description__footer">
                     <small>
                         Stacks & Tools:
-                        <AppStackSkills :stacks="projectDetails.stacks" />
+                        <AppStackSkills small :stacks="projectDetails.stacks" />
                     </small>
                     <AppButton 
                         v-if="projectDetails.live_url"
@@ -47,7 +47,8 @@
                             format="webp"
                             densities="x1 x2"
                             quality="100" 
-                            placeholder 
+                            preload
+                            loading="lazy"
                         />
                         <figcaption>
                             {{ item.title }}
@@ -117,7 +118,7 @@ function closeModal(){
                     flex-wrap: wrap;
                 
                     &__item {
-                        background-color: var(--text_color_transparent);
+                        // background-color: var(--text_color_transparent);
                         color: var(--text_color);
                         border-radius: 8px;
                         padding: 4px 8px;
@@ -125,7 +126,7 @@ function closeModal(){
                         font-family: $font_secondary;
                         text-transform: uppercase;
                         font-weight: 600;
-                        border: 1px solid var(--text_color);
+                        border: 1px solid var(--primary);
                     }
                 }
                 
@@ -191,7 +192,7 @@ function closeModal(){
                 max-width: fit-content;
                 figure{
                     img{
-                        border: 1px solid var(--text_color_transparent);
+                        // background-color: var(--text_color_transparent);
                         border-radius: 8px;
                         max-width: 100%;
                         display: inline-block;
